@@ -16,11 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".ChatActivity"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
+        <activity android:name=".GroupChatActivity"></activity>
+        <activity android:name=".Profile_Activity" />
+        <activity
+            android:name=".ChatActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".UserListActivity"
             android:label="@string/title_activity_user_list"

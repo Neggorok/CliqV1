@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:text="send"
             android:background="#fc0d1b"
-            android:textColor="ffffff"
+
             android:layout_marginTop="2dp"/>
 
 
