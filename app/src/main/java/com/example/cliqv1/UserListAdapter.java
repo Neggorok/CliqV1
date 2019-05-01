@@ -76,13 +76,13 @@ public class UserListAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View view) {
 
-//                Intent i = new ImageView(view.getContext(), ChatActivity.class);
-//
-//                i.putExtra("chatPartner_Username", userListe.get(position).getName());
-//                String bitmapString = Util.getBase64StringFromBitmap(user.getImage());
-//                PreferenceManager.getDefaultSharedPreferences(activity).edit().putString("chatPartner_ImageString", bitmapString).apply();
-//
-//                view.getContext().startActivity(i);
+                Intent i = new Intent(view.getContext(), ChatActivity.class);
+
+                i.putExtra("chatPartnerUsername", userListe.get(position).getName());
+                String bitmapString = Util.getBase64StringFromBitmap(user.getImage());
+                PreferenceManager.getDefaultSharedPreferences(activity).edit().putString("chatPartnerImageString", bitmapString).apply();
+
+                view.getContext().startActivity(i);
             }
         });
 

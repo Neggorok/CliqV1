@@ -10,6 +10,7 @@
     app:layout_goneMarginRight="5dp">
 
     <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout_chat"
         android:layout_width="match_parent"
         android:layout_height="458dp">
 
@@ -41,8 +42,9 @@
             android:layout_weight="1"
             android:text="send"
             android:background="#fc0d1b"
-
-            android:layout_marginTop="2dp"/>
+            android:layout_marginTop="2dp"
+            android:onClick="sendMessage"
+            />
 
 
     </LinearLayout>
