@@ -139,8 +139,8 @@ public class UserListActivity extends AppCompatActivity {
 
         if (id == R.id.profile) {
 
-//            Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
-//            startActivity(i);
+            Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+            startActivity(i);
 
         }
         return super.onOptionsItemSelected(item);
