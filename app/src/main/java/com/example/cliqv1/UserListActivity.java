@@ -134,7 +134,7 @@ public class UserListActivity extends AppCompatActivity {
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
-            Toast.makeText(this, "Logout successful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserListActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
         if (id == R.id.profile) {
