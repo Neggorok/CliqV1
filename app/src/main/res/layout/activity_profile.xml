@@ -14,7 +14,7 @@
         android:id="@+id/profile_imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:onClick="chooseImage"/>
+        android:onClick="chooseImage" />
 
     <LinearLayout
         android:id="@+id/profile_linearLayout"
