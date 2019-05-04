@@ -23,7 +23,7 @@ public class BottomNavigation extends AppCompatActivity {
             Fragment selectedFragment = null;
 
             switch (item.getItemId()) {
-                case R.id.nav_home:
+                case R.id.nav_groupchat:
                     selectedFragment = new GroupChatActivity();
                     break;
                 case R.id.nav_profile:

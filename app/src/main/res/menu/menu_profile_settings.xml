@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/set_settings"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="Settings"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/set_design"
+        android:title="Design ändern"
+        app:showAsAction="never">
+
+        <menu>
+
+            <item
+                android:id="@+id/set_avatar"
+                android:title="Avatar ändern"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/set_background"
+                android:title="Hintergrund ändern"
+                app:showAsAction="never"/>
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/set_information"
+        android:title="Informationen ändern"
+        app:showAsAction="never">
+
+        <menu>
+
+        <item
+            android:id="@+id/set_email"
+            android:title="E-Mail Adresse ändern"
+            app:showAsAction="never"/>
+
+        <item
+            android:id="@+id/set_password"
+            android:title="Passwort ändern"
+            app:showAsAction="never"/>
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/set_consent"
+        android:title="Einverständniserklärung einsehen"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/set_logout"
+        android:title="Ausloggen"
+        app:showAsAction="never"/>
+
+</menu>
