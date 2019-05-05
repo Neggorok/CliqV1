@@ -4,11 +4,11 @@
     <item
         android:id="@+id/nav_groupchat"
         android:icon="@drawable/ic_group_black_24dp"
-        android:title="Group Chat" />
+        android:title="@string/groupchat" />
 
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_person_black_24dp"
-        android:title="Profile" />
+        android:title="@string/profile" />
 
 </menu>

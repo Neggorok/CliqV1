@@ -27,7 +27,7 @@ public class BottomNavigation extends AppCompatActivity {
                     selectedFragment = new GroupChatActivity();
                     break;
                 case R.id.nav_profile:
-                    selectedFragment = new ProfileActivityNav();
+                    selectedFragment = new ProfileAdminActivity();
                     break;
             }
 
