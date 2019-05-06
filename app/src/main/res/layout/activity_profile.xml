@@ -13,7 +13,7 @@
         android:id="@+id/profile_imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:onClick="chooseImage"/>
+        android:background="@drawable/standard_user_image"/>/>
 
     <LinearLayout
         android:id="@+id/profile_linearLayout"

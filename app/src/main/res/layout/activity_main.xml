@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:id="@+id/chat_logo"
-        android:background="@drawable/cliq_logo"/>/>
+        android:background="@drawable/cliq_logo"/>
 
     <LinearLayout
         android:layout_width="match_parent"
