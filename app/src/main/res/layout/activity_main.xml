@@ -7,11 +7,12 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="350dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:id="@+id/chat_logo" />
+        android:id="@+id/chat_logo"
+        android:background="@drawable/cliq_logo"/>/>
 
     <LinearLayout
         android:layout_width="match_parent"
