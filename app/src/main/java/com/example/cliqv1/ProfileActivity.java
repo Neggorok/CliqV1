@@ -15,6 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -89,6 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
         startActivityForResult(i, 1);
 
     }
@@ -171,5 +174,33 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         queue.add(postRequest);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.logout) {
+
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(ProfileActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+
+        }
+
+        if (id == R.id.uebersetzer) {
+
+            Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
+            startActivity(i);
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

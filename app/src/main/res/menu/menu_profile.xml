@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/profile"
-        android:title="Profile"
-        android:orderInCategory="1"
-        app:showAsAction="collapseActionView"/>
-
-    <item
         android:id="@+id/logout"
         android:title="Logout"
         android:orderInCategory="3"

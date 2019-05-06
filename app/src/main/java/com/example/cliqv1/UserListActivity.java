@@ -144,6 +144,13 @@ public class UserListActivity extends AppCompatActivity {
             startActivity(i);
 
         }
+
+        if (id == R.id.uebersetzer) {
+
+            Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
+            startActivity(i);
+
+        }
         return super.onOptionsItemSelected(item);
     }
 }

@@ -15,11 +15,5 @@
         android:icon="@android:drawable/ic_lock_power_off"
         app:showAsAction="collapseActionView"/>
 
-    <item
-        android:id="@+id/uebersetzer"
-        android:title="uebersetzer"
-        android:orderInCategory="2"
-        app:showAsAction="collapseActionView"
-        />
 
 </menu>
