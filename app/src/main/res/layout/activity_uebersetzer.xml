@@ -41,6 +41,7 @@
         android:onClick="getTranslation"/>
 
     <TextView
+        android:id="@+id/translation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -50,6 +51,17 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="#317933"/>
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/translation"-->
+        <!--android:text="Powered by Yandex.Translate"-->
+        <!--android:textSize="25sp"-->
+        <!--android:textColor="#317933"-->
+        <!--android:textStyle="bold"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_centerHorizontal="true"/>-->
 
 
 
