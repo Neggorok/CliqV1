@@ -136,7 +136,7 @@ public class UserListActivity extends AppCompatActivity {
             startActivity(i);
             Toast.makeText(UserListActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
-
+        // ne
         if (id == R.id.profile) {
 
             Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
