@@ -2,4 +2,22 @@
     <string name="app_name">CliqV1</string>
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
     <string name="title_activity_user_list">UserListActivity</string>
+
+    //bottom_navigation
+    <string name="groupchat">Gruppenchat</string>
+    <string name="profile">Profil</string>
+
+    //menu_profile_settings und menu_admin_profile_settings
+    <string name="settings">Einstellungen</string>
+    <string name="design">Design ändern</string>
+    <string name="avatar">Avatar auswählen</string>
+    <string name="background">Hintergrund auswählen</string>
+    <string name="information">Informationen bearbeiten</string>
+    <string name="email">E-Mail ändern</string>
+    <string name="password">Passwort ändern</string>
+    <string name="consent">Einverständniserklärung einsehen</string>
+    <string name="logout">Ausloggen</string>
+
+    //menu_admin_profile_settings
+    <string name="new_group">Gruppe erstellen</string>
 </resources>
