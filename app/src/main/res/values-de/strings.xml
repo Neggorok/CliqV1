@@ -4,6 +4,9 @@
     <string name="groupchat">Gruppenchat</string>
     <string name="profile">Profil</string>
 
+    //activity_group_chat_view
+    <string name="groupname">Gruppenname</string>
+
     //menu_profile_settings und menu_admin_profile_settings
     <string name="settings">Einstellungen</string>
     <string name="design">Design ändern</string>

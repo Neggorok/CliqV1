@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
+    //activity_group_chat_view
+    <string name="groupname">Gruppenname</string>
+
     //bottom_navigation
     <string name="groupchat">Groupchat</string>
     <string name="profile">Profile</string>
