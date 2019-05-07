@@ -28,6 +28,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:id="@+id/profile_username"
             android:text="profile_usernameTV"
             android:layout_gravity="center"
