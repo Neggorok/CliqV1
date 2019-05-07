@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //bottom_navigation
+    <string name="groupchat">Groupchat</string>
+    <string name="profile">Profile</string>
+
+    //menu_profile_settings und menu_admin_profile_settings
+    <string name="settings">Settings</string>
+    <string name="design">Change design</string>
+    <string name="avatar">Change avatar</string>
+    <string name="background">Change background</string>
+    <string name="information">Edit information</string>
+    <string name="email">Change E-Mail address</string>
+    <string name="password">Change password</string>
+    <string name="consent">See agreement</string>
+    <string name="logout">Logout</string>
+
+    //menu_admin_profile_settings
+    <string name="new_group">Create a new group</string>
+</resources>
