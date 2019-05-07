@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
     //bottom_navigation
     <string name="groupchat">Groupchat</string>
     <string name="profile">Profile</string>
