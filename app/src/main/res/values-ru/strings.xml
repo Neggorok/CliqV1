@@ -9,7 +9,7 @@
     <string name="save">сохранять</string>
 
     //activity_group_chat_settings
-    <string name="delete_switch">Yдалять</string>
+    <string name="delete_switch">Yдалять сообщения</string>
     <string name="profanity_filter">Профанация фильтр</string>
     <string name="abbreviation_filter">Аббревиатура фильтр</string>
     <string name="participantlist">Cписок участников</string>

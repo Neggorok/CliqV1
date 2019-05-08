@@ -9,7 +9,7 @@
     <string name="save">save</string>
 
     //activity_group_chat_settings
-    <string name="delete_switch">Delete</string>
+    <string name="delete_switch">Delete messages</string>
     <string name="profanity_filter">Profanity filter</string>
     <string name="abbreviation_filter">Abbreviation filter</string>
     <string name="participantlist">Participantslist</string>
