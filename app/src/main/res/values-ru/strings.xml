@@ -13,7 +13,7 @@
     <string name="profanity_filter">Профанация фильтр</string>
     <string name="abbreviation_filter">Аббревиатура фильтр</string>
     <string name="participantlist">Cписок участников</string>
-    <string name="new_group_member">Neues Gruppenmitglied</string>
+    <string name="new_group_member">Новый участник группы</string>
 
     //activity_group_chat_view
     <string name="groupname">Hазвание группы</string>
