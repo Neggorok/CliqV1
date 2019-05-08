@@ -1,7 +1,6 @@
 package com.example.cliqv1;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -13,10 +12,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +23,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -61,8 +57,8 @@ public class ProfileActivity extends AppCompatActivity {
         username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "-1");
         userImage = PreferenceManager.getDefaultSharedPreferences(this).getString("image", "-1");
 
-        imageView = findViewById(R.id.profile_imageView);
-        usernameTV = findViewById(R.id.profile_username);
+        imageView = findViewById(R.id.groupchat_imageView);
+        usernameTV = findViewById(R.id.groupchat_name);
         // passwordET = findViewById(R.id.profile_password);
 
         queue = Volley.newRequestQueue(this);
