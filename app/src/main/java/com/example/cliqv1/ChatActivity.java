@@ -111,13 +111,13 @@ public class ChatActivity extends AppCompatActivity {
 
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
-                        if(success == 1){
+                        if (success == 1) {
 
                             for (int i = 0; i < messageArray.length(); i++) {
 
                                 JSONObject messageJson = (JSONObject) messageArray.get(i);
 
-                                if(messageJson.getInt("sender_id") == loggedInUserId) {
+                                if (messageJson.getInt("sender_id") == loggedInUserId) {
 
                                     Bitmap userImage = Util.getBitmapFromBase64String(loggedInUserImage);
 
@@ -133,7 +133,6 @@ public class ChatActivity extends AppCompatActivity {
                             }
 
 
-
                         }
 
                     } catch (JSONException e) {
@@ -141,7 +140,7 @@ public class ChatActivity extends AppCompatActivity {
                     }
 
                     adapter.notifyDataSetChanged();
-                    messageRecyclerView.scrollToPosition(messageList.size()-1);
+                    messageRecyclerView.scrollToPosition(messageList.size() - 1);
 
                 }, error -> {
 
@@ -179,7 +178,7 @@ public class ChatActivity extends AppCompatActivity {
 
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
-                        if(success == 1){
+                        if (success == 1) {
 
                             Toast.makeText(ChatActivity.this, "Nachricht gesendet!", Toast.LENGTH_SHORT).show();
 
@@ -213,6 +212,7 @@ public class ChatActivity extends AppCompatActivity {
         queue.add(postRequest);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -224,25 +224,26 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.set_settings:
-                Toast.makeText(this,"Settings selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.set_logout:
-                Toast.makeText(this,"Design selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Design selected", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
 
-//HIER FEHLER
-        if (id == R.id.set_settings) {
+//HILFEEEEEEEEEE
+        //if (id == R.id.set_settings) {
 
-            Intent i = new Intent(getApplicationContext(), GroupChatActivity.class);
-            startActivity(i);
+        //Intent i = new Intent(getApplicationContext(), GroupChatActivity.class);
+        // startActivity(i);
 
-        }
-        return super.onOptionsItemSelected(item);
+        // }
+        // return super.onOptionsItemSelected(item);
     }
 
 }
+
