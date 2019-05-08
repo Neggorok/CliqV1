@@ -238,5 +238,6 @@ public class ChatActivity extends AppCompatActivity {
 public void openSettings(View view) {
         Intent intent = new Intent(this, GroupChatSettingsActivity.class);
         setContentView(R.layout.activity_group_chat_settings);
-}
+    }
+
 }

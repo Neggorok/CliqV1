@@ -1,7 +1,11 @@
 <resources>
+
     <string name="app_name">Cliq</string>
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
     <string name="title_activity_user_list">UserListActivity</string>
+
+    //activity_profile
+    <string name="save">speichern</string>
 
     //activity_group_chat_view
     <string name="groupname">Gruppenname</string>

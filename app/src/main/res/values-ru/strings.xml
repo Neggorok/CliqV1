@@ -5,6 +5,9 @@
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
     <string name="title_activity_user_list">UserListActivity</string>
 
+    //activity_profile
+    <string name="save">сохранять</string>
+
     //activity_group_chat_settings
     <string name="delete_switch">Löschen</string>
     <string name="profanity_filter">Schimpfwortfilter</string>
