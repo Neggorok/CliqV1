@@ -1,5 +1,6 @@
 package com.example.cliqv1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,5 +15,10 @@ public class GroupChatActivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.activity_group_chat, container, false);
+    }
+
+    @Override
+    public void onStart() {
+super.onStart();
     }
 }

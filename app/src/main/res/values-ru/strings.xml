@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">CliqV1</string>
+    <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
+    <string name="title_activity_user_list">UserListActivity</string>
+
     //activity_group_chat_view
     <string name="groupname">Hазвание группы</string>
 
