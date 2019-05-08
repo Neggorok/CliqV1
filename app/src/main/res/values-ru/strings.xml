@@ -2,23 +2,23 @@
 <resources>
 
     //activity_group_chat_view
-    <string name="groupname">Gruppenname</string>
+    <string name="groupname">Hазвание группы</string>
 
     //bottom_navigation
-    <string name="groupchat">Groupchat</string>
-    <string name="profile">Profile</string>
+    <string name="groupchat">Группа чат</string>
+    <string name="profile">Профиль</string>
 
     //menu_profile_settings und menu_admin_profile_settings
-    <string name="settings">Settings</string>
-    <string name="design">Change design</string>
-    <string name="avatar">Change avatar</string>
-    <string name="background">Change background</string>
-    <string name="information">Edit information</string>
-    <string name="email">Change E-Mail address</string>
-    <string name="password">Change password</string>
-    <string name="consent">See agreement</string>
-    <string name="logout">Logout</string>
+    <string name="settings">Hастройки</string>
+    <string name="design">Изменить дизайн</string>
+    <string name="avatar">Сменить аватар</string>
+    <string name="background">Сменить фон</string>
+    <string name="information">Изменить информацию</string>
+    <string name="email">Изменить е-мейл</string>
+    <string name="password">Изменить пароль</string>
+    <string name="consent">Посмотреть политику конфиденциальности</string>
+    <string name="logout">выйти</string>
 
     //menu_admin_profile_settings
-    <string name="new_group">Create a new group</string>
+    <string name="new_group">Создать новую группу</string>
 </resources>
