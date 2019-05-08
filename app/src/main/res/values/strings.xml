@@ -32,6 +32,9 @@
     <string name="consent">Einverständniserklärung einsehen</string>
     <string name="logout">Ausloggen</string>
 
+    //menu_group_chat
+    <string name="viewgroup">Gruppe ansehen</string>
+
     //menu_admin_profile_settings
     <string name="new_group">Gruppe erstellen</string>
 </resources>

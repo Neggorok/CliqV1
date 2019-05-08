@@ -7,33 +7,28 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/groupchat_image"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="450dp"
-        android:background="@drawable/standard_user_image"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/groupimage_view"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/holo_orange_dark" />
 
     <TextView
         android:id="@+id/groupchat_name"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="400dp"
         android:gravity="center"
         android:text="@string/groupname"
         android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupchat_image" />
+        app:layout_constraintTop_toBottomOf="@+id/groupimage_view" />
 
 </android.support.constraint.ConstraintLayout>

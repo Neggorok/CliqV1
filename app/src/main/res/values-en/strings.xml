@@ -30,8 +30,11 @@
     <string name="information">Edit information</string>
     <string name="email">Change E-Mail address</string>
     <string name="password">Change password</string>
-    <string name="consent">See agreement</string>
+    <string name="consent">View agreement</string>
     <string name="logout">Logout</string>
+
+    //menu_group_chat
+    <string name="viewgroup">View group</string>
 
     //menu_admin_profile_settings
     <string name="new_group">Create a new group</string>

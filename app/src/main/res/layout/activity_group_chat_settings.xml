@@ -6,16 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/groupimage_view"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/delete_switch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/holo_orange_dark" />
+
     <Switch
         android:id="@+id/delete_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="10dp"
+        android:gravity="center"
         android:text="@string/delete_switch"
-        app:layout_constraintBottom_toTopOf="@+id/groupchat_name"
+        app:layout_constraintBottom_toTopOf="@+id/groupimage_view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,12 +39,14 @@
         android:id="@+id/filter_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="10dp"
+        android:gravity="center"
         android:text="@string/profanity_filter"
         app:layout_constraintBottom_toTopOf="@+id/filter2_switch"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/delete_switch" />
 
@@ -36,10 +54,12 @@
         android:id="@+id/filter2_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="80dp"
+        android:gravity="center"
         android:text="@string/abbreviation_filter"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter_switch" />
 

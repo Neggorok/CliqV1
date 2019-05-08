@@ -27,6 +27,9 @@
         <activity android:name=".GroupChatSettingsActivity">
 
         </activity>
+        <activity android:name=".GroupChatViewActivity">
+
+        </activity>
         <activity android:name=".ChangeEmailActivity">
 
         </activity>
