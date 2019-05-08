@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CliqV1</string>
+    <string name="app_name">Cliq</string>
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
     <string name="title_activity_user_list">UserListActivity</string>
 
