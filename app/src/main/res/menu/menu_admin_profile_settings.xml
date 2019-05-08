@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/set_settings"
-        android:icon="@drawable/ic_settings_black_24dp"
-        android:title="@string/settings"
-        app:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/set_new_group"
         android:icon="@drawable/ic_group_add_black_24dp"
         android:title="@string/new_group"
