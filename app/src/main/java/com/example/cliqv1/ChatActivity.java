@@ -234,10 +234,15 @@ public class ChatActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-public void openSettings(View view) {
-        Intent intent = new Intent(this, GroupChatSettingsActivity.class);
-        setContentView(R.layout.activity_group_chat_settings);
+
+//HIER FEHLER
+        if (id == R.id.set_settings) {
+
+            Intent i = new Intent(getApplicationContext(), GroupChatActivity.class);
+            startActivity(i);
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
