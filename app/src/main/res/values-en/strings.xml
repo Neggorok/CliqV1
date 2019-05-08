@@ -12,7 +12,7 @@
     <string name="delete_switch">Delete messages</string>
     <string name="profanity_filter">Profanity filter</string>
     <string name="abbreviation_filter">Abbreviation filter</string>
-    <string name="participantlist">Participantslist</string>
+    <string name="participantlist">Participants list</string>
     <string name="new_group_member">Add new groupmember</string>
 
     //activity_group_chat_view
