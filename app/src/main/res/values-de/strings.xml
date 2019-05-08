@@ -28,7 +28,7 @@
     <string name="avatar">Avatar auswählen</string>
     <string name="background">Hintergrund auswählen</string>
     <string name="information">Informationen bearbeiten</string>
-    <string name="email">E-Mail ändern</string>
+    <string name="email">E-Mail Adresse ändern</string>
     <string name="password">Passwort ändern</string>
     <string name="consent">Einverständniserklärung einsehen</string>
     <string name="logout">Ausloggen</string>
