@@ -24,7 +24,15 @@
             android:name=".UserListActivity"
             android:label="@string/title_activity_user_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".GroupChatSettingsActivity"></activity>
+        <activity android:name=".GroupChatSettingsActivity">
+
+        </activity>
+        <activity android:name=".ChangeEmailActivity">
+
+        </activity>
+        <activity android:name=".ChangePasswordActivity">
+
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

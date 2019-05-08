@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/set_new_group_member"
-        android:icon="@drawable/ic_group_add_black_24dp"
+        android:icon="@drawable/ic_group_add_white_24dp"
         android:title="@string/new_group_member"
         app:showAsAction="always"/>
 

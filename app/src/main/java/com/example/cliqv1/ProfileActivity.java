@@ -203,10 +203,16 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
 
             case R.id.set_password:
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent ip = new Intent(getApplicationContext(), ChangePasswordActivity.class);
+                startActivity(ip);
                 Toast.makeText(this,"Password selected", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.set_email:
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent ie = new Intent(getApplicationContext(), ChangeEmailActivity.class);
+                startActivity(ie);
                 Toast.makeText(this,"E-Mail selected", Toast.LENGTH_SHORT).show();
                 return true;
 
