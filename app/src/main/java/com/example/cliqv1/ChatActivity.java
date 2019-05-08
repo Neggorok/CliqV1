@@ -233,7 +233,7 @@ public class ChatActivity extends AppCompatActivity {
 
         if (id == R.id.set_settings) {
 
-            Intent i = new Intent(getApplicationContext(), GroupChatActivity.class);
+            Intent i = new Intent(getApplicationContext(), GroupChatSettingsActivity.class);
             startActivity(i);
 
         }
