@@ -34,7 +34,7 @@
     <string name="logout">Logout</string>
 
     //menu_group_chat
-    <string name="viewgroup">View group</string>
+    <string name="viewgroup">Group information</string>
 
     //menu_admin_profile_settings
     <string name="new_group">Create a new group</string>

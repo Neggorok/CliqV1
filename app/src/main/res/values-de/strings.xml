@@ -9,7 +9,7 @@
     <string name="save">speichern</string>
 
     //activity_group_chat_settings
-    <string name="delete_switch">Nachrichten Löschen</string>
+    <string name="delete_switch">Nachrichten löschen</string>
     <string name="profanity_filter">Schimpfwortfilter</string>
     <string name="abbreviation_filter">Abkürzungsfilter</string>
     <string name="participantlist">Teilnehmerliste</string>
@@ -34,7 +34,7 @@
     <string name="logout">Ausloggen</string>
 
     //menu_group_chat
-    <string name="viewgroup">Gruppe ansehen</string>
+    <string name="viewgroup">Gruppeninformationen</string>
 
     //menu_admin_profile_settings
     <string name="new_group">Gruppe erstellen</string>

@@ -238,6 +238,13 @@ public class ChatActivity extends AppCompatActivity {
 
         }
 
+        if (id == R.id.set_viewgroup) {
+
+            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+            startActivity(i);
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
