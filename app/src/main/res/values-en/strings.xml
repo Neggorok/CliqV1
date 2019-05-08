@@ -9,11 +9,11 @@
     <string name="save">save</string>
 
     //activity_group_chat_settings
-    <string name="delete_switch">Löschen</string>
-    <string name="profanity_filter">Schimpfwortfilter</string>
-    <string name="abbreviation_filter">Abkürzungsfilter</string>
-    <string name="participantlist">Teilnehmerliste</string>
-    <string name="new_group_member">Neues Gruppenmitglied</string>
+    <string name="delete_switch">Delete</string>
+    <string name="profanity_filter">Profanity filter</string>
+    <string name="abbreviation_filter">Abbreviation filter</string>
+    <string name="participantlist">Participantslist</string>
+    <string name="new_group_member">Add new groupmember</string>
 
     //activity_group_chat_view
     <string name="groupname">Groupname</string>
