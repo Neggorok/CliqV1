@@ -215,35 +215,29 @@ public class ChatActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_group_chat, menu);
+        getMenuInflater().inflate(R.menu.menu_group_chat, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.set_settings:
-                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
-                return true;
+        int id = item.getItemId();
 
-            case R.id.set_logout:
-                Toast.makeText(this, "Design selected", Toast.LENGTH_SHORT).show();
-                return true;
+        if (id == R.id.set_logout) {
 
-            default:
-                return super.onOptionsItemSelected(item);
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(ChatActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
-//HILFEEEEEEEEEE
-        //if (id == R.id.set_settings) {
+        if (id == R.id.set_settings) {
 
-        //Intent i = new Intent(getApplicationContext(), GroupChatActivity.class);
-        // startActivity(i);
+            Intent i = new Intent(getApplicationContext(), GroupChatActivity.class);
+            startActivity(i);
 
-        // }
-        // return super.onOptionsItemSelected(item);
+        }
+        return super.onOptionsItemSelected(item);
     }
-
 }
 
