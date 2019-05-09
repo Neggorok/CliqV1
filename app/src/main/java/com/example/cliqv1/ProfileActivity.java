@@ -191,7 +191,9 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
 
             case R.id.set_avatar:
-                Toast.makeText(this,"Avatar selected", Toast.LENGTH_SHORT).show();
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
+                startActivity(ia);
                 return true;
 
             case R.id.set_background:
@@ -221,7 +223,10 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
 
             case R.id.set_logout:
-                Toast.makeText(this,"Logout successfull", Toast.LENGTH_SHORT).show();
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                Toast.makeText(ProfileActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
