@@ -7,6 +7,13 @@
     //activity_profile
     <string name="save">speichern</string>
 
+    //activity_chat
+    <string name="message">Nachricht schreiben...</string>
+    <string name="send">senden</string>
+    <string name="photo">Foto</string>
+    <string name="documents">Dokumente</string>
+    <string name="audio">Audio</string>
+
     //activity_group_chat_view
     <string name="groupname">Gruppenname</string>
 

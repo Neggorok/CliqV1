@@ -8,6 +8,13 @@
     //activity_profile
     <string name="save">сохранять</string>
 
+    //activity_chat
+    <string name="message">Напиши сообщение...</string>
+    <string name="send">послать</string>
+    <string name="photo">Фото</string>
+    <string name="documents">документы</string>
+    <string name="audio">аудио</string>
+
     //activity_group_chat_settings
     <string name="delete_switch">Yдалять сообщения</string>
     <string name="profanity_filter">Профанация фильтр</string>

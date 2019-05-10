@@ -8,6 +8,13 @@
     //activity_profile
     <string name="save">save</string>
 
+    //activity_chat
+    <string name="message">Write a message...</string>
+    <string name="send">send</string>
+    <string name="photo">Photo</string>
+    <string name="documents">Documents</string>
+    <string name="audio">Audio</string>
+
     //activity_group_chat_settings
     <string name="delete_switch">Delete messages</string>
     <string name="profanity_filter">Profanity filter</string>
