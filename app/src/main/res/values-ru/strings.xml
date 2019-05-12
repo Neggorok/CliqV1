@@ -14,6 +14,10 @@
     <string name="photo">Фото</string>
     <string name="documents">документы</string>
     <string name="audio">аудио</string>
+    <string name="startAudio">старт</string>
+    <string name="stopAudio">остановить</string>
+    //muss noch übersetzt werden
+    <string name="playAudio">PLAY</string>
 
     //activity_group_chat_settings
     <string name="delete_switch">Yдалять сообщения</string>

@@ -7,6 +7,8 @@
     <!-- die entsprechenden Aktionen auszuführen und stürtzt ab -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Audiobereich -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -27,9 +29,6 @@
             android:label="@string/title_activity_user_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GroupChatSettingsActivity">
-
-        </activity>
-        <activity android:name=".GroupChatViewActivity">
 
         </activity>
         <activity android:name=".ChangeEmailActivity">

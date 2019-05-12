@@ -14,6 +14,9 @@
     <string name="photo">Foto</string>
     <string name="documents">Dokumente</string>
     <string name="audio">Audio</string>
+    <string name="startAudio">Start</string>
+    <string name="stopAudio">Stop</string>
+    <string name="playAudio">Abspielen</string>
 
     //activity_group_chat_settings
     <string name="delete_switch">Nachrichten löschen</string>
