@@ -154,6 +154,7 @@ public class UserListActivity extends AppCompatActivity {
             RequestNewGroup();
 
         }
+
         return super.onOptionsItemSelected(item);
     }
 
