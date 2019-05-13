@@ -25,7 +25,7 @@ public class GroupChatSettingsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.set_new_group_member) {
+        if (id == R.id.newMember) {
 
             Intent i = new Intent(getApplicationContext(), UserListActivity.class);
             startActivity(i);

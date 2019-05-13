@@ -48,5 +48,9 @@
     <string name="viewgroup">Информация о группе</string>
 
     //menu_admin_profile_settings
-    <string name="new_group">Создать новую группу</string>
+    <string name="newMember">новый участник группы</string>
+
+    //menu_user_list
+    <string name="createGroup">Создать новую группу</string>
+
 </resources>

@@ -1,18 +1,23 @@
 package com.example.cliqv1;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -143,8 +148,67 @@ public class UserListActivity extends AppCompatActivity {
             startActivity(i);
 
         }
+
+        if (id == R.id.createGroup) {
+
+            RequestNewGroup();
+
+        }
         return super.onOptionsItemSelected(item);
     }
+
+    private void RequestNewGroup() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
+        builder.setTitle("Enter Group Name :");
+
+        final EditText groupNameField = new EditText(this);
+        groupNameField.setHint("Klasse 1A");
+        builder.setView(groupNameField);
+
+        builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String groupName = groupNameField.getText().toString();
+
+                if (TextUtils.isEmpty(groupName)) {
+
+                    Toast.makeText(UserListActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    CreateNewGroup(groupName);
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            dialogInterface.cancel();
+
+            }
+        });
+
+        builder.show();
+    }
+
+    private void CreateNewGroup(String groupName) {
+
+        //key value
+        //RootRef.child("Groups").child(groupName).setValue("")
+                //.addOnCompleteListener(new OnCompleteListener<Void>()) {
+            //@Override
+                    //public void onComplete(@NonNull Task<Void> task)
+                //{
+                //if (task.isSuccessful())
+                    //Toast.makeText(this, groupName + "is created successfully", Toast.LENGTH_SHORT).show();
+        }
+
+    //});
+    //}
 }
 
 

@@ -46,5 +46,9 @@
     <string name="viewgroup">Gruppeninformationen</string>
 
     //menu_admin_profile_settings
-    <string name="new_group">Gruppe erstellen</string>
+    <string name="newMember">neues Gruppenmitglied</string>
+
+    //menu_user_list
+    <string name="createGroup">Gruppe erstellen</string>
+
 </resources>
