@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/set_viewgroup"
-        android:title="@string/viewgroup"
+        android:title="@string/view_group"
         app:showAsAction="never"/>
 
     <item

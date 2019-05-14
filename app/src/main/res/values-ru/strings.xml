@@ -5,6 +5,12 @@
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
     <string name="title_activity_user_list">UserListActivity</string>
 
+    //activity_main
+    <string name="username">имя пользователя</string>
+    <string name="password">пароль</string>
+    <string name="login">войти</string>
+    <string name="sign_up">регистрировать</string>
+
     //activity_profile
     <string name="save">сохранять</string>
 
@@ -25,6 +31,7 @@
     <string name="abbreviation_filter">Аббревиатура фильтр</string>
     <string name="participantlist">Cписок участников</string>
     <string name="new_group_member">Новый участник группы</string>
+    <string name="members_group">члены группы</string>
 
     //activity_group_chat_view
     <string name="groupname">Hазвание группы</string>
@@ -39,13 +46,13 @@
     <string name="avatar">Сменить аватар</string>
     <string name="background">Сменить фон</string>
     <string name="information">Изменить информацию</string>
-    <string name="email">Изменить е-мейл</string>
-    <string name="password">Изменить пароль</string>
+    <string name="change_email">Изменить е-мейл</string>
+    <string name="change_password">Изменить пароль</string>
     <string name="consent">Посмотреть политику конфиденциальности</string>
     <string name="logout">выйти</string>
 
     //menu_group_chat
-    <string name="viewgroup">Информация о группе</string>
+    <string name="view_group">Информация о группе</string>
 
     //menu_admin_profile_settings
     <string name="newMember">новый участник группы</string>

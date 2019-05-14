@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="80dp"
@@ -27,6 +27,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="210dp"
         android:layout_marginEnd="100dp"
+        android:textSize="12sp"
         android:gravity="center"
         android:text="@string/delete_switch"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,14 +39,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="260dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="10dp"
+        android:textSize="12sp"
         android:gravity="center"
         android:text="@string/profanity_filter"
         app:layout_constraintBottom_toTopOf="@+id/filter2_switch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/delete_switch" />
 
     <Switch
@@ -53,13 +52,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="310dp"
         android:layout_marginEnd="100dp"
+        android:textSize="12sp"
         android:gravity="center"
         android:text="@string/abbreviation_filter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter_switch" />
 
+    <TextView
+        android:id="@+id/members_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="100dp"
+        android:textSize="14sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/filter2_switch"
+        android:text="@string/members_group" />
 
-</android.support.constraint.ConstraintLayout>
+    <ListView
+        android:id="@+id/groupuser_list"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_alignParentBottom="true" />
+
+
+</RelativeLayout>

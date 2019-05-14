@@ -5,6 +5,12 @@
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
     <string name="title_activity_user_list">UserListActivity</string>
 
+    //activity_main
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+
     //activity_profile
     <string name="save">save</string>
 
@@ -24,6 +30,7 @@
     <string name="abbreviation_filter">Abbreviation filter</string>
     <string name="participantlist">Participants list</string>
     <string name="new_group_member">Add new groupmember</string>
+    <string name="members_group">Group members</string>
 
     //activity_group_chat_view
     <string name="groupname">Groupname</string>
@@ -38,13 +45,13 @@
     <string name="avatar">Change avatar</string>
     <string name="background">Change background</string>
     <string name="information">Edit information</string>
-    <string name="email">Change E-Mail address</string>
-    <string name="password">Change password</string>
+    <string name="change_email">Change E-Mail address</string>
+    <string name="change_password">Change password</string>
     <string name="consent">View agreement</string>
     <string name="logout">Logout</string>
 
     //menu_group_chat
-    <string name="viewgroup">Group information</string>
+    <string name="view_group">Group information</string>
 
     //menu_admin_profile_settings
     <string name="newMember">New group member</string>

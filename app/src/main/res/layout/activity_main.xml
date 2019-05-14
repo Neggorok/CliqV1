@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="username"
+            android:hint="@string/username"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textSize="20sp"
@@ -36,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="password"
+            android:hint="@string/password"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textSize="20sp"
@@ -47,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Login"
+            android:text="@string/login"
             android:onClick="logIn"/>
 
         <TextView
@@ -59,7 +58,7 @@
             android:textColor="#4a4cc3"
             android:layout_marginTop="5dp"
             android:onClick="signUp"
-            android:text="Sign Up"/>
+            android:text="@string/sign_up"/>
 
     </LinearLayout>
 

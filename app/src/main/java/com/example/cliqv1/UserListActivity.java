@@ -199,17 +199,17 @@ public class UserListActivity extends AppCompatActivity {
     private void CreateNewGroup(String groupName) {
 
         //key value
-        //RootRef.child("Groups").child(groupName).setValue("")
-                //.addOnCompleteListener(new OnCompleteListener<Void>()) {
-            //@Override
+        //RootRef.child("Groups").child(groupName).setValue("").addOnCompleteListener(new OnCompleteListener<Void>() {
+
                     //public void onComplete(@NonNull Task<Void> task)
                 //{
                 //if (task.isSuccessful())
-                    //Toast.makeText(this, groupName + "is created successfully", Toast.LENGTH_SHORT).show();
-        }
-
+                //{
+                    //Toast.makeText(UserListActivity.this, groupName + "is created successfully", Toast.LENGTH_SHORT).show();
+                //}
+                //}
     //});
-    //}
+    }
 }
 
 
