@@ -18,7 +18,7 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/set_design"
+        android:id="@+id/set_logout"
         android:title="@string/logout"
         app:showAsAction="never"/>
 
