@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -233,6 +232,7 @@ public class ChatActivity extends AppCompatActivity {
         if (id == R.id.set_settings) {
 
             Intent i = new Intent(getApplicationContext(), GroupChatSettingsActivity.class);
+            Toast.makeText(ChatActivity.this, "Settings selected", Toast.LENGTH_SHORT).show();
             startActivity(i);
 
         }
@@ -240,6 +240,7 @@ public class ChatActivity extends AppCompatActivity {
         if (id == R.id.set_viewgroup) {
 
             Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+            Toast.makeText(ChatActivity.this, "Group-view selected", Toast.LENGTH_SHORT).show();
             startActivity(i);
 
         }
