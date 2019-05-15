@@ -47,8 +47,11 @@
     <string name="information">Informationen bearbeiten</string>
     <string name="change_email">E-Mail Adresse ändern</string>
     <string name="change_password">Passwort ändern</string>
-    <string name="consent">Einverständniserklärung einsehen</string>
+    <string name="see_consent">Einverständniserklärung einsehen</string>
     <string name="logout">Ausloggen</string>
+
+    //activity_consent_form
+    <string name="consent">Einverständniserklärung</string>
 
     //menu_group_chat
     <string name="view_group">Gruppeninformationen</string>

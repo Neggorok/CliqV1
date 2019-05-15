@@ -47,8 +47,11 @@
     <string name="information">Edit information</string>
     <string name="change_email">Change E-Mail address</string>
     <string name="change_password">Change password</string>
-    <string name="consent">View agreement</string>
+    <string name="see_consent">View consent form</string>
     <string name="logout">Logout</string>
+
+    //activity_consent_form
+    <string name="consent">Consent form</string>
 
     //menu_group_chat
     <string name="view_group">Group information</string>

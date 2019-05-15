@@ -1,6 +1,7 @@
 package com.example.cliqv1;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -10,10 +11,13 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -181,56 +185,120 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.set_settings:
-                Toast.makeText(this,"Settings selected", Toast.LENGTH_SHORT).show();
-                return true;
+        int id = item.getItemId();
 
-            case R.id.set_design:
-                Toast.makeText(this,"Design selected", Toast.LENGTH_SHORT).show();
-                return true;
+            if (id == R.id.set_settings) {
 
-            case R.id.set_avatar:
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
-                startActivity(ia);
-                return true;
-
-            case R.id.set_background:
-                Toast.makeText(this,"Background selected", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.set_information:
-                Toast.makeText(this,"Information selected", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.set_password:
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ip = new Intent(getApplicationContext(), ChangePasswordActivity.class);
-                startActivity(ip);
-                Toast.makeText(this,"Password selected", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.set_email:
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ie = new Intent(getApplicationContext(), ChangeEmailActivity.class);
-                startActivity(ie);
-                Toast.makeText(this,"E-Mail selected", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.set_consent:
-                Toast.makeText(this,"Consent selected", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.set_logout:
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
                 Toast.makeText(ProfileActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
-                return true;
+            }
 
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+            if (id == R.id.set_design) {
+
+                Toast.makeText(this, "Design selected", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            if (id == R.id.set_avatar) {
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
+                startActivity(ia);
+                return true;
+            }
+
+            if (id == R.id.set_background) {
+            Toast.makeText(ProfileActivity.this, "Background selected", Toast.LENGTH_SHORT).show();
+            return true;
+            }
+
+            if (id == R.id.set_information) {
+            Toast.makeText(ProfileActivity.this, "Information selected", Toast.LENGTH_SHORT).show();
+            return true;
+            }
+
+            if (id == R.id.set_password) {
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent ip = new Intent(getApplicationContext(), ChangePasswordActivity.class);
+                startActivity(ip);
+                Toast.makeText(ProfileActivity.this, "Password selected", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            if (id == R.id.set_email) {
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent ie = new Intent(getApplicationContext(), ChangeEmailActivity.class);
+                startActivity(ie);
+                Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            if (id == R.id.set_consent_form) {
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent ie = new Intent(getApplicationContext(), ConsentFormActivity.class);
+                startActivity(ie);
+                Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            if (id == R.id.set_logout) {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(ProfileActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
+            return true;
+            }
+
+            if (id == R.id.createGroup) {
+
+            RequestNewGroup();
+
+            }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void RequestNewGroup() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
+        builder.setTitle("Enter Group Name :");
+
+        final EditText groupNameField = new EditText(this);
+        groupNameField.setHint("Klasse 1A");
+        builder.setView(groupNameField);
+
+        builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String groupName = groupNameField.getText().toString();
+
+                if (TextUtils.isEmpty(groupName)) {
+
+                    Toast.makeText(ProfileActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    CreateNewGroup(groupName);
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+
+            }
+        });
+
+        builder.show();
+    }
+
+    private void CreateNewGroup(String groupName) {
+
+        Toast.makeText(ProfileActivity.this, groupName + " is created successfully", Toast.LENGTH_SHORT).show();
     }
 }

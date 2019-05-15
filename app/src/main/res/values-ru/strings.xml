@@ -48,8 +48,11 @@
     <string name="information">Изменить информацию</string>
     <string name="change_email">Изменить е-мейл</string>
     <string name="change_password">Изменить пароль</string>
-    <string name="consent">Посмотреть политику конфиденциальности</string>
+    <string name="see_consent">Посмотреть политику конфиденциальности</string>
     <string name="logout">выйти</string>
+
+    //activity_consent_form
+    <string name="consent">Форма согласия</string>
 
     //menu_group_chat
     <string name="view_group">Информация о группе</string>
