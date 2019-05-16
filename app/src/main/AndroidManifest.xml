@@ -34,6 +34,15 @@
         <activity android:name=".ChangeEmailActivity">
 
         </activity>
+        <activity android:name=".GroupChatViewActivity">
+
+        </activity>
+        <activity android:name=".AudioActivity">
+
+        </activity>
+        <activity android:name=".ConsentFormActivity">
+
+        </activity>
         <activity android:name=".ChangePasswordActivity">
 
         </activity>
