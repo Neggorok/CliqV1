@@ -109,6 +109,5 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
 // Add the request to the RequestQueue.
         queue.add(postRequest);
-
     }
 }
