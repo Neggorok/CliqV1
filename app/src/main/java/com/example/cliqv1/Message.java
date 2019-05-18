@@ -9,6 +9,7 @@ public class Message {
     private String timestamp;
     private Bitmap userImage;
 
+
     public Message(String username, String message, String timestamp, Bitmap userImage) {
         this.username = username;
         this.message = message;

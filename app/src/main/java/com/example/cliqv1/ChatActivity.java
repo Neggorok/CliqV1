@@ -248,5 +248,19 @@ public class ChatActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.chat_message_delete:
+                deleteMessage();
+                break;
+        }
+        return true;
+    }
+
+    private void deleteMessage() {
+
+    }
 }
 

@@ -20,6 +20,7 @@
     <string name="photo">Фото</string>
     <string name="documents">документы</string>
     <string name="audio">аудио</string>
+    <string name="delete_message">Удалить сообщение</string>
     <string name="startAudio">старт</string>
     <string name="stopAudio">остановить</string>
     //muss noch übersetzt werden
@@ -32,6 +33,7 @@
     <string name="participantlist">Cписок участников</string>
     <string name="new_group_member">Новый участник группы</string>
     <string name="members_group">члены группы</string>
+    <string name="previousActivity">предыдущая активность</string>
 
     //activity_group_chat_view
     <string name="groupname">Hазвание группы</string>

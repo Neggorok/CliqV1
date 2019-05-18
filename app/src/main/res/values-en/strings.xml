@@ -20,6 +20,7 @@
     <string name="photo">Photo</string>
     <string name="documents">Documents</string>
     <string name="audio">Audio</string>
+    <string name="delete_message">Delete message</string>
     <string name="startAudio">Start</string>
     <string name="stopAudio">Stop</string>
     <string name="playAudio">Play</string>
@@ -31,6 +32,7 @@
     <string name="participantlist">Participants list</string>
     <string name="new_group_member">Add new groupmember</string>
     <string name="members_group">Group members</string>
+    <string name="previousActivity">previous Activity</string>
 
     //activity_group_chat_view
     <string name="groupname">Groupname</string>

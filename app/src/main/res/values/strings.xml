@@ -19,6 +19,7 @@
     <string name="photo">Foto</string>
     <string name="documents">Dokumente</string>
     <string name="audio">Audio</string>
+    <string name="delete_message">Nachricht löschen</string>
     <string name="startAudio">Start</string>
     <string name="stopAudio">Stop</string>
     <string name="playAudio">Abspielen</string>
@@ -33,6 +34,7 @@
     <string name="participantlist">Teilnehmerliste</string>
     <string name="new_group_member">Neues Gruppenmitglied</string>
     <string name="members_group">Gruppenmitglieder</string>
+    <string name="previousActivity">vorherige Activity</string>
 
     //bottom_navigation
     <string name="groupchat">Gruppenchat</string>
