@@ -1,5 +1,6 @@
 package com.example.cliqv1;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -9,6 +10,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,12 +40,12 @@ public class GroupChatViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_chat_view);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
 
         userList = new ArrayList<>();
-        adapter = new GroupListAdapter(GroupChatViewActivity.this, userList);
-        userRecyclerView = findViewById(R.id.userList_recycler_view);
+        adapter = new GroupListAdapter(this, userList);
+        userRecyclerView = findViewById(R.id.groupchat_recycler_view);
         userRecyclerView.setHasFixedSize(true);
         userRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         userRecyclerView.setAdapter(adapter);
@@ -110,4 +114,33 @@ public class GroupChatViewActivity extends AppCompatActivity {
 // Add the request to the RequestQueue.
         queue.add(postRequest);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_user_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.logout) {
+
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(GroupChatViewActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
+        }
+
+        if (id == R.id.profile) {
+
+            Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+            startActivity(i);
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

@@ -53,7 +53,7 @@ public class UserListActivity extends AppCompatActivity {
 
         userList = new ArrayList<>();
         adapter = new UserListAdapter(this, userList);
-        userRecyclerView = (RecyclerView) findViewById(R.id.userList_recycler_view);
+        userRecyclerView = findViewById(R.id.userList_recycler_view);
         userRecyclerView.setHasFixedSize(true);
         userRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         userRecyclerView.setAdapter(adapter);

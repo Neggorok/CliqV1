@@ -55,7 +55,7 @@ public class GroupListAdapter extends RecyclerView.Adapter {
 
         final User user = userListe.get(position);
 
-        GroupListAdapter.UserViewHolder userHolder = (GroupListAdapter.UserViewHolder) holder;
+        GroupListAdapter.UserViewHolder userHolder = (UserViewHolder) holder;
 
         userHolder.name.setText(user.getName());
 
@@ -74,8 +74,8 @@ public class GroupListAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(view.getContext(), ChatActivity.class);
-
+                Intent i = new Intent(view.getContext(), GroupChatActivity.class);
+                // hier muss später zusätzlich der name des Gesprächspartners sondern der "raum" der Gesprächsgruppe übergeben werden
                 i.putExtra("chatPartnerUsername", userListe.get(position).getName());
                 String bitmapString = Util.getBase64StringFromBitmap(user.getImage());
                 PreferenceManager.getDefaultSharedPreferences(activity).edit().putString("chatPartnerImageString", bitmapString).apply();

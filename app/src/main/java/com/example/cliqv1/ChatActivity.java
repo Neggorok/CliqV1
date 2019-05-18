@@ -246,21 +246,29 @@ public class ChatActivity extends AppCompatActivity {
             Toast.makeText(ChatActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
+//        if (id == R.id.testGruppenInfo) {
+//
+//            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+//            Toast.makeText(ChatActivity.this, "Group-view selected", Toast.LENGTH_SHORT).show();
+//            startActivity(i);
+//
+//        }
+
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean onContextItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.chat_message_delete:
-                deleteMessage();
-                break;
-        }
-        return true;
-    }
-
-    private void deleteMessage() {
-
-    }
+//    public boolean onContextItemSelected(MenuItem item) {
+//        switch (item.getItemId())
+//        {
+//            case R.id.chat_message_delete:
+//                deleteMessage();
+//                break;
+//        }
+//        return true;
+//    }
+//
+//    private void deleteMessage() {
+//
+//    }
 }
 

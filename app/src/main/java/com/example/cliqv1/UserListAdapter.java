@@ -1,6 +1,5 @@
 package com.example.cliqv1;
 
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
