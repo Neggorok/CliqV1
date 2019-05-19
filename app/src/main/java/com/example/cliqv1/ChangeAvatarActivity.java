@@ -19,8 +19,8 @@ public class ChangeAvatarActivity extends AppCompatActivity {
     ImageButton imageButton;
     Button chooseImage;
 
-    private static final int IMAGE_PICK_CODE = 1000;
-    private static final int PERMISSION_CODE = 1001;
+    //private static final int IMAGE_PICK_CODE = 1000;
+    //private static final int PERMISSION_CODE = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
