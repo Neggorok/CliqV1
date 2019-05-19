@@ -9,13 +9,8 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/back_to_chat"
-        android:title="@string/back_to_chat"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/set_viewgroup"
-        android:title="@string/view_group"
+        android:id="@+id/back_to_previous"
+        android:title="@string/back_to_previous"
         app:showAsAction="never"/>
 
     <item

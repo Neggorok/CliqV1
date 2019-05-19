@@ -28,7 +28,6 @@
     //activity_group_chat_settings
     <string name="delete_switch">Nachrichten löschen</string>
     <string name="profanity_filter">Schimpfwortfilter</string>
-    <string name="abbreviation_filter">Abkürzungsfilter</string>
     <string name="participantlist">Teilnehmerliste</string>
     <string name="new_group_member">Neues Gruppenmitglied</string>
     <string name="members_group">Gruppenmitglieder</string>
@@ -57,7 +56,7 @@
 
     //menu_group_chat
     <string name="view_group">Gruppeninformationen</string>
-    <string name="back_to_chat">Zurück zum Chat</string>
+    <string name="back_to_previous">Zurück</string>
 
     //menu_admin_profile_settings
     <string name="newMember">neues Gruppenmitglied</string>

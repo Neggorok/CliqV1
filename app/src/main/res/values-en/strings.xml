@@ -28,7 +28,6 @@
     //activity_group_chat_settings
     <string name="delete_switch">Delete messages</string>
     <string name="profanity_filter">Profanity filter</string>
-    <string name="abbreviation_filter">Abbreviation filter</string>
     <string name="participantlist">Participants list</string>
     <string name="new_group_member">Add new groupmember</string>
     <string name="members_group">Group members</string>
@@ -57,7 +56,7 @@
 
     //menu_group_chat
     <string name="view_group">Group information</string>
-    <string name="back_to_chat">Back to the chat</string>
+    <string name="back_to_previous">Back</string>
 
     //menu_admin_profile_settings
     <string name="newMember">New group member</string>

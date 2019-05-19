@@ -29,7 +29,6 @@
     //activity_group_chat_settings
     <string name="delete_switch">Yдалять сообщения</string>
     <string name="profanity_filter">Профанация фильтр</string>
-    <string name="abbreviation_filter">Аббревиатура фильтр</string>
     <string name="participantlist">Cписок участников</string>
     <string name="new_group_member">Новый участник группы</string>
     <string name="members_group">члены группы</string>
@@ -58,7 +57,7 @@
 
     //menu_group_chat
     <string name="view_group">Информация о группе</string>
-    <string name="back_to_chat">Вернуться в чат</string>
+    <string name="back_to_previous">назад</string>
 
     //menu_admin_profile_settings
     <string name="newMember">новый участник группы</string>
