@@ -29,6 +29,27 @@ public class GroupChatSettingsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        //if (id == R.id.back_to_chat) {
+
+        //}
+
+
+        if (id == R.id.set_viewgroup) {
+
+            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+            Toast.makeText(GroupChatSettingsActivity.this, "Group-view selected", Toast.LENGTH_SHORT).show();
+            startActivity(i);
+
+        }
+
+        if (id == R.id.set_logout) {
+
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(GroupChatSettingsActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+        }
+
         if (id == R.id.newMember) {
 
             NewGroupMember();

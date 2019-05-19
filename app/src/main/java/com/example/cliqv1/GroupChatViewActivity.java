@@ -117,7 +117,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_user_list, menu);
+        getMenuInflater().inflate(R.menu.menu_group_chat_view, menu);
         return true;
     }
 
@@ -125,19 +125,24 @@ public class GroupChatViewActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.logout) {
+        //if (id == R.id.back_to_chat) {
+
+        //}
+
+        if (id == R.id.set_settings) {
+
+            Intent i = new Intent(getApplicationContext(), GroupChatSettingsActivity.class);
+            Toast.makeText(GroupChatViewActivity.this, "Settings selected", Toast.LENGTH_SHORT).show();
+            startActivity(i);
+
+        }
+
+        if (id == R.id.set_logout) {
 
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
-            Toast.makeText(GroupChatViewActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
-        }
-
-        if (id == R.id.profile) {
-
-            Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
-            startActivity(i);
-
+            Toast.makeText(GroupChatViewActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
