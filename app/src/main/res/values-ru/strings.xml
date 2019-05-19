@@ -58,6 +58,7 @@
 
     //menu_group_chat
     <string name="view_group">Информация о группе</string>
+    <string name="back_to_chat">Вернуться в чат</string>
 
     //menu_admin_profile_settings
     <string name="newMember">новый участник группы</string>
