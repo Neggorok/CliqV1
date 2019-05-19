@@ -33,6 +33,8 @@
     <string name="new_group_member">Новый участник группы</string>
     <string name="members_group">члены группы</string>
     <string name="previousActivity">предыдущая активность</string>
+    <string name="change_group_pic">Изменить изображение группы</string>
+    <string name="activate_filter">Активировать фильтр</string>
 
     //activity_group_chat_view
     <string name="groupname">Hазвание группы</string>
@@ -59,7 +61,7 @@
     <string name="view_group">Информация о группе</string>
     <string name="back_to_previous">назад</string>
 
-    //menu_admin_profile_settings
+    //menu_profile_settings
     <string name="newMember">новый участник группы</string>
 
     //menu_user_list

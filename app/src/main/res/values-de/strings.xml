@@ -32,6 +32,8 @@
     <string name="new_group_member">Neues Gruppenmitglied</string>
     <string name="members_group">Gruppenmitglieder</string>
     <string name="previousActivity">vorherige Activity</string>
+    <string name="change_group_pic">Gruppenbild ändern</string>
+    <string name="activate_filter">Filter aktivieren</string>
 
     //bottom_navigation
     <string name="groupchat">Gruppenchat</string>
@@ -58,7 +60,7 @@
     <string name="view_group">Gruppeninformationen</string>
     <string name="back_to_previous">Zurück</string>
 
-    //menu_admin_profile_settings
+    //menu_profile_settings
     <string name="newMember">neues Gruppenmitglied</string>
 
     //menu_user_list
