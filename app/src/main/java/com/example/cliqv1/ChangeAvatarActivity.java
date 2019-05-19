@@ -73,6 +73,6 @@ public class ChangeAvatarActivity extends AppCompatActivity {
         // if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
         //     ImageView.setImageURI(data.getData());
         //  }
-        //}
+        // }
 }
 }
