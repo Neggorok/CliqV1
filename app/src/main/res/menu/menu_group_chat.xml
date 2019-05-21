@@ -3,6 +3,15 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/set_audio"
+        android:title="@string/audio"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/set_camera"
+        android:title="@string/camera"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/set_viewgroup"
         android:title="@string/view_group"
         app:showAsAction="never"/>
@@ -10,7 +19,7 @@
     <item
         android:id="@+id/set_settings"
         android:title="@string/settings"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/set_logout"

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,6 +20,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -149,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                 // und in die entsprechenden Variablen geladen
                 params.put("username", userName.getText().toString());
                 params.put("password", userPassword.getText().toString());
-
+                verschluesselung(userPassword.getText().toString(),userName.getText().toString());
                 return params;
             }
         };
@@ -157,4 +160,31 @@ public class MainActivity extends AppCompatActivity {
 // Add the request to the RequestQueue.
         queue.add(postRequest);
     }
+
+    public static byte[] enkryt(byte[] password) throws Exception{
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
+        md5.update(password);
+        return md5.digest();
+    }
+
+    public void verschluesselung(String password, String user)
+    {
+
+        byte[] md5key = userPassword.getText().toString().getBytes();
+        byte[] md5keya = userName.getText().toString().getBytes();
+        BigInteger md5data = null;
+
+        try {
+            md5data = new BigInteger(1, enkryt(md5key));
+            md5data = new BigInteger(1, enkryt(md5keya));
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        String md5str = md5data.toString(16);
+
+
+
+    }
 }
+

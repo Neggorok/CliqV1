@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.io.IOException;
 
 public class AudioActivity extends AppCompatActivity {
@@ -21,9 +20,9 @@ public class AudioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio);
-        record = (Button) findViewById(R.id.btnRecord);
-        stop = (Button) findViewById(R.id.btnStopRecord);
-        play = (Button) findViewById(R.id.btnPlay);
+        record =  findViewById(R.id.btnRecord);
+        stop =  findViewById(R.id.btnStopRecord);
+        play = findViewById(R.id.btnPlay);
         stop.setEnabled(false);
         play.setEnabled(false);
 
@@ -87,4 +86,6 @@ public class AudioActivity extends AppCompatActivity {
         });
 
     }
+
+
 }

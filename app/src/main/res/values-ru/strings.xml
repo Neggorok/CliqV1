@@ -20,6 +20,7 @@
     <string name="photo">Фото</string>
     <string name="documents">документы</string>
     <string name="audio">аудио</string>
+    <string name="camera">камера</string>
     <string name="delete_message">Удалить сообщение</string>
     <string name="startAudio">старт</string>
     <string name="stopAudio">остановить</string>

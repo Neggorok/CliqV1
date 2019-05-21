@@ -222,6 +222,19 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        if (id == R.id.set_audio) {
+
+            Intent iad = new Intent(getApplicationContext(), AudioActivity.class);
+            startActivity(iad);
+
+        }
+
+
+        if (id == R.id.set_camera) {
+            Intent ia = new Intent(getApplicationContext(), CameraActivity.class);
+            startActivity(ia);
+        }
+
         if (id == R.id.set_settings) {
 
             Intent i = new Intent(getApplicationContext(), GroupChatSettingsActivity.class);

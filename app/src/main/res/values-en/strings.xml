@@ -20,6 +20,7 @@
     <string name="photo">Photo</string>
     <string name="documents">Documents</string>
     <string name="audio">Audio</string>
+    <string name="camera">Camera</string>
     <string name="delete_message">Delete message</string>
     <string name="startAudio">Start</string>
     <string name="stopAudio">Stop</string>
