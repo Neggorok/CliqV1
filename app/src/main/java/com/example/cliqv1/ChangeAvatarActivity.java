@@ -48,17 +48,76 @@ public class ChangeAvatarActivity extends AppCompatActivity {
         imageButton8 = findViewById(R.id.imageButton8);
         button = findViewById(R.id.safe);
 
-        imageButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImageView imageView = findViewById(R.id.profileUnknown);
-                imageView.setImageResource(R.drawable.cliq_avatar1);
-
-            }
-        });
 
 
-    }
+            imageButton1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView imageView = findViewById(R.id.profileUnknown);
+                    imageView.setImageResource(R.drawable.cliq_avatar1);
+
+                }
+            });
+
+            imageButton2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView imageView = findViewById(R.id.profileUnknown);
+                    imageView.setImageResource(R.drawable.cliq_avatar2);
+
+                }
+            });
+            imageButton3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView imageView = findViewById(R.id.profileUnknown);
+                    imageView.setImageResource(R.drawable.cliq_avatar3);
+
+                }
+            });
+            imageButton4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView imageView = findViewById(R.id.profileUnknown);
+                    imageView.setImageResource(R.drawable.cliq_avatar4);
+
+                }
+            });
+            imageButton5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView imageView = findViewById(R.id.profileUnknown);
+                    imageView.setImageResource(R.drawable.cliq_avatar7);
+
+                }
+            });
+            imageButton6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView imageView = findViewById(R.id.profileUnknown);
+                    imageView.setImageResource(R.drawable.cliq_avatar6);
+
+                }
+            });
+            imageButton7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView imageView = findViewById(R.id.profileUnknown);
+                    imageView.setImageResource(R.drawable.cliq_avatar5);
+
+                }
+            });
+            imageButton8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView imageView = findViewById(R.id.profileUnknown);
+                    imageView.setImageResource(R.drawable.cliq_avatar8);
+
+                }
+            });
+        }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_change_information, menu);
