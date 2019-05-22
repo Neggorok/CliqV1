@@ -196,12 +196,6 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
             }
 
-            if (id == R.id.set_design) {
-
-                Toast.makeText(this, "Choose", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-
             if (id == R.id.set_avatar) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
                 Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
@@ -211,11 +205,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             if (id == R.id.set_background) {
             Toast.makeText(ProfileActivity.this, "Background selected", Toast.LENGTH_SHORT).show();
-            return true;
-            }
-
-            if (id == R.id.set_information) {
-            Toast.makeText(ProfileActivity.this, "Information selected", Toast.LENGTH_SHORT).show();
             return true;
             }
 
