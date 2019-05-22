@@ -222,12 +222,19 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-//        if (id == R.id.set_audio) {
+        if (id == R.id.profile) {
 
-//           Intent iad = new Intent(getApplicationContext(), AudioActivity.class);
-//           startActivity(iad);
+            Intent iad = new Intent(getApplicationContext(), ProfileActivity.class);
+            startActivity(iad);
 
-//       }
+        }
+
+        if (id == R.id.set_audio) {
+
+           Intent iad = new Intent(getApplicationContext(), AudioActivity.class);
+           startActivity(iad);
+
+        }
 
 
 //        if (id == R.id.set_camera) {
