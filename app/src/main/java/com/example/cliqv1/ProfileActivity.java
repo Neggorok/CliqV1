@@ -198,7 +198,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             if (id == R.id.set_design) {
 
-                Toast.makeText(this, "Design selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Choose", Toast.LENGTH_SHORT).show();
                 return true;
             }
 

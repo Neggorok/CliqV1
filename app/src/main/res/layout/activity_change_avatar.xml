@@ -17,11 +17,12 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="0dp"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="96dp"
         tools:layout_editor_absoluteY="0dp"
+        android:layout_centerHorizontal="true"
         app:layout_constraintTop_toBottomOf="@+id/profileUnknown">
 
 
@@ -32,29 +33,30 @@
             android:layout_marginTop="300dp"
             android:layout_marginBottom="10dp">
 
+
             <ImageButton
                 android:id="@+id/imageButton1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:srcCompat="@drawable/cliq_avatar1" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:srcCompat="@drawable/cliq_avatar2" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/cliq_avatar4" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:srcCompat="@drawable/cliq_avatar3" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/cliq_avatar5" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:srcCompat="@drawable/cliq_avatar4" />
 
         </TableRow>
 
@@ -64,26 +66,26 @@
 
             <ImageButton
                 android:id="@+id/imageButton5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:srcCompat="@drawable/cliq_avatar7" />
 
             <ImageButton
                 android:id="@+id/imageButton6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:srcCompat="@drawable/cliq_avatar6" />
 
             <ImageButton
                 android:id="@+id/imageButton7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:srcCompat="@drawable/cliq_avatar5" />
 
             <ImageButton
                 android:id="@+id/imageButton8"
-                android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:srcCompat="@drawable/cliq_avatar8" />
         </TableRow>
 
@@ -104,9 +106,8 @@
         android:id="@+id/safe"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="470dp"
         android:backgroundTint="@color/colorOrange"
         android:text="Speichern" />
 
