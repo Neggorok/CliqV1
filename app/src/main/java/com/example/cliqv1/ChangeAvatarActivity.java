@@ -18,8 +18,16 @@ import android.widget.Toast;
 public class ChangeAvatarActivity extends AppCompatActivity {
 
     ImageView imageView;
-    ImageButton imageButton;
-    Button chooseImage;
+    ImageButton imageButton1;
+    ImageButton imageButton2;
+    ImageButton imageButton3;
+    ImageButton imageButton4;
+    ImageButton imageButton5;
+    ImageButton imageButton6;
+    ImageButton imageButton7;
+    ImageButton imageButton8;
+
+    Button button;
 
     //private static final int IMAGE_PICK_CODE = 1000;
     //private static final int PERMISSION_CODE = 1001;
@@ -29,59 +37,27 @@ public class ChangeAvatarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_avatar);
 
-      /*  imageView = findViewById(R.id.profileImageView);
-        imageButton = findViewById(R.id.imageButton1);
-        imageButton = findViewById(R.id.imageButton2);
-        imageButton = findViewById(R.id.imageButton3);
-        chooseImage = findViewById(R.id.choose_image_btn);
+        imageView = findViewById(R.id.profileUnknown);
+        imageButton1 = findViewById(R.id.imageButton1);
+        imageButton2 = findViewById(R.id.imageButton2);
+        imageButton3 = findViewById(R.id.imageButton3);
+        imageButton4 = findViewById(R.id.imageButton4);
+        imageButton5 = findViewById(R.id.imageButton5);
+        imageButton6 = findViewById(R.id.imageButton6);
+        imageButton7 = findViewById(R.id.imageButton7);
+        imageButton8 = findViewById(R.id.imageButton8);
+        button = findViewById(R.id.safe);
 
-        /*       chooseImage.setOnClickListener(new View.OnClickListener() {
-                   public void onClick(View v) {
-                       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                           if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-                                   == PackageManager.PERMISSION_DENIED) {
-                               String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
-                              requestPermissions(permissions, PERMISSION_CODE);
-                        } else {
-                            pickFromGallery();
-                         }
-                  } else {
-                      pickFromGallery();
-                  }
+        imageButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView imageView = findViewById(R.id.profileUnknown);
+                imageView.setImageResource(R.drawable.cliq_avatar1);
 
-               }
-         }
-         private void pickFromGallery() {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-              intent.setType("image/*");
-           startActivity(intent, IMAGE_PICK_CODE);
-        }
+            }
+        });
 
-         public void onRequestPermissionsResult (int requestCode, @NonNull String[] permissions, @NonNull int grantResults) {
-              switch (requestCode) {
-                 case PERMISSION_CODE: {
-                     if (grantResults.lenght >0 && grantResults[0] ==
-                     PackageManager.PERMISSION_GRANTED) {
-                        pickFromGallery();
-                    }
-                    else {
-                       Toast.makeText(this, "Permission denied...!", Toast.LENGTH_SHORT).show();
-                   }
-              }
-           }
-         }
 
-         public void onActivityResult(int requestCode, int resultCode, Intent data) {
-         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-             ImageView.setImageURI(data.getData());
-          }
-         }
-}
-         public void onActivityResult(int requestCode, int resultCode, Intent data) {
-         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-             ImageView.setImageURI(data.getData());
-          }
-         } */
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/profileUnknown"
         android:layout_width="235dp"
         android:layout_height="228dp"
         android:layout_centerHorizontal="true"
@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="96dp"
         tools:layout_editor_absoluteY="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+        app:layout_constraintTop_toBottomOf="@+id/profileUnknown">
 
 
         <TableRow
@@ -33,7 +33,7 @@
             android:layout_marginBottom="10dp">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/imageButton1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/cliq_avatar1" />
@@ -63,25 +63,25 @@
             android:layout_height="178dp">
 
             <ImageButton
-                android:id="@+id/imageButton6"
+                android:id="@+id/imageButton5"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/cliq_avatar7" />
 
             <ImageButton
-                android:id="@+id/imageButton7"
+                android:id="@+id/imageButton6"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/cliq_avatar6" />
 
             <ImageButton
-                android:id="@+id/imageButton8"
+                android:id="@+id/imageButton7"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/cliq_avatar5" />
 
             <ImageButton
-                android:id="@+id/imageButton9"
+                android:id="@+id/imageButton8"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/cliq_avatar8" />
@@ -101,7 +101,7 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/safe"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="250dp"
