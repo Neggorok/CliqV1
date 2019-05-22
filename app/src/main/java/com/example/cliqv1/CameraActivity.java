@@ -15,23 +15,26 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import android.widget.Button;
-;
+
 import java.io.IOException;
 
 
 public class CameraActivity extends AppCompatActivity {
 
+    private String DESCRIPTION = "Demo";
+    private String TITLE = "Demo";
+    private static final int IMAGE_CAPTURE = 1;
+    private static final int PERMISSION_REQUEST = 99;
+    private Uri imageUri;
+    private boolean permissionGranted = false;
 
-
-    private static final String TAG = "CameraActivity";
-/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        case R.id.buttonMakePicture:
+
+
             Intent intentc = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
             startActivity(intentc);
     }
@@ -39,8 +42,9 @@ public class CameraActivity extends AppCompatActivity {
     private void startCamera() {
         if (this.permissionGranted) {
             ContentValues contentValues = new ContentValues();
-            ContentValues.put(MediaStore.Images.Media.TITLE, TITLE);
-            ContentValues.put(MediaStore.Images.Media.DESCRIPTION, DESCRIPTION);
+            contentValues.put(MediaStore.Images.Media.TITLE, TITLE);
+            contentValues.put(MediaStore.Images.Media.DESCRIPTION, DESCRIPTION);
+            contentValues.put(MediaStore.Images.Media.MIME_TYPE,"image/jpeg");
 
             imageUri = getContentResolver().insert(
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues
@@ -52,43 +56,22 @@ public class CameraActivity extends AppCompatActivity {
     }
 
 
-
-    private void verifyPermission()
-    {
-        Log.d(TAG,"verifyPermissions: asking user for permissions");
-        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.CAMERA};
-
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                permissions[0]) == PackageManager.PERMISSION_GRANTED
-                        && ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                        permissions[1]) == PackageManager.PERMISSION_GRANTED
-                                && ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                                permissions[2]) == PackageManager.PERMISSION_GRANTED)
-        {
-
-        }
-
-
-
-    }
-
-
+/*
     @Override
     protected void onActivityResult(int requestcode, int resultcode, Intent data) {
         super.onActivityResult(requestcode, resultcode, data);
         if (requestcode == IMAGE_CAPTURE) {
             if (resultcode == RESULT_OK) {
                 try {
+
                     //show Image
                 } catch (IOException e) {
-                    Log.e(MainActivity.class.getSimpleName(), "setBitmap()", e);
+                    Log.e(CameraActivity.class.getSimpleName(), "setBitmap()", e);
                 }
 
             } else {
                 int rowsDeleted = getContentResolver().delete(imageUri, null, null);
-                Log.d(MainActivity.class.getSimpleName(), rowsDeleted + "rows deleted");
+                Log.d(CameraActivity.class.getSimpleName(), rowsDeleted + "rows deleted");
             }
         }
     }
@@ -106,11 +89,15 @@ public class CameraActivity extends AppCompatActivity {
             Bitmap dst = Bitmap.createScaledBitmap(src, dstWidth, dstheight, false);
             return dst;
         } catch (IOException e) {
-            Log.e(MainActivity.class.getSimpleName(), "setBitmap", e);
+            Log.e(CameraActivity.class.getSimpleName(), "setBitmap", e);
         }
         return null;
     }
 
+    public void updateBitmap()
+    {
+
+    }
 
     protected void checkPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
