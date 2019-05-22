@@ -10,6 +10,7 @@
     <string name="password">пароль</string>
     <string name="login">войти</string>
     <string name="sign_up">регистрировать</string>
+    <string name="profile">профиль</string>
 
     //activity_profile
     <string name="save">сохранять</string>
@@ -40,9 +41,9 @@
     //activity_group_chat_view
     <string name="groupname">Hазвание группы</string>
 
-    //bottom_navigation
-    <string name="groupchat">Группа чат</string>
-    <string name="profile">Профиль</string>
+    //activity_consent_form
+    <string name="accept">принимать</string>
+    <string name="cancel">отменить</string>
 
     //menu_profile_settings und menu_admin_profile_settings
     <string name="settings">Hастройки</string>

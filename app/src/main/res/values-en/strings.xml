@@ -10,6 +10,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign up</string>
+    <string name="profile">Profile</string>
 
     //activity_profile
     <string name="save">save</string>
@@ -39,9 +40,9 @@
     //activity_group_chat_view
     <string name="groupname">Groupname</string>
 
-    //bottom_navigation
-    <string name="groupchat">Groupchat</string>
-    <string name="profile">Profile</string>
+    //activity_consent_form
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
 
     //menu_profile_settings und menu_admin_profile_settings
     <string name="settings">Settings</string>

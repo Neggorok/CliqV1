@@ -8,6 +8,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +20,15 @@ public class GroupChatSettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_chat_settings);
+
+        Button b = (Button) findViewById(R.id.change_group_pic);
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+                    public void onClick(View v) {
+                startActivity(new Intent(GroupChatSettingsActivity.this, ConsentFormActivity.class));
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -9,16 +9,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/consent"
+        android:layout_centerHorizontal="true"
         android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/consent_timestampTV"
+    <Button
+        android:id="@+id/btnCancel"
+        android:text="@string/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp" />
+
+    <Button
+        android:id="@+id/btnAccept"
+        android:text="@string/accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:text="TimeStamp"
-        android:textSize="12sp"
-        android:layout_below="@+id/consent_form"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/colorOrange"/>
+
+
 
 </RelativeLayout>

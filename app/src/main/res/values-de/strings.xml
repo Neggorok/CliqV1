@@ -10,6 +10,7 @@
     <string name="password">Passwort</string>
     <string name="login">Einloggen</string>
     <string name="sign_up">Registrieren</string>
+    <string name="profile">Profil</string>
 
     //activity_profile
     <string name="save">speichern</string>
@@ -36,9 +37,9 @@
     <string name="change_group_pic">Gruppenbild ändern</string>
     <string name="activate_filter">Filter aktivieren</string>
 
-    //bottom_navigation
-    <string name="groupchat">Gruppenchat</string>
-    <string name="profile">Profil</string>
+    //activity_consent_form
+    <string name="accept">Akzeptieren</string>
+    <string name="cancel">Abbrechen</string>
 
     //activity_group_chat_view
     <string name="groupname">Gruppenname</string>
