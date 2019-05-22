@@ -42,10 +42,10 @@
         </activity>
         <activity android:name=".AudioActivity">
         </activity>
-
         <activity android:name=".CameraActivity">
 
         </activity>
+
         <activity android:name=".ConsentFormActivity">
 
         </activity>

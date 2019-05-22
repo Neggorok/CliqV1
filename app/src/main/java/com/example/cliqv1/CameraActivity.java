@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ImageView;
 
 
 import java.io.IOException;
@@ -26,6 +27,8 @@ public class CameraActivity extends AppCompatActivity {
     private static final int IMAGE_CAPTURE = 1;
     private static final int PERMISSION_REQUEST = 99;
     private Uri imageUri;
+    private Bitmap actualBitmap;
+    private ImageView imageView;
     private boolean permissionGranted = false;
 
     @Override
@@ -56,18 +59,13 @@ public class CameraActivity extends AppCompatActivity {
     }
 
 
-/*
+
     @Override
     protected void onActivityResult(int requestcode, int resultcode, Intent data) {
         super.onActivityResult(requestcode, resultcode, data);
         if (requestcode == IMAGE_CAPTURE) {
             if (resultcode == RESULT_OK) {
-                try {
-
-                    //show Image
-                } catch (IOException e) {
-                    Log.e(CameraActivity.class.getSimpleName(), "setBitmap()", e);
-                }
+              updateBitmap(getandScaleBitmap(this.imageUri,-1,300));
 
             } else {
                 int rowsDeleted = getContentResolver().delete(imageUri, null, null);
@@ -94,9 +92,10 @@ public class CameraActivity extends AppCompatActivity {
         return null;
     }
 
-    public void updateBitmap()
+    public void updateBitmap(Bitmap bitmap)
     {
-
+        this.actualBitmap = bitmap;
+        this.imageView.setImageBitmap(bitmap);
     }
 
     protected void checkPermission() {
@@ -134,7 +133,7 @@ public void onRequestPermissionsResult(int requestCode,String permissions[],
     return;
 }
 
-*/
+
 }
 
 
