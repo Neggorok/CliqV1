@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -73,6 +75,30 @@ public class ChangeAvatarActivity extends AppCompatActivity {
          if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
              ImageView.setImageURI(data.getData());
           }
-         } */
+         }
 }
+         public void onActivityResult(int requestCode, int resultCode, Intent data) {
+         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+             ImageView.setImageURI(data.getData());
+          }
+         } */
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_change_information, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.back_to_previous) {
+
+            finish();
+            return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
