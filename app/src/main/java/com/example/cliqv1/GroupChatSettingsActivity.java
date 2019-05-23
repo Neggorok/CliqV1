@@ -69,7 +69,7 @@ public class GroupChatSettingsActivity extends AppCompatActivity {
         builder.setTitle("Enter username:");
 
         final EditText usernameField = new EditText(this);
-        usernameField.setHint("Max_Mustermann");
+        usernameField.setHint("Max Mustermann");
         builder.setView(usernameField);
 
         builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
