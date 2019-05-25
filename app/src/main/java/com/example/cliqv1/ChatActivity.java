@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.widget.Button;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,10 +50,14 @@ public class ChatActivity extends AppCompatActivity {
     String chatPartnerUsername;
     String chatPartnerImage;
 
+    Button btn_sendMore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        btn_sendMore = findViewById(R.id.btn_sendMore);
 
         loggedInUserId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", -1);
         loggedInUsername = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "-1");
@@ -209,6 +215,17 @@ public class ChatActivity extends AppCompatActivity {
 
 
         queue.add(postRequest);
+
+    }
+
+    public void sendMore(View view) {
+
+        btn_sendMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ChatActivity.this, SendMoreActivity.class));
+            }
+        });
 
     }
 
