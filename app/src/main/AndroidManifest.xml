@@ -49,6 +49,9 @@
         <activity android:name=".ConsentFormActivity">
 
         </activity>
+        <activity android:name=".AttachFileActivity">
+
+        </activity>
         <activity android:name=".ChangePasswordActivity">
 
         </activity>

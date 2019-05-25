@@ -50,14 +50,20 @@ public class ChatActivity extends AppCompatActivity {
     String chatPartnerUsername;
     String chatPartnerImage;
 
-    Button btn_sendMore;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        btn_sendMore = findViewById(R.id.btn_sendMore);
+        Button btn_attachFile = (Button) findViewById(R.id.btn_attachFile);
+
+        btn_attachFile.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ChatActivity.this, AttachFileActivity.class));
+            }
+        });
 
         loggedInUserId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", -1);
         loggedInUsername = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "-1");
@@ -218,17 +224,6 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
-    public void sendMore(View view) {
-
-        btn_sendMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ChatActivity.this, SendMoreActivity.class));
-            }
-        });
-
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_group_chat, menu);
@@ -241,23 +236,10 @@ public class ChatActivity extends AppCompatActivity {
 
         if (id == R.id.profile) {
 
-            Intent iad = new Intent(getApplicationContext(), ProfileActivity.class);
-            startActivity(iad);
+            Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+            startActivity(i);
 
         }
-
-        if (id == R.id.set_audio) {
-
-           Intent iad = new Intent(getApplicationContext(), AudioActivity.class);
-           startActivity(iad);
-
-        }
-
-
-//        if (id == R.id.set_camera) {
-//           Intent ia = new Intent(getApplicationContext(), CameraActivity.class);
-//           startActivity(ia);
-//        }
 
         if (id == R.id.set_settings) {
 

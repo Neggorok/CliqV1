@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/login"
-            android:backgroundTint="@color/colorOrange"
+            android:background="@color/colorOrange"
             android:onClick="logIn"/>
 
         <TextView
