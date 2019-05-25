@@ -28,13 +28,14 @@
         android:layout_alignParentBottom="true">
 
         <EditText
+            android:id="@+id/messageEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="@string/message"
-            android:id="@+id/messageEditText"
+            android:layout_gravity="bottom"
             android:layout_weight="0.3"
-            android:layout_gravity="bottom"/>
+            android:drawableRight="@drawable/ic_expand_more_black_24dp"
+            android:hint="@string/message"
+            android:inputType="textPersonName" />
 
         <Button
             android:layout_width="match_parent"

@@ -3,7 +3,7 @@
 
     <string name="app_name">Cliq</string>
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
-    <string name="title_activity_user_list">UserListActivity</string>
+    <string name="title_activity_user_list">Group Chats</string>
 
     //activity_main
     <string name="username">Username</string>

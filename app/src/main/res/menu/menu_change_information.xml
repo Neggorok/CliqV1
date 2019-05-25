@@ -7,6 +7,7 @@
         android:id="@+id/back_to_previous"
         android:icon="@drawable/ic_arrow_back_white_24dp"
         android:title="@string/back_to_previous"
-        app:showAsAction="always"/>
+        android:layout_gravity="left"
+        app:showAsAction="always" />
 
 </menu>
