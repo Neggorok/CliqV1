@@ -2,6 +2,7 @@ package com.example.cliqv1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
@@ -43,7 +44,7 @@ public class AttachFileActivity extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int) (width * .5), (int) (height * .3));
+        getWindow().setBackgroundDrawable(null);
 
     }
 }
-
