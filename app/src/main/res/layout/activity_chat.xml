@@ -36,17 +36,16 @@
             android:hint="@string/message"
             android:inputType="textPersonName" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_attachFile"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:gravity="center"
             android:layout_height="wrap_content"
-            android:layout_weight="1.2"
-            android:layout_marginTop="2dp"
-            android:layout_gravity="bottom"
-            android:backgroundTint="@color/colorOrange"
-            android:drawableStart="@drawable/ic_attach_file_white_24dp"
-            android:drawableRight="@drawable/ic_attach_file_white_24dp"
-            android:gravity="center" />
+            android:src="@drawable/ic_attach_file_white_24dp"
+            android:padding="6dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="3dp"
+            android:background="@color/colorOrange"/>
 
         <Button
             android:layout_width="match_parent"
@@ -55,6 +54,7 @@
             android:text="@string/send"
             android:background="@color/colorOrange"
             android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:onClick="sendMessage" />
 
 

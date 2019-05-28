@@ -33,6 +33,4 @@
         android:layout_marginRight="20dp"
         android:background="@color/colorOrange" />
 
-
-
 </RelativeLayout>
