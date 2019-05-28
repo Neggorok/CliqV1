@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/ibtn_camera"
+        android:title="@string/camera"
+        android:icon="@drawable/ic_camera_alt_white_24dp"
+        android:orderInCategory="1"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/ibtn_audio"
+        android:icon="@drawable/ic_mic_white_24dp"
+        android:title="@string/audio"
+        android:orderInCategory="2"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/ibtn_document"
+        android:icon="@drawable/ic_documents_white_24dp"
+        android:title="@string/documents"
+        android:orderInCategory="3"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/ibtn_gallery"
+        android:icon="@drawable/ic_collections_white_24dp"
+        android:title="gallery"
+        android:orderInCategory="4"
+        app:showAsAction="never"/>
+
+
+
+</menu>
