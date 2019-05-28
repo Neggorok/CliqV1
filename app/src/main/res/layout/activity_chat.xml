@@ -42,9 +42,9 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_attach_file_white_24dp"
-            android:padding="7dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="2dp"
+            android:padding="6dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="3dp"
             android:background="@color/colorOrange"/>
 
         <Button
