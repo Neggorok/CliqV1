@@ -44,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(this);
     }
+    public void signUp2(View v){
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+        Intent i = new Intent(getApplicationContext(), SignUpActivity.class);
+        startActivity(i);
+        Toast.makeText(MainActivity.this, "Register",  Toast.LENGTH_SHORT).show();
+    }
 
     // Das View view sorgt dafür, das Die Methode erkennt das es sich um einen Button handelt
     public void signUp(View view) {

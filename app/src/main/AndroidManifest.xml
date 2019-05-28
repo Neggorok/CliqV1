@@ -21,6 +21,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".SignUpActivity"
+                    android:label="Registrierung" />
         <activity
             android:name=".ChatActivity"
             android:windowSoftInputMode="adjustPan" />
