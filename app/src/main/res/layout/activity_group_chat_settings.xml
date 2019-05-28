@@ -27,6 +27,12 @@
         app:layout_constraintTop_toBottomOf="@+id/groupchat_imageView" />
 
     <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="290dp"
+        android:background="@color/colorOrange"/>
+
+    <TextView
         android:id="@+id/activate_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

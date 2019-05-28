@@ -9,38 +9,38 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-public class ChangeAvatarActivity extends AppCompatActivity {
+public class ChangeGroupPicActivity extends AppCompatActivity {
 
-    ImageView imageView;
-    ImageButton imageButton1;
-    ImageButton imageButton2;
-    ImageButton imageButton3;
-    ImageButton imageButton4;
-    ImageButton imageButton5;
-    ImageButton imageButton6;
-    ImageButton imageButton7;
-    ImageButton imageButton8;
+        ImageView imageView;
+        ImageButton imageButton1;
+        ImageButton imageButton2;
+        ImageButton imageButton3;
+        ImageButton imageButton4;
+        ImageButton imageButton5;
+        ImageButton imageButton6;
+        ImageButton imageButton7;
+        ImageButton imageButton8;
 
-    Button button;
+        Button button;
 
-    //private static final int IMAGE_PICK_CODE = 1000;
-    //private static final int PERMISSION_CODE = 1001;
+        //private static final int IMAGE_PICK_CODE = 1000;
+        //private static final int PERMISSION_CODE = 1001;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_avatar);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_change_group_pic);
 
-        imageView = findViewById(R.id.profileUnknown);
-        imageButton1 = findViewById(R.id.imageButton1);
-        imageButton2 = findViewById(R.id.imageButton2);
-        imageButton3 = findViewById(R.id.imageButton3);
-        imageButton4 = findViewById(R.id.imageButton4);
-        imageButton5 = findViewById(R.id.imageButton5);
-        imageButton6 = findViewById(R.id.imageButton6);
-        imageButton7 = findViewById(R.id.imageButton7);
-        imageButton8 = findViewById(R.id.imageButton8);
-        button = findViewById(R.id.safe);
+            imageView = findViewById(R.id.profileUnknown);
+            imageButton1 = findViewById(R.id.imageButton1);
+            imageButton2 = findViewById(R.id.imageButton2);
+            imageButton3 = findViewById(R.id.imageButton3);
+            imageButton4 = findViewById(R.id.imageButton4);
+            imageButton5 = findViewById(R.id.imageButton5);
+            imageButton6 = findViewById(R.id.imageButton6);
+            imageButton7 = findViewById(R.id.imageButton7);
+            imageButton8 = findViewById(R.id.imageButton8);
+            button = findViewById(R.id.safe);
 
 
 
@@ -112,22 +112,22 @@ public class ChangeAvatarActivity extends AppCompatActivity {
         }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_previous, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.back_to_previous) {
-
-            finish();
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.menu_previous, menu);
             return true;
-
         }
-        return super.onOptionsItemSelected(item);
-    }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            int id = item.getItemId();
+
+            if (id == R.id.back_to_previous) {
+
+                finish();
+                return true;
+
+            }
+            return super.onOptionsItemSelected(item);
+        }
 }

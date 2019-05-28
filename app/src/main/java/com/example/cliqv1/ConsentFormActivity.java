@@ -51,7 +51,7 @@ public class ConsentFormActivity extends Activity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_change_information, menu);
+        getMenuInflater().inflate(R.menu.menu_previous, menu);
         return true;
     }
 

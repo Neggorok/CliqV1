@@ -30,6 +30,12 @@
         android:layout_centerHorizontal="true"
         app:layout_constraintTop_toBottomOf="@+id/toolbarNew" />
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="270dp"
+        android:background="@color/colorOrange"/>
+
         <TextView
             android:id="@+id/members_group"
             android:layout_width="match_parent"

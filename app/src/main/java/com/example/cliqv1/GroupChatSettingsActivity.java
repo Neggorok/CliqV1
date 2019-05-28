@@ -26,7 +26,7 @@ public class GroupChatSettingsActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
                     public void onClick(View v) {
-                startActivity(new Intent(GroupChatSettingsActivity.this, ConsentFormActivity.class));
+                startActivity(new Intent(GroupChatSettingsActivity.this, ChangeGroupPicActivity.class));
             }
         });
     }

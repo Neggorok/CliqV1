@@ -12,6 +12,7 @@
     <uses-permission-sdk-23 android:name="android.permission.RECORD_AUDIO" />
     <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,51 +21,65 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProfileActivity"></activity>
+
+        <activity android:name=".ProfileActivity">
+        </activity>
+
         <activity android:name=".SignUpActivity"
                     android:label="Registrierung" />
+
         <activity
             android:name=".ChatActivity"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".UserListActivity"
             android:label="@string/title_activity_user_list"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".GroupChatSettingsActivity">
-
         </activity>
-        <activity android:name=".ChangeEmailActivity">
 
+        <activity android:name=".ChangeEmailActivity">
         </activity>
 
         <activity
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".GroupChatViewActivity">
-
         </activity>
+
         <activity android:name=".AudioActivity">
         </activity>
-        <activity android:name=".CameraActivity">
 
+        <activity android:name=".CameraActivity">
+        </activity>
+
+        <activity android:name=".ChangeGroupPicActivity">
         </activity>
 
         <activity android:name=".ConsentFormActivity">
-
         </activity>
+
         <activity android:name=".AttachFileActivity">
-
         </activity>
+
         <activity android:name=".ChangePasswordActivity">
-
         </activity>
+
         <activity android:name=".MainActivity">
+
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
         </activity>
+
         <activity android:name=".ChangeAvatarActivity" />
+
     </application>
 
 </manifest>

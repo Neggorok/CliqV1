@@ -5,10 +5,6 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorOrange</item>
         <item name="colorAccent">@color/colorOrange</item>
-
-
-
-
     </style>
 
     <style name="AppTheme.NoActionBar">
