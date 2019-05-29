@@ -5,9 +5,14 @@
 
     <item
         android:id="@+id/back_to_previous"
-        android:icon="@drawable/ic_arrow_back_white_24dp"
         android:title="@string/back_to_previous"
         android:layout_gravity="left"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/logout"
+        android:title="@string/logout"
+        android:orderInCategory="2"
+        app:showAsAction="never"/>
 
 </menu>

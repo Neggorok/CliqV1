@@ -1,8 +1,12 @@
 package com.example.cliqv1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -49,5 +53,33 @@ public class ChangeBackgroundActivity extends AppCompatActivity {
 
     public void safe(View view) {
         Toast.makeText(ChangeBackgroundActivity.this, "Background safed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_previous, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.back_to_previous) {
+
+            finish();
+            return true;
+
+        }
+
+        if (id == R.id.set_logout) {
+
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(ChangeBackgroundActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
