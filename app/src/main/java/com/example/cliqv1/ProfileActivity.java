@@ -204,7 +204,9 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
             if (id == R.id.set_background) {
-            Toast.makeText(ProfileActivity.this, "Background selected", Toast.LENGTH_SHORT).show();
+                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+                Intent bg = new Intent(getApplicationContext(), ChangeBackgroundActivity.class);
+                startActivity(bg);
             return true;
             }
 

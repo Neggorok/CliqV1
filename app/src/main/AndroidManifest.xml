@@ -27,6 +27,8 @@
 
         <activity android:name=".SignUpActivity"
                     android:label="Registrierung" />
+        <activity android:name="ChangeBackgroundActivity"
+                    android:label="Hintergrund ändern" />
 
         <activity
             android:name=".ChatActivity"
