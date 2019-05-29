@@ -40,7 +40,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileAdminActivity extends AppCompatActivity {
 
     int userId;
     String username;
@@ -57,7 +57,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile_admin);
 
         ImageButton chat_nav = (ImageButton) findViewById(R.id.chat_nav);
         ImageButton profile_nav = (ImageButton) findViewById(R.id.profile_nav);
@@ -66,7 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, UserListActivity.class));
+                startActivity(new Intent(ProfileAdminActivity.this, UserListActivity.class));
             }
         });
 
@@ -74,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
+                startActivity(new Intent(ProfileAdminActivity.this, ProfileActivity.class));
             }
         });
 
@@ -171,8 +171,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                         if(success == 1){
 
-                            Toast.makeText(ProfileActivity.this, message, Toast.LENGTH_SHORT).show();
-                            PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this).edit().putString("image", Util.getBase64StringFromBitmap(smallerBitmap)).apply();
+                            Toast.makeText(ProfileAdminActivity.this, message, Toast.LENGTH_SHORT).show();
+                            PreferenceManager.getDefaultSharedPreferences(ProfileAdminActivity.this).edit().putString("image", Util.getBase64StringFromBitmap(smallerBitmap)).apply();
 
                         }
 
@@ -200,7 +200,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_profile_settings, menu);
+        inflater.inflate(R.menu.menu_profile_admin_settings, menu);
         return true;
     }
 
@@ -208,65 +208,63 @@ public class ProfileActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-            if (id == R.id.set_settings) {
+        if (id == R.id.set_settings) {
 
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-                Toast.makeText(ProfileActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
-            }
-
-            if (id == R.id.set_avatar) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
-                startActivity(ia);
-                return true;
-            }
-
-            if (id == R.id.set_background) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent bg = new Intent(getApplicationContext(), ChangeBackgroundActivity.class);
-                startActivity(bg);
-            return true;
-            }
-
-            if (id == R.id.set_password) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ip = new Intent(getApplicationContext(), ChangePasswordActivity.class);
-                startActivity(ip);
-                Toast.makeText(ProfileActivity.this, "Password selected", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-
-            if (id == R.id.set_email) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ie = new Intent(getApplicationContext(), ChangeEmailActivity.class);
-                startActivity(ie);
-                Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-
-            if (id == R.id.set_consent_form) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ie = new Intent(getApplicationContext(), ConsentFormActivity.class);
-                startActivity(ie);
-                Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-
-            if (id == R.id.set_logout) {
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
-            Toast.makeText(ProfileActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
-            return true;
-            }
+            Toast.makeText(ProfileAdminActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+        }
 
-            if (id == R.id.createGroup) {
+        if (id == R.id.set_avatar) {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
+            startActivity(ia);
+            return true;
+        }
+
+        if (id == R.id.set_background) {
+            Toast.makeText(ProfileAdminActivity.this, "Background selected", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if (id == R.id.set_password) {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent ip = new Intent(getApplicationContext(), ChangePasswordActivity.class);
+            startActivity(ip);
+            Toast.makeText(ProfileAdminActivity.this, "Password selected", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if (id == R.id.set_email) {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent ie = new Intent(getApplicationContext(), ChangeEmailActivity.class);
+            startActivity(ie);
+            Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if (id == R.id.set_consent_form) {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent ie = new Intent(getApplicationContext(), ConsentFormActivity.class);
+            startActivity(ie);
+            Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if (id == R.id.set_logout) {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(ProfileAdminActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if (id == R.id.createGroup) {
 
             RequestNewGroup();
 
-            }
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -287,7 +285,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(groupName)) {
 
-                    Toast.makeText(ProfileActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileAdminActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
                 }
                 else {
                     CreateNewGroup(groupName);
@@ -311,6 +309,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void CreateNewGroup(String groupName) {
 
-        Toast.makeText(ProfileActivity.this, groupName + " is created successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ProfileAdminActivity.this, groupName + " is created successfully", Toast.LENGTH_SHORT).show();
     }
 }

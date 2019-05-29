@@ -3,21 +3,9 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/profile"
-        android:title="@string/profile"
-        android:icon="@drawable/ic_person_white_24dp"
-        android:orderInCategory="1"
-        app:showAsAction="always"/>
-
-    <item
         android:id="@+id/set_viewgroup"
         android:title="@string/view_group"
         app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/set_settings"
-        android:title="@string/settings"
-        app:showAsAction="never" />
 
     <item
         android:id="@+id/set_logout"

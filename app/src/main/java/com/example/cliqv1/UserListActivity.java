@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -50,6 +51,25 @@ public class UserListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ImageButton chat_nav = (ImageButton) findViewById(R.id.chat_nav);
+        ImageButton profile_nav = (ImageButton) findViewById(R.id.profile_nav);
+
+        chat_nav.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserListActivity.this, UserListActivity.class));
+            }
+        });
+
+        profile_nav.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserListActivity.this, ProfileActivity.class));
+            }
+        });
 
         userList = new ArrayList<>();
         adapter = new UserListAdapter(this, userList);
@@ -142,10 +162,9 @@ public class UserListActivity extends AppCompatActivity {
             Toast.makeText(UserListActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
         }
 
-        if (id == R.id.profile) {
+        if (id == R.id.search) {
 
-            Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
-            startActivity(i);
+            Toast.makeText(UserListActivity.this, "Nach Gruppenname suchen", Toast.LENGTH_SHORT).show();
 
         }
 

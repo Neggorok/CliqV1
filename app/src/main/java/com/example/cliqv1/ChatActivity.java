@@ -233,21 +233,6 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.profile) {
-
-            Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
-            startActivity(i);
-
-        }
-
-        if (id == R.id.set_settings) {
-
-            Intent i = new Intent(getApplicationContext(), GroupChatSettingsActivity.class);
-            Toast.makeText(ChatActivity.this, "Settings selected", Toast.LENGTH_SHORT).show();
-            startActivity(i);
-
-        }
-
         if (id == R.id.set_viewgroup) {
 
             Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
