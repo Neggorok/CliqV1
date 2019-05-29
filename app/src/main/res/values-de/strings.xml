@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    //AndroidManifest label
     <string name="app_name">Cliq</string>
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
-    <string name="title_activity_user_list">Gruppenchats</string>
+    <string name="groupchat">Gruppenchats</string>
+    <string name="change_avatar">Avatar wählen</string>
+    <string name="registration">Registrierung</string>
+    <string name="change_background">Hintergrund wählen</string>
+    <string name="group_settings">Gruppeneinstellungen</string>
+    <string name="group_information">Gruppeninformationen</string>
 
     //activity_main
     <string name="username">Benutzername</string>

@@ -26,9 +26,10 @@
         </activity>
 
         <activity android:name=".SignUpActivity"
-                    android:label="Registrierung" />
+            android:label="@string/registration" />
+
         <activity android:name="ChangeBackgroundActivity"
-                    android:label="Hintergrund ändern" />
+            android:label="@string/change_background" />
 
         <activity
             android:name=".ChatActivity"
@@ -36,21 +37,22 @@
 
         <activity
             android:name=".UserListActivity"
-            android:label="@string/title_activity_user_list"
+            android:label="@string/groupchat"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".GroupChatSettingsActivity">
-        </activity>
+        <activity android:name=".GroupChatSettingsActivity"
+            android:label="@string/group_settings" />
 
-        <activity android:name=".ChangeEmailActivity">
-        </activity>
+        <activity android:name=".ChangeEmailActivity"
+            android:label="@string/change_email" />
 
-        <activity android:name=".AcceptedConsentFormActivity">
-        </activity>
+        <activity android:name=".AcceptedConsentFormActivity"
+            android:label="@string/consent" />
 
         <activity
-            android:name=".GroupChatViewActivity">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".GroupChatViewActivity"
+            android:label="@string/view_group"/>
 
         <activity android:name=".AudioActivity">
         </activity>
@@ -58,8 +60,11 @@
         <activity android:name=".CameraActivity">
         </activity>
 
-        <activity android:name=".ChangeGroupPicActivity">
-        </activity>
+        <activity android:name=".ChangeGroupPicActivity"
+            android:label="@string/change_group_pic" />
+
+        <activity android:name=".ChangeAvatarActivity"
+            android:label="@string/change_avatar" />
 
         <activity android:name=".ConsentFormActivity">
         </activity>
@@ -67,8 +72,8 @@
         <activity android:name=".AttachFileActivity">
         </activity>
 
-        <activity android:name=".ChangePasswordActivity">
-        </activity>
+        <activity android:name=".ChangePasswordActivity"
+            android:label="@string/change_password" />
 
         <activity android:name=".MainActivity">
 
@@ -81,8 +86,6 @@
             </intent-filter>
 
         </activity>
-
-        <activity android:name=".ChangeAvatarActivity" />
 
     </application>
 
