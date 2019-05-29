@@ -117,7 +117,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
 
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
-            getMenuInflater().inflate(R.menu.menu_previous, menu);
+            getMenuInflater().inflate(R.menu.menu_groupchat_shortcut, menu);
             return true;
         }
 
@@ -125,7 +125,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
         public boolean onOptionsItemSelected(MenuItem item) {
             int id = item.getItemId();
 
-            if (id == R.id.back_to_previous) {
+            if (id == R.id.back_to_groupsettings) {
 
                 finish();
                 return true;

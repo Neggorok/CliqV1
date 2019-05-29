@@ -117,7 +117,7 @@ public class ChangeAvatarActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_previous, menu);
+        getMenuInflater().inflate(R.menu.menu_profile_shortcut, menu);
         return true;
     }
 
@@ -125,7 +125,7 @@ public class ChangeAvatarActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.back_to_previous) {
+        if (id == R.id.back_to_profile) {
 
             finish();
             return true;

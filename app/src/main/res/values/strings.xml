@@ -65,9 +65,10 @@
 
     //menu_group_chat
     <string name="view_group">Gruppeninformationen</string>
-    <string name="back_to_previous">Zurück</string>
+    <string name="back_to_profile">Zurück zum Profil</string>
     <string name="back_to_chat">Zurück zum Chat</string>
-    <string name="back_to_groupview">Zurück zu Gruppeninformationen</string>
+    <string name="back_to_groupview">Zurück zur Gruppeninformation</string>
+    <string name="back_to_groupsettings">Zurück zu Gruppeneinstellungen</string>
 
     //menu_profile_settings
     <string name="newMember">neues Gruppenmitglied</string>

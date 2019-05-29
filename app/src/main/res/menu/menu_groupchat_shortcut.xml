@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/back_to_previous"
-        android:title="@string/back_to_previous"
+        android:id="@+id/back_to_groupsettings"
+        android:title="@string/back_to_groupsettings"
         android:layout_gravity="left"
         app:showAsAction="never" />
 
@@ -16,3 +16,4 @@
         app:showAsAction="never"/>
 
 </menu>
+
