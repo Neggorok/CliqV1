@@ -69,6 +69,7 @@
     <string name="view_group">Информация о группе</string>
     <string name="back_to_profile">Вернуться в чат</string>
     <string name="back_to_chat">Вернуться в чат</string>
+    <string name="back_to_grouplist">Вернуться к групповым чатам</string>
     <string name="back_to_groupview">Вернуться к информации о группе</string>
     <string name="back_to_groupsettings">Вернуться к настройкам группы</string>
 

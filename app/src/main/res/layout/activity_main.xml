@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Registrieren_Layout_Test"
+            android:text="Registrieren Test"
             android:textAlignment="center"
             android:onClick="signUp2"
             android:textStyle="bold" />

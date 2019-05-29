@@ -68,6 +68,7 @@
     <string name="view_group">Group information</string>
     <string name="back_to_profile">Back to Profile</string>
     <string name="back_to_chat">Back to Chat</string>
+    <string name="back_to_grouplist">Back to Group Chats</string>
     <string name="back_to_groupview">Back to group information</string>
     <string name="back_to_groupsettings">Back to group settings</string>
 

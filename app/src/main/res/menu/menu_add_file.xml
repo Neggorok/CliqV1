@@ -30,6 +30,4 @@
         android:orderInCategory="4"
         app:showAsAction="never"/>
 
-
-
 </menu>
