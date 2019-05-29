@@ -45,8 +45,10 @@
         <activity android:name=".ChangeEmailActivity">
         </activity>
 
+        <activity android:name=".AcceptedConsentFormActivity">
+        </activity>
+
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
             android:name=".GroupChatViewActivity">
         </activity>
 

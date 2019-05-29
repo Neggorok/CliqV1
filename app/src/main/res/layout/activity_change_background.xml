@@ -56,8 +56,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="300dp"
         android:background="@color/colorOrange"
         android:onClick="safe"
-        android:text="Hintergrundbild auswählen" />
+        android:text="@string/save" />
 </RelativeLayout>

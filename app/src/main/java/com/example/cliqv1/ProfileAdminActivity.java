@@ -208,23 +208,10 @@ public class ProfileAdminActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.set_settings) {
-
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            Toast.makeText(ProfileAdminActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
-        }
-
-        if (id == R.id.set_avatar) {
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
-            startActivity(ia);
-            return true;
-        }
-
         if (id == R.id.set_background) {
-            Toast.makeText(ProfileAdminActivity.this, "Background selected", Toast.LENGTH_SHORT).show();
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent bg = new Intent(getApplicationContext(), ChangeBackgroundActivity.class);
+            startActivity(bg);
             return true;
         }
 
@@ -232,7 +219,6 @@ public class ProfileAdminActivity extends AppCompatActivity {
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent ip = new Intent(getApplicationContext(), ChangePasswordActivity.class);
             startActivity(ip);
-            Toast.makeText(ProfileAdminActivity.this, "Password selected", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -240,15 +226,13 @@ public class ProfileAdminActivity extends AppCompatActivity {
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent ie = new Intent(getApplicationContext(), ChangeEmailActivity.class);
             startActivity(ie);
-            Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         if (id == R.id.set_consent_form) {
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent ie = new Intent(getApplicationContext(), ConsentFormActivity.class);
+            Intent ie = new Intent(getApplicationContext(), AcceptedConsentFormActivity.class);
             startActivity(ie);
-            Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
             return true;
         }
 

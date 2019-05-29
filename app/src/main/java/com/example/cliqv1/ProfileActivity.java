@@ -208,14 +208,6 @@ public class ProfileActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-            if (id == R.id.set_settings) {
-
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-                Toast.makeText(ProfileActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
-            }
-
             if (id == R.id.set_avatar) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
                 Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
@@ -246,7 +238,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             if (id == R.id.set_consent_form) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ie = new Intent(getApplicationContext(), ConsentFormActivity.class);
+                Intent ie = new Intent(getApplicationContext(), AcceptedConsentFormActivity.class);
                 startActivity(ie);
                 return true;
             }
@@ -257,12 +249,6 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(i);
             Toast.makeText(ProfileActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
             return true;
-            }
-
-            if (id == R.id.createGroup) {
-
-            RequestNewGroup();
-
             }
 
         return super.onOptionsItemSelected(item);
