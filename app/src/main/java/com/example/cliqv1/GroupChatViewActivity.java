@@ -125,7 +125,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.back_to_previous) {
+        if (id == R.id.back_to_chat) {
 
             finish();
             return true;

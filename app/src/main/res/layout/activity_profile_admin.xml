@@ -24,7 +24,7 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/chat_nav"
         android:src="@drawable/ic_person_white_24dp"
-        android:background="@color/colorOrange" />
+        android:background="@color/colorLightGrey"/>
 
     <ImageView
         android:layout_width="250dp"

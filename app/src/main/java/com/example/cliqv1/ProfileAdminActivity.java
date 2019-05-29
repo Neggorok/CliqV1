@@ -74,7 +74,7 @@ public class ProfileAdminActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileAdminActivity.this, ProfileActivity.class));
+                Toast.makeText(ProfileAdminActivity.this, "You are already on Profile", Toast.LENGTH_SHORT).show();
             }
         });
 
