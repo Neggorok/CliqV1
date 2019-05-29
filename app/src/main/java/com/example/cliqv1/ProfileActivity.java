@@ -234,7 +234,6 @@ public class ProfileActivity extends AppCompatActivity {
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
                 Intent ip = new Intent(getApplicationContext(), ChangePasswordActivity.class);
                 startActivity(ip);
-                Toast.makeText(ProfileActivity.this, "Password selected", Toast.LENGTH_SHORT).show();
                 return true;
             }
 
@@ -242,7 +241,6 @@ public class ProfileActivity extends AppCompatActivity {
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
                 Intent ie = new Intent(getApplicationContext(), ChangeEmailActivity.class);
                 startActivity(ie);
-                Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
                 return true;
             }
 
@@ -250,7 +248,6 @@ public class ProfileActivity extends AppCompatActivity {
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
                 Intent ie = new Intent(getApplicationContext(), ConsentFormActivity.class);
                 startActivity(ie);
-                Toast.makeText(this, "E-Mail selected", Toast.LENGTH_SHORT).show();
                 return true;
             }
 
