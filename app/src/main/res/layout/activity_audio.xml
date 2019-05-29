@@ -21,12 +21,30 @@
         android:text="@string/stopAudio" />
 
     <Button
-        android:id="@+id/btnPlay"
+        android:id="@+id/btnSaveRecord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:background="@color/colorOrange"
         android:layout_below="@+id/btnStopRecord"
+        android:text="@string/save" />
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorOrange"
+        android:layout_below="@+id/btnSaveRecord"
         android:text="@string/playAudio" />
+
+    <Button
+        android:id="@+id/btnSendRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorOrange"
+        android:layout_below="@+id/btnPlay"
+        android:text="@string/send" />
 
 </RelativeLayout>

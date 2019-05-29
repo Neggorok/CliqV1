@@ -200,7 +200,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_profile_settings, menu);
+        inflater.inflate(R.menu.menu_profile, menu);
         return true;
     }
 
@@ -250,6 +250,12 @@ public class ProfileActivity extends AppCompatActivity {
             Toast.makeText(ProfileActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
             return true;
             }
+
+        if (id == R.id.createGroup) {
+
+            RequestNewGroup();
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
