@@ -4,11 +4,17 @@ import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -18,6 +24,8 @@ import android.widget.ImageView;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CameraActivity extends AppCompatActivity {
@@ -26,10 +34,14 @@ public class CameraActivity extends AppCompatActivity {
     private String TITLE = "Demo";
     private static final int IMAGE_CAPTURE = 1;
     private static final int PERMISSION_REQUEST = 99;
+    private static final int GALLERY_Pick = 2;
+    private static final int IMAGE_TO_CROP = 3;
+    private static final int IMAGE_FROM_CROP = 4;
     private Uri imageUri;
     private Bitmap actualBitmap;
     private ImageView imageView;
-    private boolean permissionGranted = false;
+    private boolean permissionGranted = false, cropImage = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +52,12 @@ public class CameraActivity extends AppCompatActivity {
 
             Intent intentc = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
             startActivity(intentc);
+
+            Intent inteng = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivity(inteng);
     }
 
-    private void startCamera() {
+    private void startCamera(boolean cropImage) {
         if (this.permissionGranted) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(MediaStore.Images.Media.TITLE, TITLE);
@@ -54,7 +69,13 @@ public class CameraActivity extends AppCompatActivity {
             );
             Intent intentC = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intentC.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-            startActivityForResult(intentC, IMAGE_CAPTURE);
+            if(!cropImage) {
+                startActivityForResult(intentC, IMAGE_CAPTURE);
+            }
+            else {
+                startActivityForResult(intentC, IMAGE_TO_CROP);
+            }
+
         }
     }
 
@@ -72,6 +93,41 @@ public class CameraActivity extends AppCompatActivity {
                 Log.d(CameraActivity.class.getSimpleName(), rowsDeleted + "rows deleted");
             }
         }
+
+        if (requestcode == GALLERY_Pick)
+        {
+            if (requestcode == RESULT_OK)
+            {
+                if(data != null)
+                {
+                    Uri uri = data.getData();
+                    updateBitmap(getandScaleBitmap(uri,-1,300));
+                }
+            }
+            else
+                {
+                    Log.d(CameraActivity.class.getSimpleName(),"Kein Bild auasgewählt");
+                }
+        }
+
+
+        if(requestcode == IMAGE_TO_CROP)
+        {
+            if(requestcode == RESULT_OK)
+            {
+                cropImage(this.imageUri);
+            }
+        }
+
+        if(requestcode == IMAGE_FROM_CROP)
+        {
+            if(requestcode == RESULT_OK)
+            {
+                updateBitmap(getandScaleBitmap(this.imageUri,-1,300));
+            }
+        }
+
+
     }
 
     private Bitmap getandScaleBitmap(Uri uri, int dstWidth, int dstheight) {
@@ -91,11 +147,82 @@ public class CameraActivity extends AppCompatActivity {
         }
         return null;
     }
+/*
+    private void shareImage(Uri uri)
+    {
+        List<Intent> intentList = new ArrayList<>();
+        PackageManager packageManager = getPackageManager();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("Image/?");
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(
+          intent, PackageManager.MATCH_DEFAULT_ONLY
+        );
+
+        for(ResolveInfo info : activities)  {
+            String packageName = info.activityInfo.packageName;
+            if ("de.hshl.myapp6".equals(packageName)){
+                continue;
+            }
+            Intent intentSend = new Intent(Intent.ACTION_SEND,uri);
+            intentSend.setType("Image/?");
+            intentSend.setPackage(packageName);
+            intentList.add(intentSend);
+        }
+
+        int size = intentList.size();
+        if(size > 0)
+    {
+        Intent intentChooser = Intent.createChooser(intentList.remove(size -1 ),
+                getString(R.string.share));
+        Parcelable[] parcelables = new Parcelable[size -1 ];
+        intentChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,intentList.toArray(parcelables));
+        startActivity(intentChooser);
+    }
+    }
+*/
+    private Bitmap changeToGreyscale(Bitmap src)
+    {
+        int width = src.getWidth(),
+                height = src.getHeight();
+
+        Bitmap dst = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(dst);
+        Paint paint = new Paint();
+
+        ColorMatrix colormatrix = new ColorMatrix();
+        colormatrix.setSaturation(0);
+        ColorMatrixColorFilter filter = new ColorMatrixColorFilter(colormatrix);
+        paint.setColorFilter(filter);
+
+
+        canvas.drawBitmap(src,0,0,paint);
+        return  dst;
+    }
 
     public void updateBitmap(Bitmap bitmap)
     {
         this.actualBitmap = bitmap;
         this.imageView.setImageBitmap(bitmap);
+    }
+
+
+    private void cropImage(Uri uri)
+    {
+        try {
+            Intent cropIntent = new Intent("com.android.camera.action.Crop");
+            cropIntent.setDataAndType(uri,"Image/*");
+            cropIntent.putExtra("crop","true");
+            cropIntent.putExtra("aspectX",1);
+            cropIntent.putExtra("aspectY",1);
+            cropIntent.putExtra("outputX",256);
+            cropIntent.putExtra("outputY",256);
+            cropIntent.putExtra("return-data",true);
+            startActivityForResult(cropIntent,IMAGE_FROM_CROP);
+        }
+        catch (Exception e)
+        {
+            Log.e(CameraActivity.class.getSimpleName(),"cropImage()",e);
+        }
     }
 
     protected void checkPermission() {
@@ -112,9 +239,6 @@ public class CameraActivity extends AppCompatActivity {
         else{
             this.permissionGranted  = true;
         }
-
-
-
     }
 
 public void onRequestPermissionsResult(int requestCode,String permissions[],
@@ -126,7 +250,7 @@ public void onRequestPermissionsResult(int requestCode,String permissions[],
             if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
             {
                 this.permissionGranted = true;
-                startCamera();
+                startCamera(true);
             }
             else {this.permissionGranted = false;}
     }
