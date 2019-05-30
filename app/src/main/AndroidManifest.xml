@@ -69,7 +69,8 @@
         <activity android:name=".ConsentFormActivity">
         </activity>
 
-        <activity android:name=".AttachFileActivity">
+        <activity android:name=".AttachFileActivity"
+            android:theme="@style/AppTheme.AttachFilePopUp">
         </activity>
 
         <activity android:name=".ChangePasswordActivity"

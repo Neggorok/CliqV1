@@ -6,7 +6,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
 public class AttachFileActivity extends Activity {
@@ -44,7 +46,13 @@ public class AttachFileActivity extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int) (width * .5), (int) (height * .3));
-        getWindow().setBackgroundDrawable(null);
+
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.gravity = Gravity.CENTER;
+        params.x = 0;
+        params.y = -20;
+
+        getWindow().setAttributes(params);
 
     }
 }

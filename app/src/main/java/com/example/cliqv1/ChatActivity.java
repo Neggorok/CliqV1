@@ -60,7 +60,8 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChatActivity.this, AttachFileActivity.class));
+                Intent i = new Intent(getApplicationContext(), AttachFileActivity.class);
+                startActivity(i);
             }
         });
 
