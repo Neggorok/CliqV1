@@ -11,6 +11,9 @@
     <string name="group_settings">Group settings</string>
     <string name="group_information">Group information</string>
 
+    //activity_user_list
+    <string name="search">Search</string>
+
     //activity_main
     <string name="username">Username</string>
     <string name="password">Password</string>

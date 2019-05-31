@@ -11,6 +11,9 @@
     <string name="group_settings">Hастройки группы</string>
     <string name="group_information">информация о группе</string>
 
+    //activity_user_list
+    <string name="search">поиск</string>
+
     //activity_main
     <string name="username">имя пользователя</string>
     <string name="password">пароль</string>
