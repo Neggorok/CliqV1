@@ -1,63 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnRecord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorOrange"
-        android:text="@string/startAudio" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-    <Button
-        android:id="@+id/btnStopRecord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorOrange"
-        android:text="@string/stopAudio" />
+            <Button
+                android:id="@+id/btnRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOrange"
+                android:layout_marginLeft="8dp"
+                android:text="@string/startAudio" />
 
-</LinearLayout>
+            <Button
+                android:id="@+id/btnStopRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOrange"
+                android:layout_marginLeft="8dp"
+                android:text="@string/stopAudio" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btnSaveRecord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorOrange"
-        android:text="@string/save" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-    <Button
-        android:id="@+id/btnPlay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorOrange"
-        android:text="@string/playAudio" />
+            <Button
+                android:id="@+id/btnPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOrange"
+                android:layout_marginLeft="8dp"
+                android:text="@string/playAudio" />
+
+            <Button
+                android:id="@+id/btnSaveRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOrange"
+                android:layout_marginLeft="8dp"
+                android:text="@string/save" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnSendRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOrange"
+                android:text="@string/send" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-
-    <Button
-        android:id="@+id/btnSendRecord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorOrange"
-        android:text="@string/send" />
-
-</LinearLayout>
 </LinearLayout>
