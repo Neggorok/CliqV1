@@ -67,6 +67,10 @@
     //activity_consent_form
     <string name="consent">Einverständniserklärung</string>
 
+    //activity_camera
+    <string name="take_photo">Foto aufnehmen</string>
+    <string name="record_video">Video aufnehmen</string>
+
     //menu_group_chat
     <string name="view_group">Gruppeninformationen</string>
     <string name="back_to_profile">Zurück zum Profil</string>

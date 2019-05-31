@@ -68,6 +68,10 @@
     //activity_consent_form
     <string name="consent">Форма согласия</string>
 
+    //activity_camera
+    <string name="take_photo">Сделать фото</string>
+    <string name="record_video">заснять видео</string>
+
     //menu_group_chat
     <string name="view_group">Информация о группе</string>
     <string name="back_to_profile">Вернуться в чат</string>
