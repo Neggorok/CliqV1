@@ -78,6 +78,8 @@
     //activity_camera
     <string name="take_photo">Сделать фото</string>
     <string name="record_video">заснять видео</string>
+    <string name="cropImage">Обрезать фото</string>
+    <string name="bwFilter">Черно-белый фильтр</string>
 
     //menu_group_chat
     <string name="view_group">Информация о группе</string>

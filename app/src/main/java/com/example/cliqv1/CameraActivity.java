@@ -23,6 +23,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -33,6 +35,13 @@ import java.util.List;
 
 
 public class CameraActivity extends AppCompatActivity {
+
+    Button btnTakePicture;
+    Button btnRecordVideo;
+    Button btnCropImage;
+    Button btnFilter;
+    Button btnSend;
+
 
     private String DESCRIPTION = "Demo";
     private String TITLE = "Demo";
@@ -52,7 +61,11 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-
+        btnTakePicture =  findViewById(R.id.btnTakePicture);
+        btnRecordVideo =  findViewById(R.id.btnRecordVideo);
+        btnCropImage = findViewById(R.id.btnCropImage);
+        btnFilter = findViewById(R.id.btnFilter);
+        btnSend = findViewById(R.id.btnSend);
 
             Intent intentc = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
             startActivity(intentc);

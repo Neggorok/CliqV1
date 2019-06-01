@@ -77,6 +77,8 @@
     //activity_camera
     <string name="take_photo">Take photo</string>
     <string name="record_video">Record Video</string>
+    <string name="cropImage">Crop photo</string>
+    <string name="bwFilter">Black and white filter</string>
 
     //menu_group_chat
     <string name="view_group">Group information</string>

@@ -38,8 +38,8 @@ public class AudioActivity extends AppCompatActivity {
         play.setEnabled(false);
 
 
-        record.setOnClickListener(new View.OnClickListener()
-        {
+        record.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
         if(checkPermission()) {

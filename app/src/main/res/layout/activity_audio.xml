@@ -22,6 +22,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colorOrange"
+                android:drawableRight="@drawable/ic_mic_white_24dp"
+                android:paddingRight="5dp"
+                android:paddingLeft="10dp"
                 android:layout_marginLeft="8dp"
                 android:text="@string/startAudio" />
 
@@ -30,6 +33,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colorOrange"
+                android:drawableRight="@drawable/ic_stop_white_24dp"
+                android:paddingRight="5dp"
+                android:paddingLeft="10dp"
                 android:layout_marginLeft="8dp"
                 android:text="@string/stopAudio" />
 
@@ -47,6 +53,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colorOrange"
+                android:drawableRight="@drawable/ic_play_arrow_white_24dp"
+                android:paddingRight="5dp"
+                android:paddingLeft="10dp"
                 android:layout_marginLeft="8dp"
                 android:text="@string/playAudio" />
 
