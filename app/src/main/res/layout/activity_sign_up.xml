@@ -2,9 +2,9 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
 
     <EditText
         android:id="@+id/edittext_name"
@@ -13,7 +13,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="Benutzername"
+        android:hint="@string/username"
         android:inputType="textPersonName"
         android:text=""
         android:textColor="#000000"
@@ -29,7 +29,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        android:hint="E-Mail"
+        android:hint="@string/email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_name" />
 
@@ -41,7 +41,7 @@
         android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Passwort"
+        android:hint="@string/password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
@@ -53,28 +53,9 @@
         android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Passwort wiederholen"
+        android:hint="@string/repeat_pw"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_password" />
-
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:text="Schüleraccount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_password2" />
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:text="Lehreraccount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton" />
 
     <Button
         android:id="@+id/signupbtn"
@@ -83,10 +64,29 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="80dp"
-        android:text="Registrieren"
+        android:text="@string/registration"
         android:backgroundTint="@color/colorOrange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBoxStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/studentAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_password2" />
+
+    <CheckBox
+        android:id="@+id/checkBoxTeacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="@string/teacherAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxStudent" />
 
 
 </android.support.constraint.ConstraintLayout>

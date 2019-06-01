@@ -11,6 +11,12 @@
     <string name="group_settings">Group settings</string>
     <string name="group_information">Group information</string>
 
+    //activity_sign_up
+    <string name="email">E-Mail</string>
+    <string name="repeat_pw">Repeat password</string>
+    <string name="studentAccount">Student account</string>
+    <string name="teacherAccount">Teacher account</string>
+
     //activity_user_list
     <string name="search">Search</string>
 

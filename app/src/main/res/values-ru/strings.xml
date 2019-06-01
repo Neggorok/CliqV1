@@ -11,6 +11,12 @@
     <string name="group_settings">Hастройки группы</string>
     <string name="group_information">информация о группе</string>
 
+    //activity_sign_up
+    <string name="email">е-мейл</string>
+    <string name="repeat_pw">повторить пароль</string>
+    <string name="studentAccount">Студенческие счета</string>
+    <string name="teacherAccount">Учитель счета</string>
+
     //activity_user_list
     <string name="search">поиск</string>
 
