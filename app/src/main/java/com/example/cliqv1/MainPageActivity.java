@@ -18,10 +18,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,13 +36,16 @@ public class MainPageActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private TabsAdapter tabsAdapter;
+    private Toolbar toolbar;
+    private FirebaseUser currentUser;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         viewPager = findViewById(R.id.mainpager);
         tabsAdapter = new TabsAdapter(getSupportFragmentManager());
@@ -48,6 +53,13 @@ public class MainPageActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.maintab);
         tabLayout.setupWithViewPager(viewPager);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
+
+        toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Cliq");
 
     }
 
@@ -65,6 +77,7 @@ public class MainPageActivity extends AppCompatActivity {
         }
 
         if (id == R.id.logout) {
+            firebaseAuth.signOut();
             sendUserToLogin();
         }
 

@@ -6,13 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainbarLayout">
+
+        <include layout="@layout/appbar_layout"
+            android:id="@+id/main_toolbar">
+        </include>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:id="@+id/chat_logo"
-        android:background="@drawable/cliq_logo"/>
+        android:background="@drawable/cliq_logo"
+        android:layout_below="@+id/mainbarLayout"/>
 
     <LinearLayout
         android:layout_width="match_parent"
