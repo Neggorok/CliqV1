@@ -2,11 +2,15 @@ package com.example.cliqv1;
 
 import android.content.Intent;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -15,6 +19,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,138 +31,67 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
-    EditText userName;
-    EditText userPassword;
-
-    RequestQueue queue;
+    private EditText eMail, ePass;
+    private Button btn;
+    private TextView text;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Lädt die TextViews der Eingabezeilen, um sie in der Methode nutzen zu können
-        // Eine Id wird auf dem Server automatisch per Script angelegt
-        userName = findViewById(R.id.edittext_name);
-        userPassword = (EditText) findViewById(R.id.edittext_password);
+        eMail = findViewById(R.id.editMail);
+        ePass = findViewById(R.id.editPass);
+        btn = findViewById(R.id.btnLog);
+        text = findViewById(R.id.textSign);
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        queue = Volley.newRequestQueue(this);
+
     }
 
-    // Das View view sorgt dafür, das Die Methode erkennt das es sich um einen Button handelt
-    public void signUp(View view) {
-
-        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
-        String create_user_url = getString(R.string.cliq) + "/registrierung_cliq.php";
-
-        // der Request prüft ob die Daten des Scripts "/registrierung_cliq.php" correct sind
-        StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
-
-                // stellt die Antwort des Serves dar
-                response -> {
-
-                    // gibt die Antwort des Serves in der AS Console aus
-                    // dient nur zur Kontrolle
-                    Log.i("response", response);
-
-                    // der Try - catch bereich funktioniert ähnlich wie eine If Abfrage
-                    // es wird im Try Bereich versucht auf die Antwort zu reagieren
-                    // und sollte die Antwort des Servers die Erwartete sein, reagiert der Catch Bereich dementsprechend
-                    try {
-
-                        // wandelt die Antwort des Servers in JSON um
-                        JSONObject jsonResponse = new JSONObject(response);
-
-                        // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App sichtbar aus
-                        Toast.makeText(MainActivity.this, jsonResponse.get("message").toString(), Toast.LENGTH_SHORT).show();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }, error -> {
-
-        }) {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                // Hier werden die Eingaben aus den EditTexten userName und userPassword ausgelesen
-                // und in die entsprechenden Variablen geladen
-                params.put("username", userName.getText().toString());
-                params.put("password", userPassword.getText().toString());
-
-                return params;
-            }
-        };
-
-// Add the request to the RequestQueue.
-        queue.add(postRequest);
+    private void sendUserToMainPage() {
+        finish();
+        Intent iMain = new Intent(MainActivity.this, MainPageActivity.class);
+        startActivity(iMain);
     }
 
-    // Das View view sorgt dafür, das Die Methode erkennt das es sich um einen Button handelt
-    public void logIn(View view) {
-        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
-        String create_user_url = getString(R.string.cliq) + "/login_cliq.php";
+    public void sendUserToRegister(View view) {
+        finish();
+        Intent iR = new Intent(MainActivity.this, RegisterActivity.class);
+        startActivity(iR);
+    }
 
-        // der Request prüft ob die Daten des Scripts "/registrierung_cliq.php" correct sind
-        StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
-
-                // stellt die Antwort des Serves dar
-                response -> {
-
-                    // gibt die Antwort des Serves in der AS Console aus
-                    // dient nur zur Kontrolle
-                    Log.i("response", response);
-
-                    // der Try - catch bereich funktioniert ähnlich wie eine If Abfrage
-                    // es wird im Try Bereich versucht auf die Antwort zu reagieren
-                    // und sollte die Antwort des Servers die Erwartete sein, reagiert der Catch Bereich dementsprechend
-                    try {
-
-                        // wandelt die Antwort des Servers in JSON um
-                        JSONObject jsonResponse = new JSONObject(response);
-
-                        // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App sichtbar aus
-                        Toast.makeText(MainActivity.this, jsonResponse.get("message").toString(), Toast.LENGTH_SHORT).show();
-
-                        int success = Integer.parseInt(jsonResponse.get("success").toString());
-
-                        if(success == 1){
-
-                            PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putInt("id", jsonResponse.getInt("user_id")).apply();
-
-                            PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("username", userName.getText().toString()).apply();
-
-                            PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("image", jsonResponse.getString("user_image")).apply();
+    public void login(View view) {
+        String mail = eMail.getText().toString().trim();
+        String pass = ePass.getText().toString().trim();
 
 
-                            Intent intent = new Intent(getApplicationContext(), UserListActivity.class);
-                            startActivity(intent);
+        if (TextUtils.isEmpty(mail)) {
+            Toast.makeText(getApplicationContext(), "Bitte gebe deine Email-Adresse an!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        if (TextUtils.isEmpty(pass)) {
+            Toast.makeText(getApplicationContext(), "Bitte gebe dein Passwort an!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        if (!TextUtils.isEmpty(mail) && !TextUtils.isEmpty(pass)) {
+
+            firebaseAuth.signInWithEmailAndPassword(mail, pass)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Eingeloggt", Toast.LENGTH_SHORT).show();
+                                finish();
+                                sendUserToMainPage();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Oops, ein Fehler ist unterlaufen... versuche es später erneut!", Toast.LENGTH_SHORT).show();
+                            }
                         }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }, error -> {
-
-
-        }) {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                // Hier werden die Eingaben aus den EditTexten userName und userPassword ausgelesen
-                // und in die entsprechenden Variablen geladen
-                params.put("username", userName.getText().toString());
-                params.put("password", userPassword.getText().toString());
-
-                return params;
-            }
-        };
-
-// Add the request to the RequestQueue.
-        queue.add(postRequest);
+                    });
+        }
     }
 }

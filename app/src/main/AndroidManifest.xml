@@ -17,6 +17,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".MainPageActivity"
+            android:label="Cliq"/>
+        <activity android:name=".RegisterActivity"
+            android:label="Registrierung"/>
         <activity
             android:name=".ChatActivity"
             android:windowSoftInputMode="adjustPan" />
