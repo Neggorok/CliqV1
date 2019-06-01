@@ -41,14 +41,31 @@
             android:textSize="20sp"
             android:id="@+id/edittext_password"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="@string/sign_up"
+            android:background="@color/colorOrange"
+            android:onClick="signUp2"/>
+
         <Button
             android:id="@+id/LogInButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
             android:text="@string/login"
             android:background="@color/colorOrange"
             android:onClick="logIn"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/signUpTextView"
@@ -57,19 +74,9 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:textColor="#4a4cc3"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:onClick="signUp"
             android:text="@string/sign_up"/>
-
-        <Button
-            android:id="@+id/test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Registrieren Test"
-            android:textAlignment="center"
-            android:onClick="signUp2"
-            android:textStyle="bold" />
 
     </LinearLayout>
 

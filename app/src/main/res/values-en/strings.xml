@@ -16,6 +16,7 @@
     <string name="repeat_pw">Repeat password</string>
     <string name="studentAccount">Student account</string>
     <string name="teacherAccount">Teacher account</string>
+    <string name="join_now">Join Now</string>
 
     //activity_user_list
     <string name="search">Search</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -7,30 +7,15 @@
     android:background="@color/colorWhite">
 
     <EditText
-        android:id="@+id/edittext_name"
+        android:id="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="@string/username"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:ems="10"
         android:inputType="textPersonName"
         android:text=""
         android:hint="@string/email"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_name" />
 
     <EditText
@@ -38,11 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="@string/password"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
     <EditText
@@ -50,33 +34,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="@string/repeat_pw"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_password" />
 
-    <Button
-        android:id="@+id/signupbtn"
-        android:onClick="signUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="80dp"
-        android:text="@string/registration"
-        android:backgroundTint="@color/colorOrange"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <CheckBox
-        android:id="@+id/checkBoxStudent"
+    <EditText
+        android:id="@+id/edittext_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/studentAccount"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="220dp"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintTop_toBottomOf="@+id/edittext_password2" />
 
     <CheckBox
@@ -84,9 +57,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="310dp"
         android:text="@string/teacherAccount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxStudent" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_name" />
+
+    <CheckBox
+        android:id="@+id/checkBoxStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="340dp"
+        android:text="@string/studentAccount"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTeacher" />
+
+    <Button
+        android:id="@+id/signupbtn"
+        android:onClick="signUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="410dp"
+        android:text="@string/join_now"
+        android:backgroundTint="@color/colorOrange"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxStudent"/>
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

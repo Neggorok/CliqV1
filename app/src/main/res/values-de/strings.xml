@@ -16,6 +16,7 @@
     <string name="repeat_pw">Passwort wiederholen</string>
     <string name="studentAccount">Schüler-Account</string>
     <string name="teacherAccount">Lehrer-Account</string>
+    <string name="join_now">Jetzt registrieren</string>
 
     //activity_user_list
     <string name="search">Suche</string>

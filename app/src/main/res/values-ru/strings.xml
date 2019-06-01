@@ -16,6 +16,7 @@
     <string name="repeat_pw">повторить пароль</string>
     <string name="studentAccount">Студенческие счета</string>
     <string name="teacherAccount">Учитель счета</string>
+    <string name="join_now">регистрировать</string>
 
     //activity_user_list
     <string name="search">поиск</string>
