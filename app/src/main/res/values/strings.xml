@@ -78,6 +78,7 @@
     <string name="record_video">Video aufnehmen</string>
     <string name="cropImage">Foto zuschneiden</string>
     <string name="bwFilter">Schwarz-Weiß Filter</string>
+    <string name="open_gallery">Galerie öffnen</string>
 
     //menu_group_chat
     <string name="view_group">Gruppeninformationen</string>

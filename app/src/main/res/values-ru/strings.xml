@@ -80,6 +80,7 @@
     <string name="record_video">заснять видео</string>
     <string name="cropImage">Обрезать фото</string>
     <string name="bwFilter">Черно-белый фильтр</string>
+    <string name="open_gallery">Открытая галерея</string>
 
     //menu_group_chat
     <string name="view_group">Информация о группе</string>

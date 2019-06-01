@@ -41,6 +41,7 @@ public class CameraActivity extends AppCompatActivity {
     Button btnCropImage;
     Button btnFilter;
     Button btnSend;
+    Button btnOpenGallery;
 
 
     private String DESCRIPTION = "Demo";
@@ -61,17 +62,59 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        btnTakePicture =  findViewById(R.id.btnTakePicture);
-        btnRecordVideo =  findViewById(R.id.btnRecordVideo);
+        btnTakePicture = findViewById(R.id.btnTakePicture);
+        btnRecordVideo = findViewById(R.id.btnRecordVideo);
+        btnOpenGallery = findViewById(R.id.btnOpenGallery);
         btnCropImage = findViewById(R.id.btnCropImage);
         btnFilter = findViewById(R.id.btnFilter);
         btnSend = findViewById(R.id.btnSend);
 
-            Intent intentc = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-            startActivity(intentc);
+        btnTakePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentc = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                startActivity(intentc);
+            }
+        });
 
-            Intent inteng = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivity(inteng);
+        /* btnRecordVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        });
+     */
+
+        btnOpenGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                Intent inteng = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivity(inteng);
+            }
+        });
+
+     /*   btnCropImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        });
+
+        btnFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        });
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        });
+    */
+
     }
 
     private void startCamera(boolean cropImage) {
