@@ -16,18 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProfileActivity"></activity>
-        <activity android:name=".MainPageActivity"
-            android:label="Cliq"/>
-        <activity android:name=".RegisterActivity"
-            android:label="Registrierung"/>
+        <activity android:name=".GroupChatActivity"
+            android:label="Gruppe"></activity>
         <activity
-            android:name=".ChatActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:name=".MainPageActivity"
+            android:label="Cliq" />
         <activity
-            android:name=".UserListActivity"
-            android:label="@string/title_activity_user_list"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".RegisterActivity"
+            android:label="Registrierung" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
