@@ -91,22 +91,37 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Dein Passwort stimmt nicht überein.", Toast.LENGTH_SHORT).show();
             return;
         }
+        if(!radioL.isChecked()&&!radioS.isChecked()){
+            Toast.makeText(this, "Bitte wähle eine Account-Art aus.", Toast.LENGTH_SHORT).show();
+        }
 
-        if(!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(mail)&&!TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(pass2)) {
+        if(!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(mail)&&!TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(pass2)&&radioS.isChecked()) {
 
-            if(radioS.isChecked()) {
                 HashMap<String, String> userMap = new HashMap<>();
                 userMap.put("uid", firebaseAuth.getCurrentUser().getUid());
                 userMap.put("name", username);
                 databasePupil.child(firebaseAuth.getCurrentUser().getUid()).setValue(userMap);
-            }
-            if(radioL.isChecked()) {
+            firebaseAuth.createUserWithEmailAndPassword(mail, pass)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Benutzer registriert.", Toast.LENGTH_SHORT).show();
+                                sendUserToMainPage();
+
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Oops, ein Fehler ist unterlaufen... versuche es später nochmal!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+        if(!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(mail)&&!TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(pass2)&&radioL.isChecked()) {
+
+
                 HashMap<String, String> userMap = new HashMap<>();
                 userMap.put("uid", firebaseAuth.getCurrentUser().getUid());
                 userMap.put("name", username);
                 databaseTeacher.child(firebaseAuth.getCurrentUser().getUid()).setValue(userMap);
-            }
-
             firebaseAuth.createUserWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
