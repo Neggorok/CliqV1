@@ -3,7 +3,6 @@ package com.example.cliqv1;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -12,11 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TableLayout;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
@@ -26,9 +21,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.security.AccessController;
-import java.util.ArrayList;
 
 public class MainPageActivity extends AppCompatActivity {
 
@@ -129,7 +121,7 @@ public class MainPageActivity extends AppCompatActivity {
     }
     private void sendUserToLogin() {
         finish();
-        Intent iLog = new Intent(MainPageActivity.this, MainActivity.class);
+        Intent iLog = new Intent(MainPageActivity.this, LoginActivity.class);
         startActivity(iLog);
     }
 

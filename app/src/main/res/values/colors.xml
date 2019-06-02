@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#FFA500</color>
     <color name="colorOrange">#FFA500</color>
     <color name="colorLightOrange">#FFC457</color>
     <color name="colorDarkOrange">#FF8C00</color>

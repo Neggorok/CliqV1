@@ -40,25 +40,15 @@ public class GroupChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_chat);
 
-        sendMessagesbtn = findViewById(R.id.sendBtn);
-        messagesInput = findViewById(R.id.groupmessages);
-        scrollView = findViewById(R.id.scroller);
-        displayMessages = findViewById(R.id.groupchat_textdisplay);
+        currentGroupName = getIntent().getExtras().get("groupname").toString();
+        Toast.makeText(this, currentGroupName, Toast.LENGTH_SHORT).show();
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserID = firebaseAuth.getCurrentUser().getUid();
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
-
-        currentGroupName = getIntent().getExtras().get("groupname").toString();
-        Toast.makeText(this, currentGroupName, Toast.LENGTH_SHORT).show();
-
         groupNameRef = FirebaseDatabase.getInstance().getReference().child("Groups").child(currentGroupName);
 
-        toolbar = findViewById(R.id.main_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(currentGroupName);
-
+        initializeFields();
         getUserInfo();
 
         sendMessagesbtn.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +58,19 @@ public class GroupChatActivity extends AppCompatActivity {
                 messagesInput.setText("");
             }
         });
+    }
+
+    private void initializeFields() {
+
+        toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(currentGroupName);
+
+        sendMessagesbtn = findViewById(R.id.sendBtn);
+        messagesInput = findViewById(R.id.groupmessages);
+        displayMessages = findViewById(R.id.groupchat_textdisplay);
+        scrollView = findViewById(R.id.scroller);
+
     }
 
     private void getUserInfo() {
@@ -91,18 +94,21 @@ public class GroupChatActivity extends AppCompatActivity {
     private void saveMessageToDatabase() {
         String message = messagesInput.getText().toString();
         String messagekey = groupNameRef.push().getKey();
+
         if (TextUtils.isEmpty(message)){
             Toast.makeText(this, "Du kannst nicht 'nichts' verschicken.", Toast.LENGTH_SHORT).show();
         } else {
             Calendar calDate = Calendar.getInstance();
             SimpleDateFormat currentDateFormat = new SimpleDateFormat("dd.MM.yyyy");
             currentDate = currentDateFormat.format(calDate.getTime());
+
             Calendar calTime = Calendar.getInstance();
             SimpleDateFormat currentTimeFormat = new SimpleDateFormat("HH:mm");
             currentTime = currentTimeFormat.format(calTime.getTime());
 
             HashMap<String, Object> groupMessageKey = new HashMap<>();
             groupNameRef.updateChildren(groupMessageKey);
+
             groupMessageKeyRef = groupNameRef.child(messagekey);
 
             HashMap<String, Object> messageInfoMap = new HashMap<>();

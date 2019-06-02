@@ -16,15 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".GroupChatActivity"
-            android:label="Gruppe"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity
+            android:name=".GroupChatActivity"
+            android:label="Gruppe" />
         <activity
             android:name=".MainPageActivity"
             android:label="Cliq" />
         <activity
             android:name=".RegisterActivity"
             android:label="Registrierung" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
