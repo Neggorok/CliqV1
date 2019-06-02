@@ -21,7 +21,8 @@
     //menu_admin_profile und menu_profile
     <string name="new_group">Gruppe erstellen</string>
     <string name="profile_settings">Profil Einstellungen</string>
+    <string name="change_email">Email-Adresse ändern</string>
+    <string name="see_consent">Datenschutz ansehen</string>
+    <string name="change_password">Passwort ändern</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

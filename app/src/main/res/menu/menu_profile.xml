@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/set_design"
+        android:title="@string/design"
+        app:showAsAction="never">
+
+        <menu>
+
+            <item
+                android:id="@+id/set_avatar"
+                android:title="@string/avatar"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/set_background"
+                android:title="@string/background"
+                app:showAsAction="never"/>
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/set_information"
+        android:title="@string/information"
+        app:showAsAction="never">
+
+        <menu>
+
+            <item
+                android:id="@+id/set_email"
+                android:title="@string/change_email"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/set_password"
+                android:title="@string/change_password"
+                app:showAsAction="never"/>
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/set_consent_form"
+        android:title="@string/see_consent"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/set_logout"
+        android:title="@string/logout"
+        app:showAsAction="never"/>
+</menu>

@@ -113,8 +113,11 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    String currentUserID = firebaseAuth.getCurrentUser().getUid();
-                                    rootRef.child("Users").child(currentUserID).setValue("");
+                                    HashMap<String, String> userMap = new HashMap<>();
+                                    userMap.put("uid", firebaseAuth.getCurrentUser().getUid());
+                                    userMap.put("name", username);
+                                    rootRef.child("Users").child(firebaseAuth.getCurrentUser().getUid()).setValue(userMap);
+
 
                                     Toast.makeText(getApplicationContext(), "Benutzer registriert.", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();

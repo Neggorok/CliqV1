@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cliqv1.GroupChatActivity">
+    tools:context=".GroupChatActivity">
+
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/appbarlayout">
 
-    <include layout="@layout/appbar_layout"
-        android:id="@+id/main_toolbar">
-    </include>
+        <include layout="@layout/appbar_layout"
+            android:id="@+id/main_toolbar">
+        </include>
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
@@ -40,7 +42,7 @@
 
         </LinearLayout>
 
-        </ScrollView>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,6 +65,5 @@
             android:src="@drawable/send_message"
             android:id="@+id/sendBtn"/>
     </LinearLayout>
-
 
 </RelativeLayout>
