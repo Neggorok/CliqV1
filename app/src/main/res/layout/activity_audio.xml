@@ -29,7 +29,7 @@
                 android:drawableRight="@drawable/ic_mic_white_24dp"
                 android:paddingRight="5dp"
                 android:paddingLeft="10dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:text="@string/startAudio" />
 
             <Button
@@ -60,31 +60,15 @@
                 android:drawableRight="@drawable/ic_play_arrow_white_24dp"
                 android:paddingRight="5dp"
                 android:paddingLeft="10dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:text="@string/playAudio" />
-
-            <Button
-                android:id="@+id/btnSaveRecord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/colorOrange"
-                android:layout_marginLeft="8dp"
-                android:text="@string/save" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center">
 
             <Button
                 android:id="@+id/btnSendRecord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colorOrange"
+                android:layout_marginLeft="8dp"
                 android:text="@string/send" />
 
         </LinearLayout>

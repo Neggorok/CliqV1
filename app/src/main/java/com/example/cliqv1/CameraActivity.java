@@ -44,7 +44,7 @@ public class CameraActivity extends AppCompatActivity {
     Button btnOpenGallery;
 
 
-    private String DESCRIPTION = "Demo";
+    private String DESCRIPTION = "CameraDemo";
     private String TITLE = "Demo";
     private static final int IMAGE_CAPTURE = 1;
     private static final int PERMISSION_REQUEST = 99;
@@ -72,24 +72,25 @@ public class CameraActivity extends AppCompatActivity {
         btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentc = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-                startActivity(intentc);
+                Intent intentC = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                startActivity(intentC);
             }
         });
 
-        /* btnRecordVideo.setOnClickListener(new View.OnClickListener() {
+         btnRecordVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
 
+                Intent intentV = new Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
+                startActivity(intentV);
             }
         });
-     */
 
         btnOpenGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                Intent inteng = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivity(inteng);
+                Intent intentG = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivity(intentG);
             }
         });
 
@@ -190,6 +191,12 @@ public class CameraActivity extends AppCompatActivity {
 
     }
 
+    public void updateBitmap(Bitmap bitmap)
+    {
+        this.actualBitmap = bitmap;
+        this.imageView.setImageBitmap(bitmap);
+    }
+
     private Bitmap getandScaleBitmap(Uri uri, int dstWidth, int dstheight) {
         try {
             Bitmap src = MediaStore.Images.Media.getBitmap(
@@ -207,7 +214,7 @@ public class CameraActivity extends AppCompatActivity {
         }
         return null;
     }
-/*
+
     private void shareImage(Uri uri)
     {
         List<Intent> intentList = new ArrayList<>();
@@ -233,13 +240,13 @@ public class CameraActivity extends AppCompatActivity {
         if(size > 0)
     {
         Intent intentChooser = Intent.createChooser(intentList.remove(size -1 ),
-                getString(R.string.share));
+                getString(R.string.send));
         Parcelable[] parcelables = new Parcelable[size -1 ];
         intentChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,intentList.toArray(parcelables));
         startActivity(intentChooser);
     }
     }
-*/
+
     private Bitmap changeToGreyscale(Bitmap src)
     {
         int width = src.getWidth(),
@@ -257,12 +264,6 @@ public class CameraActivity extends AppCompatActivity {
 
         canvas.drawBitmap(src,0,0,paint);
         return  dst;
-    }
-
-    public void updateBitmap(Bitmap bitmap)
-    {
-        this.actualBitmap = bitmap;
-        this.imageView.setImageBitmap(bitmap);
     }
 
 
