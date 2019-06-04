@@ -28,10 +28,12 @@
             android:layout_height="50dp"
             android:id="@+id/editUser"
             android:hint="Benutzername"
+            android:layout_margin="15dp"
             android:textSize="25sp" />
         <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_margin="15dp"
             android:background="@drawable/search"
             android:id="@+id/searchUser"/>
     </LinearLayout>
