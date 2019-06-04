@@ -26,6 +26,8 @@
         <activity
             android:name=".RegisterActivity"
             android:label="Registrierung" />
+        <activity
+            android:name=".AttachFileActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
