@@ -29,8 +29,9 @@
             android:name=".RegisterActivity"
             android:label="Registrierung" />
 
-        <activity
-            android:name=".AttachFileActivity" />
+        <activity android:name=".AttachFileActivity"
+            android:theme="@style/AppTheme.AttachFilePopUp">
+        </activity>
 
         <activity
             android:name=".CameraActivity" />
