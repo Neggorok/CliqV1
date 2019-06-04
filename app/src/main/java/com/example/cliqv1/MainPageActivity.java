@@ -77,7 +77,7 @@ public class MainPageActivity extends AppCompatActivity {
                         requestNewGroup();
                     }
                     else {
-                        Toast.makeText(MainPageActivity.this, "Du musst einen Admin-Account besitzen, um eine Gruppe zu erstellen.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainPageActivity.this, "Du musst einen Lehrer-Account besitzen, um eine Gruppe zu erstellen.", Toast.LENGTH_SHORT).show();
                     }
                 }
 
