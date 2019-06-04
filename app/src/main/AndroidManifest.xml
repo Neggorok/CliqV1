@@ -20,7 +20,7 @@
         <activity android:name=".UserList"></activity>
         <activity
             android:name=".GroupChatActivity" />
-        
+
         <activity
             android:name=".MainPageActivity"
             android:label="Cliq" />
