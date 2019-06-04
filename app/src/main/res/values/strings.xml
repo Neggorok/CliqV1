@@ -1,28 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CliqV1</string>
-    <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
-    <string name="title_activity_user_list">UserListActivity</string>
 
-    //bottom_navigation
-    <string name="groupchat">Gruppenchat</string>
-    <string name="profile">Profil</string>
+    //AndroidManifest label
+    <string name="app_name">Cliq</string>
+    <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
+    <string name="groupchat">Group chats</string>
+    <string name="change_avatar">Choose your avatar</string>
+    <string name="registration">Registration</string>
+    <string name="change_background">Select your background</string>
+    <string name="group_settings">Group settings</string>
+    <string name="group_information">Group information</string>
+
+    //activity_sign_up
+    <string name="email">E-Mail</string>
+    <string name="repeat_pw">Repeat password</string>
+    <string name="studentAccount">Student account</string>
+    <string name="teacherAccount">Teacher account</string>
+    <string name="join_now">Join Now</string>
+
+    //activity_user_list
+    <string name="search">Search</string>
+
+    //activity_main
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="profile">Profile</string>
+
+    //activity_profile
+    <string name="save">save</string>
+
+    //activity_chat
+    <string name="message">Write a message...</string>
+    <string name="send">send</string>
+    <string name="photo">Photo</string>
+    <string name="documents">Documents</string>
+    <string name="audio">Audio</string>
+    <string name="camera">Camera</string>
+    <string name="delete_message">Delete message</string>
+    <string name="startAudio">Start</string>
+    <string name="stopAudio">Stop</string>
+    <string name="playAudio">Play</string>
+
+    //activity_group_chat_settings
+    <string name="delete_switch">Delete messages</string>
+    <string name="profanity_filter">Profanity filter</string>
+    <string name="participantlist">Participants list</string>
+    <string name="new_group_member">Add new groupmember</string>
+    <string name="members_group">Group members</string>
+    <string name="previousActivity">previous Activity</string>
+    <string name="change_group_pic">Change group picture</string>
+    <string name="activate_filter">Activate filter</string>
+
+    //activity_group_chat_view
+    <string name="groupname">Groupname</string>
+
+    //activity_consent_form
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
 
     //menu_profile_settings und menu_admin_profile_settings
-    <string name="settings">Einstellungen</string>
-    <string name="design">Design ändern</string>
-    <string name="avatar">Avatar auswählen</string>
-    <string name="background">Hintergrund auswählen</string>
-    <string name="information">Informationen bearbeiten</string>
-    <string name="email">E-Mail ändern</string>
-    <string name="password">Passwort ändern</string>
-    <string name="consent">Einverständniserklärung einsehen</string>
-    <string name="logout">Ausloggen</string>
+    <string name="settings">Settings</string>
+    <string name="design">Change design</string>
+    <string name="avatar">Change avatar</string>
+    <string name="background">Change background</string>
+    <string name="information">Edit information</string>
+    <string name="change_email">Change E-Mail address</string>
+    <string name="change_password">Change password</string>
+    <string name="see_consent">View consent form</string>
+    <string name="logout">Logout</string>
 
-    //menu_admin_profile und menu_profile
-    <string name="new_group">Gruppe erstellen</string>
-    <string name="profile_settings">Profil Einstellungen</string>
-    <string name="change_email">Email-Adresse ändern</string>
-    <string name="see_consent">Datenschutz ansehen</string>
-    <string name="change_password">Passwort ändern</string>
+    //activity_consent_form
+    <string name="consent">Consent form</string>
+
+    //activity_camera
+    <string name="take_photo">Take photo</string>
+    <string name="record_video">Record Video</string>
+    <string name="cropImage">Crop photo</string>
+    <string name="bwFilter">Black and white filter</string>
+    <string name="open_gallery">Open gallery</string>
+
+    //menu_group_chat
+    <string name="view_group">Group information</string>
+    <string name="back_to_profile">Back to Profile</string>
+    <string name="back_to_chat">Back to Chat</string>
+    <string name="back_to_grouplist">Back to Group Chats</string>
+    <string name="back_to_groupview">Back to group information</string>
+    <string name="back_to_groupsettings">Back to group settings</string>
+
+    //menu_profile_settings
+    <string name="newMember">New group member</string>
+
+    //menu_user_list
+    <string name="createGroup">New group</string>
 
 </resources>
