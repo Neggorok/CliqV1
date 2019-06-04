@@ -26,28 +26,32 @@
             android:layout_margin="10dp"
             android:hint="Benutzername"
             android:id="@+id/username"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:drawableStart="@drawable/person"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Email-Adresse"
             android:inputType="textEmailAddress"
-            android:id="@+id/mail"/>
+            android:id="@+id/mail"
+            android:drawableStart="@drawable/mail"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Passwort"
             android:inputType="textPassword"
-            android:id="@+id/pass"/>
+            android:id="@+id/pass"
+            android:drawableStart="@drawable/lock"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:inputType="textPassword"
             android:hint="Passwort wiederholen"
-            android:id="@+id/pass2"/>
+            android:id="@+id/pass2"
+            android:drawableStart="@drawable/lock"/>
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

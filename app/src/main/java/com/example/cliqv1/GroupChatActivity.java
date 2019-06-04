@@ -1,8 +1,10 @@
 package com.example.cliqv1;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -18,11 +20,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
@@ -35,9 +39,10 @@ public class GroupChatActivity extends AppCompatActivity {
     private ImageButton sendMessagesbtn;
     private ScrollView scrollView;
     private TextView displayMessages;
+    private FirebaseUser currentUser;
     private String currentGroupName, currentUserID, currentUserName, currentDate, currentTime;
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference userRef, groupNameRef, groupMessageKeyRef;
+    private DatabaseReference rootRef, userRef, groupNameRef, groupMessageKeyRef;
     private Toolbar toolbar;
 
     @Override
@@ -59,7 +64,9 @@ public class GroupChatActivity extends AppCompatActivity {
         Toast.makeText(this, currentGroupName, Toast.LENGTH_SHORT).show();
 
         firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
         currentUserID = firebaseAuth.getCurrentUser().getUid();
+        rootRef = FirebaseDatabase.getInstance().getReference();
         userRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Teachers");
         groupNameRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Teachers").child(currentUserID).child("Groups").child(currentGroupName);
 
@@ -199,7 +206,17 @@ public class GroupChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.newMember){
+            groupNameRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    searchMember();
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
 
         if(id == R.id.deleteGroup){
@@ -215,4 +232,7 @@ public class GroupChatActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void searchMember() {
+
+    }
 }
