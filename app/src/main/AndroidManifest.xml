@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cliqv1">
     <!-- berechtigt die App das Internet zu nutzen und auf den Internen Speicher zuzugreifen -->
-    <!-- sollten berechtigungen fehlen, wird die App von internen Einstellungen gehindert -->
+    <!-- sollten Berechtigungen fehlen, wird die App von internen Einstellungen gehindert -->
     <!-- die entsprechenden Aktionen auszuführen und stürtzt ab -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

@@ -1,10 +1,13 @@
 package com.example.cliqv1;
 
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -30,11 +34,11 @@ public class UserList extends AppCompatActivity {
 
     private RecyclerView myRecView;
     private DatabaseReference rootRef, userRef;
-    private EditText editText;
-    private ImageButton imageView;
     private Query query;
     private String userName;
     private FirebaseDatabase database;
+    private FirebaseRecyclerAdapter adapter;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +51,40 @@ public class UserList extends AppCompatActivity {
         initializeFields();
         getUser();
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchUser();
 
-            }
-        });
+        if (rootRef != null) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(UserList.this, R.style.AlertDialog);
+                        builder.setTitle("Benutzer suchen:");
+
+                        final EditText newMemberField = new EditText(UserList.this);
+                        newMemberField.setHint("Benutzername");
+                        builder.setView(newMemberField);
+
+                        builder.setPositiveButton("Hinzufügen", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String newMember = newMemberField.getText().toString();
+
+                                if (TextUtils.isEmpty(newMember)) {
+                                    Toast.makeText(UserList.this, "Bitte Benutzer angeben", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    searchUser();
+                                }
+                            }
+                        });
+                        builder.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        builder.show();
+                    } else {
+                        Toast.makeText(UserList.this, "Du musst einen Admin-Account besitzen, um Gruppen zu erstellen.", Toast.LENGTH_SHORT).show();
+                    }
+
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public LinearLayout root;
         public TextView uName;
         public CircleImageView circle;
 
@@ -90,7 +118,7 @@ public class UserList extends AppCompatActivity {
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userName = dataSnapshot.child("name").getValue().toString();
+                userName = dataSnapshot.child("name").getValue(String.class);
 
             }
 
@@ -116,7 +144,7 @@ public class UserList extends AppCompatActivity {
                                     snapshot.child("image").getValue().toString());
                         }
                     }).build();
-                    FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter<Users, ViewHolder>(options) {
+                    adapter = new FirebaseRecyclerAdapter<Users, ViewHolder>(options) {
 
 
                         @NonNull
@@ -134,9 +162,11 @@ public class UserList extends AppCompatActivity {
                             holder.circle(model.getImage());
                         }
                     };
+                    adapter.startListening();
                     myRecView.setAdapter(adapter);
 
                 }
+
             }
 
             @Override
@@ -148,10 +178,6 @@ public class UserList extends AppCompatActivity {
 
     private void initializeFields() {
         myRecView = findViewById(R.id.result_list);
-        editText = findViewById(R.id.editUser);
-        imageView = findViewById(R.id.searchUser);
     }
-
-
 
 }

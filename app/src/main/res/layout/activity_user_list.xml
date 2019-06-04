@@ -16,33 +16,12 @@
         </include>
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/appbarlayout"
-        android:id="@+id/userlayout">
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:id="@+id/editUser"
-            android:hint="Benutzername"
-            android:layout_margin="15dp"
-            android:textSize="25sp" />
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/search"
-            android:id="@+id/searchUser"/>
-    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/result_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/userlayout">
+        android:layout_below="@+id/appbarlayout">
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

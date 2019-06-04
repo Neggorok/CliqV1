@@ -233,6 +233,8 @@ public class GroupChatActivity extends AppCompatActivity {
     }
 
     private void searchMember() {
+        Intent iUser = new Intent(this, UserList.class);
+        startActivity(iUser);
 
     }
 }
