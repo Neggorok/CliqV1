@@ -50,6 +50,16 @@ public class GroupChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_chat);
 
+        ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
+
+        btn_attachFile.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GroupChatActivity.this, AttachFileActivity.class));
+            }
+        });
+
         currentGroupName = getIntent().getExtras().get("groupname").toString();
         Toast.makeText(this, currentGroupName, Toast.LENGTH_SHORT).show();
 
