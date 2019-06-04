@@ -20,14 +20,24 @@
         <activity android:name=".UserList"></activity>
         <activity
             android:name=".GroupChatActivity" />
+        
         <activity
             android:name=".MainPageActivity"
             android:label="Cliq" />
+
         <activity
             android:name=".RegisterActivity"
             android:label="Registrierung" />
+
         <activity
             android:name=".AttachFileActivity" />
+
+        <activity
+            android:name=".CameraActivity" />
+
+        <activity
+            android:name=".AudioActivity" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
