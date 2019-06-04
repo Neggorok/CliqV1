@@ -19,25 +19,29 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainPageActivity extends AppCompatActivity {
 
-    private DatabaseReference databaseReference;
+    private DatabaseReference rootRef;
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private TabsAdapter tabsAdapter;
     private Toolbar toolbar;
     private FirebaseUser currentUser;
     private FirebaseAuth firebaseAuth;
+    private String currentUserID, user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        rootRef = FirebaseDatabase.getInstance().getReference();
 
         viewPager = findViewById(R.id.mainpager);
         tabsAdapter = new TabsAdapter(getSupportFragmentManager());
@@ -48,6 +52,7 @@ public class MainPageActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
+        currentUserID = firebaseAuth.getCurrentUser().getUid();
 
         toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
@@ -65,7 +70,24 @@ public class MainPageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.newGroup){
-            requestNewGroup();
+            rootRef.child("Users").child("Teachers").child(currentUserID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()){
+                        requestNewGroup();
+                    }
+                    else {
+                        Toast.makeText(MainPageActivity.this, "Du musst einen Admin-Account besitzen, um eine Gruppe zu erstellen.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
         }
 
         if (id == R.id.logout) {
@@ -77,7 +99,7 @@ public class MainPageActivity extends AppCompatActivity {
     }
 
     private void requestNewGroup() {
-        if (databaseReference != null) {
+        if (rootRef != null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainPageActivity.this, R.style.AlertDialog);
             builder.setTitle("Gruppenname: ");
 
@@ -109,7 +131,7 @@ public class MainPageActivity extends AppCompatActivity {
         }
     }
     private void createNewGroup(String groupName) {
-        databaseReference.child("Groups").child(groupName).setValue("")
+        rootRef.child("Users").child("Teachers").child(currentUserID).child("Groups").child(groupName).setValue("")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

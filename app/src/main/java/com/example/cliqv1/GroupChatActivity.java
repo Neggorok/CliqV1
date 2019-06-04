@@ -1,5 +1,6 @@
 package com.example.cliqv1;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -49,8 +50,8 @@ public class GroupChatActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserID = firebaseAuth.getCurrentUser().getUid();
-        userRef = FirebaseDatabase.getInstance().getReference().child("Users");
-        groupNameRef = FirebaseDatabase.getInstance().getReference().child("Groups").child(currentGroupName);
+        userRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Teachers");
+        groupNameRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Teachers").child(currentUserID).child("Groups").child(currentGroupName);
 
         initializeFields();
         getUserInfo();
@@ -191,8 +192,14 @@ public class GroupChatActivity extends AppCompatActivity {
 
         }
 
-        if (id == R.id.back) {
+        if(id == R.id.deleteGroup){
 
+        }
+
+        if (id == R.id.back) {
+            finish();
+            Intent iMain = new Intent(this, MainPageActivity.class);
+            startActivity(iMain);
         }
 
         return super.onOptionsItemSelected(item);

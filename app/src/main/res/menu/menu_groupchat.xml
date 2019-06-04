@@ -8,6 +8,11 @@
         app:showAsAction="never"/>
 
     <item
+        android:id="@+id/deleteGroup"
+        android:title="Lösche Gruppe"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/back"
         android:title="Zurück"
         app:showAsAction="never"/>

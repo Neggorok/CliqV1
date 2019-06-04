@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btn;
     private String currentUserID;
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference rootRef, databasePupil, databaseTeacher;
+    private DatabaseReference rootRef;
     private RadioButton radioS, radioL;
     private ProgressDialog progressDialog;
 
@@ -39,9 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         firebaseAuth = FirebaseAuth.getInstance();
-        databasePupil = FirebaseDatabase.getInstance().getReference().child("Users");
         rootRef = FirebaseDatabase.getInstance().getReference();
-       // databaseTeacher = FirebaseDatabase.getInstance().getReference().child("Admin-Users");
 
         initializeFields();
 
@@ -102,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
         if(!radioL.isChecked()&&!radioS.isChecked()) {
             Toast.makeText(this, "Bitte wähle eine Account-Art aus.", Toast.LENGTH_SHORT).show();
         }
-            else {
+        if(!TextUtils.isEmpty(mail)&&!TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(pass2)&&!TextUtils.isEmpty(username)&&radioS.isChecked()){
                 progressDialog.setTitle("Erstelle Account.");
                 progressDialog.setMessage("Bitte warten Sie, bis ihr Account erstellt wurde...");
                 progressDialog.setCanceledOnTouchOutside(true);
@@ -116,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     HashMap<String, String> userMap = new HashMap<>();
                                     userMap.put("uid", firebaseAuth.getCurrentUser().getUid());
                                     userMap.put("name", username);
-                                    rootRef.child("Users").child(firebaseAuth.getCurrentUser().getUid()).setValue(userMap);
+                                    rootRef.child("Users").child("Pupils").child(firebaseAuth.getCurrentUser().getUid()).setValue(userMap);
 
 
                                     Toast.makeText(getApplicationContext(), "Benutzer registriert.", Toast.LENGTH_SHORT).show();
@@ -131,49 +129,37 @@ public class RegisterActivity extends AppCompatActivity {
                             }
                         });
             }
-        }
 
-       /* if(!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(mail)&&!TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(pass2)&&radioS.isChecked()) {
+        if(!TextUtils.isEmpty(mail)&&!TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(pass2)&&!TextUtils.isEmpty(username)&&radioL.isChecked()){
+            progressDialog.setTitle("Erstelle Account.");
+            progressDialog.setMessage("Bitte warten Sie, bis ihr Account erstellt wurde...");
+            progressDialog.setCanceledOnTouchOutside(true);
+            progressDialog.show();
 
-                HashMap<String, String> userMap = new HashMap<>();
-                userMap.put("uid", firebaseAuth.getCurrentUser().getUid());
-                userMap.put("name", username);
-                databasePupil.child(firebaseAuth.getCurrentUser().getUid()).setValue(userMap);
             firebaseAuth.createUserWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                HashMap<String, String> userMap = new HashMap<>();
+                                userMap.put("uid", firebaseAuth.getCurrentUser().getUid());
+                                userMap.put("name", username);
+                                rootRef.child("Users").child("Teachers").child(firebaseAuth.getCurrentUser().getUid()).setValue(userMap);
+
+
                                 Toast.makeText(getApplicationContext(), "Benutzer registriert.", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
                                 sendUserToMainPage();
 
                             } else {
-                                Toast.makeText(getApplicationContext(), "Oops, ein Fehler ist unterlaufen... versuche es später nochmal!", Toast.LENGTH_SHORT).show();
+                                String message = task.getException().toString();
+                                Toast.makeText(RegisterActivity.this, "Error: "+message, Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
                             }
                         }
                     });
         }
-        if(!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(mail)&&!TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(pass2)&&radioL.isChecked()) {
-
-
-                HashMap<String, String> userMap = new HashMap<>();
-                userMap.put("uid", firebaseAuth.getCurrentUser().getUid());
-                userMap.put("name", username);
-                databaseTeacher.child(firebaseAuth.getCurrentUser().getUid()).setValue(userMap);
-            firebaseAuth.createUserWithEmailAndPassword(mail, pass)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "Benutzer registriert.", Toast.LENGTH_SHORT).show();
-                                sendUserToMainPage();
-
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Oops, ein Fehler ist unterlaufen... versuche es später nochmal!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-        } */
+        }
     private void sendUserToMainPage() {
         finish();
         Intent iMain = new Intent(RegisterActivity.this, MainPageActivity.class);
