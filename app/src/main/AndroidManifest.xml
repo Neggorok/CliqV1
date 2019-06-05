@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProfileSettingsActivity"></activity>
+        <activity android:name=".ChangePasswordActivity"></activity>
+        <activity android:name=".ChangeEmailActivity" />
+        <activity android:name=".ProfileSettingsActivity" />
         <activity android:name=".UserList" />
         <activity android:name=".GroupChatActivity" />
         <activity
@@ -28,7 +30,7 @@
             android:label="Registrierung" />
         <activity
             android:name=".AttachFileActivity"
-            android:theme="@style/AppTheme.AttachFilePopUp"></activity>
+            android:theme="@style/AppTheme.AttachFilePopUp" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".AudioActivity" />
         <activity android:name=".LoginActivity">

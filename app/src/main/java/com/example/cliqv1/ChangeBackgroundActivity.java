@@ -74,7 +74,6 @@ public class ChangeBackgroundActivity extends AppCompatActivity {
 
         if (id == R.id.set_logout) {
 
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
             Toast.makeText(ChangeBackgroundActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();

@@ -337,8 +337,7 @@ public class CameraActivity extends AppCompatActivity {
 
         if (id == R.id.set_logout) {
 
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainPageActivity.class);
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
             Toast.makeText(CameraActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
