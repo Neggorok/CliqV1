@@ -122,6 +122,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:text="@string/change_email"
+            android:drawableLeft="@drawable/mail"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"/>
 
@@ -139,6 +140,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:text="@string/change_password"
+            android:drawableLeft="@drawable/lock"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"/>
 

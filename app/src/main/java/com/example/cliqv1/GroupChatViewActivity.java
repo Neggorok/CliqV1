@@ -132,14 +132,6 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
         }
 
-        if (id == R.id.set_settings) {
-
-            Intent i = new Intent(getApplicationContext(), GroupChatSettingsActivity.class);
-            Toast.makeText(GroupChatViewActivity.this, "Settings selected", Toast.LENGTH_SHORT).show();
-            startActivity(i);
-
-        }
-
         if (id == R.id.set_logout) {
 
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();

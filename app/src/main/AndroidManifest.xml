@@ -43,9 +43,6 @@
             android:label="@string/groupchat"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GroupChatSettingsActivity"
-            android:label="@string/group_settings" />
-        <activity
             android:name=".ChangeEmailActivity"
             android:label="@string/change_email" />
         <activity

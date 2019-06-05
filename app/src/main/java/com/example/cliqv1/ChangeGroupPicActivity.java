@@ -125,13 +125,6 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
         public boolean onOptionsItemSelected(MenuItem item) {
             int id = item.getItemId();
 
-            if (id == R.id.back_to_groupsettings) {
-
-                finish();
-                return true;
-
-            }
-
             if (id == R.id.set_logout) {
 
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
