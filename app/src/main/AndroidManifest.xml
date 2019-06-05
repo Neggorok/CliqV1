@@ -20,8 +20,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".GalleryActivity"></activity>
-        <activity android:name=".GroupFragment" />
-        <activity android:name=".ProfileFragment" />
         <activity android:name=".PopUpAttachFileActivity" />
         <activity android:name=".ConsentFormActivity" />
         <activity android:name=".PopUpConsentFormActivity" />

@@ -60,7 +60,7 @@ public class SignUpActivity extends AppCompatActivity {
     public void getConsent(){
         LayoutInflater inflater = (LayoutInflater)
                 getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.activity_consent_form, null);
+        View popupView = inflater.inflate(R.layout.activity_pop_up_consent_form, null);
         // create the popup window
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
