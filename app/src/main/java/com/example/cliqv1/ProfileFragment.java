@@ -79,6 +79,10 @@ public class ProfileFragment extends Fragment {
                 iGallery.setType("image/*");
                 startActivityForResult(iGallery, galleryPick );
          */
+
+         Intent iProfileSettings = new Intent(getContext(), ProfileSettingsActivity.class);
+         startActivity(iProfileSettings);
+
             }
         });
 
