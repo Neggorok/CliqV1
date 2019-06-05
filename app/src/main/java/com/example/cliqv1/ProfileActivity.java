@@ -208,68 +208,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         queue.add(postRequest);
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_profile, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-            if (id == R.id.set_avatar) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ia = new Intent(getApplicationContext(), ChangeAvatarActivity.class);
-                startActivity(ia);
-                return true;
-            }
-
-            if (id == R.id.set_background) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent bg = new Intent(getApplicationContext(), ChangeBackgroundActivity.class);
-                startActivity(bg);
-            return true;
-            }
-
-            if (id == R.id.set_password) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ip = new Intent(getApplicationContext(), ChangePasswordActivity.class);
-                startActivity(ip);
-                return true;
-            }
-
-            if (id == R.id.set_email) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ie = new Intent(getApplicationContext(), ChangeEmailActivity.class);
-                startActivity(ie);
-                return true;
-            }
-
-            if (id == R.id.set_consent_form) {
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ie = new Intent(getApplicationContext(), ConsentFormActivity.class);
-                startActivity(ie);
-                return true;
-            }
-
-            if (id == R.id.set_logout) {
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            Toast.makeText(ProfileActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
-            return true;
-            }
-
-        if (id == R.id.createGroup) {
-
-            RequestNewGroup();
-
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     private void RequestNewGroup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
