@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -61,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         ImageButton chat_nav = (ImageButton) findViewById(R.id.chat_nav);
         ImageButton profile_nav = (ImageButton) findViewById(R.id.profile_nav);
+        Button btnProfileSettings = (Button) findViewById(R.id.btnProfileSettings);
 
         chat_nav.setOnClickListener(new View.OnClickListener() {
 
@@ -75,6 +77,15 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ProfileActivity.this, "You are already on Profile", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnProfileSettings.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent ips = new Intent(getApplicationContext(), ProfileSettingsActivity.class);
+                startActivity(ips);
             }
         });
 
