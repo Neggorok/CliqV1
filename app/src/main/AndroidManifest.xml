@@ -19,8 +19,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProfileSettingsActivity"></activity>
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ConsentFormActivity"></activity>
+        <activity android:name=".PopUpConsentFormActivity" />
+        <activity android:name=".ProfileSettingsActivity"
+            android:label="@string/profileSettings"/>
+        <activity android:name=".ProfileActivity" />
         <activity
             android:name=".SignUpActivity"
             android:label="@string/registration" />
@@ -41,24 +44,20 @@
             android:name=".ChangeEmailActivity"
             android:label="@string/change_email" />
         <activity
-            android:name=".AcceptedConsentFormActivity"
-            android:label="@string/consent" />
-        <activity
             android:name=".GroupChatViewActivity"
             android:label="@string/view_group"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AudioActivity"></activity>
-        <activity android:name=".CameraActivity"></activity>
+        <activity android:name=".AudioActivity" />
+        <activity android:name=".CameraActivity" />
         <activity
             android:name=".ChangeGroupPicActivity"
             android:label="@string/change_group_pic" />
         <activity
             android:name=".ChangeAvatarActivity"
             android:label="@string/change_avatar" />
-        <activity android:name=".ConsentFormActivity"></activity>
         <activity
             android:name=".AttachFileActivity"
-            android:theme="@style/AppTheme.AttachFilePopUp"></activity>
+            android:theme="@style/AppTheme.AttachFilePopUp" />
         <activity
             android:name=".ChangePasswordActivity"
             android:label="@string/change_password" />

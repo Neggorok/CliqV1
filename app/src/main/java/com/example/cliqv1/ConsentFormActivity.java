@@ -1,59 +1,46 @@
 package com.example.cliqv1;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.view.View;
-import android.widget.Toast;
 import android.content.Intent;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
-public class ConsentFormActivity extends Activity {
-
-    Button btnCancel;
-    Button btnAccept;
+public class ConsentFormActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consent_form);
+        setContentView(R.layout.activity_accepted_consent_form);
+    }
 
-        btnCancel = findViewById(R.id.btnCancel);
-        btnAccept = findViewById(R.id.btnAccept);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_profile_shortcut, menu);
+        return true;
+    }
 
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
 
-                onBackPressed();
+        if (id == R.id.back_to_profile) {
 
-            }
-        });
+            finish();
+            return true;
 
-        btnAccept.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        }
 
-                startActivity(new Intent(ConsentFormActivity.this, UserListActivity.class));
-                Toast.makeText(ConsentFormActivity.this, "Registration successful",  Toast.LENGTH_SHORT).show();
+        if (id == R.id.set_logout) {
 
-            }
-        });
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(ConsentFormActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+        }
 
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-
-        getWindow().setLayout((int)(width*.9),(int)(height*.8));
-
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.gravity = Gravity.CENTER;
-        params.x = 0;
-        params.y = -20;
-
-        getWindow().setAttributes(params);
-
+        return super.onOptionsItemSelected(item);
     }
 }

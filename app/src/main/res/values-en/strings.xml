@@ -31,6 +31,9 @@
     //activity_profile
     <string name="save">save</string>
 
+    //activity_profile_settings
+    <string name="profileSettings">Profil-Settings</string>
+
     //activity_chat
     <string name="message">Write a message...</string>
     <string name="send">send</string>
