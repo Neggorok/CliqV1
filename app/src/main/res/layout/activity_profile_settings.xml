@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
     <LinearLayout
@@ -35,8 +36,8 @@
                 android:id="@+id/changeAvatar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorOrange"
-                android:drawableLeft="@drawable/ic_person_white_24dp"
+                android:background="@color/colorWhite"
+                android:drawableLeft="@drawable/ic_person_orange_24dp"
                 android:text="@string/change_avatar"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp" />
@@ -53,8 +54,8 @@
                 android:id="@+id/changeBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorOrange"
-                android:drawableLeft="@drawable/ic_background_white_24dp"
+                android:background="@color/colorWhite"
+                android:drawableLeft="@drawable/ic_background_orange_24dp"
                 android:text="@string/change_background"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"/>
@@ -86,8 +87,8 @@
                 android:id="@+id/see_consent_form"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorOrange"
-                android:drawableLeft="@drawable/ic_documents_white_24dp"
+                android:background="@color/colorWhite"
+                android:drawableLeft="@drawable/ic_consent_form_orange_24dp"
                 android:text="@string/see_consent"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"/>
@@ -119,7 +120,7 @@
                 android:id="@+id/set_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorOrange"
+                android:background="@color/colorWhite"
                 android:text="@string/change_email"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"/>
@@ -136,7 +137,7 @@
                 android:id="@+id/set_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorOrange"
+                android:background="@color/colorWhite"
                 android:text="@string/change_password"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"/>
