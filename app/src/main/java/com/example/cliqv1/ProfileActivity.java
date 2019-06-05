@@ -238,7 +238,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             if (id == R.id.set_consent_form) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent ie = new Intent(getApplicationContext(), AcceptedConsentFormActivity.class);
+                Intent ie = new Intent(getApplicationContext(), ConsentFormActivity.class);
                 startActivity(ie);
                 return true;
             }
