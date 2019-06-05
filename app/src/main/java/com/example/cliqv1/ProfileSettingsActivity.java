@@ -49,7 +49,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent iProfileSettings = new Intent(ProfileSettingsActivity.this, ChangeEmailActivity.class);
+                Intent iProfileSettings = new Intent(ProfileSettingsActivity.this, ConsentFormActivity.class);
                 startActivity(iProfileSettings);
 
             }
