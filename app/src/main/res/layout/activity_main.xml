@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -61,21 +62,32 @@
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
 
+            <Button
+                android:id="@+id/LogInButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:background="@color/colorOrange" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
         <Button
             android:id="@+id/signBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:text="@string/sign_up"
-            android:background="@color/colorOrange" />
-
-        <Button
-            android:id="@+id/LogInButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="@string/login"
-            android:background="@color/colorOrange" />
+            android:text="@string/sign_up_question"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:background="@color/colorWhite" />
 
         </LinearLayout>
 

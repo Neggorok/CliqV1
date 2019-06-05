@@ -17,6 +17,7 @@
     <string name="studentAccount">Student account</string>
     <string name="teacherAccount">Teacher account</string>
     <string name="join_now">Join Now</string>
+    <string name="sign_up_question">Not registered yet?</string>
 
     //activity_user_list
     <string name="search">Search</string>

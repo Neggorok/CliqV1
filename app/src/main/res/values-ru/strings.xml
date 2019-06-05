@@ -17,6 +17,7 @@
     <string name="studentAccount">Студенческие счета</string>
     <string name="teacherAccount">Учитель счета</string>
     <string name="join_now">регистрировать</string>
+    <string name="sign_up_question">Еще не зарегистрированы?</string>
 
     //activity_user_list
     <string name="search">поиск</string>
