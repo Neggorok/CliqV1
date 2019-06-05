@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_change_background"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/bg1"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:layout_marginTop="100dp"
+            android:onClick="bg1"
+            app:srcCompat="@drawable/background1" />
+
+        <ImageButton
+            android:id="@+id/bg2"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:layout_marginTop="130dp"
+            android:onClick="bg2"
+            app:srcCompat="@drawable/background2" />
+
+        <ImageButton
+            android:id="@+id/bg3"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:layout_marginTop="100dp"
+            android:onClick="bg3"
+            app:srcCompat="@drawable/background3" />
+
+        <ImageButton
+            android:id="@+id/bg4"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:layout_marginTop="130dp"
+            android:onClick="bg4"
+            app:srcCompat="@drawable/background4" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="240dp"
+        android:background="@color/colorOrange"
+        android:onClick="safe"
+        android:text="@string/save" />
+</RelativeLayout>
