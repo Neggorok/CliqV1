@@ -4,7 +4,11 @@ public class Users {
     public String name, image;
 
     public Users(){
+    }
 
+    public Users(String name, String image){
+        this.name = name;
+        this.image = image;
     }
 
     public String getName(){
@@ -22,8 +26,5 @@ public class Users {
     public void setImage(String image) {
         this.image = image;
     }
-    public Users(String name, String image){
-        this.name = name;
-        this.image = image;
-    }
+
 }

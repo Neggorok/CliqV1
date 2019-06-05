@@ -74,11 +74,25 @@ public class ProfileFragment extends Fragment {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-         /*       Intent iGallery = new Intent();
-                iGallery.setAction(Intent.ACTION_GET_CONTENT);
-                iGallery.setType("image/*");
-                startActivityForResult(iGallery, galleryPick );
-         */
+             /*   rootRef.child("Users").child("Pupils").child(currentUserID).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()){
+                            Intent iGallery = new Intent();
+                            iGallery.setAction(Intent.ACTION_GET_CONTENT);
+                            iGallery.setType("image/*");
+                            startActivityForResult(iGallery, galleryPick );
+                        }
+                        else {
+                            Toast.makeText(getContext(), "Nur Schüler können ihr Bild ändern.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });*/
 
          Intent iProfileSettings = new Intent(getContext(), ProfileSettingsActivity.class);
          startActivity(iProfileSettings);
@@ -91,7 +105,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void retrieveUserInfo() {
-        rootRef.child("Users").child(currentUserID).addValueEventListener(new ValueEventListener() {
+        rootRef.child("Users").child("Pupils").child(currentUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if((dataSnapshot.exists()) && (dataSnapshot.hasChild("name") && (dataSnapshot.hasChild("image")))){
@@ -133,7 +147,7 @@ public class ProfileFragment extends Fragment {
                     if (task.isSuccessful()){
                         Toast.makeText(getActivity(), "Avatar geändert", Toast.LENGTH_SHORT).show();
                         final String downloadUrl = filePath.getDownloadUrl().toString();
-                        rootRef.child("Users").child(currentUserID).child("image").setValue(downloadUrl)
+                        rootRef.child("Users").child("Pupils").child(currentUserID).child("image").setValue(downloadUrl)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
