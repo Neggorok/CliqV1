@@ -1,36 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <EditText
-        android:id="@+id/edittext_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="Benutzername"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
 
     <EditText
         android:id="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        android:hint="E-Mail"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/email"
         app:layout_constraintTop_toBottomOf="@+id/edittext_name" />
 
     <EditText
@@ -38,11 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Passwort"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/password"
         app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
     <EditText
@@ -50,42 +34,51 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Passwort wiederholen"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/repeat_pw"
         app:layout_constraintTop_toBottomOf="@+id/edittext_password" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
+    <EditText
+        android:id="@+id/edittext_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:text="Schüleraccount"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="220dp"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintTop_toBottomOf="@+id/edittext_password2" />
 
-    <RadioButton
-        android:id="@+id/radioButton2"
+    <CheckBox
+        android:id="@+id/checkBoxTeacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:text="Lehreraccount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton" />
+        android:layout_marginTop="310dp"
+        android:text="@string/teacherAccount"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_name" />
+
+    <CheckBox
+        android:id="@+id/checkBoxStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="340dp"
+        android:text="@string/studentAccount"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTeacher" />
 
     <Button
         android:id="@+id/signupbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="80dp"
-        android:text="Registrieren"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="410dp"
+        android:text="@string/join_now"
         android:backgroundTint="@color/colorOrange"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxStudent"/>
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

@@ -16,6 +16,11 @@
         <menu>
 
             <item
+                android:id="@+id/set_avatar"
+                android:title="@string/avatar"
+                app:showAsAction="never"/>
+
+            <item
                 android:id="@+id/set_background"
                 android:title="@string/background"
                 app:showAsAction="never"/>

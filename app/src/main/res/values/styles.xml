@@ -18,4 +18,11 @@
 
     <style name="AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog"></style>
 
+    <style name="AppTheme.AttachFilePopUp">
+
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
+    </style>
+
 </resources>

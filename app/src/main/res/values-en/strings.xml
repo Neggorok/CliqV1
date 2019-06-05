@@ -11,6 +11,16 @@
     <string name="group_settings">Group settings</string>
     <string name="group_information">Group information</string>
 
+    //activity_sign_up
+    <string name="email">E-Mail</string>
+    <string name="repeat_pw">Repeat password</string>
+    <string name="studentAccount">Student account</string>
+    <string name="teacherAccount">Teacher account</string>
+    <string name="join_now">Join Now</string>
+
+    //activity_user_list
+    <string name="search">Search</string>
+
     //activity_main
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -20,6 +30,9 @@
 
     //activity_profile
     <string name="save">save</string>
+
+    //activity_profile_settings
+    <string name="profileSettings">Profil-Settings</string>
 
     //activity_chat
     <string name="message">Write a message...</string>
@@ -64,10 +77,18 @@
     //activity_consent_form
     <string name="consent">Consent form</string>
 
+    //activity_camera
+    <string name="take_photo">Take photo</string>
+    <string name="record_video">Record Video</string>
+    <string name="cropImage">Crop photo</string>
+    <string name="bwFilter">Black and white filter</string>
+    <string name="open_gallery">Open gallery</string>
+
     //menu_group_chat
     <string name="view_group">Group information</string>
     <string name="back_to_profile">Back to Profile</string>
     <string name="back_to_chat">Back to Chat</string>
+    <string name="back_to_grouplist">Back to Group Chats</string>
     <string name="back_to_groupview">Back to group information</string>
     <string name="back_to_groupsettings">Back to group settings</string>
 

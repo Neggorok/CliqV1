@@ -1,12 +1,16 @@
 package com.example.cliqv1;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -34,12 +38,8 @@ public class AudioActivity extends AppCompatActivity {
         play.setEnabled(false);
 
 
+        record.setOnClickListener(new View.OnClickListener() {
 
-
-
-
-        record.setOnClickListener(new View.OnClickListener()
-        {
             @Override
             public void onClick(View v) {
         if(checkPermission()) {
@@ -147,6 +147,32 @@ public class AudioActivity extends AppCompatActivity {
                 result1 == PackageManager.PERMISSION_GRANTED;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_attach_file, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.back_to_chat) {
+
+            finish();
+            return true;
+
+        }
+
+        if (id == R.id.set_logout) {
+
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(AudioActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 }

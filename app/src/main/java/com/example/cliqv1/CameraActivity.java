@@ -15,12 +15,18 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import java.io.IOException;
@@ -30,7 +36,15 @@ import java.util.List;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private String DESCRIPTION = "Demo";
+    Button btnTakePicture;
+    Button btnRecordVideo;
+    Button btnCropImage;
+    Button btnFilter;
+    Button btnSend;
+    Button btnOpenGallery;
+
+
+    private String DESCRIPTION = "CameraDemo";
     private String TITLE = "Demo";
     private static final int IMAGE_CAPTURE = 1;
     private static final int PERMISSION_REQUEST = 99;
@@ -48,13 +62,60 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        btnTakePicture = findViewById(R.id.btnTakePicture);
+        btnRecordVideo = findViewById(R.id.btnRecordVideo);
+        btnOpenGallery = findViewById(R.id.btnOpenGallery);
+        btnCropImage = findViewById(R.id.btnCropImage);
+        btnFilter = findViewById(R.id.btnFilter);
+        btnSend = findViewById(R.id.btnSend);
 
 
-            Intent intentc = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-            startActivity(intentc);
+        btnTakePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentC = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                startActivity(intentC);
+            }
+        });
 
-            Intent inteng = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivity(inteng);
+        btnRecordVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+                Intent intentV = new Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
+                startActivity(intentV);
+            }
+        });
+
+        btnOpenGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                Intent intentG = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivity(intentG);
+            }
+        });
+
+        btnCropImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        });
+
+        btnFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        });
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        });
+
     }
 
     private void startCamera(boolean cropImage) {
@@ -86,7 +147,7 @@ public class CameraActivity extends AppCompatActivity {
         super.onActivityResult(requestcode, resultcode, data);
         if (requestcode == IMAGE_CAPTURE) {
             if (resultcode == RESULT_OK) {
-              updateBitmap(getandScaleBitmap(this.imageUri,-1,300));
+                updateBitmap(getandScaleBitmap(this.imageUri,-1,300));
 
             } else {
                 int rowsDeleted = getContentResolver().delete(imageUri, null, null);
@@ -105,9 +166,9 @@ public class CameraActivity extends AppCompatActivity {
                 }
             }
             else
-                {
-                    Log.d(CameraActivity.class.getSimpleName(),"Kein Bild auasgewählt");
-                }
+            {
+                Log.d(CameraActivity.class.getSimpleName(),"Kein Bild auasgewählt");
+            }
         }
 
 
@@ -130,6 +191,12 @@ public class CameraActivity extends AppCompatActivity {
 
     }
 
+    public void updateBitmap(Bitmap bitmap)
+    {
+        this.actualBitmap = bitmap;
+        this.imageView.setImageBitmap(bitmap);
+    }
+
     private Bitmap getandScaleBitmap(Uri uri, int dstWidth, int dstheight) {
         try {
             Bitmap src = MediaStore.Images.Media.getBitmap(
@@ -147,7 +214,7 @@ public class CameraActivity extends AppCompatActivity {
         }
         return null;
     }
-/*
+
     private void shareImage(Uri uri)
     {
         List<Intent> intentList = new ArrayList<>();
@@ -155,7 +222,7 @@ public class CameraActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("Image/?");
         List<ResolveInfo> activities = packageManager.queryIntentActivities(
-          intent, PackageManager.MATCH_DEFAULT_ONLY
+                intent, PackageManager.MATCH_DEFAULT_ONLY
         );
 
         for(ResolveInfo info : activities)  {
@@ -171,15 +238,15 @@ public class CameraActivity extends AppCompatActivity {
 
         int size = intentList.size();
         if(size > 0)
-    {
-        Intent intentChooser = Intent.createChooser(intentList.remove(size -1 ),
-                getString(R.string.share));
-        Parcelable[] parcelables = new Parcelable[size -1 ];
-        intentChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,intentList.toArray(parcelables));
-        startActivity(intentChooser);
+        {
+            Intent intentChooser = Intent.createChooser(intentList.remove(size -1 ),
+                    getString(R.string.send));
+            Parcelable[] parcelables = new Parcelable[size -1 ];
+            intentChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,intentList.toArray(parcelables));
+            startActivity(intentChooser);
+        }
     }
-    }
-*/
+
     private Bitmap changeToGreyscale(Bitmap src)
     {
         int width = src.getWidth(),
@@ -197,12 +264,6 @@ public class CameraActivity extends AppCompatActivity {
 
         canvas.drawBitmap(src,0,0,paint);
         return  dst;
-    }
-
-    public void updateBitmap(Bitmap bitmap)
-    {
-        this.actualBitmap = bitmap;
-        this.imageView.setImageBitmap(bitmap);
     }
 
 
@@ -241,24 +302,48 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 
-public void onRequestPermissionsResult(int requestCode,String permissions[],
-                                       int[] grantResults)
-{
-    switch(requestCode)
+    public void onRequestPermissionsResult(int requestCode,String permissions[],
+                                           int[] grantResults)
     {
-        case PERMISSION_REQUEST:
-            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            {
-                this.permissionGranted = true;
-                startCamera(true);
-            }
-            else {this.permissionGranted = false;}
+        switch(requestCode)
+        {
+            case PERMISSION_REQUEST:
+                if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                {
+                    this.permissionGranted = true;
+                    startCamera(true);
+                }
+                else {this.permissionGranted = false;}
+        }
+        return;
     }
-    return;
-}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_attach_file, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.back_to_chat) {
+
+            finish();
+            return true;
+
+        }
+
+        if (id == R.id.set_logout) {
+
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(CameraActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 
 }
-
-
-

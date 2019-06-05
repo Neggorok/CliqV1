@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/colorWhite">
 
 
     <ImageView
@@ -13,7 +14,7 @@
         android:layout_height="228dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/standard_user_image" />
+        app:srcCompat="@drawable/standard_group_image" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -33,30 +34,31 @@
             android:layout_marginTop="300dp"
             android:layout_marginBottom="10dp">
 
-
             <ImageButton
                 android:id="@+id/imageButton1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cliq_avatar1" />
+                app:srcCompat="@drawable/group_img1" />
+
 
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cliq_avatar2" />
+                app:srcCompat="@drawable/group_img2" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cliq_avatar3" />
+                app:srcCompat="@drawable/group_img3" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cliq_avatar4" />
+                app:srcCompat="@drawable/group_img4" />
+
 
         </TableRow>
 
@@ -68,25 +70,26 @@
                 android:id="@+id/imageButton5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cliq_avatar7" />
+                app:srcCompat="@drawable/group_img5" />
 
             <ImageButton
                 android:id="@+id/imageButton6"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cliq_avatar6" />
+                app:srcCompat="@drawable/group_img6" />
 
             <ImageButton
                 android:id="@+id/imageButton7"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cliq_avatar5" />
+                app:srcCompat="@drawable/group_img7" />
 
             <ImageButton
                 android:id="@+id/imageButton8"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cliq_avatar8" />
+                app:srcCompat="@drawable/group_img8" />
+
         </TableRow>
 
         <TableRow

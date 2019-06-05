@@ -60,7 +60,8 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChatActivity.this, AttachFileActivity.class));
+                Intent i = new Intent(getApplicationContext(), PopUpAttachFileActivity.class);
+                startActivity(i);
             }
         });
 
@@ -233,15 +234,23 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.set_viewgroup) {
+        if (id == R.id.back_to_grouplist) {
 
-            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
-            Toast.makeText(ChatActivity.this, "Group-view selected", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(getApplicationContext(), UserListActivity.class);
+            Toast.makeText(ChatActivity.this, "Group overview selected", Toast.LENGTH_SHORT).show();
             startActivity(i);
 
         }
 
-        if (id == R.id.set_logout) {
+        if (id == R.id.view_group) {
+
+            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+            Toast.makeText(ChatActivity.this, "Group view selected", Toast.LENGTH_SHORT).show();
+            startActivity(i);
+
+        }
+
+        if (id == R.id.logout) {
 
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);

@@ -51,7 +51,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.cliq_avatar1);
+                    imageView.setImageResource(R.drawable.group_img1);
 
                 }
             });
@@ -60,7 +60,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.cliq_avatar2);
+                    imageView.setImageResource(R.drawable.group_img2);
 
                 }
             });
@@ -68,7 +68,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.cliq_avatar3);
+                    imageView.setImageResource(R.drawable.group_img3);
 
                 }
             });
@@ -76,7 +76,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.cliq_avatar4);
+                    imageView.setImageResource(R.drawable.group_img4);
 
                 }
             });
@@ -84,7 +84,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.cliq_avatar7);
+                    imageView.setImageResource(R.drawable.group_img5);
 
                 }
             });
@@ -92,7 +92,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.cliq_avatar6);
+                    imageView.setImageResource(R.drawable.group_img6);
 
                 }
             });
@@ -100,7 +100,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.cliq_avatar5);
+                    imageView.setImageResource(R.drawable.group_img7);
 
                 }
             });
@@ -108,7 +108,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.cliq_avatar8);
+                    imageView.setImageResource(R.drawable.group_img8);
 
                 }
             });

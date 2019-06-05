@@ -4,34 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context="com.example.cliqv1.ProfileActivity">
-
-    <ImageButton
-        android:id="@+id/chat_nav"
-        android:layout_width="178dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="left"
-        android:src="@drawable/ic_chat_white_24dp"
-        android:background="@color/colorOrange" />
-
-    <ImageButton
-        android:id="@+id/profile_nav"
-        android:layout_width="178dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="right"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@id/chat_nav"
-        android:background="@color/colorLightGrey"
-        android:src="@drawable/ic_person_white_24dp" />
 
     <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:id="@+id/groupchat_imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/standard_user_image"/>
 
     <LinearLayout
@@ -54,9 +35,24 @@
             android:textSize="25sp"
             android:textColor="#000000"
             android:textStyle="bold"/>
-
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/profileSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:gravity="right"
+        android:background="@color/colorWhite"
+        android:layout_below="@+id/profile_linearLayout">
 
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_settings_orange_24dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
