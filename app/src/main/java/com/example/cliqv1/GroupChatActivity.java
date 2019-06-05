@@ -56,7 +56,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GroupChatActivity.this, AttachFileActivity.class));
+                startActivity(new Intent(GroupChatActivity.this, PopUpAttachFileActivity.class));
             }
         });
 

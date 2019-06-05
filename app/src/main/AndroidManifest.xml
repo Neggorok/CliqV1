@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".PopUpConsentFormActivity"></activity>
+        <activity android:name=".PopUpAttachFileActivity"></activity>
+        <activity android:name=".PopUpConsentFormActivity" />
         <activity android:name=".ConsentFormActivity" />
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".ChangeEmailActivity" />
@@ -30,9 +31,6 @@
         <activity
             android:name=".RegisterActivity"
             android:label="Registrierung" />
-        <activity
-            android:name=".AttachFileActivity"
-            android:theme="@style/AppTheme.AttachFilePopUp" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".AudioActivity" />
         <activity android:name=".LoginActivity">
