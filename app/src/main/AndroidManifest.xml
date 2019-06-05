@@ -19,10 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ConsentFormActivity"></activity>
+        <activity android:name=".PopUpAttachFileActivity"></activity>
+        <activity android:name=".ConsentFormActivity" />
         <activity android:name=".PopUpConsentFormActivity" />
-        <activity android:name=".ProfileSettingsActivity"
-            android:label="@string/profileSettings"/>
+        <activity
+            android:name=".ProfileSettingsActivity"
+            android:label="@string/profileSettings" />
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".SignUpActivity"
@@ -55,9 +57,6 @@
         <activity
             android:name=".ChangeAvatarActivity"
             android:label="@string/change_avatar" />
-        <activity
-            android:name=".AttachFileActivity"
-            android:theme="@style/AppTheme.AttachFilePopUp" />
         <activity
             android:name=".ChangePasswordActivity"
             android:label="@string/change_password" />

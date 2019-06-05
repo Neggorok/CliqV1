@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class AttachFileActivity extends Activity {
+public class PopUpAttachFileActivity extends Activity {
 
     ImageButton btn_camera;
     ImageButton btn_audio;
@@ -19,11 +19,11 @@ public class AttachFileActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attach_file);
+        setContentView(R.layout.activity_pop_up_attach_file);
 
         btn_camera = (ImageButton) findViewById(R.id.ibtn_camera);
-   //   btn_gallery = (ImageButton) findViewById(R.id.ibtn_gallery);
-   //   btn_document = (ImageButton) findViewById(R.id.ibtn_document);
+        //   btn_gallery = (ImageButton) findViewById(R.id.ibtn_gallery);
+        //   btn_document = (ImageButton) findViewById(R.id.ibtn_document);
         btn_audio = (ImageButton) findViewById(R.id.ibtn_audio);
         btn_close = (Button) findViewById(R.id.btn_close);
 
@@ -31,7 +31,7 @@ public class AttachFileActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AttachFileActivity.this, CameraActivity.class));
+                startActivity(new Intent(PopUpAttachFileActivity.this, CameraActivity.class));
             }
         });
 
@@ -39,7 +39,7 @@ public class AttachFileActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AttachFileActivity.this, AudioActivity.class));
+                startActivity(new Intent(PopUpAttachFileActivity.this, AudioActivity.class));
             }
         });
 
@@ -47,7 +47,7 @@ public class AttachFileActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-               finish();
+                finish();
             }
         });
 
