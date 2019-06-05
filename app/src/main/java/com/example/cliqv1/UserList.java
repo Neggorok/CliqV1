@@ -65,7 +65,7 @@ public class UserList extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull FindUserViewholder holder, int position, @NonNull Users model) {
                 holder.userName.setText(model.getName());
-                Picasso.get().load(model.getImage()).into(holder.profileImage);
+                Picasso.get().load(model.getImage()).placeholder(R.drawable.standard_user_image).into(holder.profileImage);
             }
 
             @NonNull
