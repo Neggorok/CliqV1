@@ -37,7 +37,7 @@ public class ConsentFormActivity extends AppCompatActivity {
 
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
-            Toast.makeText(AcceptedConsentFormActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+            Toast.makeText(ConsentFormActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
