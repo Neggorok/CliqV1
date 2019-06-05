@@ -5,9 +5,15 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -27,6 +33,8 @@ public class SignUpActivity extends AppCompatActivity {
     EditText userPassword;
     Button button;
 
+
+
     RequestQueue queue;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +47,46 @@ public class SignUpActivity extends AppCompatActivity {
         button = findViewById(R.id.signupbtn);
 
         queue = Volley.newRequestQueue(this);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getConsent();
+            }
+        });
     }
 
-    public void signUp(View v){
-        PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-        Intent i = new Intent(getApplicationContext(), ConsentFormActivity.class);
-        startActivity(i);
-        Toast.makeText(SignUpActivity.this, "Bitte bestätigen sie den Datenschutz",  Toast.LENGTH_SHORT).show();
+
+    public void getConsent(){
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.activity_consent_form, null);
+        // create the popup window
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        Button abbrechen = popupView.findViewById(R.id.btnCancel);
+        Button akzeptieren = popupView.findViewById(R.id.btnAccept);
+        // boolean focusable = true;  lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height);
+
+        popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+
+        abbrechen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+
+        akzeptieren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signUp();
+            }
+        });
     }
 
-    // Das View view sorgt dafür, das Die Methode erkennt das es sich um einen Button handelt
-    public void signUp2(View view) {
-
+    private void signUp() {
         // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
         String create_user_url = getString(R.string.cliq) + "/registrierung_cliq.php";
 
@@ -96,7 +132,5 @@ public class SignUpActivity extends AppCompatActivity {
 // Add the request to the RequestQueue.
         queue.add(postRequest);
     }
-
-
 }
 
