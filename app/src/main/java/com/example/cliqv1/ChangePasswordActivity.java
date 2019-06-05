@@ -33,7 +33,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         }
 
         if (id == R.id.set_logout) {
-            
+
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
             Toast.makeText(ChangePasswordActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
