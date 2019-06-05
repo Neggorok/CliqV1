@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ChangePasswordActivity"></activity>
+        <activity android:name=".ConsentFormActivity"></activity>
+        <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".ChangeEmailActivity" />
         <activity android:name=".ProfileSettingsActivity" />
         <activity android:name=".UserList" />
