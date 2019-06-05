@@ -13,7 +13,7 @@ public class ConsentFormActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_accepted_consent_form);
+        setContentView(R.layout.activity_consent_form);
     }
 
     @Override
