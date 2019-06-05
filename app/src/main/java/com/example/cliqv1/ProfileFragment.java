@@ -74,12 +74,14 @@ public class ProfileFragment extends Fragment {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent iGallery = new Intent();
+         /*       Intent iGallery = new Intent();
                 iGallery.setAction(Intent.ACTION_GET_CONTENT);
                 iGallery.setType("image/*");
                 startActivityForResult(iGallery, galleryPick );
+         */
             }
         });
+
         
         retrieveUserInfo();
     }

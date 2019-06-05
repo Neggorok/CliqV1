@@ -17,28 +17,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".UserList"></activity>
-        <activity
-            android:name=".GroupChatActivity" />
-
+        <activity android:name=".ProfileSettingsActivity"></activity>
+        <activity android:name=".UserList" />
+        <activity android:name=".GroupChatActivity" />
         <activity
             android:name=".MainPageActivity"
             android:label="Cliq" />
-
         <activity
             android:name=".RegisterActivity"
             android:label="Registrierung" />
-
-        <activity android:name=".AttachFileActivity"
-            android:theme="@style/AppTheme.AttachFilePopUp">
-        </activity>
-
         <activity
-            android:name=".CameraActivity" />
-
-        <activity
-            android:name=".AudioActivity" />
-
+            android:name=".AttachFileActivity"
+            android:theme="@style/AppTheme.AttachFilePopUp"></activity>
+        <activity android:name=".CameraActivity" />
+        <activity android:name=".AudioActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
