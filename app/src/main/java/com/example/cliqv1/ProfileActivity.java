@@ -62,7 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         ImageButton chat_nav = (ImageButton) findViewById(R.id.chat_nav);
         ImageButton profile_nav = (ImageButton) findViewById(R.id.profile_nav);
-        Button btnProfileSettings = (Button) findViewById(R.id.btnProfileSettings);
+        ImageButton btnProfileSettings = (ImageButton) findViewById(R.id.btnProfileSettings);
 
         chat_nav.setOnClickListener(new View.OnClickListener() {
 

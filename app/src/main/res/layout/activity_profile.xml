@@ -33,15 +33,36 @@
         android:id="@+id/groupchat_imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:background="@drawable/standard_user_image"/>
+        android:padding="10dp"
+        android:src="@drawable/standard_user_image"/>
+
+    <RelativeLayout
+        android:id="@+id/profileSettingsLayout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/colorWhite"
+        android:layout_below="@+id/groupchat_imageView"
+        android:layout_alignRight="@+id/profile_linearLayout">
+
+        <ImageButton
+            android:id="@+id/btnProfileSettings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle"
+            android:src="@drawable/ic_settings_white_24dp"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/profile_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/groupchat_imageView"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/profileSettingsLayout"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp">
 
@@ -56,27 +77,5 @@
             android:textColor="#000000"
             android:textStyle="bold"/>
     </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/profileSettingsLayout"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:orientation="vertical"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/profile_linearLayout"
-        android:layout_alignRight="@+id/profile_linearLayout">
-
-    <Button
-        android:id="@+id/btnProfileSettings"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        android:textSize="15dp"
-        android:text="@string/settings"
-        android:drawableRight="@drawable/ic_settings_orange_24dp"/>
-
-    </RelativeLayout>
 
 </RelativeLayout>
