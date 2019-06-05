@@ -6,12 +6,10 @@
     <!-- sollten berechtigungen fehlen, wird die App von internen Einstellungen gehindert -->
     <!-- die entsprechenden Aktionen auszuführen und stürtzt ab -->
     <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
-    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <!-- Audiobereich -->
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Audiobereich -->
     <uses-permission-sdk-23 android:name="android.permission.RECORD_AUDIO" />
     <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -21,73 +19,56 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".ProfileActivity">
-        </activity>
-
-        <activity android:name=".SignUpActivity"
+        <activity android:name=".ProfileSettingsActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity
+            android:name=".SignUpActivity"
             android:label="@string/registration" />
-
-        <activity android:name="ChangeBackgroundActivity"
+        <activity
+            android:name=".ChangeBackgroundActivity"
             android:label="@string/change_background" />
-
         <activity
             android:name=".ChatActivity"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".UserListActivity"
             android:label="@string/groupchat"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".GroupChatSettingsActivity"
-            android:label="@string/group_settings" />
-
-        <activity android:name=".ChangeEmailActivity"
-            android:label="@string/change_email" />
-
-        <activity android:name=".AcceptedConsentFormActivity"
-            android:label="@string/consent" />
-
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".GroupChatSettingsActivity"
+            android:label="@string/group_settings" />
+        <activity
+            android:name=".ChangeEmailActivity"
+            android:label="@string/change_email" />
+        <activity
+            android:name=".AcceptedConsentFormActivity"
+            android:label="@string/consent" />
+        <activity
             android:name=".GroupChatViewActivity"
-            android:label="@string/view_group"/>
-
-        <activity android:name=".AudioActivity">
-        </activity>
-
-        <activity android:name=".CameraActivity">
-        </activity>
-
-        <activity android:name=".ChangeGroupPicActivity"
+            android:label="@string/view_group"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AudioActivity"></activity>
+        <activity android:name=".CameraActivity"></activity>
+        <activity
+            android:name=".ChangeGroupPicActivity"
             android:label="@string/change_group_pic" />
-
-        <activity android:name=".ChangeAvatarActivity"
+        <activity
+            android:name=".ChangeAvatarActivity"
             android:label="@string/change_avatar" />
-
-        <activity android:name=".ConsentFormActivity" >
-        </activity>
-
-        <activity android:name=".AttachFileActivity"
-            android:theme="@style/AppTheme.AttachFilePopUp">
-        </activity>
-
-        <activity android:name=".ChangePasswordActivity"
+        <activity android:name=".ConsentFormActivity"></activity>
+        <activity
+            android:name=".AttachFileActivity"
+            android:theme="@style/AppTheme.AttachFilePopUp"></activity>
+        <activity
+            android:name=".ChangePasswordActivity"
             android:label="@string/change_password" />
-
         <activity android:name=".MainActivity">
-
             <intent-filter>
-
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
-
         </activity>
-
     </application>
 
 </manifest>
