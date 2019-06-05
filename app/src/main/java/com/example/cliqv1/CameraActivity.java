@@ -94,8 +94,7 @@ public class CameraActivity extends AppCompatActivity {
             }
         });
 
-
-     /*   btnCropImage.setOnClickListener(new View.OnClickListener() {
+        btnCropImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
 
@@ -115,7 +114,6 @@ public class CameraActivity extends AppCompatActivity {
 
             }
         });
-    */
 
     }
 

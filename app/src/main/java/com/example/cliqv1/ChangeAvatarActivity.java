@@ -117,7 +117,7 @@ public class ChangeAvatarActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_profile_shortcut, menu);
+        getMenuInflater().inflate(R.menu.menu_shortcut_profile, menu);
         return true;
     }
 
@@ -135,7 +135,7 @@ public class ChangeAvatarActivity extends AppCompatActivity {
         if (id == R.id.set_logout) {
 
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), MainPageActivity.class);
             startActivity(i);
             Toast.makeText(ChangeAvatarActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
