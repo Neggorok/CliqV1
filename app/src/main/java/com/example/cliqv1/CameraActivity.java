@@ -69,6 +69,7 @@ public class CameraActivity extends AppCompatActivity {
         btnFilter = findViewById(R.id.btnFilter);
         btnSend = findViewById(R.id.btnSend);
 
+
         btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -336,8 +337,7 @@ public class CameraActivity extends AppCompatActivity {
 
         if (id == R.id.set_logout) {
 
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainPageActivity.class);
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
             Toast.makeText(CameraActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }

@@ -74,7 +74,7 @@ public class ProfileFragment extends Fragment {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rootRef.child("Users").child("Pupils").child(currentUserID).addValueEventListener(new ValueEventListener() {
+             /*   rootRef.child("Users").child("Pupils").child(currentUserID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()){
@@ -92,10 +92,14 @@ public class ProfileFragment extends Fragment {
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                     }
-                });
+                });*/
+
+         Intent iProfileSettings = new Intent(getContext(), ProfileSettingsActivity.class);
+         startActivity(iProfileSettings);
 
             }
         });
+
         
         retrieveUserInfo();
     }
