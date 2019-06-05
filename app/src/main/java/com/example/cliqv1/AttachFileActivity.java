@@ -14,7 +14,12 @@ public class AttachFileActivity extends Activity {
 
     ImageButton btn_camera;
     ImageButton btn_audio;
+    ImageButton btn_gallery;
+    ImageButton btn_document;
     Button btn_close;
+
+    private static final int galleryPick = 1;
+    private static final int DocumentPick = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +27,13 @@ public class AttachFileActivity extends Activity {
         setContentView(R.layout.activity_attach_file);
 
         btn_camera = (ImageButton) findViewById(R.id.ibtn_camera);
-        //   btn_gallery = (ImageButton) findViewById(R.id.ibtn_gallery);
-        //   btn_document = (ImageButton) findViewById(R.id.ibtn_document);
+        btn_gallery = (ImageButton) findViewById(R.id.ibtn_gallery);
+        btn_document = (ImageButton) findViewById(R.id.ibtn_document);
         btn_audio = (ImageButton) findViewById(R.id.ibtn_audio);
         btn_close = (Button) findViewById(R.id.btn_close);
+
+
+
 
         btn_camera.setOnClickListener(new View.OnClickListener() {
 
@@ -35,11 +43,34 @@ public class AttachFileActivity extends Activity {
             }
         });
 
+        btn_gallery.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent iGallery = new Intent();
+                iGallery.setAction(Intent.ACTION_GET_CONTENT);
+                iGallery.setType("image/*");
+                startActivityForResult(iGallery, galleryPick );
+            }
+        });
+
+
         btn_audio.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AttachFileActivity.this, AudioActivity.class));
+            }
+        });
+
+        btn_document.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent iDocument = new Intent();
+                iDocument.setAction(Intent.ACTION_GET_CONTENT);
+                iDocument.setType("documents/*");
+                startActivityForResult(iDocument, DocumentPick );
             }
         });
 
