@@ -69,6 +69,7 @@ public class CameraActivity extends AppCompatActivity {
         btnFilter = findViewById(R.id.btnFilter);
         btnSend = findViewById(R.id.btnSend);
 
+
         btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +78,7 @@ public class CameraActivity extends AppCompatActivity {
             }
         });
 
-         btnRecordVideo.setOnClickListener(new View.OnClickListener() {
+        btnRecordVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
 
@@ -94,7 +95,7 @@ public class CameraActivity extends AppCompatActivity {
             }
         });
 
-     /*   btnCropImage.setOnClickListener(new View.OnClickListener() {
+        btnCropImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
 
@@ -114,7 +115,6 @@ public class CameraActivity extends AppCompatActivity {
 
             }
         });
-    */
 
     }
 
@@ -147,7 +147,7 @@ public class CameraActivity extends AppCompatActivity {
         super.onActivityResult(requestcode, resultcode, data);
         if (requestcode == IMAGE_CAPTURE) {
             if (resultcode == RESULT_OK) {
-              updateBitmap(getandScaleBitmap(this.imageUri,-1,300));
+                updateBitmap(getandScaleBitmap(this.imageUri,-1,300));
 
             } else {
                 int rowsDeleted = getContentResolver().delete(imageUri, null, null);
@@ -166,9 +166,9 @@ public class CameraActivity extends AppCompatActivity {
                 }
             }
             else
-                {
-                    Log.d(CameraActivity.class.getSimpleName(),"Kein Bild auasgewählt");
-                }
+            {
+                Log.d(CameraActivity.class.getSimpleName(),"Kein Bild auasgewählt");
+            }
         }
 
 
@@ -222,7 +222,7 @@ public class CameraActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("Image/?");
         List<ResolveInfo> activities = packageManager.queryIntentActivities(
-          intent, PackageManager.MATCH_DEFAULT_ONLY
+                intent, PackageManager.MATCH_DEFAULT_ONLY
         );
 
         for(ResolveInfo info : activities)  {
@@ -238,13 +238,13 @@ public class CameraActivity extends AppCompatActivity {
 
         int size = intentList.size();
         if(size > 0)
-    {
-        Intent intentChooser = Intent.createChooser(intentList.remove(size -1 ),
-                getString(R.string.send));
-        Parcelable[] parcelables = new Parcelable[size -1 ];
-        intentChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,intentList.toArray(parcelables));
-        startActivity(intentChooser);
-    }
+        {
+            Intent intentChooser = Intent.createChooser(intentList.remove(size -1 ),
+                    getString(R.string.send));
+            Parcelable[] parcelables = new Parcelable[size -1 ];
+            intentChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,intentList.toArray(parcelables));
+            startActivity(intentChooser);
+        }
     }
 
     private Bitmap changeToGreyscale(Bitmap src)
@@ -302,21 +302,21 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 
-public void onRequestPermissionsResult(int requestCode,String permissions[],
-                                       int[] grantResults)
-{
-    switch(requestCode)
+    public void onRequestPermissionsResult(int requestCode,String permissions[],
+                                           int[] grantResults)
     {
-        case PERMISSION_REQUEST:
-            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            {
-                this.permissionGranted = true;
-                startCamera(true);
-            }
-            else {this.permissionGranted = false;}
+        switch(requestCode)
+        {
+            case PERMISSION_REQUEST:
+                if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                {
+                    this.permissionGranted = true;
+                    startCamera(true);
+                }
+                else {this.permissionGranted = false;}
+        }
+        return;
     }
-    return;
-}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -337,7 +337,6 @@ public void onRequestPermissionsResult(int requestCode,String permissions[],
 
         if (id == R.id.set_logout) {
 
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
             Toast.makeText(CameraActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
@@ -348,6 +347,3 @@ public void onRequestPermissionsResult(int requestCode,String permissions[],
 
 
 }
-
-
-
