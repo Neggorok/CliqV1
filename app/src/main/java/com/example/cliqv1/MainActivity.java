@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText userName;
     EditText userPassword;
+    private Button btn, btn2;
+    private Toolbar toolbar;
 
     RequestQueue queue;
 
@@ -41,67 +45,28 @@ public class MainActivity extends AppCompatActivity {
         // Eine Id wird auf dem Server automatisch per Script angelegt
         userName = findViewById(R.id.edittext_name);
         userPassword = (EditText) findViewById(R.id.edittext_password);
+        btn = findViewById(R.id.signBtn);
+        btn2 = findViewById(R.id.LogInButton);
 
         queue = Volley.newRequestQueue(this);
-    }
-    public void signUp2(View v){
-        PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-        Intent i = new Intent(getApplicationContext(), SignUpActivity.class);
-        startActivity(i);
-        Toast.makeText(MainActivity.this, "Register",  Toast.LENGTH_SHORT).show();
-    }
 
-    // Das View view sorgt dafür, das Die Methode erkennt das es sich um einen Button handelt
-    public void signUp(View view) {
-
-        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
-        String create_user_url = getString(R.string.cliq) + "/registrierung_cliq.php";
-
-        // der Request prüft ob die Daten des Scripts "/registrierung_cliq.php" correct sind
-        StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
-
-                // stellt die Antwort des Serves dar
-                response -> {
-
-                    // gibt die Antwort des Serves in der AS Console aus
-                    // dient nur zur Kontrolle
-                    Log.i("response", response);
-
-                    // der Try - catch bereich funktioniert ähnlich wie eine If Abfrage
-                    // es wird im Try Bereich versucht auf die Antwort zu reagieren
-                    // und sollte die Antwort des Servers die Erwartete sein, reagiert der Catch Bereich dementsprechend
-                    try {
-
-                        // wandelt die Antwort des Servers in JSON um
-                        JSONObject jsonResponse = new JSONObject(response);
-
-                        // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App sichtbar aus
-                        Toast.makeText(MainActivity.this, jsonResponse.get("message").toString(), Toast.LENGTH_SHORT).show();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }, error -> {
-
-                }) {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                // Hier werden die Eingaben aus den EditTexten userName und userPassword ausgelesen
-                // und in die entsprechenden Variablen geladen
-                params.put("username", userName.getText().toString());
-                params.put("password", userPassword.getText().toString());
-
-                return params;
+            public void onClick(View v) {
+                Intent iSign = new Intent(MainActivity.this, SignUpActivity.class);
+                startActivity(iSign);
             }
-        };
+        });
 
-// Add the request to the RequestQueue.
-        queue.add(postRequest);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login();
+            }
+        });
     }
 
-    // Das View view sorgt dafür, das Die Methode erkennt das es sich um einen Button handelt
-    public void logIn(View view) {
+    private void login() {
         // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
         String create_user_url = getString(R.string.cliq) + "/login_cliq.php";
 
@@ -150,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 }, error -> {
 
 
-                }) {
+        }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();

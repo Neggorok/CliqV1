@@ -2,7 +2,17 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:layout_margin="20dp">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/consent_form"
@@ -16,27 +26,33 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/consentText"/>
+        android:id="@+id/consentText"
+        android:src="@drawable/datenschutz"
+        android:layout_below="@+id/consent_form"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/consentText">
 
     <Button
         android:id="@+id/btnCancel"
         android:text="@string/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp" />
+        android:background="@color/colorOrange"/>
 
     <Button
         android:id="@+id/btnAccept"
         android:text="@string/accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="80dp"
         android:background="@color/colorOrange" />
+    </LinearLayout>
+
+</LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
