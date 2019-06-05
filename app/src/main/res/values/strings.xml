@@ -30,6 +30,7 @@
 
     //activity_profile
     <string name="save">save</string>
+    <string name="profileSettings">Profile-Settings</string>
 
     //activity_chat
     <string name="message">Write a message...</string>

@@ -47,5 +47,42 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/firstSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_image"
+        android:orientation="horizontal"
+        android:layout_marginTop="80dp">
 
+    <Switch
+        android:id="@+id/delete_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:text="@string/delete_switch" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_image"
+        android:orientation="horizontal"
+        android:layout_marginTop="120dp">
+
+    <Switch
+        android:id="@+id/filter_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:text="@string/profanity_filter" />
+
+    </LinearLayout>
 </RelativeLayout>
