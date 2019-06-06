@@ -29,9 +29,9 @@ import java.util.List;
 public class GroupChatViewActivity extends AppCompatActivity {
 
     private GroupListAdapter adapter;
-    private List<User> userList;
+    private List<Gruppen> groupList;
 
-    RecyclerView userRecyclerView;
+    RecyclerView groupRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
 
     RequestQueue queue;
@@ -43,35 +43,35 @@ public class GroupChatViewActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
 
-        userList = new ArrayList<>();
-        adapter = new GroupListAdapter(this, userList);
-        userRecyclerView = findViewById(R.id.groupchat_recycler_view);
-        userRecyclerView.setHasFixedSize(true);
-        userRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        userRecyclerView.setAdapter(adapter);
+        groupList = new ArrayList<>();
+        adapter = new GroupListAdapter(this, groupList);
+        groupRecyclerView = findViewById(R.id.groupchat_recycler_view);
+        groupRecyclerView.setHasFixedSize(true);
+        groupRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        groupRecyclerView.setAdapter(adapter);
 
         queue = Volley.newRequestQueue(this);
 
-        loadUserList();
+        loadGroupList();
 
-        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = findViewById(R.id.groupSwipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                loadUserList();
+                loadGroupList();
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
 
     }
 
-    public void loadUserList() {
+    public void loadGroupList() {
 
-        userList.clear();
+        groupList.clear();
 
-        String create_user_url = getString(R.string.cliq) + "/getAllUsers_cliq.php";
+        String create_group_url = getString(R.string.cliq) + "/getAllGroups.php";
 
-        StringRequest postRequest = new StringRequest(Request.Method.GET, create_user_url,
+        StringRequest postRequest = new StringRequest(Request.Method.GET, create_group_url,
                 response -> {
 
 
@@ -79,25 +79,23 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
                     try {
                         JSONObject jsonResponse = new JSONObject(response);
-                        JSONArray userArray = (JSONArray) jsonResponse.get("user");
+                        JSONArray groupArray = (JSONArray) jsonResponse.get("gruppen");
 
-                        for (int i = 0; i < userArray.length(); i++) {
+                        for (int i = 0; i < groupArray.length(); i++) {
 
-                            JSONObject userJson = userArray.getJSONObject(i);
+                            JSONObject groupJson = groupArray.getJSONObject(i);
 
-                            if (userJson.getInt("id") != PreferenceManager.getDefaultSharedPreferences(GroupChatViewActivity.this).getInt("id", -1)) {
+                                if (!groupJson.getString("groupimage").equals("null") && groupJson.getString("groupimage").length() > 0) {
 
-                                if (!userJson.getString("image").equals("null") && userJson.getString("image").length() > 0) {
-
-                                    String bitmapString = userJson.getString("image");
+                                    String bitmapString = groupJson.getString("groupimage");
                                     Bitmap imageBitmap = Util.getBitmapFromBase64String(bitmapString);
 
-                                    userList.add(new User(userJson.getString("username"), imageBitmap));
+                                    groupList.add(new Gruppen(groupJson.getString("groupname"), imageBitmap));
                                 } else {
-                                    userList.add(new User(userJson.getString("username"), null));
+                                    groupList.add(new Gruppen(groupJson.getString("groupname"), null));
                                 }
 
-                            }
+
 
                         }
 

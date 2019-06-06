@@ -59,7 +59,9 @@ public class UserListActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(UserListActivity.this, "You are already on Groupchat", Toast.LENGTH_SHORT).show();
+                Intent j = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+                startActivity(j);
+//                Toast.makeText(UserListActivity.this, "You are already on Groupchat", Toast.LENGTH_SHORT).show();
             }
         });
 
