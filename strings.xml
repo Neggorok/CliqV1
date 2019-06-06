@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    //AndroidManifest label
+    <string name="app_name">Cliq</string>
+    <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
+    <string name="groupchat">Grup sohbetler</string>
+    <string name="change_avatar">Avatar seç</string>
+    <string name="registration">Kayit</string>
+    <string name="change_background">Duvar kağidi seç</string>
+    <string name="group_settings">Grup sohbet ayarlari</string>
+    <string name="group_information">Grup bilgisi</string>
+
+    //activity_sign_up
+    <string name="email">e-Mail</string>
+    <string name="repeat_pw">Şifreyi tekrarla</string>
+    <string name="studentAccount">Öğrenci hesabi</string>
+    <string name="teacherAccount">Öğretmen hesabi</string>
+    <string name="join_now">Simdi kayit ol</string>
+
+    //activity_user_list
+    <string name="search">Ara</string>
+
+    //activity_main
+    <string name="username">Kullanici ismi</string>
+    <string name="password">Şifre</string>
+    <string name="login">Giriş</string>
+    <string name="sign_up">Hesap aç</string>
+    <string name="profile">Profil</string>
+
+    //activity_profile
+    <string name="save">Kaydet</string>
+
+    //activity_profile_settings
+    <string name="profileSettings">Profil ayarlari</string>
+
+    //activity_chat
+    <string name="message">Mesaj yaz</string>
+    <string name="send">Gönder</string>
+    <string name="photo">Fotoğraf</string>
+    <string name="documents">Belge</string>
+    <string name="audio">Ses kaydi</string>
+    <string name="camera">Kamera</string>
+    <string name="delete_message">Mesaji sil</string>
+    <string name="startAudio">Start</string>
+    <string name="stopAudio">Stop</string>
+    <string name="playAudio">Play</string>
+
+    //activity_group_chat_settings
+    <string name="delete_switch">Mesaj sil ayari</string>
+    <string name="profanity_filter">Küfür filtresi</string>
+    <string name="participantlist">Katilan listesi</string>
+    <string name="new_group_member">Yeni grup üyesi</string>
+    <string name="members_group">Grup üyeleri</string>
+    <string name="previousActivity">Önceki activity</string>
+    <string name="change_group_pic">Grup fotoğrafini değistir</string>
+    <string name="activate_filter">Filtreyi aç</string>
+
+    //activity_group_chat_view
+    <string name="groupname">Grup ismi</string>
+
+    //activity_consent_form
+    <string name="accept">Kabul et</string>
+    <string name="cancel">Iptal</string>
+
+    //menu_profile_settings und menu_admin_profile_settings
+    <string name="settings">Ayarlar</string>
+    <string name="design">Tasari değistir</string>
+    <string name="avatar">Resim</string>
+    <string name="background">Duvar kagidi</string>
+    <string name="information">Bilgileri düzenle</string>
+    <string name="change_email">e-Mail adresi değistir</string>
+    <string name="change_password">Şifreyi değistir</string>
+    <string name="see_consent">Riza beyani aç</string>
+    <string name="logout">çikis</string>
+
+    //activity_consent_form
+    <string name="consent">Riza beyani</string>
+
+    //activity_camera
+    <string name="take_photo">Fotoğraf çek</string>
+    <string name="record_video">Video çek</string>
+    <string name="cropImage">Fotoğrafi kes</string>
+    <string name="bwFilter">Siyah ve Beyaz Filtresi</string>
+    <string name="open_gallery">Galeriyi aç</string>
+
+    //menu_group_chat
+    <string name="view_group">Grup bilgisi</string>
+    <string name="back_to_profile">Profile geri dön</string>
+    <string name="back_to_chat">Sohbetlere geri dön</string>
+    <string name="back_to_grouplist">Grup sohbetlerine geri dön</string>
+    <string name="back_to_groupview">Grup bilgilerine geri dön</string>
+    <string name="back_to_groupsettings">Grup ayarlarina geri dön</string>
+
+    //menu_profile_settings
+    <string name="newMember">Yeni grup üyesi</string>
+
+    //menu_user_list
+    <string name="createGroup">Yeni grup aç</string>
+
+</resources>
