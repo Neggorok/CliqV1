@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:text="alte Emailadresse"
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="@+id/editText"
