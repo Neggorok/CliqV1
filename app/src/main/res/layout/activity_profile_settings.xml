@@ -5,6 +5,17 @@
     android:background="@color/colorWhite"
     android:orientation="vertical">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainbarLayout">
+
+        <include layout="@layout/appbar_layout"
+            android:id="@+id/main_toolbar">
+        </include>
+
+    </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"

@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cliqv1.ChatActivity"
     android:layout_marginLeft="5dp"
     android:layout_marginTop="5dp"
-    app:layout_goneMarginRight="5dp">
+    app:layout_goneMarginRight="5dp"
+    tools:context=".ChatActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainbarLayout">
+
+        <include layout="@layout/appbar_layout"
+            android:id="@+id/main_toolbar">
+        </include>
+
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout_chat"
         android:layout_width="match_parent"
+        android:layout_below="@+id/mainbarLayout"
         android:layout_height="458dp">
 
         <android.support.v7.widget.RecyclerView
