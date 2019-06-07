@@ -162,6 +162,12 @@ public class UserListActivity extends AppCompatActivity {
 
         }
 
+        if (id == R.id.createNewGroup) {
+
+            RequestNewGroup();
+
+        }
+
         if (id == R.id.logout) {
 
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
@@ -171,6 +177,49 @@ public class UserListActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void RequestNewGroup() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
+        builder.setTitle("Enter Group Name :");
+
+        final EditText groupNameField = new EditText(this);
+        groupNameField.setHint("Klasse 1A");
+        builder.setView(groupNameField);
+
+        builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String groupName = groupNameField.getText().toString();
+
+                if (TextUtils.isEmpty(groupName)) {
+
+                    Toast.makeText(UserListActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    CreateNewGroup(groupName);
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+
+            }
+        });
+
+        builder.show();
+    }
+
+    private void CreateNewGroup(String groupName) {
+
+        Toast.makeText(UserListActivity.this, groupName + " is created successfully", Toast.LENGTH_SHORT).show();
     }
 }
 

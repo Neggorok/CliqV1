@@ -99,7 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(this);
 
-        if(userImage != null && userImage.length() > 0) {
+        if (userImage != null && userImage.length() > 0) {
 
             imageView.setImageBitmap(Util.getBitmapFromBase64String(userImage));
             currentBitmap = Util.getBitmapFromBase64String(userImage);
@@ -118,7 +118,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void chooseImage(View view) {
 
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 9);
 
@@ -133,11 +133,11 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 1 && resultCode == RESULT_OK && data != null) {
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
 
             Uri selectedImage = data.getData();
 
-            if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
                 try {
                     Bitmap bitmapImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
@@ -180,7 +180,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
-                        if(success == 1){
+                        if (success == 1) {
 
                             Toast.makeText(ProfileActivity.this, message, Toast.LENGTH_SHORT).show();
                             PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this).edit().putString("image", Util.getBase64StringFromBitmap(smallerBitmap)).apply();
@@ -207,48 +207,5 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         queue.add(postRequest);
-    }
-
-    private void RequestNewGroup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
-        builder.setTitle("Enter Group Name :");
-
-        final EditText groupNameField = new EditText(this);
-        groupNameField.setHint("Klasse 1A");
-        builder.setView(groupNameField);
-
-        builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                String groupName = groupNameField.getText().toString();
-
-                if (TextUtils.isEmpty(groupName)) {
-
-                    Toast.makeText(ProfileActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    CreateNewGroup(groupName);
-                }
-
-
-            }
-        });
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                dialogInterface.cancel();
-
-            }
-        });
-
-        builder.show();
-    }
-
-    private void CreateNewGroup(String groupName) {
-
-        Toast.makeText(ProfileActivity.this, groupName + " is created successfully", Toast.LENGTH_SHORT).show();
     }
 }
