@@ -43,17 +43,18 @@ public class GroupChatActivity extends AppCompatActivity {
     RequestQueue queue;
 
     int loggedInUserId;
+    int gruppenID;
     String loggedInUsername;
     String loggedInUserImage;
 
     String groupchatPartnerUsername;
     String groupchatPartnerImage;
-    String GroupchatName;
+    String groupchatName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.activity_group_chat);
 
         ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
 
@@ -67,15 +68,23 @@ public class GroupChatActivity extends AppCompatActivity {
         });
 
         loggedInUserId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", -1);
+
+
+        // FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER!!!!!!!!!!!!!!
+
+        gruppenID = PreferenceManager.getDefaultSharedPreferences(this).getInt("gid", -1);
+
+        // FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER!!!!!!!!!!!!!!
+
         loggedInUsername = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "-1");
         loggedInUserImage = PreferenceManager.getDefaultSharedPreferences(this).getString("image", "-1");
 
 //        groupchatPartnerUsername = getIntent().getStringExtra("groupchatPartnerUsername").toString();
-        GroupchatName = getIntent().getStringExtra("groupchatName").toString();
+        groupchatName = getIntent().getStringExtra("groupchatName").toString();
 
         groupchatPartnerImage = PreferenceManager.getDefaultSharedPreferences(this).getString("groupchatPartnerImageString", "-1");
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout_chat);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout_groupChat);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -85,13 +94,13 @@ public class GroupChatActivity extends AppCompatActivity {
             }
         });
 
-        setTitle(GroupchatName);
+        setTitle(groupchatName);
 
         editText = (EditText) findViewById(R.id.groupMessageEditText);
 
         groupMessageList = new ArrayList<>();
         adapter = new GroupchatAdapter(this, groupMessageList);
-        groupMessageRecyclerView = (RecyclerView) findViewById(R.id.message_recycler_view);
+        groupMessageRecyclerView = (RecyclerView) findViewById(R.id.groupMessage_recycler_view);
         groupMessageRecyclerView.setHasFixedSize(true);
         groupMessageRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -107,7 +116,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         groupMessageList.clear();
 
-        String create_user_url = getString(R.string.cliq) + "/getMessagesForChat_cliq.php";
+        String create_user_url = getString(R.string.cliq) + "/getMessagesforGroupChat.php";
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
 
@@ -121,7 +130,6 @@ public class GroupChatActivity extends AppCompatActivity {
                         String message = jsonResponse.getString("message");
                         JSONArray messageArray = new JSONArray(message);
 
-
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
                         if (success == 1) {
@@ -134,12 +142,16 @@ public class GroupChatActivity extends AppCompatActivity {
 
                                     Bitmap userImage = Util.getBitmapFromBase64String(loggedInUserImage);
 
-                                    groupMessageList.add(new GroupMessage(loggedInUsername, messageJson.get("message").toString(), messageJson.get("created_at").toString(), userImage));
+                                    groupMessageList.add(new GroupMessage(loggedInUsername, messageJson.get("groupmessage").toString(), messageJson.get("created_at").toString(), userImage));
 
                                 } else {
+                                    // FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER!!!!!!!!!!!!!!
 
                                     Bitmap partnerImage = Util.getBitmapFromBase64String(groupchatPartnerImage);
-                                    groupMessageList.add(new GroupMessage(groupchatPartnerUsername, messageJson.get("message").toString(), messageJson.get("created_at").toString(), partnerImage));
+                                    groupMessageList.add(new GroupMessage(loggedInUsername, messageJson.get("groupmessage").toString(), messageJson.get("created_at").toString(), partnerImage));
+//                                    groupMessageList.add(new GroupMessage(messageJson.get("sender_id").toString(), messageJson.get("groupmessage").toString(), messageJson.get("created_at").toString(), partnerImage));
+
+                                    // FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER!!!!!!!!!!!!!!
 
                                 }
 
@@ -163,7 +175,9 @@ public class GroupChatActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("user_id", String.valueOf(loggedInUserId));
-                params.put("chat_partner_username", groupchatPartnerUsername);
+//                params.put("chat_partner_groupname", groupchatName);
+                params.put("gruppenID", String.valueOf(gruppenID));
+
 
                 return params;
             }
@@ -176,7 +190,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
 
-        String create_user_url = getString(R.string.cliq) + "/insertMessage_cliq.php";
+        String create_user_url = getString(R.string.cliq) + "/insertGroupMessage_cliq.php";
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
 
@@ -184,26 +198,26 @@ public class GroupChatActivity extends AppCompatActivity {
 
                     Log.i("response", response);
 
-                    try {
-
-                        JSONObject jsonResponse = new JSONObject(response);
-
-
-                        int success = Integer.parseInt(jsonResponse.get("success").toString());
-
-                        if (success == 1) {
-
-                            Toast.makeText(GroupChatActivity.this, "Nachricht gesendet!", Toast.LENGTH_SHORT).show();
-
-                            editText.setText(" ");
-
-                            loadGroupMessages();
-
-                        }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+//                    try {
+//
+//                        JSONObject jsonResponse = new JSONObject(response);
+//
+//
+//                        int success = Integer.parseInt(jsonResponse.get("success").toString());
+//
+//                        if (success == 1) {
+//
+//                            Toast.makeText(GroupChatActivity.this, "Nachricht gesendet!", Toast.LENGTH_SHORT).show();
+//
+//                            editText.setText(" ");
+//
+//                            loadGroupMessages();
+//
+//                        }
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
 
 
                 }, error -> {
@@ -214,8 +228,9 @@ public class GroupChatActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("user_id", String.valueOf(loggedInUserId));
-                params.put("chat_partner_username", groupchatPartnerUsername);
-                params.put("message", editText.getText().toString());
+                params.put("group_message", editText.getText().toString());
+                params.put("gruppenID", String.valueOf(gruppenID));
+
 
                 return params;
             }
