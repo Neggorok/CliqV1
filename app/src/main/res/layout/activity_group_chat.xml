@@ -8,7 +8,7 @@
     android:layout_marginLeft="5dp"
     android:layout_marginTop="5dp"
     app:layout_goneMarginRight="5dp"
-    tools:context=".ChatActivity">
+    tools:context=".GroupChatActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshLayout_chat"
+        android:id="@+id/swipeRefreshLayout_groupChat"
         android:layout_width="match_parent"
         android:layout_below="@+id/mainbarLayout"
         android:layout_height="458dp">
@@ -30,7 +30,7 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/message_recycler_view">
+            android:id="@+id/groupMessage_recycler_view">
 
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
@@ -43,7 +43,7 @@
         android:layout_alignParentBottom="true">
 
         <EditText
-            android:id="@+id/messageEditText"
+            android:id="@+id/groupMessageEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

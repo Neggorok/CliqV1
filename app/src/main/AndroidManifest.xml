@@ -40,6 +40,9 @@
             android:name=".ChatActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name=".GroupChatActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".UserListActivity"
             android:label="@string/groupchat"
             android:theme="@style/AppTheme.NoActionBar" />
