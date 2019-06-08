@@ -67,6 +67,11 @@
                     android:layout_height="wrap_content"
                     android:text="Lehrer-Account"
                     android:id="@+id/accL"/>
+                <ToggleButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AGB"
+                    android:id="@+id/AGB"/>
             </RadioGroup>
             <Button
                 android:layout_width="match_parent"

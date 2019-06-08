@@ -19,6 +19,7 @@ import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText userPassword2;
     Button button;
     private Toolbar toolbar;
+    private ToggleButton agb;
 //    private RadioButton radioS, radioL;
 //    private ProgressDialog progressDialog;
 
@@ -52,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
         userMail = findViewById(R.id.mail);
         userPassword =  findViewById(R.id.pass);
         userPassword2 = findViewById(R.id.pass2);
+        agb =  findViewById(R.id.AGB);
 //        radioS = findViewById(R.id.accS);
 //        radioL = findViewById(R.id.accL);
         button = findViewById(R.id.signup);
@@ -66,47 +69,48 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-//        button.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                String name = userName.getText().toString();
-//                String mail = userMail.getText().toString();
-//                String pw = userPassword.getText().toString();
-//                String pw2 = userPassword2.getText().toString();
-//                if (TextUtils.isEmpty(name)) {
-//                    Toast.makeText(getApplicationContext(), "Bitte gebe einen Benutzernamen an.", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (TextUtils.isEmpty(mail)) {
-//                    Toast.makeText(getApplicationContext(), "Bitte gebe deine Email-Adresse an.!", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (TextUtils.isEmpty(pw)) {
-//                    Toast.makeText(getApplicationContext(), "Bitte gebe dein Passwort an.", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (TextUtils.isEmpty(pw2)) {
-//                    Toast.makeText(getApplicationContext(), "Bitte wiederhole dein Passwort.", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (pw.length() < 6) {
-//                    Toast.makeText(getApplicationContext(), "Dein Passwort muss mindestens 6 Zeichen lang sein.", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (!pw.equals(pw2)) {
-//                    Toast.makeText(getApplicationContext(), "Dein Passwort stimmt nicht überein.", Toast.LENGTH_SHORT).show();
-//                    return;
-//                } else {
-//                    getConsent();
-//                }
-//            }
-//        });
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String name = userName.getText().toString();
+                String mail = userMail.getText().toString();
+                String pw = userPassword.getText().toString();
+                String pw2 = userPassword2.getText().toString();
+//                agb.toggle();
+                if (TextUtils.isEmpty(name)) {
+                    Toast.makeText(getApplicationContext(), "Bitte gebe einen Benutzernamen an.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(mail)) {
+                    Toast.makeText(getApplicationContext(), "Bitte gebe deine Email-Adresse an.!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(pw)) {
+                    Toast.makeText(getApplicationContext(), "Bitte gebe dein Passwort an.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(pw2)) {
+                    Toast.makeText(getApplicationContext(), "Bitte wiederhole dein Passwort.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (pw.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Dein Passwort muss mindestens 6 Zeichen lang sein.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!pw.equals(pw2)) {
+                    Toast.makeText(getApplicationContext(), "Dein Passwort stimmt nicht überein.", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    signup();
+                }
+            }
+        });
     }
 
 
