@@ -172,7 +172,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
     private void RequestNewGroup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
-        builder.setTitle("Enter Group Name :");
+        builder.setTitle("Enter Group Name:");
 
         final EditText groupNameField = new EditText(this);
         groupNameField.setHint("Klasse 1A");

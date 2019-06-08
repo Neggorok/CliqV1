@@ -46,11 +46,11 @@
     <string name="stopAudio">остановить</string>
     <string name="playAudio">Воспроизвести аудио</string>
 
-    //activity_group_chat_settings
+    //activity_group_chat
     <string name="delete_switch">Yдалять сообщения</string>
     <string name="profanity_filter">Профанация фильтр</string>
     <string name="participantlist">Cписок участников</string>
-    <string name="new_group_member">Новый участник группы</string>
+    <string name="add_group_member">Добавить участника</string>
     <string name="members_group">члены группы</string>
     <string name="previousActivity">предыдущая активность</string>
     <string name="change_group_pic">Изменить изображение группы</string>
@@ -92,7 +92,7 @@
 
     //menu_group_chat
     <string name="view_group">Информация о группе</string>
-    <string name="back_to_profile">Вернуться в чат</string>
+    <string name="back_to_profile_settings">Вернуться к настройкам профиля</string>
     <string name="back_to_chat">Вернуться в чат</string>
     <string name="back_to_grouplist">Вернуться к групповым чатам</string>
     <string name="back_to_groupview">Вернуться к информации о группе</string>

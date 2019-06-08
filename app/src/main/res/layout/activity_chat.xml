@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_goneMarginRight="5dp"
+    android:background="@color/colorWhite"
     tools:context=".ChatActivity">
 
     <android.support.design.widget.AppBarLayout

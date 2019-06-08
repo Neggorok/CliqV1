@@ -54,11 +54,11 @@
     <string name="groups">Gruppen</string>
     <string name="contacts">Kontakte</string>
 
-    //activity_group_chat_settings
+    //activity_group_chat
     <string name="delete_switch">Nachrichten löschen</string>
     <string name="profanity_filter">Schimpfwortfilter</string>
     <string name="participantlist">Teilnehmerliste</string>
-    <string name="new_group_member">Neues Gruppenmitglied</string>
+    <string name="add_group_member">Teilnehmer hinzufügen</string>
     <string name="members_group">Gruppenmitglieder</string>
     <string name="previousActivity">vorherige Activity</string>
     <string name="change_group_pic">Gruppenbild ändern</string>
@@ -91,7 +91,7 @@
 
     //menu_group_chat
     <string name="view_group">Gruppeninformationen</string>
-    <string name="back_to_profile">Zurück zum Profil</string>
+    <string name="back_to_profile_settings">Zurück zu Profil-Einstellungen</string>
     <string name="back_to_chat">Zurück zum Chat</string>
     <string name="back_to_grouplist">Zurück zu Gruppenchats</string>
     <string name="back_to_groupview">Zurück zur Gruppeninformation</string>

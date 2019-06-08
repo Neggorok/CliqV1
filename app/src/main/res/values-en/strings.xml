@@ -46,11 +46,11 @@
     <string name="stopAudio">Stop</string>
     <string name="playAudio">Play</string>
 
-    //activity_group_chat_settings
+    //activity_group_chat
     <string name="delete_switch">Delete messages</string>
     <string name="profanity_filter">Profanity filter</string>
     <string name="participantlist">Participants list</string>
-    <string name="new_group_member">Add new groupmember</string>
+    <string name="add_group_member">Add participant</string>
     <string name="members_group">Group members</string>
     <string name="previousActivity">previous Activity</string>
     <string name="change_group_pic">Change group picture</string>
@@ -92,7 +92,7 @@
 
     //menu_group_chat
     <string name="view_group">Group information</string>
-    <string name="back_to_profile">Back to Profile</string>
+    <string name="back_to_profile_settings">Back to profile settings</string>
     <string name="back_to_chat">Back to Chat</string>
     <string name="back_to_grouplist">Back to Group Chats</string>
     <string name="back_to_groupview">Back to group information</string>

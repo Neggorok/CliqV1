@@ -19,51 +19,46 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".GalleryActivity"></activity>
-        <activity android:name=".GroupFragment" />
-        <activity android:name=".ProfileFragment" />
-        <activity android:name=".PopUpAttachFileActivity" />
-        <activity android:name=".ConsentFormActivity" />
-        <activity android:name=".PopUpConsentFormActivity" />
+
+        <activity android:name=".AudioActivity"></activity>
+
+        <activity android:name=".CameraActivity"></activity>
+
         <activity
-            android:name=".ProfileSettingsActivity"
-            android:label="@string/profileSettings" />
-        <activity android:name=".ProfileActivity"
-            android:label="@string/profile" />
-        <activity
-            android:name=".SignUpActivity"
-            android:label="@string/registration" />
+            android:name=".ChangeAvatarActivity"
+            android:label="@string/change_avatar" />
+
         <activity
             android:name=".ChangeBackgroundActivity"
             android:label="@string/change_background" />
-        <activity
-            android:name=".ChatActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".GroupChatActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".UserListActivity"
-            android:label="@string/groupchat"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".ChangeEmailActivity"
             android:label="@string/change_email" />
+
+        <activity android:name=".ChangeGroupPicActivity"></activity>
+
+        <activity
+        android:name=".ChangePasswordActivity"
+        android:label="@string/change_password" />
+
+        <activity
+            android:name=".ChatActivity"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity android:name=".ConsentFormActivity" />
+
+        <activity android:name=".GalleryActivity"></activity>
+
+        <activity
+            android:name=".GroupChatActivity"
+            android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".GroupChatViewActivity"
             android:label="@string/view_group"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AudioActivity" />
-        <activity android:name=".CameraActivity" />
-        <activity
-            android:name=".ChangeGroupPicActivity"
-            android:label="@string/change_group_pic" />
-        <activity
-            android:name=".ChangeAvatarActivity"
-            android:label="@string/change_avatar" />
-        <activity
-            android:name=".ChangePasswordActivity"
-            android:label="@string/change_password" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -71,6 +66,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".PopUpAttachFileActivity"
+            android:theme="@style/AppTheme.AttachFilePopUp"/>
+
+        <activity android:name=".PopUpConsentFormActivity"
+            android:theme="@style/AppTheme.AttachFilePopUp"/>
+
+        <activity android:name=".PopUpGroupSettingsActivity"
+            android:theme="@style/AppTheme.AttachFilePopUp"/>
+
+        <activity android:name=".ProfileActivity"
+            android:label="@string/profile" />
+
+        <activity
+            android:name=".ProfileSettingsActivity"
+            android:label="@string/profileSettings" />
+
+        <activity
+            android:name=".SignUpActivity"
+            android:label="@string/registration" />
+
+        <activity
+            android:name=".UserListActivity"
+            android:label="@string/groupchat"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
     </application>
 
 </manifest>

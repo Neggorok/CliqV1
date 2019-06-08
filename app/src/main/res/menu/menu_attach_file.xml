@@ -9,10 +9,4 @@
         android:layout_gravity="left"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/logout"
-        android:title="@string/logout"
-        android:orderInCategory="2"
-        app:showAsAction="never"/>
-
 </menu>

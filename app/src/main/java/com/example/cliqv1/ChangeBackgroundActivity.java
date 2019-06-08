@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,8 @@ public class ChangeBackgroundActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_background);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
+        setSupportActionBar(toolbar);
 
         btn1 = findViewById(R.id.bg1);
         btn2 = findViewById(R.id.bg2);
@@ -70,14 +73,6 @@ public class ChangeBackgroundActivity extends AppCompatActivity {
             finish();
             return true;
 
-        }
-
-        if (id == R.id.set_logout) {
-
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            Toast.makeText(ChangeBackgroundActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);

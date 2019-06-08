@@ -58,7 +58,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textSize="20sp"
-            android:drawableStart="@drawable/lock"
+            android:drawableStart="@drawable/mail"
             android:id="@+id/edittext_email"/>
         <EditText
             android:layout_width="match_parent"

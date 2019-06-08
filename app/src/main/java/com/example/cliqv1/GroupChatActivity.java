@@ -263,7 +263,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         if (id == R.id.back_to_grouplist) {
 
-            Intent i = new Intent(getApplicationContext(), UserListActivity.class);
+            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
             Toast.makeText(GroupChatActivity.this, "Group overview selected", Toast.LENGTH_SHORT).show();
             startActivity(i);
 

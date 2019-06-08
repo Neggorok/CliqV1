@@ -164,14 +164,6 @@ public class AudioActivity extends AppCompatActivity {
 
         }
 
-        if (id == R.id.set_logout) {
-
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            Toast.makeText(AudioActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
-        }
-
         return super.onOptionsItemSelected(item);
     }
 

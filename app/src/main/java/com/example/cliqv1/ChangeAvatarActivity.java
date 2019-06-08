@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +34,8 @@ public class ChangeAvatarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_avatar);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
+        setSupportActionBar(toolbar);
 
         imageView = findViewById(R.id.profileUnknown);
         imageButton1 = findViewById(R.id.imageButton1);
@@ -130,14 +133,6 @@ public class ChangeAvatarActivity extends AppCompatActivity {
             finish();
             return true;
 
-        }
-
-        if (id == R.id.set_logout) {
-
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            Toast.makeText(ChangeAvatarActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);

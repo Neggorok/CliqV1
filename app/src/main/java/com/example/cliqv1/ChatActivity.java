@@ -240,7 +240,7 @@ public class ChatActivity extends AppCompatActivity {
         if (id == R.id.back_to_userlist) {
 
             Intent i = new Intent(getApplicationContext(), UserListActivity.class);
-            Toast.makeText(ChatActivity.this, "Group overview selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ChatActivity.this, "Contact overview selected", Toast.LENGTH_SHORT).show();
             startActivity(i);
 
         }
