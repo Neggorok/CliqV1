@@ -7,19 +7,36 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/changeAvatarToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarNew"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="@string/change_background"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
 
     <ImageView
         android:id="@+id/profileUnknown"
         android:layout_width="235dp"
         android:layout_height="228dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/changeAvatarToolbar"
         app:srcCompat="@drawable/standard_user_image" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_marginLeft="70dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginRight="70dp"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="96dp"
         tools:layout_editor_absoluteY="0dp"
@@ -31,7 +48,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="320dp"
             android:layout_marginBottom="10dp">
 
 
@@ -108,7 +125,7 @@
         android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="230dp"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="490dp"
         android:backgroundTint="@color/colorOrange"
         android:text="Speichern" />
 

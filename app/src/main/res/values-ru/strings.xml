@@ -60,6 +60,7 @@
 
     //activity_group_chat_view
     <string name="groupname">Hазвание группы</string>
+    <string name="groupList">Ваши группы</string>
 
     //activity_consent_form
     <string name="accept">принимать</string>

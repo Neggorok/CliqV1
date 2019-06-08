@@ -59,6 +59,7 @@
 
     //activity_group_chat_view
     <string name="groupname">Groupname</string>
+    <string name="groupList">Your Groups</string>
 
     //activity_consent_form
     <string name="accept">Accept</string>

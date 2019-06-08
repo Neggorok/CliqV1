@@ -48,6 +48,7 @@
 
     //activity_group_chat_view
     <string name="groupname">Gruppenname</string>
+    <string name="groupList">Deine Gruppen</string>
 
     //activity_group_chat_settings
     <string name="delete_switch">Nachrichten löschen</string>
