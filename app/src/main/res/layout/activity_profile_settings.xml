@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
@@ -8,11 +10,14 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mainbarLayout">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <include layout="@layout/appbar_layout"
-            android:id="@+id/main_toolbar">
-        </include>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarNew"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -33,7 +38,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Design bearbeiten"/>
+            android:text="Design bearbeiten"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 
@@ -84,7 +90,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/consent"/>
+            android:text="@string/consent"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 
@@ -100,7 +107,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:drawableLeft="@drawable/ic_consent_form_orange_24dp"
-            android:text="@string/see_consent"
+            android:text="@string/consent"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"/>
 
@@ -117,7 +124,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/information"/>
+            android:text="@string/information"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 
