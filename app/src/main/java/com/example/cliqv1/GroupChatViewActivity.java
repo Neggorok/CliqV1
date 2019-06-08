@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,6 +44,31 @@ public class GroupChatViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_chat_view);
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.NavBar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+
+                    case R.id.nav_contacts:
+                        Intent c = new Intent(getApplicationContext(), UserListActivity.class);
+                        startActivity(c);
+                        break;
+
+                    case R.id.nav_groups:
+                        Intent g = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+                        startActivity(g);
+                        break;
+
+                    case R.id.nav_profile:
+                        Intent p = new Intent(getApplicationContext(), ProfileActivity.class);
+                        startActivity(p);
+                        break;
+                }
+                return true;
+            }
+        });
 
         groupList = new ArrayList<>();
         adapter = new GroupListAdapter(this, groupList);
@@ -122,13 +149,6 @@ public class GroupChatViewActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if (id == R.id.back_to_chat) {
-
-            finish();
-            return true;
-
-        }
 
         if (id == R.id.set_logout) {
 

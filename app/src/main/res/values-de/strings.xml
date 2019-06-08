@@ -17,7 +17,7 @@
     <string name="studentAccount">Schüler-Account</string>
     <string name="teacherAccount">Lehrer-Account</string>
     <string name="join_now">Jetzt registrieren</string>
-    <string name="sign_up_question">Noch nicht registriert?</string>
+    <string name="sign_up_question">Noch nicht registriert? Klicke hier</string>
 
     //activity_user_list
     <string name="search">Suche</string>
@@ -27,7 +27,6 @@
     <string name="password">Passwort</string>
     <string name="login">Einloggen</string>
     <string name="sign_up">Registrieren</string>
-    <string name="profile">Profil</string>
 
     //activity_profile
     <string name="save">speichern</string>
@@ -63,6 +62,12 @@
 
     //activity_group_chat_view
     <string name="groupname">Gruppenname</string>
+    <string name="groupList">Deine Gruppen</string>
+
+    //menu_navigation
+    <string name="profile">Profil</string>
+    <string name="groups">Gruppen</string>
+    <string name="contacts">Kontakte</string>
 
     //menu_profile_settings und menu_admin_profile_settings
     <string name="settings">Einstellungen</string>

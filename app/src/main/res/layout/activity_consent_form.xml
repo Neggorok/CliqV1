@@ -5,17 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cliqv1.ConsentFormActivity">
+    tools:context="com.example.cliqv1.ConsentFormActivity"
+    android:background="@color/colorWhite">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mainbarLayout">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <include layout="@layout/appbar_layout"
-            android:id="@+id/main_toolbar">
-        </include>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarNew"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="@string/consent"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/consentText"
+                    android:src="@drawable/datenschutz" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
 </RelativeLayout>
