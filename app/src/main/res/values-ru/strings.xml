@@ -17,7 +17,7 @@
     <string name="studentAccount">Студенческие счета</string>
     <string name="teacherAccount">Учитель счета</string>
     <string name="join_now">регистрировать</string>
-    <string name="sign_up_question">Еще не зарегистрированы?</string>
+    <string name="sign_up_question">Еще не зарегистрированы? Нажмите здесь</string>
 
     //activity_user_list
     <string name="search">поиск</string>
@@ -27,7 +27,6 @@
     <string name="password">пароль</string>
     <string name="login">войти</string>
     <string name="sign_up">регистрировать</string>
-    <string name="profile">профиль</string>
 
     //activity_profile
     <string name="save">сохранять</string>
@@ -45,8 +44,7 @@
     <string name="delete_message">Удалить сообщение</string>
     <string name="startAudio">старт</string>
     <string name="stopAudio">остановить</string>
-    //muss noch übersetzt werden
-    <string name="playAudio">PLAY</string>
+    <string name="playAudio">Воспроизвести аудио</string>
 
     //activity_group_chat_settings
     <string name="delete_switch">Yдалять сообщения</string>
@@ -61,6 +59,11 @@
     //activity_group_chat_view
     <string name="groupname">Hазвание группы</string>
     <string name="groupList">Ваши группы</string>
+
+    //menu_navigation
+    <string name="profile">профиль</string>
+    <string name="groups">группы</string>
+    <string name="contacts">Kонтакты</string>
 
     //activity_consent_form
     <string name="accept">принимать</string>

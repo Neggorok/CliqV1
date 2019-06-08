@@ -17,7 +17,7 @@
     <string name="studentAccount">Student account</string>
     <string name="teacherAccount">Teacher account</string>
     <string name="join_now">Join Now</string>
-    <string name="sign_up_question">Not registered yet?</string>
+    <string name="sign_up_question">Not registered yet? Click here</string>
 
     //activity_user_list
     <string name="search">Search</string>
@@ -27,7 +27,6 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign up</string>
-    <string name="profile">Profile</string>
 
     //activity_profile
     <string name="save">save</string>
@@ -61,7 +60,12 @@
     <string name="groupname">Groupname</string>
     <string name="groupList">Your Groups</string>
 
+    //menu_navigation
+    <string name="groups">Groups</string>
+    <string name="contacts">Contacts</string>
+
     //activity_consent_form
+    <string name="profile">Profile</string>
     <string name="accept">Accept</string>
     <string name="cancel">Cancel</string>
 
