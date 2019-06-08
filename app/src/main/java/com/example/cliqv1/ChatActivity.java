@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,6 +54,8 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
+        setSupportActionBar(toolbar);
 
         ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
 
@@ -226,7 +229,7 @@ public class ChatActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_group_chat, menu);
+        getMenuInflater().inflate(R.menu.menu_chat, menu);
         return true;
     }
 
@@ -234,28 +237,12 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.back_to_grouplist) {
+        if (id == R.id.back_to_userlist) {
 
             Intent i = new Intent(getApplicationContext(), UserListActivity.class);
             Toast.makeText(ChatActivity.this, "Group overview selected", Toast.LENGTH_SHORT).show();
             startActivity(i);
 
-        }
-
-        if (id == R.id.view_group) {
-
-            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
-            Toast.makeText(ChatActivity.this, "Group view selected", Toast.LENGTH_SHORT).show();
-            startActivity(i);
-
-        }
-
-        if (id == R.id.logout) {
-
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            Toast.makeText(ChatActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
 //        if (id == R.id.testGruppenInfo) {

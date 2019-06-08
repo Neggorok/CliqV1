@@ -5,26 +5,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="5dp"
-    android:layout_marginTop="5dp"
     app:layout_goneMarginRight="5dp"
     tools:context=".GroupChatActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/groupchatToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mainbarLayout">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <include layout="@layout/appbar_layout"
-            android:id="@+id/main_toolbar">
-        </include>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarNew"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout_groupChat"
         android:layout_width="match_parent"
-        android:layout_below="@+id/mainbarLayout"
+        android:layout_below="@+id/groupchatToolbar"
         android:layout_height="458dp">
 
         <android.support.v7.widget.RecyclerView

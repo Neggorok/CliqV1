@@ -78,46 +78,4 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/profile_linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_below="@+id/profile_linearLayout"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/border"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/group_settings"
-            android:textSize="18dp"
-            android:paddingTop="15dp"/>
-
-    <Switch
-        android:id="@+id/delete_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="70dp"
-        android:textSize="15sp"
-        android:text="@string/delete_switch" />
-
-    <Switch
-        android:id="@+id/filter_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="70dp"
-        android:textSize="15sp"
-        android:paddingBottom="20dp"
-        android:text="@string/profanity_filter" />
-
-    </LinearLayout>
-
 </RelativeLayout>

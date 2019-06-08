@@ -1,13 +1,17 @@
 package com.example.cliqv1;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,6 +59,8 @@ public class GroupChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_chat);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
+        setSupportActionBar(toolbar);
 
         ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
 
@@ -263,20 +269,16 @@ public class GroupChatActivity extends AppCompatActivity {
 
         }
 
-        if (id == R.id.view_group) {
+        if (id == R.id.addMember) {
 
-            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
-            Toast.makeText(GroupChatActivity.this, "Group view selected", Toast.LENGTH_SHORT).show();
-            startActivity(i);
+            RequestNewMember();
 
         }
 
-        if (id == R.id.logout) {
+        if (id == R.id.popupGroupSettings) {
 
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), PopUpGroupSettingsActivity.class);
             startActivity(i);
-            Toast.makeText(GroupChatActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
 //        if (id == R.id.testGruppenInfo) {
@@ -288,6 +290,50 @@ public class GroupChatActivity extends AppCompatActivity {
 //        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //Fehlt: groupName zu username!!!
+    private void RequestNewMember() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
+        builder.setTitle("Enter Username:");
+
+        final EditText groupNameField = new EditText(this);
+        groupNameField.setHint("Max Mustermann");
+        builder.setView(groupNameField);
+
+        builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String groupName = groupNameField.getText().toString();
+
+                if (TextUtils.isEmpty(groupName)) {
+
+                    Toast.makeText(GroupChatActivity.this, "Please choose a username",  Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    CreateNewGroup(groupName);
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+
+            }
+        });
+
+        builder.show();
+    }
+
+    private void CreateNewGroup(String groupName) {
+
+        Toast.makeText(GroupChatActivity.this, groupName + " was successfully added", Toast.LENGTH_SHORT).show();
     }
 
 //    public boolean onContextItemSelected(MenuItem item) {

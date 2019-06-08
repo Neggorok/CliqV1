@@ -12,11 +12,14 @@
         android:id="@+id/addMember"
         android:title="@string/new_group_member"
         android:icon="@drawable/ic_person_add_white_24dp"
-        app:showAsAction="always"/>
+        android:orderInCategory="1"
+        app:showAsAction="never"/>
 
     <item
-        android:id="@+id/view_group"
-        android:title="@string/view_group"
-        app:showAsAction="never"/>
+        android:id="@+id/popupGroupSettings"
+        android:title="@string/group_settings"
+        android:orderInCategory="2"
+        app:showAsAction="never" />
+
 
 </menu>

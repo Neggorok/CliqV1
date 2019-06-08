@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/back_to_grouplist"
+        android:id="@+id/back_to_userlist"
         android:title="@string/back_to_grouplist"
         android:icon="@drawable/ic_view_list_white_24dp"
         app:showAsAction="always"/>
