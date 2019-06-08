@@ -8,7 +8,9 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -17,6 +19,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -59,33 +62,30 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
+        setSupportActionBar(toolbar);
 
-        ImageButton chat_nav = (ImageButton) findViewById(R.id.chat_nav);
-        ImageButton profile_nav = (ImageButton) findViewById(R.id.profile_nav);
-        ImageButton btnProfileSettings = (ImageButton) findViewById(R.id.btnProfileSettings);
-
-        chat_nav.setOnClickListener(new View.OnClickListener() {
-
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.NavBar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, UserListActivity.class));
-            }
-        });
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
 
-        profile_nav.setOnClickListener(new View.OnClickListener() {
+                    case R.id.nav_contacts:
+                        Intent c = new Intent(getApplicationContext(), UserListActivity.class);
+                        startActivity(c);
+                        break;
 
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ProfileActivity.this, "You are already on Profile", Toast.LENGTH_SHORT).show();
-            }
-        });
+                    case R.id.nav_groups:
+                        Intent g = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+                        startActivity(g);
+                        break;
 
-        btnProfileSettings.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent ips = new Intent(getApplicationContext(), ProfileSettingsActivity.class);
-                startActivity(ips);
+                    case R.id.nav_profile:
+                        Toast.makeText(ProfileActivity.this, "You are already on profile",  Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
             }
         });
 
@@ -207,5 +207,26 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         queue.add(postRequest);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.set_logout) {
+
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            Toast.makeText(ProfileActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -11,12 +11,6 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/createNewGroup"
-        android:title="@string/createGroup"
-        android:orderInCategory="1"
-        app:showAsAction="never"/>
-
-    <item
         android:id="@+id/logout"
         android:title="@string/logout"
         android:orderInCategory="2"

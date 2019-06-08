@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -52,24 +53,27 @@ public class UserListActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ImageButton chat_nav = (ImageButton) findViewById(R.id.chat_nav);
-        ImageButton profile_nav = (ImageButton) findViewById(R.id.profile_nav);
-
-        chat_nav.setOnClickListener(new View.OnClickListener() {
-
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.NavBar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent j = new Intent(getApplicationContext(), GroupChatViewActivity.class);
-                startActivity(j);
-//                Toast.makeText(UserListActivity.this, "You are already on Groupchat", Toast.LENGTH_SHORT).show();
-            }
-        });
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
 
-        profile_nav.setOnClickListener(new View.OnClickListener() {
+                    case R.id.nav_contacts:
+                        Toast.makeText(UserListActivity.this, "You are already on contacts", Toast.LENGTH_SHORT).show();
+                        break;
 
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserListActivity.this, ProfileActivity.class));
+                    case R.id.nav_groups:
+                        Intent g = new Intent(getApplicationContext(), GroupChatViewActivity.class);
+                        startActivity(g);
+                        break;
+
+                    case R.id.nav_profile:
+                        Intent p = new Intent(getApplicationContext(), ProfileActivity.class);
+                        startActivity(p);
+                        break;
+                }
+                return true;
             }
         });
 
@@ -162,12 +166,6 @@ public class UserListActivity extends AppCompatActivity {
 
         }
 
-        if (id == R.id.createNewGroup) {
-
-            RequestNewGroup();
-
-        }
-
         if (id == R.id.logout) {
 
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
@@ -178,51 +176,7 @@ public class UserListActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    private void RequestNewGroup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
-        builder.setTitle("Enter Group Name :");
-
-        final EditText groupNameField = new EditText(this);
-        groupNameField.setHint("Klasse 1A");
-        builder.setView(groupNameField);
-
-        builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                String groupName = groupNameField.getText().toString();
-
-                if (TextUtils.isEmpty(groupName)) {
-
-                    Toast.makeText(UserListActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    CreateNewGroup(groupName);
-                }
-
-
-            }
-        });
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                dialogInterface.cancel();
-
-            }
-        });
-
-        builder.show();
-    }
-
-    private void CreateNewGroup(String groupName) {
-
-        Toast.makeText(UserListActivity.this, groupName + " is created successfully", Toast.LENGTH_SHORT).show();
-    }
 }
-
 
 
 

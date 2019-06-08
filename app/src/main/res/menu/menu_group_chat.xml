@@ -19,11 +19,4 @@
         android:title="@string/view_group"
         app:showAsAction="never"/>
 
-    <item
-        android:id="@+id/logout"
-        android:title="@string/logout"
-        app:showAsAction="never"/>
-
-
-
 </menu>
