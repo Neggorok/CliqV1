@@ -7,6 +7,8 @@ public class Gruppen {
     String groupName;
     Bitmap groupImage;
 
+    int groupId;
+
     public String getName() {
         return groupName;
     }
@@ -23,9 +25,14 @@ public class Gruppen {
         this.groupImage = image;
     }
 
+//    public int getGroupId() { return groupId; }
+//
+//    public void setGroupId(int groupId) { this.groupId = groupId; }
+
     public Gruppen(String name, Bitmap image) {
         this.groupName = name;
         this.groupImage = image;
+
 
 
 

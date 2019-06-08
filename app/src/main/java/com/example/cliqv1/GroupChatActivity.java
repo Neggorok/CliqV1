@@ -129,6 +129,9 @@ public class GroupChatActivity extends AppCompatActivity {
                         JSONObject jsonResponse = new JSONObject(response);
                         String message = jsonResponse.getString("message");
                         JSONArray messageArray = new JSONArray(message);
+                        // hier könnte man versuchen den json Response der Gruppe auf zu rufen um dann die Daten unten zu entnehmen
+//                        JSONArray groupArray = (JSONArray) jsonResponse.get("gruppen");
+
 
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
@@ -138,7 +141,8 @@ public class GroupChatActivity extends AppCompatActivity {
 
                                 JSONObject messageJson = (JSONObject) messageArray.get(i);
 
-                                if (messageJson.getInt("sender_id") == loggedInUserId) {
+                                // Hier muss zusätzlich die gid abgefragt werden, die von der angewähleten Gruppe mitgegeben wird ----- , && messageJson.getInt("receiver_id") == groupArray.getInt(Integer.parseInt("gid"))
+                                if (messageJson.getInt("sender_id") == loggedInUserId  ) {
 
                                     Bitmap userImage = Util.getBitmapFromBase64String(loggedInUserImage);
 
