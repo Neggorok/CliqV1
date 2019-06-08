@@ -54,6 +54,8 @@ public class ProfileActivity extends AppCompatActivity {
     TextView usernameTV;
     // EditText passwordET;
 
+    ImageButton btnProfileSettings;
+
     Bitmap currentBitmap;
 
     RequestQueue queue;
@@ -97,7 +99,19 @@ public class ProfileActivity extends AppCompatActivity {
         usernameTV = findViewById(R.id.groupchat_name);
         // passwordET = findViewById(R.id.profile_password);
 
+        btnProfileSettings = findViewById(R.id.btnProfileSettings);
+
         queue = Volley.newRequestQueue(this);
+
+        btnProfileSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent iProfileSettings = new Intent(ProfileActivity.this, ProfileSettingsActivity.class);
+                startActivity(iProfileSettings);
+
+            }
+        });
 
         if (userImage != null && userImage.length() > 0) {
 
