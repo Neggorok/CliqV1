@@ -48,6 +48,16 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/email"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="20sp"
+            android:drawableStart="@drawable/lock"
+            android:id="@+id/edittext_email"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="@string/password"
             android:layout_marginLeft="20dp"

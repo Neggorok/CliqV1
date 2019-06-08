@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText userName;
     EditText userPassword;
+    EditText userEmail;
     private Button btn, btn2;
     private Toolbar toolbar;
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         // Lädt die TextViews der Eingabezeilen, um sie in der Methode nutzen zu können
         // Eine Id wird auf dem Server automatisch per Script angelegt
         userName = findViewById(R.id.edittext_name);
+        userEmail = findViewById(R.id.edittext_email);
         userPassword = (EditText) findViewById(R.id.edittext_password);
         btn = findViewById(R.id.signBtn);
         btn2 = findViewById(R.id.LogInButton);
@@ -99,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("username", userName.getText().toString()).apply();
 
+                            PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("useremail", userEmail.getText().toString()).apply();
+
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("image", jsonResponse.getString("user_image")).apply();
 
 
@@ -122,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 // Hier werden die Eingaben aus den EditTexten userName und userPassword ausgelesen
                 // und in die entsprechenden Variablen geladen
                 params.put("username", userName.getText().toString());
+                params.put("useremail", userEmail.getText().toString());
                 params.put("password", userPassword.getText().toString());
                 verschluesselung(userPassword.getText().toString(),userName.getText().toString());
                 return params;

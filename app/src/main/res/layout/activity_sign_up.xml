@@ -74,7 +74,8 @@
                 android:layout_margin="10dp"
                 android:hint="Registrieren"
                 android:background="@color/colorOrange"
-                android:id="@+id/signup"/>
+                android:id="@+id/signup"
+                android:onClick="signup"/>
 
         </LinearLayout>
 
