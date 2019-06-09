@@ -17,6 +17,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -30,7 +31,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GroupChatViewActivity extends AppCompatActivity {
 
@@ -155,7 +158,82 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
         if (id == R.id.createNewGroup) {
 
-            RequestNewGroup();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
+            builder.setTitle("Enter Group Name:");
+
+            final EditText groupNameField = new EditText(this);
+            groupNameField.setHint("Klasse 1A");
+            builder.setView(groupNameField);
+
+            builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    String groupName = groupNameField.getText().toString();
+
+                    if (TextUtils.isEmpty(groupName)) {
+
+                        Toast.makeText(GroupChatViewActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
+                        String create_newgroup_url = getString(R.string.cliq) + "/createGroups_cliq.php";
+
+                        // der Request prüft ob die Daten des Scripts "/createGroups_cliq.php" korrect sind
+                        StringRequest postRequest = new StringRequest(Request.Method.POST, create_newgroup_url,
+
+                                // stellt die Antwort des Serves dar
+                                response -> {
+
+                                    // gibt die Antwort des Serves in der AS Console aus
+                                    // dient nur zur Kontrolle
+                                    Log.i("response", response);
+
+                                    // der Try - catch bereich funktioniert ähnlich wie eine If Abfrage
+                                    // es wird im Try Bereich versucht auf die Antwort zu reagieren
+                                    // und sollte die Antwort des Servers die Erwartete sein, reagiert der Catch Bereich dementsprechend
+                                    try {
+
+                                        // wandelt die Antwort des Servers in JSON um
+                                        JSONObject jsonResponse = new JSONObject(response);
+
+                                        // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App sichtbar aus
+                                        Toast.makeText(GroupChatViewActivity.this, jsonResponse.get("message").toString(), Toast.LENGTH_SHORT).show();
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }, error -> {
+
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() {
+                                Map<String, String> params = new HashMap<>();
+                                // Hier werden die Eingaben aus den EditTexten userName und userPassword ausgelesen
+                                // und in die entsprechenden Variablen geladen
+                                params.put("groupname", groupNameField.getText().toString());
+
+                                return params;
+                            }
+                        };
+
+// Add the request to the RequestQueue.
+                        queue.add(postRequest);
+                    }
+                }
+            });
+
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    dialogInterface.cancel();
+
+                }
+            });
+
+            builder.show();
 
         }
 
@@ -170,46 +248,4 @@ public class GroupChatViewActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void RequestNewGroup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
-        builder.setTitle("Enter Group Name:");
-
-        final EditText groupNameField = new EditText(this);
-        groupNameField.setHint("Klasse 1A");
-        builder.setView(groupNameField);
-
-        builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                String groupName = groupNameField.getText().toString();
-
-                if (TextUtils.isEmpty(groupName)) {
-
-                    Toast.makeText(GroupChatViewActivity.this, "Please choose a group name",  Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    CreateNewGroup(groupName);
-                }
-
-
-            }
-        });
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                dialogInterface.cancel();
-
-            }
-        });
-
-        builder.show();
-    }
-
-    private void CreateNewGroup(String groupName) {
-
-        Toast.makeText(GroupChatViewActivity.this, groupName + " is created successfully", Toast.LENGTH_SHORT).show();
-    }
 }
