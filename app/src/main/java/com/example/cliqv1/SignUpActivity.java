@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -36,8 +37,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     EditText userName;
     EditText userMail;
-    EditText userPassword;
-    EditText userPassword2;
+    TextInputEditText userPassword;
+    TextInputEditText userPassword2;
     Button button;
     private Toolbar toolbar;
     private ToggleButton agb;
@@ -113,7 +114,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-
+    //Erstellt das Pop-Up für die Einverständniserklärung mit 2 Buttons: akzeptieren und abbrechen
 //    public void getConsent(){
 //        LayoutInflater inflater = (LayoutInflater)
 //                getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -144,10 +145,12 @@ public class SignUpActivity extends AppCompatActivity {
 //    }
 
     private void signup() {
-
+        //guckt, ob ein Lehrer-Accout oder Schüler-Account erstellt werden soll
+        //checkt, ob ein Radiobutton angeklickt ist, wenn nicht, gibt er den Toast aus
         //if (!radioL.isChecked() && !radioS.isChecked()) {
         //    Toast.makeText(this, "Bitte wähle eine Account-Art aus.", Toast.LENGTH_SHORT).show();
         //}
+            //Erstellt eine Progressbar, welche sagt, dass dein Account erstellt wird
 //            progressDialog.setTitle("Erstelle Account.");
 //            progressDialog.setMessage("Bitte warten Sie, bis ihr Account erstellt wurde...");
 //            progressDialog.setCanceledOnTouchOutside(true);
@@ -204,6 +207,9 @@ public class SignUpActivity extends AppCompatActivity {
 
 // Add the request to the RequestQueue.
             queue.add(postRequest);
+            Intent iLog = new Intent(this, MainActivity.class);
+            startActivity(iLog);
+            //Progressbar wird ausgemacht, nach erfolgreichem erstellen
 //            progressDialog.dismiss();
         }
     }
