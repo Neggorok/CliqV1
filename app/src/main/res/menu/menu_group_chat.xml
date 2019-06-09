@@ -9,16 +9,15 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/addMember"
-        android:title="@string/add_group_member"
-        android:icon="@drawable/ic_person_add_white_24dp"
-        android:orderInCategory="1"
-        app:showAsAction="never"/>
+        android:id="@+id/groupInformation"
+        android:title="@string/group_information"
+        android:orderInCategory="2"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/popupGroupSettings"
         android:title="@string/group_settings"
-        android:orderInCategory="2"
+        android:orderInCategory="3"
         app:showAsAction="never" />
 
 

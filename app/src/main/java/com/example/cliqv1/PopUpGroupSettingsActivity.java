@@ -1,19 +1,25 @@
 package com.example.cliqv1;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class PopUpGroupSettingsActivity extends Activity {
 
     Button btnCancel;
     Button btnSave;
+    ImageButton addGroupMember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,7 @@ public class PopUpGroupSettingsActivity extends Activity {
 
         btnCancel = findViewById(R.id.btnCancel);
         btnSave = findViewById(R.id.btnSave);
+        addGroupMember = findViewById(R.id.addGroupMember);
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -36,6 +43,14 @@ public class PopUpGroupSettingsActivity extends Activity {
 
                 onBackPressed();
                 Toast.makeText(PopUpGroupSettingsActivity.this, "Settings successfully changed",  Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        addGroupMember.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                RequestNewMember();
 
             }
         });
@@ -55,5 +70,49 @@ public class PopUpGroupSettingsActivity extends Activity {
 
         getWindow().setAttributes(params);
 
+    }
+
+    //Fehlt: groupName zu username!!!
+    private void RequestNewMember() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
+        builder.setTitle("Enter Username:");
+
+        final EditText groupNameField = new EditText(this);
+        groupNameField.setHint("Max Mustermann");
+        builder.setView(groupNameField);
+
+        builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String groupName = groupNameField.getText().toString();
+
+                if (TextUtils.isEmpty(groupName)) {
+
+                    Toast.makeText(PopUpGroupSettingsActivity.this, "Please choose a username",  Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    CreateNewGroup(groupName);
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+
+            }
+        });
+
+        builder.show();
+    }
+
+    private void CreateNewGroup(String groupName) {
+
+        Toast.makeText(PopUpGroupSettingsActivity.this, groupName + " was successfully added", Toast.LENGTH_SHORT).show();
     }
 }

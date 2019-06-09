@@ -7,14 +7,30 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/colorWhite">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/ChangeGroupImgToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarNew"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="@string/change_group_pic"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
 
     <ImageView
         android:id="@+id/profileUnknown"
         android:layout_width="235dp"
         android:layout_height="228dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/standard_group_image" />
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/group_img6"
+        android:layout_below="@+id/ChangeGroupImgToolbar"/>
 
     <TableLayout
         android:layout_width="match_parent"

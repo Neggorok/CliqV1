@@ -51,7 +51,7 @@
     <string name="profanity_filter">Profanity filter</string>
     <string name="participantlist">Participants list</string>
     <string name="add_group_member">Add participant</string>
-    <string name="members_group">Group members</string>
+    <string name="group_members">Group members</string>
     <string name="previousActivity">previous Activity</string>
     <string name="change_group_pic">Change group picture</string>
     <string name="activate_filter">Activate filter</string>

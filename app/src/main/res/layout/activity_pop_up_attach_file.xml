@@ -25,9 +25,11 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_camera_alt_white_24dp"
                 android:padding="18dp"
-                android:background="@color/colorOrange"
+                android:backgroundTint="@color/colorOrange"
+                android:background="@drawable/circle"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                />
 
             <ImageButton
                 android:id="@+id/ibtn_gallery"
@@ -35,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_collections_white_24dp"
                 android:padding="18dp"
-                android:background="@color/colorOrange"
+                android:backgroundTint="@color/colorOrange"
+                android:background="@drawable/circle"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="10dp" />
 
@@ -56,7 +59,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_documents_white_24dp"
                 android:padding="18dp"
-                android:background="@color/colorOrange"
+                android:backgroundTint="@color/colorOrange"
+                android:background="@drawable/circle"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="10dp" />
 
@@ -67,7 +71,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_mic_white_24dp"
                 android:padding="18dp"
-                android:background="@color/colorOrange"
+                android:backgroundTint="@color/colorOrange"
+                android:background="@drawable/circle"
                 android:layout_marginLeft="8dp"
                 android:layout_marginBottom="10dp" />
 

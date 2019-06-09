@@ -269,15 +269,17 @@ public class GroupChatActivity extends AppCompatActivity {
 
         }
 
-        if (id == R.id.addMember) {
+        if (id == R.id.groupInformation) {
 
-            RequestNewMember();
+            Intent i = new Intent(getApplicationContext(), GroupSummaryActivity.class);
+            startActivity(i);
 
         }
 
         if (id == R.id.popupGroupSettings) {
 
             Intent i = new Intent(getApplicationContext(), PopUpGroupSettingsActivity.class);
+            Toast.makeText(GroupChatActivity.this, "Group Settings selected, exclusive authority for the administrator", Toast.LENGTH_LONG).show();
             startActivity(i);
         }
 
@@ -290,50 +292,6 @@ public class GroupChatActivity extends AppCompatActivity {
 //        }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    //Fehlt: groupName zu username!!!
-    private void RequestNewMember() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
-        builder.setTitle("Enter Username:");
-
-        final EditText groupNameField = new EditText(this);
-        groupNameField.setHint("Max Mustermann");
-        builder.setView(groupNameField);
-
-        builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                String groupName = groupNameField.getText().toString();
-
-                if (TextUtils.isEmpty(groupName)) {
-
-                    Toast.makeText(GroupChatActivity.this, "Please choose a username",  Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    CreateNewGroup(groupName);
-                }
-
-
-            }
-        });
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                dialogInterface.cancel();
-
-            }
-        });
-
-        builder.show();
-    }
-
-    private void CreateNewGroup(String groupName) {
-
-        Toast.makeText(GroupChatActivity.this, groupName + " was successfully added", Toast.LENGTH_SHORT).show();
     }
 
 //    public boolean onContextItemSelected(MenuItem item) {

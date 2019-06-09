@@ -59,7 +59,7 @@
     <string name="profanity_filter">Schimpfwortfilter</string>
     <string name="participantlist">Teilnehmerliste</string>
     <string name="add_group_member">Teilnehmer hinzufügen</string>
-    <string name="members_group">Gruppenmitglieder</string>
+    <string name="group_members">Gruppenmitglieder</string>
     <string name="previousActivity">vorherige Activity</string>
     <string name="change_group_pic">Gruppenbild ändern</string>
     <string name="activate_filter">Filter aktivieren</string>
@@ -102,5 +102,6 @@
 
     //menu_user_list
     <string name="createGroup">Gruppe erstellen</string>
+    <string name="title_activity_group_filter">GroupFilterActivity</string>
 
 </resources>
