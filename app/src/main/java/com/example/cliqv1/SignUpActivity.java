@@ -43,8 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
     TextInputEditText userPassword2;
     Button button;
     private Toolbar toolbar;
-//    private RadioButton radioS, radioL;
-//    private ProgressDialog progressDialog;
+    private RadioButton radioS, radioL;
 
     RequestQueue queue;
 
@@ -56,19 +55,11 @@ public class SignUpActivity extends AppCompatActivity {
         userMail = findViewById(R.id.mail);
         userPassword =  findViewById(R.id.pass);
         userPassword2 = findViewById(R.id.pass2);
-//        radioS = findViewById(R.id.accS);
-//        radioL = findViewById(R.id.accL);
+        radioS = findViewById(R.id.accS);
+        radioL = findViewById(R.id.accL);
         button = findViewById(R.id.signup);
-//        progressDialog = new ProgressDialog(this);
 
         queue = Volley.newRequestQueue(this);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signup();
-            }
-        });
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -78,7 +69,6 @@ public class SignUpActivity extends AppCompatActivity {
                 String mail = userMail.getText().toString();
                 String pw = userPassword.getText().toString();
                 String pw2 = userPassword2.getText().toString();
-//                agb.toggle();
                 if (TextUtils.isEmpty(name)) {
                     Toast.makeText(getApplicationContext(), "Bitte gebe einen Benutzernamen an.", Toast.LENGTH_SHORT).show();
                     return;
@@ -107,7 +97,13 @@ public class SignUpActivity extends AppCompatActivity {
                 if (!pw.equals(pw2)) {
                     Toast.makeText(getApplicationContext(), "Dein Passwort stimmt nicht überein.", Toast.LENGTH_SHORT).show();
                     return;
-                }else {
+                }
+                //guckt, ob ein Lehrer-Accout oder Schüler-Account erstellt werden soll
+                //checkt, ob ein Radiobutton angeklickt ist, wenn nicht, gibt er den Toast aus
+               /* if (!radioL.isChecked() && !radioS.isChecked()) {
+                    Toast.makeText(SignUpActivity.this, "Bitte wähle eine Account-Art aus.", Toast.LENGTH_SHORT).show();
+                }*/
+                else {
                     getConsent();
                 }
             }
@@ -149,18 +145,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signup() {
-        //guckt, ob ein Lehrer-Accout oder Schüler-Account erstellt werden soll
-        //checkt, ob ein Radiobutton angeklickt ist, wenn nicht, gibt er den Toast aus
-        //if (!radioL.isChecked() && !radioS.isChecked()) {
-        //    Toast.makeText(this, "Bitte wähle eine Account-Art aus.", Toast.LENGTH_SHORT).show();
-        //}
-            //Erstellt eine Progressbar, welche sagt, dass dein Account erstellt wird
-//            progressDialog.setTitle("Erstelle Account.");
-//            progressDialog.setMessage("Bitte warten Sie, bis ihr Account erstellt wurde...");
-//            progressDialog.setCanceledOnTouchOutside(true);
-//            progressDialog.show();
-
-
 
             // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
             String create_user_url = getString(R.string.cliq) + "/registrierung_cliq.php";
@@ -185,9 +169,6 @@ public class SignUpActivity extends AppCompatActivity {
 
                             // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App sichtbar aus
                             Toast.makeText(SignUpActivity.this, jsonResponse.get("message").toString(), Toast.LENGTH_SHORT).show();
-
-                            Intent i = new Intent(this, MainActivity.class);
-                            startActivity(i);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -211,10 +192,8 @@ public class SignUpActivity extends AppCompatActivity {
 
 // Add the request to the RequestQueue.
             queue.add(postRequest);
-            Intent iLog = new Intent(this, MainActivity.class);
-            startActivity(iLog);
-            //Progressbar wird ausgemacht, nach erfolgreichem erstellen
-//            progressDialog.dismiss();
+        Intent iLog = new Intent(this, MainActivity.class);
+        startActivity(iLog);
         }
     }
 
