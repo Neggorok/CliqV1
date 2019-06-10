@@ -51,9 +51,10 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_emoji_white_24dp"
-            android:padding="3dp"
-            android:layout_marginTop="15dp"
+            android:padding="5dp"
+            android:layout_marginTop="4dp"
             android:layout_marginRight="3dp"
+            android:layout_marginLeft="5dp"
             android:backgroundTint="@color/colorOrange"
             android:background="@drawable/circle"/>
 
@@ -69,22 +70,24 @@
         <ImageButton
             android:id="@+id/btn_attachFile"
             android:layout_width="wrap_content"
-            android:gravity="center"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:src="@drawable/ic_attach_file_white_24dp"
             android:padding="6dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="3dp"
             android:layout_marginRight="3dp"
             android:background="@drawable/circle"/>
 
-        <Button
+        <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/send"
+            android:gravity="center"
             android:background="@drawable/oval"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
+            android:src="@drawable/ic_send_white_24dp"
+            android:padding="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
             android:onClick="sendMessage" />
 
 
