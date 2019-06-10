@@ -20,6 +20,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -61,6 +62,8 @@ public class CameraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
+        setSupportActionBar(toolbar);
 
         btnTakePicture = findViewById(R.id.btnTakePicture);
         btnRecordVideo = findViewById(R.id.btnRecordVideo);
@@ -320,7 +323,7 @@ public class CameraActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_attach_file, menu);
+        getMenuInflater().inflate(R.menu.menu_back, menu);
         return true;
     }
 
@@ -328,22 +331,13 @@ public class CameraActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.back_to_chat) {
+        if (id == R.id.back) {
 
             finish();
             return true;
 
         }
 
-        if (id == R.id.set_logout) {
-
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            Toast.makeText(CameraActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
-        }
-
         return super.onOptionsItemSelected(item);
     }
-
-
 }

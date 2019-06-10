@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +32,10 @@ public class AudioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
+        setSupportActionBar(toolbar);
+
+
         record =  findViewById(R.id.btnRecord);
         stop =  findViewById(R.id.btnStopRecord);
         play = findViewById(R.id.btnPlay);
@@ -149,7 +154,7 @@ public class AudioActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_attach_file, menu);
+        getMenuInflater().inflate(R.menu.menu_back, menu);
         return true;
     }
 
@@ -157,7 +162,7 @@ public class AudioActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.back_to_chat) {
+        if (id == R.id.back) {
 
             finish();
             return true;
@@ -166,5 +171,4 @@ public class AudioActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
