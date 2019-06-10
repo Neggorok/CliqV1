@@ -3,12 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
-    android:layout_margin="20dp">
+    android:layout_margin="20dp"
+    android:background="@drawable/pop_up_background">
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -28,26 +29,39 @@
         android:layout_height="700dp"
         android:id="@+id/consentText"
         android:layout_below="@+id/consent_form"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/consentText">
 
-    <Button
-        android:id="@+id/btnCancel"
-        android:text="@string/cancel"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/oval"/>
+            <Button
+                android:id="@+id/btnCancel"
+                android:text="@string/cancel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/oval" />
 
-    <Button
-        android:id="@+id/btnAccept"
-        android:text="@string/accept"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:background="@drawable/oval" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnAccept"
+                android:text="@string/accept"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oval" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
