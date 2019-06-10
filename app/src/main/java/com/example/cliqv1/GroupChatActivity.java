@@ -102,7 +102,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         setTitle(groupchatName);
 
-        editText = (EditText) findViewById(R.id.groupMessageEditText);
+        editText = (EditText) findViewById(R.id.messageEditText);
 
         groupMessageList = new ArrayList<>();
         adapter = new GroupchatAdapter(this, groupMessageList);

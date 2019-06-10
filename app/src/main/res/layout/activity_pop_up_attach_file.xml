@@ -87,11 +87,11 @@
 
             <Button
                 android:id="@+id/btn_close"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorOrange"
                 android:padding="10dp"
-                android:text="@string/cancel" />
+                android:text="@string/cancel"
+                android:background="@drawable/oval" />
 
         </LinearLayout>
 

@@ -37,17 +37,17 @@
     <Button
         android:id="@+id/btnCancel"
         android:text="@string/cancel"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorOrange"/>
+        android:background="@drawable/oval"/>
 
     <Button
         android:id="@+id/btnAccept"
         android:text="@string/accept"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:background="@color/colorOrange" />
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/oval" />
     </LinearLayout>
 
 </LinearLayout>

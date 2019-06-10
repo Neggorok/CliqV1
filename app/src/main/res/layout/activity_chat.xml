@@ -50,8 +50,8 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_emoji_white_24dp"
-            android:padding="6dp"
-            android:layout_marginTop="7dp"
+            android:padding="3dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="3dp"
             android:backgroundTint="@color/colorOrange"
             android:background="@drawable/circle"/>
@@ -72,16 +72,16 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_attach_file_white_24dp"
             android:padding="6dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="3dp"
-            android:background="@color/colorOrange"/>
+            android:background="@drawable/circle"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/send"
-            android:background="@color/colorOrange"
+            android:background="@drawable/oval"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:onClick="sendMessage" />

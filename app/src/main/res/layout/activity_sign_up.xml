@@ -82,8 +82,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Registrieren"
-                android:background="@color/colorOrange"
+                android:text="@string/register"
+                android:background="@drawable/oval"
                 android:id="@+id/signup"
                 android:onClick="signup"/>
 
