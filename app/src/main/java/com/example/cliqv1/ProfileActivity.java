@@ -48,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView usernameTV;
     // EditText passwordET;
 
-    ImageButton btnProfileSettings;
+    ImageButton btnEditProfilImg;
 
     Bitmap currentBitmap;
 
@@ -93,15 +93,15 @@ public class ProfileActivity extends AppCompatActivity {
         usernameTV = findViewById(R.id.groupchat_name);
         // passwordET = findViewById(R.id.profile_password);
 
-        btnProfileSettings = findViewById(R.id.btnProfileSettings);
+        btnEditProfilImg = findViewById(R.id.btnEditProfilImg);
 
         queue = Volley.newRequestQueue(this);
 
-        btnProfileSettings.setOnClickListener(new View.OnClickListener() {
+        btnEditProfilImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent iProfileSettings = new Intent(ProfileActivity.this, ProfileSettingsActivity.class);
+                Intent iProfileSettings = new Intent(ProfileActivity.this, ChangeAvatarActivity.class);
                 startActivity(iProfileSettings);
 
             }
@@ -227,7 +227,13 @@ public class ProfileActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.set_logout) {
+        if (id == R.id.profileSettings) {
+
+            Intent i = new Intent(getApplicationContext(), ProfileSettingsActivity.class);
+            startActivity(i);
+        }
+
+        if (id == R.id.logout) {
 
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);

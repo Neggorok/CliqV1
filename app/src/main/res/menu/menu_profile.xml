@@ -4,7 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/set_logout"
+        android:id="@+id/profileSettings"
+        android:title="@string/createGroup"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:orderInCategory="1"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/logout"
         android:title="@string/logout"
         app:showAsAction="never"/>
 

@@ -61,7 +61,7 @@ public class PopUpGroupSettingsActivity extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.4));
+        getWindow().setLayout((int)(width*.8),(int)(height*.5));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
@@ -77,22 +77,22 @@ public class PopUpGroupSettingsActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
         builder.setTitle("Enter Username:");
 
-        final EditText groupNameField = new EditText(this);
-        groupNameField.setHint("Max Mustermann");
-        builder.setView(groupNameField);
+        final EditText newMemberField = new EditText(this);
+        newMemberField.setHint("Max Mustermann");
+        builder.setView(newMemberField);
 
         builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                String groupName = groupNameField.getText().toString();
+                String username = newMemberField.getText().toString();
 
-                if (TextUtils.isEmpty(groupName)) {
+                if (TextUtils.isEmpty(username)) {
 
                     Toast.makeText(PopUpGroupSettingsActivity.this, "Please choose a username",  Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    CreateNewGroup(groupName);
+                    CreateNewMember(username);
                 }
 
 
@@ -111,8 +111,8 @@ public class PopUpGroupSettingsActivity extends Activity {
         builder.show();
     }
 
-    private void CreateNewGroup(String groupName) {
+    private void CreateNewMember(String username) {
 
-        Toast.makeText(PopUpGroupSettingsActivity.this, groupName + " was successfully added", Toast.LENGTH_SHORT).show();
+        Toast.makeText(PopUpGroupSettingsActivity.this, username + " was successfully added", Toast.LENGTH_SHORT).show();
     }
 }

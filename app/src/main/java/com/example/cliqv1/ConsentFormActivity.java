@@ -42,7 +42,7 @@ public class ConsentFormActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_profile_shortcut, menu);
+        getMenuInflater().inflate(R.menu.menu_back, menu);
         return true;
     }
 
@@ -50,7 +50,7 @@ public class ConsentFormActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.back_to_profile) {
+        if (id == R.id.back) {
 
             finish();
             return true;

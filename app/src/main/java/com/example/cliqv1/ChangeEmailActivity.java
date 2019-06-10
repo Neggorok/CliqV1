@@ -17,7 +17,7 @@ public class ChangeEmailActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_profile_shortcut, menu);
+        getMenuInflater().inflate(R.menu.menu_back, menu);
         return true;
     }
 
@@ -25,19 +25,11 @@ public class ChangeEmailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.back_to_profile) {
+        if (id == R.id.back) {
 
             finish();
             return true;
 
-        }
-
-        if (id == R.id.set_logout) {
-
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            Toast.makeText(ChangeEmailActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);

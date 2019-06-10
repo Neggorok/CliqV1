@@ -97,9 +97,7 @@
     <string name="view_group">Group information</string>
     <string name="back_to_profile_settings">Back to profile settings</string>
     <string name="back_to_chat">Back to Chat</string>
-    <string name="back_to_grouplist">Back to Group Chats</string>
-    <string name="back_to_groupview">Back to group information</string>
-    <string name="back_to_groupsettings">Back to group settings</string>
+    <string name="back">Back</string>
 
     //menu_profile_settings
     <string name="newMember">New group member</string>

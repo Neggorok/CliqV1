@@ -117,7 +117,7 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
 
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
-            getMenuInflater().inflate(R.menu.menu_groupchat_shortcut, menu);
+            getMenuInflater().inflate(R.menu.menu_back, menu);
             return true;
         }
 
@@ -125,12 +125,11 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
         public boolean onOptionsItemSelected(MenuItem item) {
             int id = item.getItemId();
 
-            if (id == R.id.set_logout) {
+            if (id == R.id.back) {
 
-                PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-                Toast.makeText(ChangeGroupPicActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
+                finish();
+                return true;
+
             }
 
             return super.onOptionsItemSelected(item);

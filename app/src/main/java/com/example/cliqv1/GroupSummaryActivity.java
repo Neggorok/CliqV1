@@ -36,7 +36,7 @@ public class GroupSummaryActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_groupchat_shortcut, menu);
+        getMenuInflater().inflate(R.menu.menu_back, menu);
         return true;
     }
 
@@ -44,11 +44,10 @@ public class GroupSummaryActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
 
-        if (id == R.id.back_to_chat) {
+        if (id == R.id.back) {
 
-            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
-            Toast.makeText(GroupSummaryActivity.this, "Group overview selected", Toast.LENGTH_SHORT).show();
-            startActivity(i);
+            finish();
+            return true;
 
         }
 
