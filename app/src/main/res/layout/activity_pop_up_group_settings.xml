@@ -12,21 +12,49 @@
         android:orientation="vertical" >
 
         <LinearLayout
-            android:layout_width="280dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_marginTop="5dp" >
+            android:layout_marginTop="15dp">
 
-            <ImageButton
-                android:id="@+id/addGroupMember"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/colorOrange"
-                android:src="@drawable/ic_person_add_white_24dp"
-                android:background="@drawable/circle"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingLeft="50dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_group_member" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+
+                <ImageButton
+                    android:id="@+id/addGroupMember"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/colorOrange"
+                    android:src="@drawable/ic_person_add_white_24dp"
+                    android:background="@drawable/circle"/>
+
+            </LinearLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_below="@+id/profile_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorOrange"/>
 
         <LinearLayout
             android:id="@+id/groupSettings"
@@ -34,8 +62,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/profile_linearLayout" >
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/line" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,15 +107,15 @@
                 android:text="@string/cancel"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="20dp"
                 android:background="@drawable/oval"/>
 
             <Button
                 android:id="@+id/btnSave"
-                android:text="@string/accept"
+                android:text="@string/save"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
+                android:layout_marginRight="30dp"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/oval" />
         </LinearLayout>
