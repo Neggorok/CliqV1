@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
@@ -26,6 +27,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -108,41 +110,45 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Dein Passwort stimmt nicht überein.", Toast.LENGTH_SHORT).show();
                     return;
                 }else {
-                    signup();
+                    getConsent();
                 }
             }
         });
     }
 
     //Erstellt das Pop-Up für die Einverständniserklärung mit 2 Buttons: akzeptieren und abbrechen
-//    public void getConsent(){
-//        LayoutInflater inflater = (LayoutInflater)
-//                getSystemService(LAYOUT_INFLATER_SERVICE);
-//        View popupView = inflater.inflate(R.layout.activity_pop_up_consent_form, null);
-//        // create the popup window
-//        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-//        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-//        Button abbrechen = popupView.findViewById(R.id.btnCancel);
-//        Button akzeptieren = popupView.findViewById(R.id.btnAccept);
-//        // boolean focusable = true;  lets taps outside the popup also dismiss it
-//        final PopupWindow popupWindow = new PopupWindow(popupView, width, height);
-//
-//        popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
-//
-//        abbrechen.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                popupWindow.dismiss();
-//            }
-//        });
-//
-//        akzeptieren.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                signUp();
-//            }
-//        });
-//    }
+    public void getConsent(){
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.activity_pop_up_consent_form, null);
+        // create the popup window
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        Button abbrechen = popupView.findViewById(R.id.btnCancel);
+        Button akzeptieren = popupView.findViewById(R.id.btnAccept);
+        ImageView consent = popupView.findViewById(R.id.consentText);
+        Picasso.get().load("https://cliqstudent.000webhostapp.com/cliq/datenschutz.jpg")
+        .into(consent);
+        // boolean focusable = true;  lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height);
+
+        popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+
+
+        abbrechen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+
+        akzeptieren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signup();
+            }
+        });
+    }
 
     private void signup() {
         //guckt, ob ein Lehrer-Accout oder Schüler-Account erstellt werden soll
