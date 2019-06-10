@@ -43,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
     TextInputEditText userPassword2;
     Button button;
     private Toolbar toolbar;
-    private ToggleButton agb;
 //    private RadioButton radioS, radioL;
 //    private ProgressDialog progressDialog;
 
@@ -57,7 +56,6 @@ public class SignUpActivity extends AppCompatActivity {
         userMail = findViewById(R.id.mail);
         userPassword =  findViewById(R.id.pass);
         userPassword2 = findViewById(R.id.pass2);
-        agb =  findViewById(R.id.AGB);
 //        radioS = findViewById(R.id.accS);
 //        radioL = findViewById(R.id.accL);
         button = findViewById(R.id.signup);

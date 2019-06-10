@@ -7,9 +7,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
+
 public class ConsentFormActivity extends AppCompatActivity {
+
+    ImageView consent;
+    TextView time;
+    String signTime;
+    RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +28,16 @@ public class ConsentFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_consent_form);
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
+
+        consent = findViewById(R.id.consentText);
+
+        Picasso.get().load("https://cliqstudent.000webhostapp.com/cliq/datenschutz.jpg")
+                .into(consent);
+        signTime = PreferenceManager.getDefaultSharedPreferences(this).getString("created_at", "-1");
+        time = findViewById(R.id.signtime);
+        queue = Volley.newRequestQueue(this);
+        time.setText(signTime);
+
     }
 
     @Override
