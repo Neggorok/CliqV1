@@ -83,52 +83,7 @@
         android:layout_below="@+id/profile_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@color/colorOrange"/>
-
-    <LinearLayout
-        android:id="@+id/status"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/line"
-        android:layout_marginTop="30dp"
-        android:gravity="center">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/yourStatus"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/status"
-        android:layout_marginTop="20dp">
-
-        <android.support.text.emoji.widget.EmojiEditText
-            android:id="@+id/editTextEmoji"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/status"/>
-
-        <android.support.text.emoji.widget.EmojiButton
-            android:id="@+id/btnEmoji"
-            android:drawableRight="@drawable/ic_emoji_white_24dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/emoji"
-            android:background="@color/colorOrange" />
-
-        <android.support.text.emoji.widget.EmojiTextView
-            android:id="@+id/textViewEmoji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp" />
-
-    </LinearLayout>
 
 </RelativeLayout>
