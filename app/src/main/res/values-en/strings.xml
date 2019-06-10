@@ -30,6 +30,9 @@
 
     //activity_profile
     <string name="save">save</string>
+    <string name="yourStatus">Your status</string>
+    <string name="status">Write something...</string>
+    <string name="emoji">Emoji</string>
 
     //activity_profile_settings
     <string name="profileSettings">Profil-Settings</string>

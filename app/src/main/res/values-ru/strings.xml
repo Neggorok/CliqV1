@@ -30,6 +30,9 @@
 
     //activity_profile
     <string name="save">сохранять</string>
+    <string name="yourStatus">Ваш статус</string>
+    <string name="status">Напиши что-нибудь...</string>
+    <string name="emoji">эмодзи</string>
 
     //activity_profile_settings
     <string name="profileSettings">настройки профиля</string>
