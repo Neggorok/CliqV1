@@ -29,6 +29,9 @@
 
     //activity_profile
     <string name="save">speichern</string>
+    <string name="yourStatus">Dein Status</string>
+    <string name="status">Schreibe etwas...</string>
+    <string name="emoji">Emoji</string>
 
     //activity_profile_settings
     <string name="profileSettings">Profil-Einstellungen</string>

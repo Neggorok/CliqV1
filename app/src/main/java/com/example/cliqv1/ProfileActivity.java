@@ -11,6 +11,11 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.text.emoji.EmojiCompat;
+import android.support.text.emoji.bundled.BundledEmojiCompatConfig;
+import android.support.text.emoji.widget.EmojiButton;
+import android.support.text.emoji.widget.EmojiEditText;
+import android.support.text.emoji.widget.EmojiTextView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -60,6 +65,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     RequestQueue queue;
 
+    EmojiTextView textViewEmoji;
+    EmojiButton btnEmoji;
+    EmojiEditText editTextEmoji;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +111,20 @@ public class ProfileActivity extends AppCompatActivity {
         btnProfileSettings = findViewById(R.id.btnProfileSettings);
 
         queue = Volley.newRequestQueue(this);
+
+        //access to Emoji view
+        editTextEmoji = (EmojiEditText)findViewById(R.id.editTextEmoji) ;
+        btnEmoji = (EmojiButton)findViewById(R.id.btnEmoji);
+        textViewEmoji = (EmojiTextView)findViewById(R.id.textViewEmoji);
+
+        btnEmoji.setText(new StringBuilder(new String(Character.toChars(0x2764))).append(" Show Text"));
+
+        btnEmoji.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textViewEmoji.setText(editTextEmoji.getText().toString());
+            }
+        });
 
         btnProfileSettings.setOnClickListener(new View.OnClickListener() {
             @Override
