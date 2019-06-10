@@ -96,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
                         if(success == 1){
 
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putInt("id", jsonResponse.getInt("user_id")).apply();
-
+                            PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("username", jsonResponse.getString("username")).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("useremail", userEmail.getText().toString()).apply();
-
+                            PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("created_at", jsonResponse.getString("acc_created_at")).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("image", jsonResponse.getString("user_image")).apply();
 
 
