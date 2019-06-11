@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("image", jsonResponse.getString("user_image")).apply();
 
 
-                            Intent intent = new Intent(getApplicationContext(), UserListActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), GroupChatViewActivity.class);
                             startActivity(intent);
 
 
