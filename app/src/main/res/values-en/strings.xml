@@ -19,6 +19,7 @@
     <string name="teacherAccount">Teacher account</string>
     <string name="join_now">Join Now</string>
     <string name="sign_up_question">Not registered yet? Click here</string>
+    <string name="signTime">Date and time of registration:</string>
 
     //activity_user_list
     <string name="search">Search</string>

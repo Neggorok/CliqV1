@@ -33,16 +33,37 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/signTime"
+                    android:textAlignment="textEnd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/signtime"
+                    android:textAlignment="textEnd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/consent"
+                    android:textAlignment="center"
+                    android:layout_marginTop="30dp"
+                    android:textStyle="bold"
+                    android:textSize="18dp"/>
 
                 <ImageView
                     android:layout_width="400dp"
                     android:layout_height="800dp"
-                    android:id="@+id/consentText" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/signtime"/>
+                    android:id="@+id/consentText"
+                    android:layout_marginTop="10dp"/>
 
             </LinearLayout>
 

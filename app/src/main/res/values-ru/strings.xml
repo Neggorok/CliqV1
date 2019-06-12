@@ -19,6 +19,7 @@
     <string name="teacherAccount">Учитель счета</string>
     <string name="join_now">регистрировать</string>
     <string name="sign_up_question">Еще не зарегистрированы? Нажмите здесь</string>
+    <string name="signTime">Дата и время регистрации:</string>
 
     //activity_user_list
     <string name="search">поиск</string>
