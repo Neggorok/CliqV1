@@ -279,7 +279,7 @@ public class GroupChatActivity extends AppCompatActivity {
         if (id == R.id.popupGroupSettings) {
 
             Intent i = new Intent(getApplicationContext(), PopUpGroupSettingsActivity.class);
-            Toast.makeText(GroupChatActivity.this, "Group Settings selected, exclusive authority for the administrator", Toast.LENGTH_LONG).show();
+            Toast.makeText(GroupChatActivity.this, "Group Settings selected, exclusive authority for the host", Toast.LENGTH_LONG).show();
             startActivity(i);
         }
 
