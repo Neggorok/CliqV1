@@ -44,6 +44,7 @@ public class GroupChatActivity extends AppCompatActivity {
     RecyclerView groupMessageRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
 
+
     RequestQueue queue;
 
     int loggedInUserId;

@@ -2,6 +2,7 @@ package com.example.cliqv1;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class PopUpGroupSettingsActivity extends Activity {
@@ -20,6 +22,11 @@ public class PopUpGroupSettingsActivity extends Activity {
     Button btnCancel;
     Button btnSave;
     ImageButton addGroupMember;
+    Switch swtDelete;
+    Switch swtFilter;
+
+    int loggedAdmin;
+    int loggedModerator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,39 @@ public class PopUpGroupSettingsActivity extends Activity {
         btnCancel = findViewById(R.id.btnCancel);
         btnSave = findViewById(R.id.btnSave);
         addGroupMember = findViewById(R.id.addGroupMember);
+        swtDelete = findViewById(R.id.delete_switch);
+        swtFilter = findViewById(R.id.filter_switch);
+
+        loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
+        loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
+
+
+
+        if (loggedModerator == 0)
+        {
+            swtDelete.setEnabled(false);
+            swtFilter.setEnabled(false);
+            addGroupMember.setEnabled(false);
+        }
+        else {
+            swtDelete.setEnabled(true);
+            swtFilter.setEnabled(true);
+            addGroupMember.setEnabled(true);
+        }
+
+        swtDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        swtFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

@@ -42,8 +42,9 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
     RecyclerView groupRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
-
+    int loggedAdmin;
     RequestQueue queue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,9 @@ public class GroupChatViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_chat_view);
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
+
+
+        loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.NavBar);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -156,6 +160,9 @@ public class GroupChatViewActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+
+        if(loggedAdmin == 1)
+        {
         if (id == R.id.createNewGroup) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
@@ -237,6 +244,9 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
             builder.show();
 
+        }}
+        else {
+            Toast.makeText(GroupChatViewActivity.this, "Nur Admins können Gruppen erstellen",  Toast.LENGTH_SHORT).show();
         }
 
         if (id == R.id.set_logout) {

@@ -2,13 +2,30 @@ package com.example.cliqv1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 
 public class PopUpAttachFileActivity extends Activity {
 
@@ -33,8 +50,6 @@ public class PopUpAttachFileActivity extends Activity {
         btn_close = (Button) findViewById(R.id.btn_close);
 
 
-
-
         btn_camera.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -50,7 +65,8 @@ public class PopUpAttachFileActivity extends Activity {
                 Intent iGallery = new Intent();
                 iGallery.setAction(Intent.ACTION_GET_CONTENT);
                 iGallery.setType("image/*");
-                startActivityForResult(iGallery, galleryPick );
+                startActivityForResult(iGallery, galleryPick);
+
             }
         });
 
@@ -70,7 +86,7 @@ public class PopUpAttachFileActivity extends Activity {
                 Intent iDocument = new Intent();
                 iDocument.setAction(Intent.ACTION_GET_CONTENT);
                 iDocument.setType("documents/*");
-                startActivityForResult(iDocument, DocumentPick );
+                startActivityForResult(iDocument, DocumentPick);
             }
         });
 
@@ -99,3 +115,4 @@ public class PopUpAttachFileActivity extends Activity {
 
     }
 }
+

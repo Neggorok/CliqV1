@@ -172,7 +172,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         final String bitmapString = Util.getBase64StringFromBitmap(smallerBitmap);
 
-        String create_user_url = getString(R.string.cliq) + "/insertBitmapIntoDB_cliq.php";
+        String create_user_url = getString(R.string.cliq) + "/insertBitmapIntoDB.php";
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
 

@@ -11,7 +11,9 @@ import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
+import android.media.Image;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.os.Parcelable;
@@ -21,6 +23,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,7 +33,21 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import org.apache.http.HttpClientConnection;
+import org.apache.http.HttpConnection;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +69,7 @@ public class CameraActivity extends AppCompatActivity {
     private static final int GALLERY_Pick = 2;
     private static final int IMAGE_TO_CROP = 3;
     private static final int IMAGE_FROM_CROP = 4;
+    private static final String Adresse ="https://cliqstudent.000webhostapp.com/cliq";
     private Uri imageUri;
     private Bitmap actualBitmap;
     private ImageView imageView;
@@ -340,4 +358,60 @@ public class CameraActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+   private   class UploadImage extends AsyncTask<Void, Void, Void>
+    {
+        private static final String Adresse ="https://cliqstudent.000webhostapp.com/cliq";
+        Bitmap image;
+        String name;
+        public UploadImage(Bitmap image , String name)
+        {
+            this.image = image;
+            this.name = name;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            image.compress(Bitmap.CompressFormat.JPEG, 100 ,
+                    byteArrayOutputStream);
+            String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(),
+                    Base64.DEFAULT);
+            ArrayList<NameValuePair> dataToSend= new ArrayList<>();
+            dataToSend.add(new BasicNameValuePair("image", encodedImage));
+            dataToSend.add(new BasicNameValuePair("name", name));
+
+            HttpParams httpRequestParams = gethttpRequestParams();
+            HttpClient client = new DefaultHttpClient(httpRequestParams);
+            HttpPost post = new HttpPost(Adresse + "Bildspeichern.php");
+
+            try{
+                post.setEntity(new UrlEncodedFormEntity(dataToSend));
+                client.execute(post);
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            Toast.makeText(new CameraActivity(), "Bild hochgeladen", Toast.LENGTH_SHORT).show();
+        }
+
+        private HttpParams gethttpRequestParams()
+        {
+            HttpParams httpRequestParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpRequestParams, 100*30);
+            HttpConnectionParams.setSoTimeout(httpRequestParams, 1000 * 30);
+            return httpRequestParams;
+        }
+    }
 }
+

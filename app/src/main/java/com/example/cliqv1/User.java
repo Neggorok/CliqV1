@@ -7,6 +7,7 @@ public class User {
     String name;
     Bitmap image;
 
+
     public String getName() {
         return name;
     }
