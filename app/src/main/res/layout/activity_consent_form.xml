@@ -48,7 +48,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:id="@+id/signtime"
-                    android:textAlignment="textEnd"/>
+                    android:drawableRight="@drawable/ic_time_orange_20dp"
+                    android:textAlignment="textEnd" />
 
                 <TextView
                     android:layout_width="match_parent"
