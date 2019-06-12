@@ -246,7 +246,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
         }}
         else {
-            Toast.makeText(GroupChatViewActivity.this, "Nur Admins können Gruppen erstellen",  Toast.LENGTH_SHORT).show();
+            Toast.makeText(GroupChatViewActivity.this, "Only administrators can create groups",  Toast.LENGTH_SHORT).show();
         }
 
         if (id == R.id.set_logout) {
