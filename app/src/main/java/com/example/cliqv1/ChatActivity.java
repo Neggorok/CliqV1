@@ -111,7 +111,7 @@ public class ChatActivity extends AppCompatActivity {
 
         messageList.clear();
 
-        String create_user_url = getString(R.string.cliq) + "/getMessagesForChat.php";
+        String create_user_url = getString(R.string.cliq) + "/getMessagesForChat_cliq.php";
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
 
