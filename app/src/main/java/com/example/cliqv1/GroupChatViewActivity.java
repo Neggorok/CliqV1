@@ -249,7 +249,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
             Toast.makeText(GroupChatViewActivity.this, "Only administrators can create groups",  Toast.LENGTH_SHORT).show();
         }
 
-        if (id == R.id.set_logout) {
+        if (id == R.id.logout) {
 
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);

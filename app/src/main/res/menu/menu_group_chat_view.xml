@@ -11,9 +11,10 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/set_logout"
+        android:id="@+id/logout"
         android:title="@string/logout"
+        android:icon="@drawable/ic_exit_white_24dp"
         android:orderInCategory="2"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
 
 </menu>
