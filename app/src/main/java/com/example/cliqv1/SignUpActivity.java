@@ -44,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
     Button button;
     private Toolbar toolbar;
     private RadioButton radioS, radioL;
-
+//test
     RequestQueue queue;
 
     protected void onCreate(Bundle savedInstanceState) {
