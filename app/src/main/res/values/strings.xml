@@ -50,6 +50,7 @@
     <string name="stopAudio">Stop</string>
     <string name="playAudio">Abspielen</string>
     <string name="imgEdit">Foto bearbeiten</string>
+    <string name="recordAudio">Sprachnachricht aufnehmen</string>
 
     //activity_group_chat_view
     <string name="groupname">Gruppenname</string>

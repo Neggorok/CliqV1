@@ -27,9 +27,22 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="150dp"
-        android:layout_marginBottom="150dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recordAudio"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,19 +90,28 @@
                 android:drawableRight="@drawable/ic_play_arrow_white_24dp"
                 android:paddingRight="5dp"
                 android:paddingLeft="10dp"
-                android:layout_marginRight="8dp"
                 android:text="@string/playAudio" />
-
-            <Button
-                android:id="@+id/btnSendRecord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/oval"
-                android:layout_marginLeft="8dp"
-                android:text="@string/send" />
 
         </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="bottom|right">
+
+                <ImageButton
+                    android:id="@+id/btnSend"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/oval"
+                    android:text="@string/send"
+                    android:src="@drawable/ic_send_white_24dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 </RelativeLayout>

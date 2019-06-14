@@ -29,6 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -58,7 +59,7 @@ public class CameraActivity extends AppCompatActivity {
     Button btnRecordVideo;
     Button btnCropImage;
     Button btnFilter;
-    Button btnSend;
+    ImageButton btnSend;
     Button btnOpenGallery;
 
 
@@ -85,7 +86,6 @@ public class CameraActivity extends AppCompatActivity {
 
         btnTakePicture = findViewById(R.id.btnTakePicture);
         btnRecordVideo = findViewById(R.id.btnRecordVideo);
-        btnOpenGallery = findViewById(R.id.btnOpenGallery);
         btnCropImage = findViewById(R.id.btnCropImage);
         btnFilter = findViewById(R.id.btnFilter);
         btnSend = findViewById(R.id.btnSend);
@@ -105,14 +105,6 @@ public class CameraActivity extends AppCompatActivity {
 
                 Intent intentV = new Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
                 startActivity(intentV);
-            }
-        });
-
-        btnOpenGallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                Intent intentG = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivity(intentG);
             }
         });
 
