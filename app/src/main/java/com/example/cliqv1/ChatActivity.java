@@ -44,6 +44,7 @@ public class ChatActivity extends AppCompatActivity {
     RequestQueue queue;
 
     int loggedInUserId;
+    int messageId;
     String loggedInUsername;
     String loggedInUserImage;
 
@@ -72,6 +73,8 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         loggedInUserId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", -1);
+//        messageId = PreferenceManager.getDefaultSharedPreferences(this).getInt("message_id", -1);
+
         loggedInUsername = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "-1");
         loggedInUserImage = PreferenceManager.getDefaultSharedPreferences(this).getString("image", "-1");
 
@@ -130,6 +133,7 @@ public class ChatActivity extends AppCompatActivity {
 
                         if (success == 1) {
 
+
                             for (int i = 0; i < messageArray.length(); i++) {
 
                                 JSONObject messageJson = (JSONObject) messageArray.get(i);
@@ -148,6 +152,9 @@ public class ChatActivity extends AppCompatActivity {
                                 }
 
                             }
+
+                            // Hier wird die Variable nicht mit der Msaage_id gefüllt, wenn das klappt, funktioniert auch das löschen
+                            PreferenceManager.getDefaultSharedPreferences(ChatActivity.this).edit().putInt("message_id", jsonResponse.getInt("message_id")).apply();
 
 
                         }
@@ -168,6 +175,8 @@ public class ChatActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("user_id", String.valueOf(loggedInUserId));
                 params.put("chat_partner_username", chatPartnerUsername);
+
+
 
                 return params;
             }
@@ -220,6 +229,64 @@ public class ChatActivity extends AppCompatActivity {
                 params.put("user_id", String.valueOf(loggedInUserId));
                 params.put("chat_partner_username", chatPartnerUsername);
                 params.put("message", editText.getText().toString());
+
+                return params;
+            }
+        };
+
+
+        queue.add(postRequest);
+
+    }
+
+
+
+    public void deleteMessage(View view) {
+
+        messageId = PreferenceManager.getDefaultSharedPreferences(this).getInt("message_id", -1);
+
+
+
+        String create_user_url = getString(R.string.cliq) + "/deleteMessage_cliq.php";
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
+
+                response -> {
+
+                    Log.i("response", response);
+
+                    try {
+
+                        JSONObject jsonResponse = new JSONObject(response);
+
+
+                        int success = Integer.parseInt(jsonResponse.get("success").toString());
+
+                        if (success == 1) {
+
+                            Toast.makeText(ChatActivity.this, "Nachricht gelöscht!", Toast.LENGTH_SHORT).show();
+
+                            editText.setText(" ");
+
+                            loadMessages();
+
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }, error -> {
+
+
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("message_id", String.valueOf(messageId));
+//                params.put("message", editText.getText().toString());
+
 
                 return params;
             }

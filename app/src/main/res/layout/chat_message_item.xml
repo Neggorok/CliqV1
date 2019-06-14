@@ -46,6 +46,16 @@
             android:layout_marginRight="10dp"
             android:textSize="11sp"
             android:text="TimeStamp" />
+        <TextView
+            android:id="@+id/deleteMessage"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:textSize="11sp"
+            android:text="löschen"
+            android:onClick="deleteMessage"/>
+
 
     </LinearLayout>
 
