@@ -50,6 +50,7 @@
     <string name="startAudio">Start</string>
     <string name="stopAudio">Stop</string>
     <string name="playAudio">Play</string>
+    <string name="imgEdit">Edit photo</string>
 
     //activity_group_chat
     <string name="delete_switch">Delete messages</string>

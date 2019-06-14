@@ -50,6 +50,7 @@
     <string name="startAudio">старт</string>
     <string name="stopAudio">остановить</string>
     <string name="playAudio">Воспроизвести аудио</string>
+    <string name="imgEdit">Редактировать фото</string>
 
     //activity_group_chat
     <string name="delete_switch">Yдалять сообщения</string>
