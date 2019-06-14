@@ -211,6 +211,8 @@ public class GroupChatViewActivity extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
 
+                                    //adapter.notifyDataSetChanged();
+
                                 }, error -> {
 
                         }) {
@@ -223,6 +225,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
                                 return params;
                             }
+
                         };
 
 // Add the request to the RequestQueue.
