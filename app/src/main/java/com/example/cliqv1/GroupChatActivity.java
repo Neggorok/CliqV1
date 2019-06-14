@@ -284,6 +284,14 @@ public class GroupChatActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+        if (id == R.id.translator) {
+
+            Intent i = new Intent(getApplicationContext(), PopUpTranslatorActivity.class);
+            Toast.makeText(GroupChatActivity.this, "German translation selected", Toast.LENGTH_LONG).show();
+            startActivity(i);
+
+        }
+
 //        if (id == R.id.testGruppenInfo) {
 //
 //            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);

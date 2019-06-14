@@ -90,6 +90,10 @@
     //activity_consent_form
     <string name="consent">Einverständniserklärung</string>
 
+    //activity_pop_up_translator
+    <string name="translator">Übersetzer</string>
+    <string name="ok">OK</string>
+
     //activity_camera
     <string name="take_photo">Foto aufnehmen</string>
     <string name="record_video">Video aufnehmen</string>
