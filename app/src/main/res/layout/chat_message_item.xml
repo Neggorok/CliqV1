@@ -60,6 +60,7 @@
                 android:drawableRight="@drawable/ic_delete_orange_15dp"
                 android:onClick="deleteMessage"/>
 
+            //Lesebestätigung
             <TextView
                 android:id="@+id/readReceipt"
                 android:layout_width="20dp"
