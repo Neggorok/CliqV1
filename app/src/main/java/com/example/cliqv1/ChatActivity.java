@@ -44,7 +44,7 @@ public class ChatActivity extends AppCompatActivity {
     RequestQueue queue;
 
     int loggedInUserId;
-    int messageId;
+    String messageId;
     String loggedInUsername;
     String loggedInUserImage;
 
@@ -142,19 +142,20 @@ public class ChatActivity extends AppCompatActivity {
 
                                     Bitmap userImage = Util.getBitmapFromBase64String(loggedInUserImage);
 
-                                    messageList.add(new Message(loggedInUsername, messageJson.get("message").toString(), messageJson.get("created_at").toString(), userImage));
+                                    messageList.add(new Message(loggedInUsername, messageJson.get("message").toString(), messageJson.get("created_at").toString(), userImage, messageJson.get("message_id").toString()));
 
                                 } else {
 
                                     Bitmap partnerImage = Util.getBitmapFromBase64String(chatPartnerImage);
-                                    messageList.add(new Message(chatPartnerUsername, messageJson.get("message").toString(), messageJson.get("created_at").toString(), partnerImage));
+                                    messageList.add(new Message(chatPartnerUsername, messageJson.get("message").toString(), messageJson.get("created_at").toString(), partnerImage, messageJson.get("message_id").toString()));
 
                                 }
+                                messageId = messageJson.get("message_id").toString();
 
                             }
 
                             // Hier wird die Variable nicht mit der Msaage_id gefüllt, wenn das klappt, funktioniert auch das löschen
-                            PreferenceManager.getDefaultSharedPreferences(ChatActivity.this).edit().putInt("message_id", jsonResponse.getInt("message_id")).apply();
+//                            PreferenceManager.getDefaultSharedPreferences(ChatActivity.this).edit().putInt("message_id", jsonResponse.getInt(messageId)).apply();
 
 
                         }
@@ -243,11 +244,11 @@ public class ChatActivity extends AppCompatActivity {
 
     public void deleteMessage(View view) {
 
-        messageId = PreferenceManager.getDefaultSharedPreferences(this).getInt("message_id", -1);
+//        messageId = PreferenceManager.getDefaultSharedPreferences(this).getInt("message_id", -1);
 
 
 
-        String create_user_url = getString(R.string.cliq) + "/deleteMessage_cliq.php";
+        String create_user_url = getString(R.string.cliq) + "/delete_test.php";
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
 
@@ -255,26 +256,26 @@ public class ChatActivity extends AppCompatActivity {
 
                     Log.i("response", response);
 
-                    try {
-
-                        JSONObject jsonResponse = new JSONObject(response);
-
-
-                        int success = Integer.parseInt(jsonResponse.get("success").toString());
-
-                        if (success == 1) {
-
-                            Toast.makeText(ChatActivity.this, "Nachricht gelöscht!", Toast.LENGTH_SHORT).show();
-
-                            editText.setText(" ");
-
-                            loadMessages();
-
-                        }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+//                    try {
+//
+//                        JSONObject jsonResponse = new JSONObject(response);
+//
+//
+//                        int success = Integer.parseInt(jsonResponse.get("success").toString());
+//
+//                        if (success == 1) {
+//
+//                            Toast.makeText(ChatActivity.this, "Nachricht gelöscht!", Toast.LENGTH_SHORT).show();
+//
+//                            editText.setText(" ");
+//
+//                            loadMessages();
+//
+//                        }
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
 
 
                 }, error -> {
@@ -284,8 +285,11 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("message_id", String.valueOf(messageId));
-//                params.put("message", editText.getText().toString());
+                params.put("message_id", messageId);
+                params.put("user_id", String.valueOf(loggedInUserId));
+                params.put("chat_partner_username", chatPartnerUsername);
+
+
 
 
                 return params;

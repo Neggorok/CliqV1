@@ -8,13 +8,17 @@ public class Message {
     private String message;
     private String timestamp;
     private Bitmap userImage;
+    private String messageID;
 
 
-    public Message(String username, String message, String timestamp, Bitmap userImage) {
+
+
+    public Message(String username, String message, String timestamp, Bitmap userImage, String messageid) {
         this.username = username;
         this.message = message;
         this.timestamp = timestamp;
         this.userImage = userImage;
+        this.messageID = messageid;
     }
 
     public String getUsername() {
@@ -48,4 +52,8 @@ public class Message {
     public void setUserImage(Bitmap userImage) {
         this.userImage = userImage;
     }
+
+    public String getMessageID() { return messageID; }
+
+    public void setMessageID(String messageID) { this.messageID = messageID; }
 }
