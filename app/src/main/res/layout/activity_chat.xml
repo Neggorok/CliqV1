@@ -28,7 +28,7 @@
         android:id="@+id/swipeRefreshLayout_chat"
         android:layout_width="match_parent"
         android:layout_below="@+id/chatToolbar"
-        android:layout_height="458dp">
+        android:layout_height="550dp">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true" >
 
         <ImageButton
             android:id="@+id/btn_emoji"

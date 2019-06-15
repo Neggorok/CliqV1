@@ -50,6 +50,8 @@
     <string name="startAudio">старт</string>
     <string name="stopAudio">остановить</string>
     <string name="playAudio">Воспроизвести аудио</string>
+    <string name="imgEdit">Редактировать фото</string>
+    <string name="recordAudio">Запись голосового сообщения</string>
 
     //activity_group_chat
     <string name="delete_switch">Yдалять сообщения</string>
@@ -87,6 +89,10 @@
 
     //activity_consent_form
     <string name="consent">Форма согласия</string>
+
+    //activity_pop_up_translator
+    <string name="translator">переводчик</string>
+    <string name="ok">OK</string>
 
     //activity_camera
     <string name="take_photo">Сделать фото</string>

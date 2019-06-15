@@ -61,6 +61,8 @@
             android:theme="@style/AppTheme.AttachFilePopUp" />
         <activity android:name=".PopUpGroupSettingsActivity"
             android:theme="@style/AppTheme.AttachFilePopUp" />
+        <activity android:name=".PopUpTranslatorActivity"
+            android:theme="@style/AppTheme.AttachFilePopUp" />
         <activity
             android:name=".ProfileActivity"
             android:label="@string/profile" />

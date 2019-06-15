@@ -50,6 +50,8 @@
     <string name="startAudio">Start</string>
     <string name="stopAudio">Stop</string>
     <string name="playAudio">Play</string>
+    <string name="imgEdit">Edit photo</string>
+    <string name="recordAudio">Record voice message</string>
 
     //activity_group_chat
     <string name="delete_switch">Delete messages</string>
@@ -87,6 +89,10 @@
 
     //activity_consent_form
     <string name="consent">Consent form</string>
+
+    //activity_pop_up_translator
+    <string name="translator">Translator</string>
+    <string name="ok">OK</string>
 
     //activity_camera
     <string name="take_photo">Take photo</string>
