@@ -147,7 +147,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void signup() {
 
             // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
-            String create_user_url = getString(R.string.cliq) + "/registrierung_cliq.php";
+            String create_user_url = getString(R.string.cliq) + "/registrierung_amir.php";
 
             // der Request prüft ob die Daten des Scripts "/registrierung_cliq.php" correct sind
             StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
@@ -179,7 +179,7 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() {
                     Map<String, String> params = new HashMap<>();
-                    // Hier werden die Eingaben aus den EditTexten userName und userPassword ausgelesen
+                    // Hier werden die Eingabenr aus den EditTexten userName und userPassword ausgelesen
                     // und in die entsprechenden Variablen geladen
                     params.put("username", userName.getText().toString());
                     params.put("password", userPassword.getText().toString());
