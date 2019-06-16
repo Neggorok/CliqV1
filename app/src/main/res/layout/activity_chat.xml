@@ -25,11 +25,49 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
-        android:id="@+id/deleteMessage"
-        android:layout_width="match_parent"
+        android:id="@+id/deleteSwitchLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/chatToolbar"
+        android:layout_alignParentLeft="true"
+        android:gravity="left"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <Switch
+            android:id="@+id/deleteSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/on_offLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chatToolbar"
+        android:layout_toRightOf="@+id/deleteSwitchLayout"
+        android:gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/on_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/deleteMessage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/chatToolbar"
+        android:layout_alignParentRight="true"
         android:gravity="right"
+        android:layout_toRightOf="@+id/on_offLayout"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp">
 

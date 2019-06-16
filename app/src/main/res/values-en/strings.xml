@@ -20,6 +20,9 @@
     <string name="join_now">Join Now</string>
     <string name="sign_up_question">Not registered yet? Click here</string>
     <string name="signTime">Date and time of registration:</string>
+    <string name="account">Student/Club member</string>
+    <string name="adminAccount">Administrator</string>
+    <string name="presenterAccount">Presenter</string>
 
     //activity_user_list
     <string name="search">Search</string>

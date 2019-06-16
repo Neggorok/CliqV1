@@ -20,6 +20,9 @@
     <string name="join_now">Jetzt registrieren</string>
     <string name="sign_up_question">Noch nicht registriert? Klicke hier</string>
     <string name="signTime">Datum und Uhrzeit der Registrierung:</string>
+    <string name="account">Schüler/Vereinsmitglied</string>
+    <string name="adminAccount">Administrator</string>
+    <string name="presenterAccount">Moderator</string>
 
     //activity_user_list
     <string name="search">Suche</string>

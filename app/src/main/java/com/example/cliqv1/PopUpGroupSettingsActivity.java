@@ -112,7 +112,6 @@ public class PopUpGroupSettingsActivity extends Activity {
 
     }
 
-    //Fehlt: groupName zu username!!!
     private void RequestNewMember() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
         builder.setTitle("Enter Username:");

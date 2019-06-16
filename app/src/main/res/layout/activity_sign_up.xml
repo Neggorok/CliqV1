@@ -70,13 +70,18 @@
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Schüler-Account"
+                    android:text="@string/account"
                     android:id="@+id/accS"/>
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lehrer-Account"
+                    android:text="@string/adminAccount"
                     android:id="@+id/accL"/>
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/presenterAccount"
+                    android:id="@+id/accM"/>
             </RadioGroup>
             <Button
                 android:layout_width="match_parent"

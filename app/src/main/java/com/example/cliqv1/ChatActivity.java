@@ -13,8 +13,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -51,8 +54,13 @@ public class ChatActivity extends AppCompatActivity {
     String chatPartnerUsername;
     String chatPartnerImage;
 
-    ImageButton btn_emoji;
+   // ImageButton btn_emoji;
     ImageButton btn_attachFile;
+
+    Switch deleteSwitch;
+    TextView on_off;
+
+    int loggedAdmin;
 
 
     @Override
@@ -64,7 +72,30 @@ public class ChatActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
 
+        deleteSwitch = (Switch)findViewById(R.id.deleteSwitch);
+        on_off = (TextView)findViewById(R.id.on_off);
         btn_attachFile = (ImageButton)findViewById(R.id.btn_attachFile);
+
+        loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
+
+        if (loggedAdmin == 1)
+        {
+            deleteSwitch.setEnabled(false);
+        }
+        else {
+            deleteSwitch.setEnabled(true);
+        }
+
+        deleteSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    on_off.setText("ON");
+                } else {
+                    on_off.setText("OFF");
+                }
+            }
+        });
 
       //  btn_emoji = (ImageButton)findViewById(R.id.btn_emoji);
       //  btn_emoji.setOnClickListener(new View.OnClickListener() {
