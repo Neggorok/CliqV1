@@ -46,7 +46,8 @@
                 android:drawableRight="@drawable/ic_camera_alt_white_24dp"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
-                android:text="@string/take_photo" />
+                android:text="@string/take_photo"
+                android:onClick="takePicture"/>
 
             <Button
                 android:id="@+id/btnRecordVideo"
@@ -76,13 +77,10 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/btnOpenGallery"
+                android:id="@+id/imageView"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:src="@drawable/cliq_logo"
-                android:paddingRight="5dp"
-                android:paddingLeft="10dp"
-                android:text="@string/open_gallery" />
+                android:src="@mipmap/ic_launcher" />
 
         </LinearLayout>
 

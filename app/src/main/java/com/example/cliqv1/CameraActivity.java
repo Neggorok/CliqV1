@@ -57,11 +57,10 @@ public class CameraActivity extends AppCompatActivity {
 
     Button btnTakePicture;
     Button btnRecordVideo;
+    ImageView imageView;
     Button btnCropImage;
     Button btnFilter;
     ImageButton btnSend;
-    Button btnOpenGallery;
-
 
     private String DESCRIPTION = "CameraDemo";
     private String TITLE = "Demo";
@@ -73,7 +72,6 @@ public class CameraActivity extends AppCompatActivity {
     private static final String Adresse ="https://cliqstudent.000webhostapp.com/cliq";
     private Uri imageUri;
     private Bitmap actualBitmap;
-    private ImageView imageView;
     private boolean permissionGranted = false, cropImage = false;
 
 
@@ -86,6 +84,7 @@ public class CameraActivity extends AppCompatActivity {
 
         btnTakePicture = findViewById(R.id.btnTakePicture);
         btnRecordVideo = findViewById(R.id.btnRecordVideo);
+        imageView = findViewById(R.id.imageView);
         btnCropImage = findViewById(R.id.btnCropImage);
         btnFilter = findViewById(R.id.btnFilter);
         btnSend = findViewById(R.id.btnSend);
@@ -94,8 +93,8 @@ public class CameraActivity extends AppCompatActivity {
         btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentC = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-                startActivity(intentC);
+                Intent intentC = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intentC,0);
             }
         });
 
@@ -152,7 +151,6 @@ public class CameraActivity extends AppCompatActivity {
 
         }
     }
-
 
 
     @Override
