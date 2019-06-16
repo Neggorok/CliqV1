@@ -243,7 +243,6 @@ public class ChatActivity extends AppCompatActivity {
     }
 
 
-
     public void deleteMessage(View view) {
 
 

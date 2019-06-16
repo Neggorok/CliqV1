@@ -45,7 +45,8 @@
         android:id="@+id/swipeRefreshLayout_groupChat"
         android:layout_width="match_parent"
         android:layout_below="@+id/deleteMessage"
-        android:layout_height="520dp">
+        android:layout_above="@+id/sendMessage"
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -57,6 +58,7 @@
 
 
     <LinearLayout
+        android:id="@+id/sendMessage"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
