@@ -51,6 +51,9 @@ public class ChatActivity extends AppCompatActivity {
     String chatPartnerUsername;
     String chatPartnerImage;
 
+    //ImageButton btn_emoji;
+    ImageButton btn_attachFile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,17 @@ public class ChatActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
 
-        ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
+        btn_attachFile = (ImageButton)findViewById(R.id.btn_attachFile);
+
+      //  btn_emoji = (ImageButton)findViewById(R.id.btn_emoji);
+      //  btn_emoji.setOnClickListener(new View.OnClickListener() {
+
+      //      @Override
+      //      public void onClick(View v) {
+      //          Intent i = new Intent(getApplicationContext(), EmojiconLibrary.class);
+      //          startActivity(i);
+      //      }
+      //  });
 
         btn_attachFile.setOnClickListener(new View.OnClickListener() {
 
