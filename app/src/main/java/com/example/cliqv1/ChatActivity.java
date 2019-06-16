@@ -67,6 +67,7 @@ public class ChatActivity extends AppCompatActivity {
     boolean check;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,10 +85,12 @@ public class ChatActivity extends AppCompatActivity {
         loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
         loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
 
+        btn_delete.setEnabled(false);
 
         if (loggedModerator == 0)
         {
             deleteSwitch.setClickable(false);
+
         }
         else {
             deleteSwitch.setClickable(true);
@@ -114,6 +117,7 @@ public class ChatActivity extends AppCompatActivity {
                 } else {
                     on_off.setText("OFF");
                     btn_delete.setEnabled(false);
+
                 }
             }
         });
@@ -309,7 +313,6 @@ public class ChatActivity extends AppCompatActivity {
 
 
     public void deleteMessage(View view) {
-
 
 
 
