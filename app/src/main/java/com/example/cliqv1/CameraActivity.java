@@ -93,8 +93,8 @@ public class CameraActivity extends AppCompatActivity {
         btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentC = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intentC,0);
+                Intent intentC = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                startActivity(intentC);
             }
         });
 
