@@ -143,19 +143,21 @@ public class ChatActivity extends AppCompatActivity {
                                     Bitmap userImage = Util.getBitmapFromBase64String(loggedInUserImage);
 
                                     messageList.add(new Message(loggedInUsername, messageJson.get("message").toString(), messageJson.get("created_at").toString(), userImage, messageJson.get("message_id").toString()));
+                                    messageId = messageJson.get("message_id").toString();
+
 
                                 } else {
 
                                     Bitmap partnerImage = Util.getBitmapFromBase64String(chatPartnerImage);
                                     messageList.add(new Message(chatPartnerUsername, messageJson.get("message").toString(), messageJson.get("created_at").toString(), partnerImage, messageJson.get("message_id").toString()));
+//                                    messageId = messageJson.get("message_id").toString();
 
                                 }
-                                messageId = messageJson.get("message_id").toString();
+
 
                             }
 
-                            // Hier wird die Variable nicht mit der Msaage_id gefüllt, wenn das klappt, funktioniert auch das löschen
-//                            PreferenceManager.getDefaultSharedPreferences(ChatActivity.this).edit().putInt("message_id", jsonResponse.getInt(messageId)).apply();
+
 
 
                         }
@@ -248,7 +250,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-        String create_user_url = getString(R.string.cliq) + "/delete_test.php";
+        String create_user_url = getString(R.string.cliq) + "/deleteMessage_cliq.php";
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
 
@@ -256,26 +258,26 @@ public class ChatActivity extends AppCompatActivity {
 
                     Log.i("response", response);
 
-//                    try {
-//
-//                        JSONObject jsonResponse = new JSONObject(response);
-//
-//
-//                        int success = Integer.parseInt(jsonResponse.get("success").toString());
-//
-//                        if (success == 1) {
-//
-//                            Toast.makeText(ChatActivity.this, "Nachricht gelöscht!", Toast.LENGTH_SHORT).show();
-//
-//                            editText.setText(" ");
-//
-//                            loadMessages();
-//
-//                        }
-//
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
+                    try {
+
+                        JSONObject jsonResponse = new JSONObject(response);
+
+
+                        int success = Integer.parseInt(jsonResponse.get("success").toString());
+
+                        if (success == 1) {
+
+                            Toast.makeText(ChatActivity.this, "Nachricht gelöscht!", Toast.LENGTH_SHORT).show();
+
+                            editText.setText(" ");
+
+                            loadMessages();
+
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
 
                 }, error -> {
