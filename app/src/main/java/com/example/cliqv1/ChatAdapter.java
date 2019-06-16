@@ -46,7 +46,10 @@ public class ChatAdapter extends RecyclerView.Adapter {
 
             userImage = view.findViewById(R.id.message_userImageIV);
 
+
+
         }
+    }
 
     @Override
     public  RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
