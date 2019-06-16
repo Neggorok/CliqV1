@@ -56,11 +56,15 @@ public class ChatActivity extends AppCompatActivity {
 
    // ImageButton btn_emoji;
     ImageButton btn_attachFile;
+    ImageButton btn_delete;
 
     Switch deleteSwitch;
     TextView on_off;
 
     int loggedAdmin;
+    int loggedModerator;
+
+    boolean check;
 
 
     @Override
@@ -73,26 +77,43 @@ public class ChatActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         deleteSwitch = (Switch)findViewById(R.id.deleteSwitch);
+        btn_delete = findViewById(R.id.deleteButton);
         on_off = (TextView)findViewById(R.id.on_off);
         btn_attachFile = (ImageButton)findViewById(R.id.btn_attachFile);
 
         loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
+        loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
 
-        if (loggedAdmin == 1)
+
+        if (loggedModerator == 0)
         {
-            deleteSwitch.setEnabled(false);
+            deleteSwitch.setClickable(false);
         }
         else {
-            deleteSwitch.setEnabled(true);
+            deleteSwitch.setClickable(true);
         }
+
+        if (loggedAdmin == 0)
+        {
+            deleteSwitch.setClickable(false);
+
+        }
+        else {
+            deleteSwitch.setClickable(true);
+        }
+
+
+
 
         deleteSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     on_off.setText("ON");
+                    btn_delete.setEnabled(true);
                 } else {
                     on_off.setText("OFF");
+                    btn_delete.setEnabled(false);
                 }
             }
         });
