@@ -246,7 +246,6 @@ public class ChatActivity extends AppCompatActivity {
 
     public void deleteMessage(View view) {
 
-//        messageId = PreferenceManager.getDefaultSharedPreferences(this).getInt("message_id", -1);
 
 
 
@@ -268,8 +267,6 @@ public class ChatActivity extends AppCompatActivity {
                         if (success == 1) {
 
                             Toast.makeText(ChatActivity.this, "Nachricht gelöscht!", Toast.LENGTH_SHORT).show();
-
-                            editText.setText(" ");
 
                             loadMessages();
 
