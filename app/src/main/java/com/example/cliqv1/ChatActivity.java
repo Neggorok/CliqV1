@@ -51,7 +51,7 @@ public class ChatActivity extends AppCompatActivity {
     String chatPartnerUsername;
     String chatPartnerImage;
 
-    //ImageButton btn_emoji;
+    ImageButton btn_emoji;
     ImageButton btn_attachFile;
 
 

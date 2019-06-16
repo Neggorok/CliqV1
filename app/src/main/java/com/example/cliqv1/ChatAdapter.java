@@ -34,9 +34,6 @@ public class ChatAdapter extends RecyclerView.Adapter {
 
         public ImageView userImage;
 
-        public ImageButton delete;
-        public TextView seen;
-
         public MessageViewHolder (View view){
 
             super(view);
@@ -49,19 +46,7 @@ public class ChatAdapter extends RecyclerView.Adapter {
 
             userImage = view.findViewById(R.id.message_userImageIV);
 
-            delete = view.findViewById(R.id.deleteMessage);
-            seen = view.findViewById(R.id.readReceipt);
 
-            delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    deleteMessage();
-                }
-            });
-
-        }
-        //Methode um die Nachricht zu löschen
-        private void deleteMessage() {
 
         }
     }
