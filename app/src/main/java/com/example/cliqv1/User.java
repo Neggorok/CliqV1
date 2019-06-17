@@ -2,10 +2,13 @@ package com.example.cliqv1;
 
 import android.graphics.Bitmap;
 
+import java.util.Date;
+
 public class User {
 
     String name;
     Bitmap image;
+
 
 
     public String getName() {
