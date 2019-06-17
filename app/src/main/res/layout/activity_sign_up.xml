@@ -26,10 +26,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Benutzername"
+                android:hint="Vorname"
                 android:id="@+id/username"
                 android:inputType="textPersonName"
                 android:drawableStart="@drawable/person"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:layout_margin="10dp"
+                android:id="@+id/family"
+                android:inputType="textPersonName"
+                android:drawableStart="@drawable/family"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -38,6 +38,7 @@ import java.util.Map;
 public class SignUpActivity extends AppCompatActivity {
 
     EditText userName;
+    EditText userFamily;
     EditText userMail;
     TextInputEditText userPassword;
     TextInputEditText userPassword2;
@@ -52,6 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         userName = findViewById(R.id.username);
+        userFamily = findViewById(R.id.family);
         userMail = findViewById(R.id.mail);
         userPassword =  findViewById(R.id.pass);
         userPassword2 = findViewById(R.id.pass2);
@@ -65,14 +67,21 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                //Holt den Kontext aus den EditTexten
                 String name = userName.getText().toString();
+                //String family = userFamily.getText().toString();
                 String mail = userMail.getText().toString();
                 String pw = userPassword.getText().toString();
                 String pw2 = userPassword2.getText().toString();
+
+                //Überprüft, ob die EditTexte leer sind, wenn ja -> kommt ein Toast
                 if (TextUtils.isEmpty(name)) {
-                    Toast.makeText(getApplicationContext(), "Bitte gebe einen Benutzernamen an.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Bitte gebe deinen Vornamen ein.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                /*if (TextUtils.isEmpty(family)){
+                    Toast.makeText(SignUpActivity.this, "Bitte gebe deinen Nachnamen ein.", Toast.LENGTH_SHORT).show();
+                }*/
 
                 if (TextUtils.isEmpty(mail)) {
                     Toast.makeText(getApplicationContext(), "Bitte gebe deine Email-Adresse an.!", Toast.LENGTH_SHORT).show();
@@ -121,6 +130,8 @@ public class SignUpActivity extends AppCompatActivity {
         Button abbrechen = popupView.findViewById(R.id.btnCancel);
         Button akzeptieren = popupView.findViewById(R.id.btnAccept);
         ImageView consent = popupView.findViewById(R.id.consentText);
+
+        //Läd den Datenschutz direkt aus der Datenbank
         Picasso.get().load("https://cliqstudent.000webhostapp.com/cliq/datenschutz.jpg")
         .into(consent);
         // boolean focusable = true;  lets taps outside the popup also dismiss it
@@ -179,9 +190,10 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() {
                     Map<String, String> params = new HashMap<>();
-                    // Hier werden die Eingaben aus den EditTexten userName und userPassword ausgelesen
+                    // Hier werden die Eingaben aus den EditTexten userName, userFamily, userPassword und userEmail ausgelesen
                     // und in die entsprechenden Variablen geladen
                     params.put("username", userName.getText().toString());
+                    //params.put("familyname", userFamily.getText().toString());
                     params.put("password", userPassword.getText().toString());
                     params.put("useremail", userMail.getText().toString());
 

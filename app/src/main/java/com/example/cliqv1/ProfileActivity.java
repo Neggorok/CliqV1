@@ -42,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     int userId;
     String username;
+    //String userFamily;
     String userImage;
 
     ImageView imageView;
@@ -87,6 +88,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         userId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", -1);
         username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "-1");
+        //userFamily = PreferenceManager.getDefaultSharedPreferences(this).getString("familyname", "-1");
         userImage = PreferenceManager.getDefaultSharedPreferences(this).getString("image", "-1");
 
         imageView = findViewById(R.id.groupchat_imageView);
@@ -119,7 +121,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         }
 
-        usernameTV.setText(username);
+        usernameTV.setText(username/*+" "+userFamily*/);
 
         setTitle(username);
     }

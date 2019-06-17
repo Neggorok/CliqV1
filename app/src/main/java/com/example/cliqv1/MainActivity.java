@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putInt("admin", jsonResponse.getInt("admin")).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putInt("moderator", jsonResponse.getInt("moderator")).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("username", jsonResponse.getString("username")).apply();
+                            //PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("familyname", jsonResponse.getString("familyname")).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("useremail", userEmail.getText().toString()).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("created_at", jsonResponse.getString("acc_created_at")).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("image", jsonResponse.getString("user_image")).apply();
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                // Hier werden die Eingaben aus den EditTexten userName und userPassword ausgelesen
+                // Hier werden die Eingaben aus den EditTexten userEmail und userPassword ausgelesen
                 // und in die entsprechenden Variablen geladen
                 params.put("useremail", userEmail.getText().toString());
                 params.put("password", userPassword.getText().toString());
