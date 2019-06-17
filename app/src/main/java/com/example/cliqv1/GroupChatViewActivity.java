@@ -20,6 +20,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -36,10 +38,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GroupChatViewActivity extends AppCompatActivity {
+public class GroupChatViewActivity extends  AppCompatActivity {
 
     private GroupListAdapter adapter;
     private List<Gruppen> groupList;
+
 
     RecyclerView groupRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -265,5 +268,10 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
 
 }
