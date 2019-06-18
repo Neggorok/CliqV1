@@ -16,8 +16,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -51,10 +54,17 @@ public class GroupChatActivity extends AppCompatActivity {
     int gruppenID;
     String loggedInUsername;
     String loggedInUserImage;
+    int loggedAdmin;
+    int loggedModerator;
+
 
     String groupchatPartnerUsername;
     String groupchatPartnerImage;
     String groupchatName;
+    ImageButton btn_delete;
+    Switch deleteSwitch;
+
+    TextView on_off;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +72,59 @@ public class GroupChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_chat);
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
-
+        btn_delete = findViewById(R.id.deleteButton);
         ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
+        btn_delete.setEnabled(false);
+        on_off = (TextView)findViewById(R.id.on_off);
+        deleteSwitch = (Switch)findViewById(R.id.deleteSwitch);
+
+
+        loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
+        loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
+
+
+        if (loggedModerator == 0)
+        {
+            deleteSwitch.setClickable(false);
+
+        }
+        else {
+            deleteSwitch.setClickable(true);
+        }
+
+        if (loggedAdmin == 0)
+        {
+            deleteSwitch.setClickable(false);
+
+        }
+        else {
+            deleteSwitch.setClickable(true);
+        }
+
+
+
+
+        deleteSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    on_off.setText("ON");
+                    btn_delete.setEnabled(true);
+                } else {
+                    on_off.setText("OFF");
+                    btn_delete.setEnabled(false);
+
+                }
+            }
+        });
+
+
 
         btn_attachFile.setOnClickListener(new View.OnClickListener() {
+
+
+
+
 
             @Override
             public void onClick(View v) {
