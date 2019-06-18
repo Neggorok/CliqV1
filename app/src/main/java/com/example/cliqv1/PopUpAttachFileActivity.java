@@ -62,11 +62,16 @@ public class PopUpAttachFileActivity extends Activity {
 
             @Override
             public void onClick(View v) {
+
+
+
+                startActivity(new Intent(PopUpAttachFileActivity.this, FileManagerActivity.class));
+                /*
                 Intent iGallery = new Intent();
                 iGallery.setAction(Intent.ACTION_GET_CONTENT);
                 iGallery.setType("image/*");
                 startActivityForResult(iGallery, galleryPick);
-
+*/
             }
         });
 
