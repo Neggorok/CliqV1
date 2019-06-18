@@ -87,7 +87,7 @@ public class GroupChatActivity extends AppCompatActivity {
         loggedInUserImage = PreferenceManager.getDefaultSharedPreferences(this).getString("image", "-1");
 
 //        groupchatPartnerUsername = getIntent().getStringExtra("groupchatPartnerUsername").toString();
-        groupchatName = getIntent().getStringExtra("groupchatName").toString();
+            groupchatName = getIntent().getStringExtra("groupchatName").toString();
 
         groupchatPartnerImage = PreferenceManager.getDefaultSharedPreferences(this).getString("groupchatPartnerImageString", "-1");
 

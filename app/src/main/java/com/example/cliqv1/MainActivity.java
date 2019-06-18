@@ -1,6 +1,7 @@
 package com.example.cliqv1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     EditText userEmail;
     private Button btn, btn2;
     private Toolbar toolbar;
-
+    SharedPreferences pref;
+    Intent intent;
     RequestQueue queue;
 
     @Override
@@ -47,8 +49,13 @@ public class MainActivity extends AppCompatActivity {
         userPassword = (EditText) findViewById(R.id.edittext_password);
         btn = findViewById(R.id.signBtn);
         btn2 = findViewById(R.id.LogInButton);
-
+        pref = getSharedPreferences("user_details",MODE_PRIVATE);
         queue = Volley.newRequestQueue(this);
+
+        intent = new Intent(MainActivity.this,GroupChatViewActivity.class);
+        if(pref.contains("username") && pref.contains("password")){
+            startActivity(intent);
+        }
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +101,10 @@ public class MainActivity extends AppCompatActivity {
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
                         if(success == 1){
-
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putString("username", String.valueOf(userEmail));
+                            editor.putString("password", String.valueOf(userPassword));
+                            editor.commit();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putInt("id", jsonResponse.getInt("user_id")).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putInt("admin", jsonResponse.getInt("admin")).apply();
                             PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putInt("moderator", jsonResponse.getInt("moderator")).apply();

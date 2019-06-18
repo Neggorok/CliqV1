@@ -6,6 +6,8 @@ import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,17 +16,68 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserListAdapter extends RecyclerView.Adapter {
+public class UserListAdapter extends RecyclerView.Adapter implements Filterable
+{
 
     public ArrayList<User> userListe;
+    public ArrayList<User> Itemcopy;
     public UserListActivity activity;
+    private ArrayList<User> mFilteredList;
+
 
     public UserListAdapter(UserListActivity activity, List<User> list){
 
         this.activity = activity;
         userListe = (ArrayList) list;
+        Itemcopy = this.userListe;
 
+        /*
+        this.Itemcopy = new ArrayList<>();
+        Itemcopy.addAll(this.userListe);
+        */
     }
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                userListe = (ArrayList<User>) results.values;
+                notifyDataSetChanged();
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                ArrayList<User> filteredResults = null;
+                if (constraint.length() == 0) {
+                    filteredResults = Itemcopy;
+                } else {
+                    filteredResults = getFilteredResults(constraint.toString().toLowerCase());
+                }
+
+                FilterResults results = new FilterResults();
+                results.values = filteredResults;
+
+                return results;
+            }
+        };
+    }
+
+    protected ArrayList<User> getFilteredResults(String constraint) {
+        ArrayList<User> results = new ArrayList<>();
+
+        for (User item : Itemcopy) {
+            if (item.getName().toLowerCase().contains(constraint)) {
+                results.add(item);
+            }
+
+        }
+        return results;
+    }
+
+
 
     public static class UserViewHolder extends RecyclerView.ViewHolder{
 
@@ -90,6 +143,7 @@ public class UserListAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return userListe.size();
+
     }
 
 }

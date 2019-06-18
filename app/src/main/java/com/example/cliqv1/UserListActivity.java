@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,15 +36,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class UserListActivity extends AppCompatActivity {
+
+
 
     private UserListAdapter adapter;
     private List<User> userList;
 
+
+
+    SearchView sv;
     RecyclerView userRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -52,6 +68,7 @@ public class UserListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.NavBar);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -77,7 +94,9 @@ public class UserListActivity extends AppCompatActivity {
             }
         });
 
+
         userList = new ArrayList<>();
+
         adapter = new UserListAdapter(this, userList);
         userRecyclerView = findViewById(R.id.userList_recycler_view);
         userRecyclerView.setHasFixedSize(true);
@@ -99,11 +118,12 @@ public class UserListActivity extends AppCompatActivity {
 
     }
 
+
     public void loadUserList() {
 
         userList.clear();
 
-        String create_user_url = getString(R.string.cliq) + "/getAllUsers_cliq.php";
+        String create_user_url = "https://cliqstudent.000webhostapp.com/cliq/getAllUsers_cliq.php/";
 
         StringRequest postRequest = new StringRequest(Request.Method.GET, create_user_url,
                 response -> {
@@ -153,7 +173,26 @@ public class UserListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_user_list, menu);
+        MenuItem search = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(search);
+        search(searchView);
         return true;
+    }
+
+    private void search(SearchView searchView) {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.getFilter().filter(newText);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -176,6 +215,8 @@ public class UserListActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
 
 

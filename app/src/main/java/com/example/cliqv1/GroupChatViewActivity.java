@@ -2,6 +2,7 @@ package com.example.cliqv1;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -39,12 +40,13 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
     private GroupListAdapter adapter;
     private List<Gruppen> groupList;
+    Intent intent;
 
     RecyclerView groupRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
     int loggedAdmin;
     RequestQueue queue;
-
+    SharedPreferences prf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +55,9 @@ public class GroupChatViewActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
 
-
+        prf = getSharedPreferences("user_details",MODE_PRIVATE);
         loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
-
+        intent = new Intent(GroupChatViewActivity.this,MainActivity.class);
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.NavBar);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -254,9 +256,13 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
         if (id == R.id.logout) {
 
+            SharedPreferences.Editor editor = prf.edit();
+            editor.clear();
+            editor.commit();
+
             PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
+
+            startActivity(intent);
             Toast.makeText(GroupChatViewActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
         }
 
