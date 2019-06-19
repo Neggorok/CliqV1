@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,8 +62,12 @@ public class GroupChatActivity extends AppCompatActivity {
     String groupchatPartnerUsername;
     String groupchatPartnerImage;
     String groupchatName;
+
     ImageButton btn_delete;
     Switch deleteSwitch;
+
+    ImageButton chatBackground;
+    View view;
 
     TextView on_off;
 
@@ -72,11 +77,56 @@ public class GroupChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_chat);
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
+
+        view = this.getWindow().getDecorView();
+        view.setBackgroundResource(R.color.colorWhite);
+
         btn_delete = findViewById(R.id.deleteButton);
+        chatBackground = (ImageButton)findViewById(R.id.chatBackground);
         ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
         btn_delete.setEnabled(false);
         on_off = (TextView)findViewById(R.id.on_off);
         deleteSwitch = (Switch)findViewById(R.id.deleteSwitch);
+
+        //Chat-Hintergrund Anderung ermöglichen
+        chatBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                PopupMenu popupMenu = new PopupMenu(GroupChatActivity.this, chatBackground);
+                popupMenu.getMenuInflater().inflate(R.menu.menu_chat_background, popupMenu.getMenu());
+
+                Toast.makeText(GroupChatActivity.this, "Choose a background color", Toast.LENGTH_SHORT).show();
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        int id = item.getItemId();
+
+                        if (id == R.id.blue) {
+                            view.setBackgroundResource(R.drawable.background1);
+                        }
+
+                        if (id == R.id.yellow) {
+                            view.setBackgroundResource(R.drawable.background2);
+                        }
+
+                        if (id == R.id.green) {
+                            view.setBackgroundResource(R.drawable.background3);
+                        }
+
+                        if (id == R.id.orange) {
+                            view.setBackgroundResource(R.drawable.background4);
+                        }
+                        Toast.makeText(GroupChatActivity.this, "You've chosen " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+
+            }
+        });
 
 
         loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);

@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     android:id="@+id/linearLayout">
 
 
@@ -46,7 +48,8 @@
             android:layout_marginRight="10dp"
             android:textSize="11sp"
             android:text="TimeStamp" />
-        <LinearLayout
+
+        <!--  <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right">
@@ -68,7 +71,7 @@
                 android:drawableRight="@drawable/ic_check_orange_15dp" />
 
 
-        </LinearLayout>
+        </LinearLayout> -->
 
     </LinearLayout>
 

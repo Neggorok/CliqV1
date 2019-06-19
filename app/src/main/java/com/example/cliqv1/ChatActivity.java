@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -60,6 +61,7 @@ public class ChatActivity extends AppCompatActivity {
     ImageButton btn_delete;
 
     ImageButton chatBackground;
+    View view;
 
     Switch deleteSwitch;
     TextView on_off;
@@ -76,6 +78,9 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        view = this.getWindow().getDecorView();
+        view.setBackgroundResource(R.color.colorWhite);
+
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
@@ -90,6 +95,7 @@ public class ChatActivity extends AppCompatActivity {
         chatBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 PopupMenu popupMenu = new PopupMenu(ChatActivity.this, chatBackground);
                 popupMenu.getMenuInflater().inflate(R.menu.menu_chat_background, popupMenu.getMenu());
 
@@ -101,19 +107,19 @@ public class ChatActivity extends AppCompatActivity {
                         int id = item.getItemId();
 
                         if (id == R.id.blue) {
-
+                            view.setBackgroundResource(R.drawable.background1);
                         }
 
                         if (id == R.id.yellow) {
-
-                        }
-
-                        if (id == R.id.orange) {
-
+                            view.setBackgroundResource(R.drawable.background2);
                         }
 
                         if (id == R.id.green) {
+                            view.setBackgroundResource(R.drawable.background3);
+                        }
 
+                        if (id == R.id.orange) {
+                            view.setBackgroundResource(R.drawable.background4);
                         }
                         Toast.makeText(ChatActivity.this, "You've chosen " + item.getTitle(), Toast.LENGTH_SHORT).show();
                         return true;
