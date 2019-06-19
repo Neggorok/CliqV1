@@ -38,9 +38,7 @@ public class ChangeBackgroundActivity extends AppCompatActivity {
         r = findViewById(R.id.activity_change_background);
     }
 
-    public void bg1(View v){
-        r.setBackgroundResource(R.drawable.background1);
-    }
+    public void bg1(View v){ r.setBackgroundResource(R.drawable.background1); }
 
     public void bg2(View v) {
         r.setBackgroundResource(R.drawable.background2);

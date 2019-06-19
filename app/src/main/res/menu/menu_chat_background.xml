@@ -4,21 +4,25 @@
     <item
         android:id="@+id/orange"
         android:icon="@drawable/background1"
-        android:title="@string/cliq_orange" />
-
-    <item
-        android:id="@+id/yellow"
-        android:icon="@drawable/background1"
-        android:title="@string/light_yellow" />
+        android:title="@string/cliq_orange"
+        android:onClick="bg1" />
 
     <item
         android:id="@+id/blue"
         android:icon="@drawable/background1"
-        android:title="@string/sky_blue" />
+        android:title="@string/sky_blue"
+        android:onClick="bg2" />
 
     <item
         android:id="@+id/green"
         android:icon="@drawable/background1"
-        android:title="@string/hope_green" />
+        android:title="@string/hope_green"
+        android:onClick="bg3" />
+
+    <item
+        android:id="@+id/yellow"
+        android:icon="@drawable/background1"
+        android:title="@string/light_yellow"
+        android:onClick="bg4" />
 
 </menu>

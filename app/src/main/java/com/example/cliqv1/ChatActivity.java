@@ -93,10 +93,29 @@ public class ChatActivity extends AppCompatActivity {
                 PopupMenu popupMenu = new PopupMenu(ChatActivity.this, chatBackground);
                 popupMenu.getMenuInflater().inflate(R.menu.menu_chat_background, popupMenu.getMenu());
 
+                Toast.makeText(ChatActivity.this, "Choose a background color", Toast.LENGTH_SHORT).show();
+
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(ChatActivity.this, "Choose your chat background" + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        int id = item.getItemId();
+
+                        if (id == R.id.blue) {
+
+                        }
+
+                        if (id == R.id.yellow) {
+
+                        }
+
+                        if (id == R.id.orange) {
+
+                        }
+
+                        if (id == R.id.green) {
+
+                        }
+                        Toast.makeText(ChatActivity.this, "You've chosen " + item.getTitle(), Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 });
