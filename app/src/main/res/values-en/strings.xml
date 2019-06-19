@@ -109,10 +109,11 @@
     <string name="back_to_profile_settings">Back to profile settings</string>
     <string name="back_to_chat">Back to Chat</string>
     <string name="back">Back</string>
-    <string name="cliq_orange">Cliq orange</string>
-    <string name="sky_blue">Sea blue</string>
-    <string name="hope_green">Hope green</string>
-    <string name="light_yellow">Light yellow</string>
+    <string name="white">White</string>
+    <string name="orange">Orange</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="yellow">Yellow</string>
 
     //menu_profile_settings
     <string name="newMember">New group member</string>

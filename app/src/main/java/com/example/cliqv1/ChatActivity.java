@@ -106,6 +106,10 @@ public class ChatActivity extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         int id = item.getItemId();
 
+                        if (id == R.id.white) {
+                            view.setBackgroundResource(R.color.colorWhite);
+                        }
+
                         if (id == R.id.blue) {
                             view.setBackgroundResource(R.drawable.background1);
                         }
