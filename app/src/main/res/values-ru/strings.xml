@@ -109,6 +109,10 @@
     <string name="back_to_profile_settings">Вернуться к настройкам профиля</string>
     <string name="back_to_chat">Вернуться в чат</string>
     <string name="back">Назад</string>
+    <string name="cliq_orange">оранжевый</string>
+    <string name="sky_blue">синий</string>
+    <string name="hope_green">зеленый</string>
+    <string name="light_yellow">желтый</string>
 
     //menu_profile_settings
     <string name="newMember">новый участник группы</string>

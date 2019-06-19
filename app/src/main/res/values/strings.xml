@@ -108,6 +108,10 @@
     <string name="back_to_profile_settings">Zurück zu Profil-Einstellungen</string>
     <string name="back_to_chat">Zurück zum Chat</string>
     <string name="back">Zurück</string>
+    <string name="cliq_orange">Cliq orange</string>
+    <string name="sky_blue">Himmel blau</string>
+    <string name="hope_green">Hoffnung</string>
+    <string name="light_yellow">Leichtes gelb</string>
 
     //menu_profile_settings
     <string name="newMember">neues Gruppenmitglied</string>

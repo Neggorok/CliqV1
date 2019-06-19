@@ -92,6 +92,10 @@
     <string name="back_to_grouplist">Grup sohbetlerine geri dön</string>
     <string name="back_to_groupview">Grup bilgilerine geri dön</string>
     <string name="back_to_groupsettings">Grup ayarlarina geri dön</string>
+    <string name="cliq_orange">Turuncu</string>
+    <string name="sky_blue">Mavi</string>
+    <string name="hope_green">Yeşil</string>
+    <string name="light_yellow">Sarı</string>
 
     //menu_profile_settings
     <string name="newMember">Yeni grup üyesi</string>

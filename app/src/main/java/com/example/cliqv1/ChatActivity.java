@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +59,8 @@ public class ChatActivity extends AppCompatActivity {
     ImageButton btn_attachFile;
     ImageButton btn_delete;
 
+    ImageButton chatBackground;
+
     Switch deleteSwitch;
     TextView on_off;
 
@@ -78,9 +81,30 @@ public class ChatActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         deleteSwitch = (Switch)findViewById(R.id.deleteSwitch);
+        chatBackground = (ImageButton)findViewById(R.id.chatBackground);
         btn_delete = findViewById(R.id.deleteButton);
         on_off = (TextView)findViewById(R.id.on_off);
         btn_attachFile = (ImageButton)findViewById(R.id.btn_attachFile);
+
+        //Chat-Hintergrund Anderung ermöglichen
+        chatBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(ChatActivity.this, chatBackground);
+                popupMenu.getMenuInflater().inflate(R.menu.menu_chat_background, popupMenu.getMenu());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(ChatActivity.this, "Choose your chat background" + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+
+            }
+        });
 
         loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
         loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);

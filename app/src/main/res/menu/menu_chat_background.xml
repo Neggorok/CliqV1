@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/orange"
+        android:icon="@drawable/background1"
+        android:title="@string/cliq_orange" />
+
+    <item
+        android:id="@+id/yellow"
+        android:icon="@drawable/background1"
+        android:title="@string/light_yellow" />
+
+    <item
+        android:id="@+id/blue"
+        android:icon="@drawable/background1"
+        android:title="@string/sky_blue" />
+
+    <item
+        android:id="@+id/green"
+        android:icon="@drawable/background1"
+        android:title="@string/hope_green" />
+
+</menu>
