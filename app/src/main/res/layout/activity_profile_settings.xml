@@ -62,24 +62,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp">
-
-        <Button
-            android:id="@+id/changeBackground"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            android:drawableLeft="@drawable/ic_background_orange_24dp"
-            android:text="@string/change_background"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"/>
-
-    </LinearLayout>
-
         <TextView
             android:id="@+id/line"
             android:layout_width="match_parent"

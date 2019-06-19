@@ -11,8 +11,8 @@ import android.widget.Button;
 
 public class ProfileSettingsActivity extends AppCompatActivity {
 
+    //Buttons erstellt
     Button changeAvatar;
-    Button changeBackground;
     Button seeConsentForm;
     Button changeEmail;
     Button changePassword;
@@ -26,26 +26,16 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         changeAvatar = findViewById(R.id.changeAvatar);
-        changeBackground = findViewById(R.id.changeBackground);
         seeConsentForm = findViewById(R.id.see_consent_form);
         changeEmail = findViewById(R.id.set_email);
         changePassword = findViewById(R.id.set_password);
 
+        //Buttons OnClick zugewiesen, um Wechsel zu anderen Activities zu ermöglichen
         changeAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent iProfileSettings = new Intent(ProfileSettingsActivity.this, ChangeAvatarActivity.class);
-                startActivity(iProfileSettings);
-
-            }
-        });
-
-        changeBackground.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent iProfileSettings = new Intent(ProfileSettingsActivity.this, ChangeBackgroundActivity.class);
                 startActivity(iProfileSettings);
 
             }
@@ -82,6 +72,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         });
     }
 
+    //menu_back back Icon leitet User zu verherigen Activity zurück
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_back, menu);

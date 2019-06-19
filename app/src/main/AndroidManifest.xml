@@ -26,9 +26,6 @@
             android:name=".ChangeAvatarActivity"
             android:label="@string/change_avatar" />
         <activity
-            android:name=".ChangeBackgroundActivity"
-            android:label="@string/change_background" />
-        <activity
             android:name=".ChangeEmailActivity"
             android:label="@string/change_email" />
         <activity android:name=".ChangeGroupPicActivity" />
