@@ -19,11 +19,6 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
         ImageButton imageButton2;
         ImageButton imageButton3;
         ImageButton imageButton4;
-        ImageButton imageButton5;
-        ImageButton imageButton6;
-        ImageButton imageButton7;
-        ImageButton imageButton8;
-
         Button button;
 
         //private static final int IMAGE_PICK_CODE = 1000;
@@ -39,10 +34,6 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
             imageButton2 = findViewById(R.id.imageButton2);
             imageButton3 = findViewById(R.id.imageButton3);
             imageButton4 = findViewById(R.id.imageButton4);
-            imageButton5 = findViewById(R.id.imageButton5);
-            imageButton6 = findViewById(R.id.imageButton6);
-            imageButton7 = findViewById(R.id.imageButton7);
-            imageButton8 = findViewById(R.id.imageButton8);
             button = findViewById(R.id.safe);
 
 
@@ -77,38 +68,6 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     ImageView imageView = findViewById(R.id.profileUnknown);
                     imageView.setImageResource(R.drawable.group_img4);
-
-                }
-            });
-            imageButton5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.group_img5);
-
-                }
-            });
-            imageButton6.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.group_img6);
-
-                }
-            });
-            imageButton7.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.group_img7);
-
-                }
-            });
-            imageButton8.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageView imageView = findViewById(R.id.profileUnknown);
-                    imageView.setImageResource(R.drawable.group_img8);
 
                 }
             });

@@ -7,10 +7,12 @@
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
     <string name="groupchat">Grup sohbetler</string>
     <string name="change_avatar">Avatar seç</string>
+    <string name="chooseAvatar">Avatarını seç</string>
     <string name="registration">Kayit</string>
     <string name="change_background">Duvar kağidi seç</string>
     <string name="group_settings">Grup sohbet ayarlari</string>
     <string name="group_information">Grup bilgisi</string>
+    <string name="chooseGroupImg">Bir grup resmi seçin</string>
 
     //activity_sign_up
     <string name="email">e-Mail</string>

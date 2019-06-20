@@ -25,12 +25,19 @@
 
     <ImageView
         android:id="@+id/profileUnknown"
-        android:layout_width="235dp"
-        android:layout_height="228dp"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/group_img6"
+        app:srcCompat="@drawable/teacher"
         android:layout_below="@+id/ChangeGroupImgToolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/chooseGroupImg"
+        android:gravity="center"
+        android:layout_marginTop="330dp"/>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -42,12 +49,11 @@
         android:layout_centerHorizontal="true"
         app:layout_constraintTop_toBottomOf="@+id/profileUnknown">
 
-
         <TableRow
-
+            android:id="@+id/imgTable"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="380dp"
             android:layout_marginBottom="10dp"
             android:gravity="center">
 
@@ -79,48 +85,6 @@
 
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="178dp"
-            android:gravity="center">
-
-            <ImageButton
-                android:id="@+id/imageButton5"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/group_img5" />
-
-            <ImageButton
-                android:id="@+id/imageButton6"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/group_img6" />
-
-            <ImageButton
-                android:id="@+id/imageButton7"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/group_img7" />
-
-            <ImageButton
-                android:id="@+id/imageButton8"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/group_img8" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-        </TableRow>
     </TableLayout>
 
     <Button
@@ -128,7 +92,7 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="500dp"
         android:background="@drawable/oval"
         android:text="Speichern" />
 
