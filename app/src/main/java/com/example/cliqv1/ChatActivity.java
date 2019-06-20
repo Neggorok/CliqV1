@@ -56,7 +56,6 @@ public class ChatActivity extends AppCompatActivity {
     String chatPartnerUsername;
     String chatPartnerImage;
 
-   // ImageButton btn_emoji;
     ImageButton btn_attachFile;
     ImageButton btn_delete;
 
@@ -174,16 +173,6 @@ public class ChatActivity extends AppCompatActivity {
                 }
             }
         });
-
-      //  btn_emoji = (ImageButton)findViewById(R.id.btn_emoji);
-      //  btn_emoji.setOnClickListener(new View.OnClickListener() {
-
-      //      @Override
-      //      public void onClick(View v) {
-      //          Intent i = new Intent(getApplicationContext(), EmojiconLibrary.class);
-      //          startActivity(i);
-      //      }
-      //  });
 
         btn_attachFile.setOnClickListener(new View.OnClickListener() {
 

@@ -29,6 +29,7 @@ import java.util.ArrayList;
 
 public class PopUpAttachFileActivity extends Activity {
 
+
     ImageButton btn_camera;
     ImageButton btn_audio;
     ImageButton btn_gallery;
@@ -50,6 +51,7 @@ public class PopUpAttachFileActivity extends Activity {
         btn_close = (Button) findViewById(R.id.btn_close);
 
 
+        //OnClickListener für Kamera-ImageButton
         btn_camera.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -58,6 +60,7 @@ public class PopUpAttachFileActivity extends Activity {
             }
         });
 
+        //OnClickListener mit Galerie-Zugriff für Galerie-ImageButton
         btn_gallery.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -70,7 +73,7 @@ public class PopUpAttachFileActivity extends Activity {
             }
         });
 
-
+        //OnClickListener für Audio-ImageButton
         btn_audio.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -79,6 +82,7 @@ public class PopUpAttachFileActivity extends Activity {
             }
         });
 
+        //OnClickListener mit Dokumenten-Zugriff für Dokumente-ImageButton
         btn_document.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -90,6 +94,7 @@ public class PopUpAttachFileActivity extends Activity {
             }
         });
 
+        //OnClickListener für Abbrechen-Button, schließt Dropdown
         btn_close.setOnClickListener(new View.OnClickListener() {
 
             @Override
