@@ -6,11 +6,13 @@
     <string name="cliq">https://cliqstudent.000webhostapp.com/cliq</string>
     <string name="groupchat">групповые чаты</string>
     <string name="change_avatar">Выберите аватар</string>
+    <string name="chooseAvatar">Выберите ваш аватар</string>
     <string name="registration">Pегистрация</string>
     <string name="register">регистр</string>
     <string name="change_background">Выберите фон</string>
     <string name="group_settings">Hастройки группы</string>
     <string name="group_information">информация о группе</string>
+    <string name="chooseGroupImg">Выберите групповое изображение</string>
 
     //activity_sign_up
     <string name="email">е-мейл</string>
