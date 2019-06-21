@@ -519,7 +519,7 @@ public class ChatActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+//
 //    public boolean onContextItemSelected(MenuItem item) {
 //        switch (item.getItemId())
 //        {
