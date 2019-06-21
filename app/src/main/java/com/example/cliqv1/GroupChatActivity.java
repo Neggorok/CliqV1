@@ -90,12 +90,14 @@ public class GroupChatActivity extends AppCompatActivity {
 
         //Chat-Hintergrund Anderung ermöglichen
         chatBackground.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
                 PopupMenu popupMenu = new PopupMenu(GroupChatActivity.this, chatBackground);
                 popupMenu.getMenuInflater().inflate(R.menu.menu_chat_background, popupMenu.getMenu());
 
+                // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App als Popup sichtbar aus
                 Toast.makeText(GroupChatActivity.this, "Choose a background color", Toast.LENGTH_SHORT).show();
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -122,6 +124,7 @@ public class GroupChatActivity extends AppCompatActivity {
                         if (id == R.id.orange) {
                             view.setBackgroundResource(R.drawable.background4);
                         }
+                        // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App als Popup sichtbar aus
                         Toast.makeText(GroupChatActivity.this, "You've chosen " + item.getTitle(), Toast.LENGTH_SHORT).show();
                         return true;
                     }
@@ -234,48 +237,69 @@ public class GroupChatActivity extends AppCompatActivity {
 
     public void loadGroupMessages() {
 
+        // leert die Messageliste, damit sich die Einträge später nicht stapeln, also immer und immer wieder aneinander hängen
         groupMessageList.clear();
 
+        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
+        // die Anfrage löst das php Skript aus, das hier definiert wird
         String create_user_url = getString(R.string.cliq) + "/getMessagesforGroupChat.php";
 
+        // erzeugt einen neuen Request an den Server, der das oben definierte PhP file ausführt
         StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
 
+                // stellt die Antwort des Servers dar
                 response -> {
 
+                    // gibt die Antwort des Servers auf der AS Console aus.
+                    // dient nur zur Kontrolle
                     Log.i("response", response);
 
+                    // der Try - catch bereich funktioniert ähnlich wie eine If Abfrage
+                    // es wird im Try Bereich versucht auf den Response des Servers zu reagieren
+                    // und sollte die Antwort des Servers die Erwartete sein, reagiert der Catch Bereich dementsprechend
                     try {
 
+                        // wandelt die Antwort des Servers in ein JSONObjekt um
                         JSONObject jsonResponse = new JSONObject(response);
+                        // nun werden die Einträge des message Arrays vom Server in Stringform
+                        // in der Variable message gespeichert
                         String message = jsonResponse.getString("message");
+                        // erzeugt ein Array das mit den JSONObjekten gefüllt wird,
+                        // sodass jeder Eintrag zu einem Objekt wird
                         JSONArray messageArray = new JSONArray(message);
-                        // hier könnte man versuchen den json Response der Gruppe auf zu rufen um dann die Daten unten zu entnehmen
-//                        JSONArray groupArray = (JSONArray) jsonResponse.get("gruppen");
 
 
+
+                        // holt die success Ausgabe des php skriptes und legt es in die "string-variable" success ab, um sie später leichter aufrufen zu können
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
+                        // prüft ob die success Ausgabe in der Antwort des Servers 1 ist
                         if (success == 1) {
 
+                            // durchläuft alle Einträge der Nachrichten im Array
                             for (int i = 0; i < messageArray.length(); i++) {
 
+                                // nimmt sich jeweils die Message an der jeweiligen position i
                                 JSONObject messageJson = (JSONObject) messageArray.get(i);
 
-                                // Hier muss zusätzlich die gid abgefragt werden, die von der angewähleten Gruppe mitgegeben wird ----- , && messageJson.getInt("receiver_id") == groupArray.getInt(Integer.parseInt("gid"))
+                                // Prüft ob die Senderid der vorliegenden eingeloggten Userid entspricht
                                 if (messageJson.getInt("sender_id") == loggedInUserId  ) {
 
+                                    // wenn dem so ist, wird das Bild des eingeloggten Users geladen
                                     Bitmap userImage = Util.getBitmapFromBase64String(loggedInUserImage);
 
+                                    // und es wird ein neues Messageitem erstellt, das mit dem Namen des eingeloggten Users, seinem Bild, der Message und dem Zeitstempel gefüllt wird
                                     groupMessageList.add(new GroupMessage(loggedInUsername, messageJson.get("groupmessage").toString(), messageJson.get("created_at").toString(), userImage));
 
                                 } else {
-                                    // FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER!!!!!!!!!!!!!!
 
+                                    // Wenn die Senderid nicht die ID des eingeloggten Users ist, wird das Bild des Chatpartners geladen,
+                                    // dieses wird durch die Informationen des php scriptes aus der DB geladen
                                     Bitmap partnerImage = Util.getBitmapFromBase64String(groupchatPartnerImage);
+                                    // dann wird ein neues Message Item erstellt, das mit dem namen und dem Bild
+                                    // des Chatpartners und wieder mit der Message und dem Zeitstempel gefüllt wird
                                     groupMessageList.add(new GroupMessage(loggedInUsername, messageJson.get("groupmessage").toString(), messageJson.get("created_at").toString(), partnerImage));
-//                                    groupMessageList.add(new GroupMessage(messageJson.get("sender_id").toString(), messageJson.get("groupmessage").toString(), messageJson.get("created_at").toString(), partnerImage));
 
-                                    // FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER!!!!!!!!!!!!!!
 
                                 }
 
@@ -298,6 +322,8 @@ public class GroupChatActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
+                // Hier werden die Daten ausgelesen, in die entsprechenden Variablen geladen,
+                // die für den Server benötigt werden
                 params.put("user_id", String.valueOf(loggedInUserId));
 //                params.put("chat_partner_groupname", groupchatName);
                 params.put("gruppenID", String.valueOf(gruppenID));
@@ -314,12 +340,18 @@ public class GroupChatActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
 
+        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
+        // die Anfrage löst das php Skript aus, das hier definiert wird
         String create_user_url = getString(R.string.cliq) + "/insertGroupMessage_cliq.php";
 
+        // erzeugt einen neuen Request an den Server, der das oben definierte PhP file ausführt
         StringRequest postRequest = new StringRequest(Request.Method.POST, create_user_url,
 
+                // stellt die Antwort des Servers dar
                 response -> {
 
+                    // gibt die Antwort des Servers auf der AS Console aus.
+                    // dient nur zur Kontrolle
                     Log.i("response", response);
 
 //                    try {
@@ -344,6 +376,7 @@ public class GroupChatActivity extends AppCompatActivity {
 //                    }
 
 
+                    // sorgt dafür, dass wenn fehler im Try bereich auftreten, die Fehlermeldung in der Konsole ausgegeben wird
                 }, error -> {
 
 
@@ -351,6 +384,8 @@ public class GroupChatActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
+                // Hier werden die Daten ausgelesen, in die entsprechenden Variablen geladen,
+                // die für den Server benötigt werden
                 params.put("user_id", String.valueOf(loggedInUserId));
                 params.put("group_message", editText.getText().toString());
                 params.put("gruppenID", String.valueOf(gruppenID));
@@ -361,6 +396,7 @@ public class GroupChatActivity extends AppCompatActivity {
         };
 
 
+        // addet den request zur Request Queue
         queue.add(postRequest);
 
     }

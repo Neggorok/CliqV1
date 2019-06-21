@@ -65,6 +65,7 @@ public class UserListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // setContentview liegt das Layout fest, das für diese Seite verwendet werden soll
         setContentView(R.layout.activity_user_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -98,20 +99,29 @@ public class UserListActivity extends AppCompatActivity {
         userList = new ArrayList<>();
 
         adapter = new UserListAdapter(this, userList);
+        // die RecyclerView sorgt dafür, das die App in einem bestimmten Bereich, also dem Bereich der Recyclerview,
+        // durch das SwipeRefresh Layout, neu geladen wird, wenn man ´von oben nach unten über den Bildschirm wischt
+        // folgend werden ihr noch die nötigen Informationen zugewiesen, wie den Verweiß auf das Layout
         userRecyclerView = findViewById(R.id.userList_recycler_view);
+        // die genaue Größe
         userRecyclerView.setHasFixedSize(true);
+        // welches Layout verwendet wird
         userRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // welchen Adapter es verwenden soll
         userRecyclerView.setAdapter(adapter);
 
         queue = Volley.newRequestQueue(this);
-
+        // lädt zum create die Userliste neu
         loadUserList();
-
+        // sorgt, wie oben beschrieben dafür, das ein bestimmter Bereich neu geladen wird, wenn über den Bildschirm gestrichen wird
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                // hier wird fest gelegt, was beim Refreshen der Seite ausgeführt wird
+                // in diesem Fall also wird die Userliste noch einmal neu geladen
                 loadUserList();
+                // sorgt dafür, dass sich das Refresh Rädchen nicht ins unendliche dreht, sondern die Animation nach einem durchlauf beendet wird
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -120,52 +130,73 @@ public class UserListActivity extends AppCompatActivity {
 
 
     public void loadUserList() {
-
+        // leert die Userliste, damit sich die Einträge später nicht stapeln, also immer und immer wieder aneinander hängen
         userList.clear();
 
+        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
+        // die Anfrage löst das php Skript aus, das hier definiert wird
         String create_user_url = "https://cliqstudent.000webhostapp.com/cliq/getAllUsers_cliq.php/";
 
+        // erzeugt einen neuen Request an den Server, der das oben definierte PhP file ausführt
         StringRequest postRequest = new StringRequest(Request.Method.GET, create_user_url,
+                // stellt die Antwort des Servers dar
                 response -> {
 
-
+                    // gibt die Antwort des Servers auf der AS Console aus.
+                    // dient nur zur Kontrolle
                     Log.i("response", response);
 
+                    // der Try - catch bereich funktioniert ähnlich wie eine If Abfrage
+                    // es wird im Try Bereich versucht auf den Response des Servers zu reagieren
+                    // und sollte die Antwort des Servers die Erwartete sein, reagiert der Catch Bereich dementsprechend
                     try {
+
+                        // wandelt die Antwort des Servers in ein JSONObjekt um
                         JSONObject jsonResponse = new JSONObject(response);
+                        // erzeugt ein Array das mit den JSONObjekten gefüllt wird
                         JSONArray userArray = (JSONArray) jsonResponse.get("user");
 
+                        // durchläuft das erzeugte Array
                         for (int i = 0; i < userArray.length(); i++) {
-
+                            // hier wird für jeden Schleifendurchlauf ein Userobjekt aufgenommen
                             JSONObject userJson = userArray.getJSONObject(i);
 
+                            // um dann zu testen ob das Objekt die Id des eingeloggten Nutzers hat und wenn das so ist, wird er nicht in der Liste aufgeführt
+                            // man will ja nicht mit sich selbst chatten
                             if (userJson.getInt("id") != PreferenceManager.getDefaultSharedPreferences(UserListActivity.this).getInt("id", -1)) {
 
+                                // prüft ob das Userimage NULL ist und (zur sicherheit) ob der Bildstring größer als 0 ist
                                 if (!userJson.getString("image").equals("null") && userJson.getString("image").length() > 0) {
 
+                                    // wenn dem so ist, wird das vorhandene Image als String aus dem Response geholt
                                     String bitmapString = userJson.getString("image");
+                                    // und durch die Methode in der Util Klasse zu einer Bitmap umgebaut
                                     Bitmap imageBitmap = Util.getBitmapFromBase64String(bitmapString);
 
+                                    // Anschließend wird zur Userliste ein neuer Eintrag hinzugefügt, der den Usernamen und das neue Bild enthält
                                     userList.add(new User(userJson.getString("username"), imageBitmap));
                                 } else {
+                                    // andernfalls wird zur Userliste ein neuer Eintrag hinzugefügt, der den Usernamen und das Standartbild enthält
                                     userList.add(new User(userJson.getString("username"), null));
                                 }
 
                             }
 
                         }
-
+                        // sorgt dafür, dass alle Informationen die die App produziert in der Konsole ausgegeben werden
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
+                    // sorgt dafür, dass der Adapter über die Änderungen des Datenbestandes informiert wird
+                    // sonst bleibt die Liste in der Ansicht leer
                     adapter.notifyDataSetChanged();
-
+                    // sorgt dafür, dass wenn fehler im Try bereich auftreten, die Fehlermeldung in der Konsole ausgegeben wird
                 }, error -> {
 
         });
 
-// Add the request to the RequestQueue.
+        // addet den request zur Request Queue
         queue.add(postRequest);
 
     }
@@ -196,6 +227,7 @@ public class UserListActivity extends AppCompatActivity {
     }
 
     @Override
+    // gibt den Toolbar Menüpunkten eine Funktion
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 

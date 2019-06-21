@@ -44,3 +44,4 @@ public class PopUpTranslatorActivity extends Activity {
 
 }
 }
+// -

@@ -155,3 +155,4 @@ public class PopUpGroupSettingsActivity extends Activity {
         Toast.makeText(PopUpGroupSettingsActivity.this, username + " was successfully added", Toast.LENGTH_SHORT).show();
     }
 }
+// -

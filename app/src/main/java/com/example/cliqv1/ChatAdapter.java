@@ -60,19 +60,25 @@ public class ChatAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
+        // holt ein Messageobjekt aus der MessageListe
         final Message message = messageListe.get(position);
 
+        // der MessageHolder ist dafür da , die einzelnen Elemente wie den username abzugreifen
         ChatAdapter.MessageViewHolder messageHolder = (ChatAdapter.MessageViewHolder) holder;
 
+        // und sie dann in diesem Abschnitt in die vorgesehenen Bereiche, einzubinden
         messageHolder.username.setText(message.getUsername());
         messageHolder.message.setText(message.getMessage());
         messageHolder.timeStamp.setText(message.getTimestamp());
 
+        // prüft ob das Userimage leer ist
         if(message.getUserImage() != null){
 
+            // wenn es nicht leer ist wird das übergebene Userimage gespeichert und mit angezeigt
             messageHolder.userImage.setImageBitmap(Bitmap.createScaledBitmap(message.getUserImage(), 60, 60, false));
 
         }else{
+            // wenn es jedoch leer ist, wird ein Standartbild zugewiesen
             messageHolder.userImage.setImageResource(R.drawable.standard_user_image);
         }
 

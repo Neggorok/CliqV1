@@ -191,7 +191,7 @@ public class SignUpActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() {
                     Map<String, String> params = new HashMap<>();
                     // Hier werden die Eingaben aus den EditTexten userName, userFamily, userPassword und userEmail ausgelesen
-                    // und in die entsprechenden Variablen geladen
+                    // und in die entsprechenden Variablen geladen um diese dann an den Server weiter zu geben
                     params.put("username", userName.getText().toString());
                     //params.put("familyname", userFamily.getText().toString());
                     params.put("password", userPassword.getText().toString());
@@ -202,7 +202,8 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             };
 
-// Add the request to the RequestQueue.
+
+        // addet den request zur Request Queue
             queue.add(postRequest);
         Intent iLog = new Intent(this, MainActivity.class);
         startActivity(iLog);

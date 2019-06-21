@@ -16,6 +16,7 @@ public class GroupchatAdapter extends RecyclerView.Adapter {
     public ArrayList<GroupMessage> groupMessageListe;
     public GroupChatActivity activity;
 
+    // stellt den Constructor dar, um im späteren Verlauf der App einen GroupchatAdapter verwenden, bzw erzeugen zu können
     public GroupchatAdapter(GroupChatActivity activity, List<GroupMessage> list){
 
         this.activity = activity;
@@ -52,6 +53,7 @@ public class GroupchatAdapter extends RecyclerView.Adapter {
 
     @Override
     public  RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // hier wird das Layout des groupchat_message_item aktiviert
         View view = this.activity.getLayoutInflater().inflate(R.layout.groupchat_message_item, parent, false);
         return new GroupchatAdapter.GroupMessageViewHolder(view);
     }
@@ -59,19 +61,22 @@ public class GroupchatAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
+        // holt ein Messageobjekt aus der groupMessageListe
         final GroupMessage groupMessage = groupMessageListe.get(position);
 
+        // der GroupMessageHolder ist dafür da , die einzelnen Elemente wie den username abzugreifen
         GroupchatAdapter.GroupMessageViewHolder groupMessageHolder = (GroupchatAdapter.GroupMessageViewHolder) holder;
-
+        // und sie dann in diesem Abschnitt in die vorgesehenen Bereiche, einzubinden
         groupMessageHolder.username.setText(groupMessage.getUsername());
         groupMessageHolder.message.setText(groupMessage.getMessage());
         groupMessageHolder.timeStamp.setText(groupMessage.getTimestamp());
-
+        // prüft ob das Userimage leer ist
         if(groupMessage.getUserImage() != null){
-
+            // wenn es nicht leer ist wird das übergebene Userimage gespeichert und mit angezeigt
             groupMessageHolder.userImage.setImageBitmap(Bitmap.createScaledBitmap(groupMessage.getUserImage(), 60, 60, false));
 
         }else{
+            // wenn es jedoch leer ist, wird ein Standartbild zugewiesen
             groupMessageHolder.userImage.setImageResource(R.drawable.standard_user_image);
         }
 

@@ -24,7 +24,7 @@ public class UserListAdapter extends RecyclerView.Adapter implements Filterable
     public UserListActivity activity;
     private ArrayList<User> mFilteredList;
 
-
+    // stellt den Constructor dar, um im späteren Verlauf der App einen UserListAdapter verwenden, bzw erzeugen zu können
     public UserListAdapter(UserListActivity activity, List<User> list){
 
         this.activity = activity;
@@ -100,6 +100,7 @@ public class UserListAdapter extends RecyclerView.Adapter implements Filterable
 
     @Override
     public  RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // hier wird das Layout des user_list_item aktiviert
         View view = this.activity.getLayoutInflater().inflate(R.layout.user_list_item, parent, false);
         return new UserListAdapter.UserViewHolder(view);
     }
@@ -107,18 +108,23 @@ public class UserListAdapter extends RecyclerView.Adapter implements Filterable
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
+        // holt ein Userobjekt aus der Userliste
         final User user = userListe.get(position);
 
+        // der Userholder ist dafür da , die einzelnen Elemente wie username und das Image abzugreifen
         UserListAdapter.UserViewHolder userHolder = (UserViewHolder) holder;
-
+        // und sie dann in diesem Abschnitt in die vorgesehenen Bereiche, einzubinden
         userHolder.name.setText(user.getName());
-
+        userHolder.userImage.setImageBitmap(user.getImage());
+        // prüft ob das Userimage leer ist
         if(user.getImage() != null){
-
+            // wenn es nicht leer ist wird das übergebene Userimage gespeichert und mit angezeigt
             userHolder.userImage.setImageBitmap(Bitmap.createScaledBitmap(user.getImage(), 60, 60, false));
 
         }else{
+            // wenn es jedoch leer ist, bekommt das Userlistitem das Standartbild zugewiesen
             Bitmap standardImageBitmap = Util.getBitmapFromDrawable(activity, R.drawable.standard_user_image);
+            // setzt das Standartbild als neues Profilbild des Nutzers
             user.setImage(standardImageBitmap);
 
             userHolder.userImage.setImageBitmap(standardImageBitmap);
@@ -127,13 +133,13 @@ public class UserListAdapter extends RecyclerView.Adapter implements Filterable
         userHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                // startet beim anklicken des Items die nächste Activity, wo dann gechattet werden kann
                 Intent i = new Intent(view.getContext(), ChatActivity.class);
-
+                // übergibt der nächsten Activity die folgenden, beötigten Daten
                 i.putExtra("chatPartnerUsername", userListe.get(position).getName());
                 String bitmapString = Util.getBase64StringFromBitmap(user.getImage());
                 PreferenceManager.getDefaultSharedPreferences(activity).edit().putString("chatPartnerImageString", bitmapString).apply();
-
+                // startet die nächste Activity
                 view.getContext().startActivity(i);
             }
         });

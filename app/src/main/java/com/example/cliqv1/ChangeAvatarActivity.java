@@ -138,3 +138,4 @@ public class ChangeAvatarActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+// -

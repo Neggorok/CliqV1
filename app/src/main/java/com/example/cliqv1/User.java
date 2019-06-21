@@ -23,7 +23,8 @@ public class User {
     public void setImage(Bitmap image) {
         this.image = image;
     }
-
+    // sorgt nur dafür, dass unsere User immer mit den richtigen Werten erstellt werden, um so Probleme beim Registrieren und Einloggen zu vermeiden
+    // und um die User besser verwalten zu können
     public User(String name, Bitmap image) {
         this.name = name;
         this.image = image;

@@ -29,6 +29,7 @@ public class Gruppen {
 //
 //    public void setGroupId(int groupId) { this.groupId = groupId; }
 
+    // sorgt nur dafür, dass unsere Gruppen immer mit den richtigen Werten erstellt werden, um so Probleme beim erstellen vermieden werden
     public Gruppen(String name, Bitmap image) {
         this.groupName = name;
         this.groupImage = image;

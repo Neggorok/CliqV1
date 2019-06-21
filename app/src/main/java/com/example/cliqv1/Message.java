@@ -12,7 +12,7 @@ public class Message {
 
 
 
-
+    // sorgt nur dafür, dass die einzelnen Messages immer mit den richtigen Werten erstellt werden, um so Probleme beim Erzeugen zu vermeiden
     public Message(String username, String message, String timestamp, Bitmap userImage, String messageid) {
         this.username = username;
         this.message = message;

@@ -51,6 +51,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // setContentview liegt das Layout fest, das für diese Seite verwendet werden soll
         setContentView(R.layout.activity_group_chat_view);
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
@@ -84,20 +85,31 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
         groupList = new ArrayList<>();
         adapter = new GroupListAdapter(this, groupList);
+        // die RecyclerView sorgt dafür, das die App in einem bestimmten Bereich, also dem Bereich der Recyclerview,
+        // durch das SwipeRefresh Layout, neu geladen wird, wenn man ´von oben nach unten über den Bildschirm wischt
+        // folgend werden ihr noch die nötigen Informationen zugewiesen, wie den Verweiß auf das Layout
         groupRecyclerView = findViewById(R.id.groupchat_recycler_view);
+        // die genaue Größe
         groupRecyclerView.setHasFixedSize(true);
+        // welches Layout verwendet wird
         groupRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // welchen Adapter es verwenden soll
         groupRecyclerView.setAdapter(adapter);
 
         queue = Volley.newRequestQueue(this);
 
+        // lädt zum create die Gruppen liste neu
         loadGroupList();
 
+        // sorgt, wie oben beschrieben dafür, das ein bestimmter Bereich neu geladen wird, wenn über den Bildschirm gestrichen wird
         swipeRefreshLayout = findViewById(R.id.groupSwipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                // hier wird fest gelegt, was beim Refreshen der Seite ausgeführt wird
+                // in diesem Fall also wird die GroupList noch einmal neu geladen
                 loadGroupList();
+                // sorgt dafür, dass sich das Refresh Rädchen nicht ins unendliche dreht, sondern die Animation nach einem durchlauf beendet wird
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -105,50 +117,71 @@ public class GroupChatViewActivity extends AppCompatActivity {
     }
 
     public void loadGroupList() {
-
+        // leert die Gruppenliste, damit sich die Einträge später nicht stapeln, also immer und immer wieder aneinander hängen
         groupList.clear();
 
+        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
+        // die Anfrage löst das php Skript aus, das hier definiert wird
         String create_group_url = getString(R.string.cliq) + "/getAllGroups.php";
 
+        // erzeugt einen neuen Request an den Server, der das oben angesprochene PhP file ausführt
         StringRequest postRequest = new StringRequest(Request.Method.GET, create_group_url,
+
+                // stellt die Antwort des Servers dar
                 response -> {
 
-
+                    // gibt die Antwort des Servers auf der AS Console aus.
+                    // dient nur zur Kontrolle
                     Log.i("response", response);
 
+                    // der Try - catch bereich funktioniert ähnlich wie eine If Abfrage
+                    // es wird im Try Bereich versucht auf den Response des Servers zu reagieren
+                    // und sollte die Antwort des Servers die Erwartete sein, reagiert der Catch Bereich dementsprechend
                     try {
+
+                        // wandelt die Antwort des Servers in JSON um
                         JSONObject jsonResponse = new JSONObject(response);
+                        // erzeugt ein Array das mit den JSONObjekten gefüllt wird
                         JSONArray groupArray = (JSONArray) jsonResponse.get("gruppen");
 
+                        // durchläuft das erzeugte Array
                         for (int i = 0; i < groupArray.length(); i++) {
 
+                            // hier wird für jeden Schleifendurchlauf ein Gruppenobjekt aufgenommen
                             JSONObject groupJson = groupArray.getJSONObject(i);
 
+                                // prüft ob das Gruppenimage NULL ist und (zur sicherheit) ob der Bildstring größer als 0 ist
                                 if (!groupJson.getString("groupimage").equals("null") && groupJson.getString("groupimage").length() > 0) {
 
+                                    // wenn dem so ist, wird das vorhandene Image als String aus dem Response geholt
                                     String bitmapString = groupJson.getString("groupimage");
+                                    // und durch die Methode in der Util Klasse zu einer Bitmap umgebaut
                                     Bitmap imageBitmap = Util.getBitmapFromBase64String(bitmapString);
 
+                                    // Anschließend wird zur groupliste ein neuer Eintrag hinzugefügt, der den Gruppennamen und das neue Bild enthält
                                     groupList.add(new Gruppen(groupJson.getString("groupname"), imageBitmap));
                                 } else {
+                                    // andernfalls wird zur groupliste ein neuer Eintrag hinzugefügt, der den Gruppennamen und das Standartbild enthält
                                     groupList.add(new Gruppen(groupJson.getString("groupname"), null));
                                 }
 
 
 
                         }
-
+                        // sorgt dafür, dass alle Informationen die die App produziert in der Konsole ausgegeben werden
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
+                    // sorgt dafür, dass der Adapter über die Änderungen des Datenbestandes informiert wird
+                    // sonst bleibt die Liste in der Ansicht leer
                     adapter.notifyDataSetChanged();
-
+                    // sorgt dafür, dass wenn fehler im Try bereich auftreten, die Fehlermeldung in der Konsole ausgegeben wird
                 }, error -> {
 
         });
 
-// Add the request to the RequestQueue.
+        // addet den request zur Request Queue
         queue.add(postRequest);
     }
 
@@ -159,6 +192,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
     }
 
     @Override
+    // gibt den Toolbar Menüpunkten eine Funktion
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -230,7 +264,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
 
                         };
 
-// Add the request to the RequestQueue.
+                        // addet den request zur Request Queue
                         queue.add(postRequest);
                         Intent iGCV = new Intent(GroupChatViewActivity.this, GroupChatViewActivity.class);
                         startActivity(iGCV);
