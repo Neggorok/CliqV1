@@ -82,11 +82,11 @@ public class GroupChatActivity extends AppCompatActivity {
         view.setBackgroundResource(R.color.colorWhite);
 
         btn_delete = findViewById(R.id.deleteButton);
-        chatBackground = (ImageButton)findViewById(R.id.chatBackground);
+        chatBackground = (ImageButton) findViewById(R.id.chatBackground);
         ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
         btn_delete.setEnabled(false);
-        on_off = (TextView)findViewById(R.id.on_off);
-        deleteSwitch = (Switch)findViewById(R.id.deleteSwitch);
+        on_off = (TextView) findViewById(R.id.on_off);
+        deleteSwitch = (Switch) findViewById(R.id.deleteSwitch);
 
         //Chat-Hintergrund Anderung ermöglichen
         chatBackground.setOnClickListener(new View.OnClickListener() {
@@ -140,25 +140,19 @@ public class GroupChatActivity extends AppCompatActivity {
         loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
 
 
-        if (loggedModerator == 0)
-        {
+        if (loggedModerator == 0) {
             deleteSwitch.setClickable(false);
 
-        }
-        else {
+        } else {
             deleteSwitch.setClickable(true);
         }
 
-        if (loggedAdmin == 0)
-        {
+        if (loggedAdmin == 0) {
             deleteSwitch.setClickable(false);
 
-        }
-        else {
+        } else {
             deleteSwitch.setClickable(true);
         }
-
-
 
 
         deleteSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -176,11 +170,7 @@ public class GroupChatActivity extends AppCompatActivity {
         });
 
 
-
         btn_attachFile.setOnClickListener(new View.OnClickListener() {
-
-
-
 
 
             @Override
@@ -203,7 +193,7 @@ public class GroupChatActivity extends AppCompatActivity {
         loggedInUserImage = PreferenceManager.getDefaultSharedPreferences(this).getString("image", "-1");
 
 //        groupchatPartnerUsername = getIntent().getStringExtra("groupchatPartnerUsername").toString();
-            groupchatName = getIntent().getStringExtra("groupchatName").toString();
+        groupchatName = getIntent().getStringExtra("groupchatName").toString();
 
         groupchatPartnerImage = PreferenceManager.getDefaultSharedPreferences(this).getString("groupchatPartnerImageString", "-1");
 
@@ -269,7 +259,6 @@ public class GroupChatActivity extends AppCompatActivity {
                         JSONArray messageArray = new JSONArray(message);
 
 
-
                         // holt die success Ausgabe des php skriptes und legt es in die "string-variable" success ab, um sie später leichter aufrufen zu können
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
@@ -283,7 +272,7 @@ public class GroupChatActivity extends AppCompatActivity {
                                 JSONObject messageJson = (JSONObject) messageArray.get(i);
 
                                 // Prüft ob die Senderid der vorliegenden eingeloggten Userid entspricht
-                                if (messageJson.getInt("sender_id") == loggedInUserId  ) {
+                                if (messageJson.getInt("sender_id") == loggedInUserId) {
 
                                     // wenn dem so ist, wird das Bild des eingeloggten Users geladen
                                     Bitmap userImage = Util.getBitmapFromBase64String(loggedInUserImage);
@@ -426,13 +415,6 @@ public class GroupChatActivity extends AppCompatActivity {
 
         }
 
-        if (id == R.id.popupGroupSettings) {
-
-            Intent i = new Intent(getApplicationContext(), PopUpGroupSettingsActivity.class);
-            Toast.makeText(GroupChatActivity.this, "Group Settings selected, exclusive authority for the host", Toast.LENGTH_LONG).show();
-            startActivity(i);
-        }
-
         if (id == R.id.translator) {
 
             Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
@@ -441,7 +423,62 @@ public class GroupChatActivity extends AppCompatActivity {
 
         }
 
-        return super.onOptionsItemSelected(item);
+        if(loggedModerator == 1) {
+            if (id == R.id.addGroupMember) {
+
+                RequestNewMember();
+
+            }
+        }else {
+            Toast.makeText(GroupChatActivity.this, "This function is only available for the moderator", Toast.LENGTH_LONG).show();
+        }
+
+            return super.onOptionsItemSelected(item);
+    }
+
+    //Pop up um Gruppenmitglieder hinzufügen zu können
+    private void RequestNewMember() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
+        builder.setTitle("Enter Username:");
+
+        final EditText newMemberField = new EditText(this);
+        newMemberField.setHint("Max Mustermann");
+        builder.setView(newMemberField);
+
+        builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String username = newMemberField.getText().toString();
+
+                //Username wird benötigt um Gruppenmitglieder hinzufügen zu können
+                if (TextUtils.isEmpty(username)) {
+
+                    Toast.makeText(GroupChatActivity.this, "Please choose a username",  Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    CreateNewMember(username);
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+
+            }
+        });
+
+        builder.show();
+    }
+
+    private void CreateNewMember(String username) {
+
+        Toast.makeText(GroupChatActivity.this, username + " was successfully added", Toast.LENGTH_SHORT).show();
     }
 }
 

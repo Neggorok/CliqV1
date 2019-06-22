@@ -15,12 +15,6 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/popupGroupSettings"
-        android:title="@string/group_settings"
-        android:orderInCategory="1"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/groupInformation"
         android:title="@string/group_information"
         android:orderInCategory="2"
