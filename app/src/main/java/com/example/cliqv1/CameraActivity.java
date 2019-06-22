@@ -207,7 +207,7 @@ public class CameraActivity extends AppCompatActivity {
         this.actualBitmap = bitmap;
         this.imageView.setImageBitmap(bitmap);
     }
-
+//das Foto wird skaliert
     private Bitmap getandScaleBitmap(Uri uri, int dstWidth, int dstheight) {
         try {
             Bitmap src = MediaStore.Images.Media.getBitmap(
