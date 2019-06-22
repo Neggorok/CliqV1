@@ -11,10 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
-        android:text="Übersetzer"
+        android:text="@string/translator"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="#317933"
         android:layout_centerHorizontal="true"/>
 
     <EditText
@@ -27,7 +26,7 @@
         android:layout_below="@+id/ueberschrift"
         android:layout_marginTop="15dp"
         android:inputType="textPersonName"
-        android:hint="Zu übersetzender Text..."
+        android:hint="@string/translateTest"
         android:gravity="center"/>
 
     <Button
@@ -36,7 +35,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/eingabeEditText"
         android:layout_centerHorizontal="true"
-        android:text="übersetzen"
+        android:text="@string/translate"
+        android:background="@drawable/oval"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
         android:layout_marginTop="25dp"
         android:onClick="getTranslation"/>
 
@@ -45,12 +47,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Übersetzung"
+        android:text="@string/translation"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button_uebersetzen"
         android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="#317933"/>
+        android:textStyle="bold" />
 
     <!--<TextView-->
     <!--android:layout_width="wrap_content"-->

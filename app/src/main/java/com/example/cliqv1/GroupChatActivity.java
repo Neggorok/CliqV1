@@ -435,35 +435,13 @@ public class GroupChatActivity extends AppCompatActivity {
 
         if (id == R.id.translator) {
 
-            Intent i = new Intent(getApplicationContext(), PopUpTranslatorActivity.class);
+            Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
             Toast.makeText(GroupChatActivity.this, "German translation selected", Toast.LENGTH_LONG).show();
             startActivity(i);
 
         }
 
-//        if (id == R.id.testGruppenInfo) {
-//
-//            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
-//            Toast.makeText(GroupChatActivity.this, "Group-view selected", Toast.LENGTH_SHORT).show();
-//            startActivity(i);
-//
-//        }
-
         return super.onOptionsItemSelected(item);
     }
-
-//    public boolean onContextItemSelected(MenuItem item) {
-//        switch (item.getItemId())
-//        {
-//            case R.id.chat_message_delete:
-//                deleteMessage();
-//                break;
-//        }
-//        return true;
-//    }
-//
-//    private void deleteMessage() {
-//
-//    }
 }
 

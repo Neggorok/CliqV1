@@ -501,37 +501,14 @@ public class ChatActivity extends AppCompatActivity {
 
         }
 
-//        if (id == R.id.translator) {
-//
-//            Intent i = new Intent(getApplicationContext(), PopUpTranslatorActivity.class);
-//            Toast.makeText(ChatActivity.this, "German translation selected", Toast.LENGTH_LONG).show();
-//            startActivity(i);
-//
-//        }
+        if (id == R.id.translator) {
 
-//        if (id == R.id.testGruppenInfo) {
-//
-//            Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
-//            Toast.makeText(ChatActivity.this, "Group-view selected", Toast.LENGTH_SHORT).show();
-//            startActivity(i);
-//
-//        }
+            Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
+            Toast.makeText(ChatActivity.this, "German translation selected", Toast.LENGTH_LONG).show();
+            startActivity(i);
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
-//
-//    public boolean onContextItemSelected(MenuItem item) {
-//        switch (item.getItemId())
-//        {
-//            case R.id.chat_message_delete:
-//                deleteMessage();
-//                break;
-//        }
-//        return true;
-//    }
-//
-//    private void deleteMessage() {
-//
-//    }
 }
-//

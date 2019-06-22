@@ -9,6 +9,10 @@
     <string name="change_avatar">Avatar seç</string>
     <string name="chooseAvatar">Avatarını seç</string>
     <string name="registration">Kayit</string>
+
+    //Muss noc übersetzt werden!!!
+    <string name="register">Registrieren</string>
+
     <string name="change_background">Duvar kağidi seç</string>
     <string name="group_settings">Grup sohbet ayarlari</string>
     <string name="group_information">Grup bilgisi</string>
@@ -21,6 +25,13 @@
     <string name="teacherAccount">Öğretmen hesabi</string>
     <string name="join_now">Simdi kayit ol</string>
 
+    //Muss noch übersetzt werden
+    <string name="sign_up_question">Noch nicht registriert? Klicke hier</string>
+    <string name="signTime">Datum und Uhrzeit der Registrierung:</string>
+    <string name="account">Schüler/Vereinsmitglied</string>
+    <string name="adminAccount">Administrator</string>
+    <string name="presenterAccount">Moderator</string>
+
     //activity_user_list
     <string name="search">Ara</string>
 
@@ -29,10 +40,20 @@
     <string name="password">Şifre</string>
     <string name="login">Giriş</string>
     <string name="sign_up">Hesap aç</string>
+
+    //menu_navigation
+    //Muss noch übersetzt werden
     <string name="profile">Profil</string>
+    <string name="groups">Gruppen</string>
+    <string name="contacts">Kontakte</string>
 
     //activity_profile
     <string name="save">Kaydet</string>
+
+    //Muss noch übersetzt werden
+    <string name="yourStatus">Dein Status</string>
+    <string name="status">Schreibe etwas...</string>
+    <string name="emoji">Emoji</string>
 
     //activity_profile_settings
     <string name="profileSettings">Profil ayarlari</string>
@@ -49,18 +70,28 @@
     <string name="stopAudio">Stop</string>
     <string name="playAudio">Play</string>
 
-    //activity_group_chat_settings
+    //Muss noch übersetzt werden!!!!
+    <string name="imgEdit">Foto bearbeiten</string>
+    <string name="recordAudio">Sprachnachricht aufnehmen</string>
+
+    //activity_group_chat
     <string name="delete_switch">Mesaj sil ayari</string>
+
+    //Muss noch übersetzt werden!!!!
+    <string name="add_group_member">Teilnehmer hinzufügen</string>
+    <string name="group_members">Gruppenmitglieder</string>
+
     <string name="profanity_filter">Küfür filtresi</string>
     <string name="participantlist">Katilan listesi</string>
-    <string name="new_group_member">Yeni grup üyesi</string>
-    <string name="members_group">Grup üyeleri</string>
     <string name="previousActivity">Önceki activity</string>
     <string name="change_group_pic">Grup fotoğrafini değistir</string>
     <string name="activate_filter">Filtreyi aç</string>
 
     //activity_group_chat_view
     <string name="groupname">Grup ismi</string>
+
+    //Muss noch übersetzt werden!!!!
+    <string name="groupList">Deine Gruppen</string>
 
     //activity_consent_form
     <string name="accept">Kabul et</string>
@@ -80,6 +111,14 @@
     //activity_consent_form
     <string name="consent">Riza beyani</string>
 
+    //Muss noch übersetzt werden!!!!!!!
+    //activity_pop_up_translator
+    <string name="translator">Übersetzer</string>
+    <string name="translation">Übersetzung</string>
+    <string name="translate">übersetzen</string>
+    <string name="translateTest">Zu übersetzender Text...</string>
+    <string name="ok">OK</string>
+
     //activity_camera
     <string name="take_photo">Fotoğraf çek</string>
     <string name="record_video">Video çek</string>
@@ -89,11 +128,11 @@
 
     //menu_group_chat
     <string name="view_group">Grup bilgisi</string>
-    <string name="back_to_profile">Profile geri dön</string>
-    <string name="back_to_chat">Sohbetlere geri dön</string>
-    <string name="back_to_grouplist">Grup sohbetlerine geri dön</string>
-    <string name="back_to_groupview">Grup bilgilerine geri dön</string>
-    <string name="back_to_groupsettings">Grup ayarlarina geri dön</string>
+
+    //Muss noch übersetzt werden!!!!
+    <string name="back_to_profile_settings">Zurück zu Profil-Einstellungen</string>
+    <string name="back">Zurück</string>
+
     <string name="white">Beyaz</string>
     <string name="orange">Turuncu</string>
     <string name="blue">Mavi</string>

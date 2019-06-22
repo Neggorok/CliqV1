@@ -97,6 +97,9 @@
 
     //activity_pop_up_translator
     <string name="translator">переводчик</string>
+    <string name="translation">перевод</string>
+    <string name="translate">перевод</string>
+    <string name="translateTest">Текст для перевода....</string>
     <string name="ok">OK</string>
 
     //activity_camera
@@ -109,7 +112,6 @@
     //menu_group_chat
     <string name="view_group">Информация о группе</string>
     <string name="back_to_profile_settings">Вернуться к настройкам профиля</string>
-    <string name="back_to_chat">Вернуться в чат</string>
     <string name="back">Назад</string>
     <string name="white">Белый</string>
     <string name="orange">Оранжевый</string>
