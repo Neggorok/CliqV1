@@ -25,6 +25,7 @@
         <activity
             android:name=".ChangeAvatarActivity"
             android:label="@string/change_avatar" />
+        <activity android:name=".uebersetzerActivity"></activity>
         <activity
             android:name=".ChangeEmailActivity"
             android:label="@string/change_email" />
