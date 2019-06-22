@@ -96,10 +96,10 @@
     <string name="consent">Форма согласия</string>
 
     //activity_pop_up_translator
-    <string name="translator">переводчик</string>
+    <string name="translator">переводчик немецкого</string>
     <string name="translation">перевод</string>
     <string name="translate">перевод</string>
-    <string name="translateTest">Текст для перевода....</string>
+    <string name="translateTest">Введите текст для перевода...</string>
     <string name="ok">OK</string>
 
     //activity_camera

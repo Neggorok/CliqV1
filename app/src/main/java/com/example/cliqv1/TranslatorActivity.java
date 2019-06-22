@@ -2,13 +2,13 @@ package com.example.cliqv1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class uebersetzerActivity extends AppCompatActivity {
+public class TranslatorActivity extends AppCompatActivity {
 
     EditText eingabe;
     TextView translationTextView;
@@ -29,7 +29,9 @@ public class uebersetzerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uebersetzer);
+        setContentView(R.layout.activity_translator);
+        Toolbar toolbar = findViewById(R.id.toolbarNew);
+        setSupportActionBar(toolbar);
 
         eingabe = findViewById(R.id.eingabeEditText);
         translationTextView = findViewById(R.id.translation);

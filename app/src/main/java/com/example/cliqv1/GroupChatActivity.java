@@ -417,7 +417,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         if (id == R.id.translator) {
 
-            Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
+            Intent i = new Intent(getApplicationContext(), TranslatorActivity.class);
             Toast.makeText(GroupChatActivity.this, "German translation selected", Toast.LENGTH_LONG).show();
             startActivity(i);
 
@@ -428,9 +428,9 @@ public class GroupChatActivity extends AppCompatActivity {
 
                 RequestNewMember();
 
+            }else {
+                Toast.makeText(GroupChatActivity.this, "This function is only available for the moderator", Toast.LENGTH_LONG).show();
             }
-        }else {
-            Toast.makeText(GroupChatActivity.this, "This function is only available for the moderator", Toast.LENGTH_LONG).show();
         }
 
             return super.onOptionsItemSelected(item);

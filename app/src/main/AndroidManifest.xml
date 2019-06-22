@@ -19,13 +19,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".TranslatorActivity"></activity>
         <activity android:name=".GroupSummaryActivity" />
         <activity android:name=".AudioActivity" />
         <activity android:name=".CameraActivity" />
         <activity
             android:name=".ChangeAvatarActivity"
             android:label="@string/change_avatar" />
-        <activity android:name=".uebersetzerActivity"></activity>
         <activity
             android:name=".ChangeEmailActivity"
             android:label="@string/change_email" />
@@ -56,9 +56,6 @@
             android:theme="@style/AppTheme.AttachFilePopUp" />
         <activity
             android:name=".PopUpConsentFormActivity"
-            android:theme="@style/AppTheme.AttachFilePopUp" />
-        <activity
-            android:name=".PopUpGroupSettingsActivity"
             android:theme="@style/AppTheme.AttachFilePopUp" />
         <activity
             android:name=".ProfileActivity"

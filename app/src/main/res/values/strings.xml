@@ -95,10 +95,10 @@
     <string name="consent">Einverständniserklärung</string>
 
     //activity_pop_up_translator
-    <string name="translator">Übersetzer</string>
+    <string name="translator">Deutsch-Übersetzer</string>
     <string name="translation">Übersetzung</string>
     <string name="translate">übersetzen</string>
-    <string name="translateTest">Zu übersetzender Text...</string>
+    <string name="translateTest">Zu übersetzenden Text eingeben...</string>
     <string name="ok">OK</string>
 
     //activity_camera

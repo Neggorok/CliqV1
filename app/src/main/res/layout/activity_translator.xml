@@ -4,17 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cliqv1.uebersetzerActivity">
+    android:layout_gravity="center"
+    tools:context="com.example.cliqv1.TranslatorActivity">
 
-    <TextView
-        android:id="@+id/ueberschrift"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/translatorToolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:text="@string/translator"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"/>
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarNew"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="@string/translator"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
 
     <EditText
         android:id="@+id/eingabeEditText"
@@ -23,8 +30,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_below="@+id/ueberschrift"
-        android:layout_marginTop="15dp"
+        android:layout_below="@+id/translatorToolbar"
+        android:layout_marginTop="130dp"
         android:inputType="textPersonName"
         android:hint="@string/translateTest"
         android:gravity="center"/>
@@ -39,18 +46,23 @@
         android:background="@drawable/oval"
         android:paddingRight="15dp"
         android:paddingLeft="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:onClick="getTranslation"/>
 
     <TextView
         android:id="@+id/translation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:text="@string/translation"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button_uebersetzen"
-        android:textSize="40sp"
+        android:background="@drawable/border"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <!--<TextView-->
