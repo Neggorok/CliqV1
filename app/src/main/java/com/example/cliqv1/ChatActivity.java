@@ -501,13 +501,13 @@ public class ChatActivity extends AppCompatActivity {
 
         }
 
-//        if (id == R.id.translator) {
-//
-//          Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
-//            Toast.makeText(ChatActivity.this, "German translation selected", Toast.LENGTH_LONG).show();
-//            startActivity(i);
+        if (id == R.id.translator) {
 
-//        }
+          Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
+            Toast.makeText(ChatActivity.this, "German translation selected", Toast.LENGTH_LONG).show();
+            startActivity(i);
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
