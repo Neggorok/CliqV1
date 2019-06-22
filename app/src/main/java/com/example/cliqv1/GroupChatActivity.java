@@ -400,6 +400,7 @@ public class GroupChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        //zurück zum Group-Overview
         if (id == R.id.back_to_grouplist) {
 
             Intent i = new Intent(getApplicationContext(), GroupChatViewActivity.class);
@@ -408,6 +409,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         }
 
+        //Gruppeninformationen Zugriff
         if (id == R.id.groupInformation) {
 
             Intent i = new Intent(getApplicationContext(), GroupSummaryActivity.class);
@@ -415,6 +417,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         }
 
+        //Deutsch-Übersetzer Zugriff
         if (id == R.id.translator) {
 
             Intent i = new Intent(getApplicationContext(), TranslatorActivity.class);
@@ -423,6 +426,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         }
 
+        //RequestNewMember() kann nur vom Moderator geöffnet werden
         if(loggedModerator == 1) {
             if (id == R.id.addGroupMember) {
 
