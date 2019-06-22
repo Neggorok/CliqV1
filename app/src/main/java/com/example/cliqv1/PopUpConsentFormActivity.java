@@ -23,6 +23,7 @@ public class PopUpConsentFormActivity extends Activity {
         btnCancel = findViewById(R.id.btnCancel);
         btnAccept = findViewById(R.id.btnAccept);
 
+        //bei Betätigung des Abbrechen-Buttons gelangt der Nutzer zurück zur SignUpActivity
         btnCancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -40,6 +41,7 @@ public class PopUpConsentFormActivity extends Activity {
             }
         });
 
+        //Erstellungs-Daten des Pop ups (Breite, Höhe)
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 

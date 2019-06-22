@@ -20,10 +20,7 @@ import android.widget.Toast;
 public class PopUpGroupSettingsActivity extends Activity {
 
     Button btnCancel;
-    Button btnSave;
     ImageButton addGroupMember;
-    Switch swtDelete;
-    Switch swtFilter;
 
     int loggedAdmin;
     int loggedModerator;
@@ -34,38 +31,26 @@ public class PopUpGroupSettingsActivity extends Activity {
         setContentView(R.layout.activity_pop_up_group_settings);
 
         btnCancel = findViewById(R.id.btnCancel);
-        btnSave = findViewById(R.id.btnSave);
         addGroupMember = findViewById(R.id.addGroupMember);
-        swtDelete = findViewById(R.id.delete_switch);
-        swtFilter = findViewById(R.id.filter_switch);
 
         loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
         loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
 
 
 
+        //Nur wer Moderator ist kann Gruppenmitglieder hinzufügen
         if (loggedModerator == 0)
         {
-            swtDelete.setEnabled(false);
-            swtFilter.setEnabled(false);
             addGroupMember.setEnabled(false);
         }
         else {
-            swtDelete.setEnabled(true);
-            swtFilter.setEnabled(true);
             addGroupMember.setEnabled(true);
         }
 
-        swtDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
+        addGroupMember.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-            }
-        });
-
-        swtFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                RequestNewMember();
 
             }
         });
@@ -78,23 +63,7 @@ public class PopUpGroupSettingsActivity extends Activity {
             }
         });
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                onBackPressed();
-                Toast.makeText(PopUpGroupSettingsActivity.this, "Settings successfully changed",  Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        addGroupMember.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                RequestNewMember();
-
-            }
-        });
-
+        //Erstellungs-Daten des Pop ups (Breite, Höhe)
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
@@ -112,6 +81,7 @@ public class PopUpGroupSettingsActivity extends Activity {
 
     }
 
+    //Pop up um Gruppenmitglieder hinzufügen zu können
     private void RequestNewMember() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
         builder.setTitle("Enter Username:");
@@ -126,6 +96,7 @@ public class PopUpGroupSettingsActivity extends Activity {
 
                 String username = newMemberField.getText().toString();
 
+                //Username wird benötigt um Gruppenmitglieder hinzufügen zu können
                 if (TextUtils.isEmpty(username)) {
 
                     Toast.makeText(PopUpGroupSettingsActivity.this, "Please choose a username",  Toast.LENGTH_SHORT).show();
