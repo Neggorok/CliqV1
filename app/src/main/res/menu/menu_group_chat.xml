@@ -9,6 +9,12 @@
         app:showAsAction="always"/>
 
     <item
+        android:id="@+id/addGroupMember"
+        android:title="@string/add_group_member"
+        android:icon="@drawable/ic_person_add_white_24dp"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/popupGroupSettings"
         android:title="@string/group_settings"
         android:orderInCategory="1"

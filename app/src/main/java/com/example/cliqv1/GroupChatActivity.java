@@ -81,6 +81,9 @@ public class GroupChatActivity extends AppCompatActivity {
         view = this.getWindow().getDecorView();
         view.setBackgroundResource(R.color.colorWhite);
 
+        loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
+        loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
+
         btn_delete = findViewById(R.id.deleteButton);
         chatBackground = (ImageButton)findViewById(R.id.chatBackground);
         ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
@@ -134,10 +137,6 @@ public class GroupChatActivity extends AppCompatActivity {
 
             }
         });
-
-
-        loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
-        loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
 
 
         if (loggedModerator == 0)
@@ -433,6 +432,10 @@ public class GroupChatActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+        if (id == R.id.addGroupMember) {
+            RequestNewMember();
+        }
+
 //        if (id == R.id.translator) {
 
 //            Intent i = new Intent(getApplicationContext(), uebersetzerActivity.class);
@@ -442,6 +445,51 @@ public class GroupChatActivity extends AppCompatActivity {
 //        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //Pop up um Gruppenmitglieder hinzufügen zu können
+    private void RequestNewMember() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
+        builder.setTitle("Enter Username:");
+
+        final EditText newMemberField = new EditText(this);
+        newMemberField.setHint("Max Mustermann");
+        builder.setView(newMemberField);
+
+        builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String username = newMemberField.getText().toString();
+
+                //Username wird benötigt um Gruppenmitglieder hinzufügen zu können
+                if (TextUtils.isEmpty(username)) {
+
+                    Toast.makeText(GroupChatActivity.this, "Please choose a username",  Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    CreateNewMember(username);
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+
+            }
+        });
+
+        builder.show();
+    }
+
+    private void CreateNewMember(String username) {
+
+        Toast.makeText(GroupChatActivity.this, username + " was successfully added", Toast.LENGTH_SHORT).show();
     }
 }
 
