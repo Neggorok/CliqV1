@@ -410,12 +410,12 @@ public class GroupChatActivity extends AppCompatActivity {
         }
 
         //Gruppeninformationen Zugriff
-        if (id == R.id.groupInformation) {
+//        if (id == R.id.groupInformation) {
 
-            Intent i = new Intent(getApplicationContext(), GroupSummaryActivity.class);
-            startActivity(i);
+//            Intent i = new Intent(getApplicationContext(), GroupSummaryActivity.class);
+//            startActivity(i);
 
-        }
+//        }
 
         //Deutsch-Übersetzer Zugriff
         if (id == R.id.translator) {

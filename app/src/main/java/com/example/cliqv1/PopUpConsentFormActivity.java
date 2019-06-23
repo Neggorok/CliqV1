@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Toast;
 import android.content.Intent;
 
+//Im Prozess der Registrierung öffnet sich ein Pop up mit einer Datenschutz- & Einverständniserklärung
+
 public class PopUpConsentFormActivity extends Activity {
 
     Button btnCancel;

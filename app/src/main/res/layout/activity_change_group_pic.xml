@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Das Layout soll mit Hilfe der dazugehörigen Klasse ChangeGroupPicActivity
+ den Usern das Ändern eines Gruppenbildes ermöglichen.
+ Diese Funktion wurde nicht mit mit Cliq verknüpft, da wir diese nicht beenden konnten
+ und die ein Teil der Gruppeninformationen gewesen wäre.-->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -12,6 +12,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+//Mit dieser Klasse sollte dem User das Ändern des Gruppenbildes ermöglicht werden,
+//leider hat die Gruppe, aus zeitlich Gründen, es nicht mehr geschafft die Funkitonen mit der Datenbank zu verknüpfen,
+// sodass die neue Auswahl des Bilder nicht gespeichert werden kann.
+//Aus diesem Grung ist diese Klasse auf einem, für die App, unbrauchbaren Stand.
+//Daher haben wir uns dafür entschieden, dass wir die Verknüpfung mit der App entfernen (auskommentiert lassen).
+
 public class ChangeGroupPicActivity extends AppCompatActivity {
 
         ImageView imageView;
@@ -37,6 +43,8 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
             button = findViewById(R.id.safe);
 
 
+
+            //Mit den OnClickListenern folgender ImageButton kann das Standardbild der Gruppe verändert werden
 
             imageButton1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,6 +87,8 @@ public class ChangeGroupPicActivity extends AppCompatActivity {
             getMenuInflater().inflate(R.menu.menu_back, menu);
             return true;
         }
+
+        //Mit dem menu_back gelangt der User zurück zu den Gruppeninformationen
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Dieses Layout soll das Gruppenbild der Gruppe, sowie alle Mitglieder enthalten,
+ Es soll außerdem die Möglichkeit bestehen das Gruppenbild hier zu ändern.
+ Diese Funktionen konnten im Laufe des Projektes nicht beendet werden. -->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

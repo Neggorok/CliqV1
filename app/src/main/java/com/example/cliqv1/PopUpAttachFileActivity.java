@@ -13,6 +13,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+//Diese Klasse ermöglicht dem User das Aufrufen der CameraActivity, Galerie, Dokumente und der AudioActivity
+//Verknüpfung findet im Einzel- und Gruppenchat statt
+
 public class PopUpAttachFileActivity extends Activity {
 
 

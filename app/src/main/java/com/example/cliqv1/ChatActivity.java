@@ -95,7 +95,6 @@ public class ChatActivity extends AppCompatActivity {
         //Chat-Hintergrund Anderung ermöglichen
         chatBackground.setOnClickListener(new View.OnClickListener() {
 
-
             @Override
             public void onClick(View v) {
 
@@ -110,6 +109,7 @@ public class ChatActivity extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         int id = item.getItemId();
 
+                        //Sobald man sich für eine Farbe entschieden hat, wechselt der Chat-Hintergrund seine Farbe
                         if (id == R.id.white) {
                             view.setBackgroundResource(R.color.colorWhite);
                         }
@@ -140,45 +140,48 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
-        loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
+        //Mit dieser Funktion ist alleine der Monerator, mit Hilfe eines Switch, in der Lage das Löschen von Nachrichten zu de- & aktivieren,
+        //um dies zu testen können Sie die Kommentare entfernen, da diese Funktion im Einzelchat nicht vorgesehen ist.
+        //Da das Versenden von Gruppennachrichten jedoch nicht funktioniert, dient die Funktion im Einzelchat zu Demonstrationszwecken.
 
-        btn_delete.setEnabled(false);
+//        loggedAdmin = PreferenceManager.getDefaultSharedPreferences(this).getInt("admin", -1);
+//        loggedModerator = PreferenceManager.getDefaultSharedPreferences(this).getInt("moderator", -1);
 
-        if (loggedModerator == 0)
-        {
-            deleteSwitch.setClickable(false);
-
-        }
-        else {
-            deleteSwitch.setClickable(true);
-        }
-
-        if (loggedAdmin == 0)
-        {
-            deleteSwitch.setClickable(false);
-
-        }
-        else {
-            deleteSwitch.setClickable(true);
-        }
+//        btn_delete.setEnabled(false);
 
 
+//        if (loggedModerator == 0)
+//        {
+//            deleteSwitch.setClickable(false);
+
+//        }
+//        else {
+//            deleteSwitch.setClickable(true);
+//        }
+
+//        if (loggedAdmin == 0)
+//        {
+//            deleteSwitch.setClickable(false);
+
+//        }
+//        else {
+//            deleteSwitch.setClickable(true);
+//        }
 
 
-        deleteSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    on_off.setText("ON");
-                    btn_delete.setEnabled(true);
-                } else {
-                    on_off.setText("OFF");
-                    btn_delete.setEnabled(false);
+//        deleteSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    on_off.setText("ON");
+//                    btn_delete.setEnabled(true);
+//                } else {
+//                    on_off.setText("OFF");
+//                    btn_delete.setEnabled(false);
 
-                }
-            }
-        });
+//                }
+//            }
+//        });
 
         btn_attachFile.setOnClickListener(new View.OnClickListener() {
 
@@ -189,6 +192,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        //Zugriff nur für Administrator und Moderator
         loggedInUserId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", -1);
 //        messageId = PreferenceManager.getDefaultSharedPreferences(this).getInt("message_id", -1);
 

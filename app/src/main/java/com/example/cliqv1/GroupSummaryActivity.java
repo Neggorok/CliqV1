@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+//Mit dieser Klasse sollte dem User das Einsehen der Gruppeninformationen ermöglicht werden,
+//leider hat die Gruppe, aus zeitlich Gründen, es nicht mehr geschafft die Funkitonen zu erweiten.
+//Aus diesem Grung ist diese Klasse auf einem, für die App, unbrauchbaren Stand.
+//Daher haben wir uns dafür entschieden, dass wir die Verknüpfung mit der App entfernen (auskommentiert lassen).
+
 public class GroupSummaryActivity extends AppCompatActivity {
 
     ImageButton btnEditGroupImg;
@@ -20,6 +25,8 @@ public class GroupSummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_summary);
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
+
+        //Das Gurppenbild kann mit dem ImageButton btnEditGroupImg geändert werden
 
         btnEditGroupImg = findViewById(R.id.btnEditGroupImg);
 
@@ -39,6 +46,8 @@ public class GroupSummaryActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_back, menu);
         return true;
     }
+
+    //Mit dem menu-back gelangt der Nutzer von den Gruppeneinstellungen zurück zum Gruppenchat
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

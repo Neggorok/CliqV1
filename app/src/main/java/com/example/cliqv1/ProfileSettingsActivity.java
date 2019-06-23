@@ -9,9 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+//Diese Klasse ermöglicht das Verknüpfen von weiteren Profilfunktionen
+
 public class ProfileSettingsActivity extends AppCompatActivity {
 
-    //Buttons erstellt
+    //Buttons erstellt um OnClickListener zu übergeben
     Button changeAvatar;
     Button seeConsentForm;
     Button changeEmail;
@@ -31,6 +33,9 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         changePassword = findViewById(R.id.set_password);
 
         //Buttons OnClick zugewiesen, um Wechsel zu anderen Activities zu ermöglichen
+
+        //Zugriff auf Änderung seines Avatars
+
         changeAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +46,8 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             }
         });
 
+        //Zugriff auf die bestätigte Einverständniserklärung
+
         seeConsentForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +57,8 @@ public class ProfileSettingsActivity extends AppCompatActivity {
 
             }
         });
+
+        //Zugirff auf das Ändern der Persönlichen Daten: Passwort & E-Mail
 
         changeEmail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +87,8 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_back, menu);
         return true;
     }
+
+    //menu_back um zurück zum Profil zu gelangen
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
