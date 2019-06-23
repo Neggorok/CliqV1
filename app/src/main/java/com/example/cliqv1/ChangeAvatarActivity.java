@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -13,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,6 +33,7 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -97,12 +100,25 @@ public class ChangeAvatarActivity extends AppCompatActivity {
             imageButton1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    imageView.setImageResource(R.drawable.cliq_avatar1);
-                    currentBitmap = Util.getBitmapFromDrawable(ChangeAvatarActivity.this, R.drawable.cliq_avatar1);
+                    //imageView.setImageResource(R.drawable.cliq_avatar1);
+                    //currentBitmap = Util.getBitmapFromDrawable(ChangeAvatarActivity.this, R.drawable.cliq_avatar1);
+
+                    //encode image to base64 string
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cliq_avatar1);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] imageBytes = baos.toByteArray();
+                    String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+                    //decode base64 string to image
+                    imageBytes = Base64.decode(imageString, Base64.DEFAULT);
+                    Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                    imageView.setImageBitmap(decodedImage);
+                    currentBitmap = decodedImage;
 
                 }
             });
-
+            // ImageButtons ändern auf onClick das ImageView
             imageButton2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -153,6 +169,7 @@ public class ChangeAvatarActivity extends AppCompatActivity {
                 }
             });
 
+            // der Button Avatar ändern benutzt die Methode saveUserImage
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
