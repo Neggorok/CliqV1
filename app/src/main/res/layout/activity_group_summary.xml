@@ -44,6 +44,8 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:background="@drawable/border">
 
             <ImageView
