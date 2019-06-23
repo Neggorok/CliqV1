@@ -26,6 +26,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,8 +49,6 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView imageView;
     TextView usernameTV;
     // EditText passwordET;
-
-    ImageButton btnEditProfilImg;
 
     Bitmap currentBitmap;
 
@@ -95,27 +94,18 @@ public class ProfileActivity extends AppCompatActivity {
         usernameTV = findViewById(R.id.groupchat_name);
         // passwordET = findViewById(R.id.profile_password);
 
-        btnEditProfilImg = findViewById(R.id.btnEditProfilImg);
 
         queue = Volley.newRequestQueue(this);
 
-        btnEditProfilImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent iProfileSettings = new Intent(ProfileActivity.this, ChangeAvatarActivity.class);
-                startActivity(iProfileSettings);
-
-            }
-        });
         // prüft ob das Userimage leer ist
-        if (userImage != null && userImage.length() > 0) {
+        if (userImage != null) {
             // wenn es nicht leer ist wird das übergebene Userimage gespeichert und mit angezeigt
             imageView.setImageBitmap(Util.getBitmapFromBase64String(userImage));
             currentBitmap = Util.getBitmapFromBase64String(userImage);
 
         } else {
             // wenn es jedoch leer ist, bekommt wird ein Standartbild zugewiesen
+            //Picasso.get().load("https://cliqstudent.000webhostapp.com/cliq/avatar/cliq_avatar1.png").into(imageView);
             imageView.setImageResource(R.drawable.standard_user_image);
             currentBitmap = Util.getBitmapFromDrawable(this, R.drawable.standard_user_image);
 

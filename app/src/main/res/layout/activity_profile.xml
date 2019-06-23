@@ -44,24 +44,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:padding="10dp"
-        android:src="@drawable/standard_user_image"
         android:layout_below="@+id/NavBar"/>
-
-        <ImageButton
-            android:id="@+id/btnEditProfilImg"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="320dp"
-            android:background="@drawable/circle"
-            android:src="@drawable/ic_edit_white_24dp"
-            android:layout_toRightOf="@+id/groupchat_imageView" />
 
     <LinearLayout
         android:id="@+id/profile_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/btnEditProfilImg"
+        android:layout_below="@+id/groupchat_imageView"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp">
 

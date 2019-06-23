@@ -44,7 +44,6 @@ public class SignUpActivity extends AppCompatActivity {
     TextInputEditText userPassword2;
     Button button;
     private Toolbar toolbar;
-    private RadioButton radioS, radioL;
 
     RequestQueue queue;
 
@@ -57,8 +56,6 @@ public class SignUpActivity extends AppCompatActivity {
         userMail = findViewById(R.id.mail);
         userPassword =  findViewById(R.id.pass);
         userPassword2 = findViewById(R.id.pass2);
-        radioS = findViewById(R.id.accS);
-        radioL = findViewById(R.id.accL);
         button = findViewById(R.id.signup);
 
         queue = Volley.newRequestQueue(this);
@@ -107,11 +104,6 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Dein Passwort stimmt nicht überein.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                //guckt, ob ein Lehrer-Accout oder Schüler-Account erstellt werden soll
-                //checkt, ob ein Radiobutton angeklickt ist, wenn nicht, gibt er den Toast aus
-               /* if (!radioL.isChecked() && !radioS.isChecked()) {
-                    Toast.makeText(SignUpActivity.this, "Bitte wähle eine Account-Art aus.", Toast.LENGTH_SHORT).show();
-                }*/
                 else {
                     getConsent();
                 }

@@ -30,25 +30,29 @@
         android:layout_height="230dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/changeAvatarToolbar"
-        app:srcCompat="@drawable/standard_user_image" />
+        android:layout_below="@id/changeAvatarToolbar" />
 
-    <TableLayout
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/chooseAvatar"
+        android:id="@+id/textChoose"
+        android:gravity="center"
+        android:layout_marginTop="330dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textChoose">
+
+        <TableLayout
         android:layout_width="match_parent"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="96dp"
         tools:layout_editor_absoluteY="0dp"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintTop_toBottomOf="@+id/profileUnknown">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/chooseAvatar"
-            android:gravity="center"
-            android:layout_marginTop="330dp"/>
+        android:layout_centerHorizontal="true">
 
 
         <TableRow
@@ -114,27 +118,22 @@
                 android:layout_height="70dp"
                 app:srcCompat="@drawable/cliq_avatar8" />
         </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="178dp"
+                android:gravity="right"
+                android:layout_marginTop="20dp">
+                <Button
+                    android:id="@+id/safe"
+                    android:background="@color/colorOrange"
+                    android:text="@string/change_avatar" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableRow>
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-        </TableRow>
     </TableLayout>
 
-    <Button
-        android:id="@+id/safe"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="560dp"
-        android:background="@drawable/oval"
-        android:text="Speichern" />
+    </ScrollView>
+
+
 
 </RelativeLayout>
