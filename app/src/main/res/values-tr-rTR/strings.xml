@@ -9,9 +9,7 @@
     <string name="change_avatar">Avatar seç</string>
     <string name="chooseAvatar">Avatarını seç</string>
     <string name="registration">Kayit</string>
-
-    //Muss noc übersetzt werden!!!
-    <string name="register">Registrieren</string>
+    <string name="register">Kayit ol</string>
 
     <string name="change_background">Duvar kağidi seç</string>
     <string name="group_settings">Grup sohbet ayarlari</string>
@@ -24,13 +22,11 @@
     <string name="studentAccount">Öğrenci hesabi</string>
     <string name="teacherAccount">Öğretmen hesabi</string>
     <string name="join_now">Simdi kayit ol</string>
-
-    //Muss noch übersetzt werden
-    <string name="sign_up_question">Noch nicht registriert? Klicke hier</string>
-    <string name="signTime">Datum und Uhrzeit der Registrierung:</string>
-    <string name="account">Schüler/Vereinsmitglied</string>
-    <string name="adminAccount">Administrator</string>
-    <string name="presenterAccount">Moderator</string>
+    <string name="sign_up_question">Daha kayıt olmadınız mı? Burayı tıklayın</string>
+    <string name="signTime">Kayit tarihi:</string>
+    <string name="account">Öğrenci/Kulup uyusu</string>
+    <string name="adminAccount">Yönetici</string>
+    <string name="presenterAccount">Sunucu</string>
 
     //activity_user_list
     <string name="search">Ara</string>
@@ -51,8 +47,8 @@
     <string name="save">Kaydet</string>
 
     //Muss noch übersetzt werden
-    <string name="yourStatus">Dein Status</string>
-    <string name="status">Schreibe etwas...</string>
+    <string name="yourStatus">Durumun</string>
+    <string name="status">Bir şeyler yaz...</string>
     <string name="emoji">Emoji</string>
 
     //activity_profile_settings
@@ -69,17 +65,13 @@
     <string name="startAudio">Start</string>
     <string name="stopAudio">Stop</string>
     <string name="playAudio">Play</string>
-
-    //Muss noch übersetzt werden!!!!
-    <string name="imgEdit">Foto bearbeiten</string>
-    <string name="recordAudio">Sprachnachricht aufnehmen</string>
+    <string name="imgEdit">Fotoğrafi düzenle</string>
+    <string name="recordAudio">Ses kaydi</string>
 
     //activity_group_chat
     <string name="delete_switch">Mesaj sil ayari</string>
-
-    //Muss noch übersetzt werden!!!!
-    <string name="add_group_member">Teilnehmer hinzufügen</string>
-    <string name="group_members">Gruppenmitglieder</string>
+    <string name="add_group_member">Katılımcı ekle</string>
+    <string name="group_members">Grup üyeleri</string>
 
     <string name="profanity_filter">Küfür filtresi</string>
     <string name="participantlist">Katilan listesi</string>
