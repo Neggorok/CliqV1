@@ -118,17 +118,12 @@
                 android:layout_height="70dp"
                 app:srcCompat="@drawable/cliq_avatar8" />
         </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="178dp"
-                android:gravity="right"
-                android:layout_marginTop="20dp">
+
                 <Button
+                    android:layout_margin="20dp"
                     android:id="@+id/safe"
                     android:background="@color/colorOrange"
                     android:text="@string/change_avatar" />
-
-            </TableRow>
 
     </TableLayout>
 

@@ -105,7 +105,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         } else {
             // wenn es jedoch leer ist, bekommt wird ein Standartbild zugewiesen
-            //Picasso.get().load("https://cliqstudent.000webhostapp.com/cliq/avatar/cliq_avatar1.png").into(imageView);
             imageView.setImageResource(R.drawable.standard_user_image);
             currentBitmap = Util.getBitmapFromDrawable(this, R.drawable.standard_user_image);
 
@@ -116,8 +115,8 @@ public class ProfileActivity extends AppCompatActivity {
         setTitle(username);
     }
 
-
-    public void chooseImage(View view) {
+    // Erste Schritte, das Bild zu ändern
+    /* public void chooseImage(View view) {
         // checkt ob die Rechte vorhanden sind um auf den externen Speicher zu zu greifen
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             // und wenn sie nicht gegeben sind, wird der Nutzer aufgefordert zuzustimmen, um die Funktion nutzen zu können
@@ -237,7 +236,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         queue.add(postRequest);
-    }
+    } */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
