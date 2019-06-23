@@ -9,6 +9,8 @@
     android:background="@color/colorWhite"
     tools:context=".ProfileActivity">
 
+    <!-- Toolbar -->
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/profileToolbar"
         android:layout_width="match_parent"
@@ -24,6 +26,8 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
+
+    <!-- Navigation Bar -->
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/NavBar"
@@ -54,6 +58,8 @@
         android:layout_below="@+id/groupchat_imageView"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp">
+
+        <!-- Anzeige des User-Namen -->
 
         <TextView
             android:layout_width="match_parent"

@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Toolbar -->
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/changeAvatarToolbar"
         android:layout_width="match_parent"
@@ -94,6 +96,7 @@
 
         </LinearLayout>
 
+        <!-- Hier soll das Senden der Sprachnachricht ermöglicht werden -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

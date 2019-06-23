@@ -9,6 +9,8 @@
     android:background="@color/colorWhite"
     tools:context=".GroupChatViewActivity">
 
+    <!-- Toolbar -->
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/groupListToolbar"
         android:layout_width="match_parent"
@@ -25,6 +27,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!-- Navigation Bar -->
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/NavBar"
         android:layout_width="match_parent"
@@ -36,6 +40,8 @@
         design:menu="@menu/menu_navigation" >
 
     </android.support.design.widget.BottomNavigationView>
+
+    <!-- Group List entnommen aus der Datenbank -->
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/groupSwipeRefreshLayout"
