@@ -235,7 +235,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                         // wandelt die Antwort des Servers in JSON um
                         JSONObject jsonResponse = new JSONObject(response);
-                         consentform = jsonResponse.get("consent").toString();
+
                         // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App sichtbar aus
                         Toast.makeText(SignUpActivity.this, jsonResponse.get("consent").toString(), Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
