@@ -37,16 +37,33 @@ import java.util.List;
 import java.util.Map;
 
 public class ChatActivity extends AppCompatActivity {
-
+    ImageButton sendbutton;
     EditText editText;
 
     private ChatAdapter adapter;
     private List<Message> messageList;
-
+    private static final String KEY_EMPTY = "";
+    private static final String KEY_BAD_WORD_SH = "scheiße";
+    private static final String KEY_BAD_WORD_SHl = "scheiße ";
+    private static final String KEY_BAD_WORD_ScH = "scheisse";
+    private static final String KEY_BAD_WORD_ScH2 = "scheisse ";
+    private static final String KEY_BAD_WORD_MIST = "Schwuchtel";
+    private static final String KEY_BAD_WORD_Mist = "Schwuchtel ";
+    private static final String KEY_BAD_WORD_HUSO = "Huso";
+    private static final String KEY_BAD_WORD_huso = "huso";
+    private static final String KEY_BAD_WORD_Hure = "Hure";
+    private static final String KEY_BAD_WORD_hure = "hure";
+    private static final String KEY_BAD_WORD_idiot = "idiot";
+    private static final String KEY_BAD_WORD_Idiot = "Idiot";
+    private static final String KEY_BAD_WORD_bastard = "Bastard";
+    private static final String KEY_BAD_WORD_Bastard = "Bastard ";
+    private static final String KEY_BAD_WORDS_DuHuso = "Du Huso";
+    private static final String KEY_BAD_WORDS_duHuso = "Du Huso ";
     RecyclerView messageRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
 
     RequestQueue queue;
+    private  String Etmessage;
 
     int loggedInUserId;
     String messageId;
@@ -85,7 +102,7 @@ public class ChatActivity extends AppCompatActivity {
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbarNew);
         setSupportActionBar(toolbar);
-
+        sendbutton = findViewById(R.id.sendbutton);
         deleteSwitch = (Switch)findViewById(R.id.deleteSwitch);
         chatBackground = (ImageButton)findViewById(R.id.chatBackground);
         btn_delete = findViewById(R.id.deleteButton);
@@ -139,6 +156,9 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
+
+
+
 
         //Mit dieser Funktion ist alleine der Monerator, mit Hilfe eines Switch, in der Lage das Löschen von Nachrichten zu de- & aktivieren,
         //um dies zu testen können Sie die Kommentare entfernen, da diese Funktion im Einzelchat nicht vorgesehen ist.
@@ -214,8 +234,27 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         setTitle(chatPartnerUsername);
-
         editText = (EditText) findViewById(R.id.messageEditText);
+
+        sendbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Etmessage = editText.getText().toString();
+
+                if (validateInputs()) {
+                    try {
+                        sendMessage();
+                    }
+                    catch (JSONException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
+
 
         messageList = new ArrayList<>();
         adapter = new ChatAdapter(this, messageList);
@@ -230,7 +269,101 @@ public class ChatActivity extends AppCompatActivity {
 
         loadMessages();
 
+
+
     }
+
+    private boolean validateInputs() {
+        if(KEY_EMPTY.equals(Etmessage)){
+            editText.setError("Das Chatleiste darf nicht leer sein!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_SH.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_SHl.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_ScH.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_ScH2.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_Mist.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_MIST.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_Bastard.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_bastard.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_Hure.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_hure.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_idiot.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_Idiot.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORDS_duHuso.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORDS_DuHuso.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_HUSO.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_huso.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+
+
+        return true;
+    }
+
 
     public void loadMessages() {
 
@@ -345,7 +478,7 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
-    public void sendMessage(View view) {
+    public void sendMessage() throws JSONException {
 
         // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
         // die Anfrage löst das php Skript aus, das hier definiert wird
@@ -372,6 +505,9 @@ public class ChatActivity extends AppCompatActivity {
 
                         // holt die success Ausgabe des php skriptes und legt es in die "string-variable" success ab, um sie später leichter aufrufen zu können
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
+
+
+
 
                         // prüft ob die success Ausgabe in der Antwort des Servers 1 ist
                         if (success == 1) {
@@ -444,6 +580,7 @@ public class ChatActivity extends AppCompatActivity {
                         // holt die success Ausgabe des php skriptes und legt es in die "string-variable" success ab, um sie später leichter aufrufen zu können
                         int success = Integer.parseInt(jsonResponse.get("success").toString());
 
+
                         // prüft ob die success Ausgabe in der Antwort des Servers 1 ist
                         if (success == 1) {
 
@@ -515,4 +652,26 @@ public class ChatActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    /*
+public void checkMessage(){
+        String textInput= editText.getText().toString();
+        if(textInput != ban){
+            return validateInput;
+        }
+    if (validateInputs()) {
+        try {
+            sendMessage(View view);
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+
+
+}
+*/
+
+
 }
