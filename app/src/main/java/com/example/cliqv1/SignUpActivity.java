@@ -29,20 +29,26 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    TextView consent;
     EditText userName;
     EditText userMail;
     TextInputEditText userPassword;
     TextInputEditText userPassword2;
     Button button;
     private Toolbar toolbar;
+    String consentform;
+
+
     private RadioButton radioS, radioL;
 //test
     RequestQueue queue;
@@ -58,8 +64,10 @@ public class SignUpActivity extends AppCompatActivity {
         radioS = findViewById(R.id.accS);
         radioL = findViewById(R.id.accL);
         button = findViewById(R.id.signup);
-
+        consent = findViewById(R.id.consentText);
         queue = Volley.newRequestQueue(this);
+        loadconsent();
+        consentform = PreferenceManager.getDefaultSharedPreferences(this).getString("consent", "-1");
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -104,6 +112,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, "Bitte wähle eine Account-Art aus.", Toast.LENGTH_SHORT).show();
                 }*/
                 else {
+
                     getConsent();
                 }
             }
@@ -120,9 +129,16 @@ public class SignUpActivity extends AppCompatActivity {
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         Button abbrechen = popupView.findViewById(R.id.btnCancel);
         Button akzeptieren = popupView.findViewById(R.id.btnAccept);
-        ImageView consent = popupView.findViewById(R.id.consentText);
-        Picasso.get().load("https://cliqstudent.000webhostapp.com/cliq/datenschutz.jpg")
-        .into(consent);
+        loadconsent();
+        String create_user_url = "https://cliqstudent.000webhostapp.com/cliq/load_consent.php";
+        TextView consdent = findViewById(R.id.consentText);
+        loadConsentlist();
+        consdent.setText(consentform);
+        setTitle(consentform);
+
+
+        //Picasso.get().load("https://cliqstudent.000webhostapp.com/cliq/datenschutz.jpg")
+        //.into(consent);
         // boolean focusable = true;  lets taps outside the popup also dismiss it
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height);
 
@@ -195,5 +211,81 @@ public class SignUpActivity extends AppCompatActivity {
         Intent iLog = new Intent(this, MainActivity.class);
         startActivity(iLog);
         }
+
+
+    private void loadconsent() {
+
+        // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
+        String create_user_url = "https://cliqstudent.000webhostapp.com/cliq/load_consent.php";
+
+        // der Request prüft ob die Daten des Scripts "/registrierung_cliq.php" correct sind
+        StringRequest postRequest = new StringRequest(Request.Method.GET, create_user_url,
+
+                // stellt die Antwort des Serves dar
+                response -> {
+
+                    // gibt die Antwort des Serves in der AS Console aus
+                    // dient nur zur Kontrolle
+                    Log.i("response", response);
+
+                    // der Try - catch bereich funktioniert ähnlich wie eine If Abfrage
+                    // es wird im Try Bereich versucht auf die Antwort zu reagieren
+                    // und sollte die Antwort des Servers die Erwartete sein, reagiert der Catch Bereich dementsprechend
+                    try {
+
+                        // wandelt die Antwort des Servers in JSON um
+                        JSONObject jsonResponse = new JSONObject(response);
+                         consentform = jsonResponse.get("consent").toString();
+                        // der Toast nimmt die Antwort des Servers und gibt diese für den Nutzer in der App sichtbar aus
+                        Toast.makeText(SignUpActivity.this, jsonResponse.get("consent").toString(), Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }, error -> {
+
+        });
+
+// Add the request to the RequestQueue.
+        queue.add(postRequest);
+
+    }
+
+    public void loadConsentlist() {
+
+        String create_user_url = "https://cliqstudent.000webhostapp.com/cliq/load_consent.php";
+
+
+        StringRequest postRequest = new StringRequest(Request.Method.GET, create_user_url,
+                response -> {
+
+
+                    Log.i("response", response);
+
+                    try {
+                        JSONObject jsonResponse = new JSONObject(response);
+                        JSONArray groupArray = (JSONArray) jsonResponse.get("consent");
+
+                        for (int i = 0; i < groupArray.length(); i++) {
+                            JSONObject groupJson = groupArray.getJSONObject(i);
+                            String bitmapString = groupJson.getString("consentform");
+                            Toast.makeText(SignUpActivity.this, jsonResponse.get("consent").toString(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+
+                }, error -> {
+
+        });
+
+// Add the request to the RequestQueue.
+        queue.add(postRequest);
+    }
+
+
     }
 
