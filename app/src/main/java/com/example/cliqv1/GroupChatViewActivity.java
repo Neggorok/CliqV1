@@ -294,7 +294,7 @@ public class GroupChatViewActivity extends AppCompatActivity {
             editor.clear();
             editor.commit();
 
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+
 
             startActivity(intent);
             Toast.makeText(GroupChatViewActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();
