@@ -2,6 +2,7 @@ package com.example.cliqv1;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -51,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
     // EditText passwordET;
 
     Bitmap currentBitmap;
-
+    SharedPreferences prf;
     RequestQueue queue;
 
     @Override
@@ -89,7 +90,7 @@ public class ProfileActivity extends AppCompatActivity {
         username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "-1");
         //userFamily = PreferenceManager.getDefaultSharedPreferences(this).getString("familyname", "-1");
         userImage = PreferenceManager.getDefaultSharedPreferences(this).getString("image", "-1");
-
+        prf = getSharedPreferences("user_details",MODE_PRIVATE);
         imageView = findViewById(R.id.groupchat_imageView);
         usernameTV = findViewById(R.id.groupchat_name);
         // passwordET = findViewById(R.id.profile_password);
@@ -257,7 +258,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (id == R.id.logout) {
 
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+            SharedPreferences.Editor editor = prf.edit();
+            editor.clear();
+            editor.commit();
+            
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
             Toast.makeText(ProfileActivity.this, "Logout successful",  Toast.LENGTH_SHORT).show();

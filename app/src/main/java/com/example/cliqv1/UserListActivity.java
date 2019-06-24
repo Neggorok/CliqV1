@@ -2,6 +2,7 @@ package com.example.cliqv1;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -41,11 +42,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UserListActivity extends AppCompatActivity {
 
@@ -59,7 +55,7 @@ public class UserListActivity extends AppCompatActivity {
     SearchView sv;
     RecyclerView userRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
-
+    SharedPreferences prf;
     RequestQueue queue;
 
     @Override
@@ -70,7 +66,7 @@ public class UserListActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        prf = getSharedPreferences("user_details",MODE_PRIVATE);
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.NavBar);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -239,7 +235,13 @@ public class UserListActivity extends AppCompatActivity {
 
         if (id == R.id.logout) {
 
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("id", 0).apply();
+
+
+
+            SharedPreferences.Editor editor = prf.edit();
+            editor.clear();
+            editor.commit();
+
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
             Toast.makeText(UserListActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
