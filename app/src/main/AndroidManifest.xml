@@ -66,6 +66,8 @@
         <activity
             android:name=".SignUpActivity"
             android:label="@string/registration" />
+        <activity android:name=".FileManagerActivity"
+            android:label="Upload"></activity>
         <activity
             android:name=".UserListActivity"
             android:label="@string/groupchat"
