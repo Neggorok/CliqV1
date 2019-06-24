@@ -66,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Holt den Kontext aus den EditTexten
                 String name = userName.getText().toString();
-                //String family = userFamily.getText().toString();
+                String family = userFamily.getText().toString();
                 String mail = userMail.getText().toString();
                 String pw = userPassword.getText().toString();
                 String pw2 = userPassword2.getText().toString();
@@ -76,9 +76,9 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Bitte gebe deinen Vornamen ein.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                /*if (TextUtils.isEmpty(family)){
+                if (TextUtils.isEmpty(family)){
                     Toast.makeText(SignUpActivity.this, "Bitte gebe deinen Nachnamen ein.", Toast.LENGTH_SHORT).show();
-                }*/
+                }
 
                 if (TextUtils.isEmpty(mail)) {
                     Toast.makeText(getApplicationContext(), "Bitte gebe deine Email-Adresse an.!", Toast.LENGTH_SHORT).show();

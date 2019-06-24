@@ -182,12 +182,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         loggedInUserId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", -1);
 
-
-        // FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER!!!!!!!!!!!!!!
-
         gruppenID = PreferenceManager.getDefaultSharedPreferences(this).getInt("gid", -1);
-
-        // FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER FEHLER!!!!!!!!!!!!!!
 
         loggedInUsername = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "-1");
         loggedInUserImage = PreferenceManager.getDefaultSharedPreferences(this).getString("image", "-1");
