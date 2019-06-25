@@ -99,17 +99,17 @@ public class ProfileActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
 
         // prüft ob das Userimage leer ist
-        if (userImage != null) {
+       /* if (userImage != null) {
             // wenn es nicht leer ist wird das übergebene Userimage gespeichert und mit angezeigt
             imageView.setImageBitmap(Util.getBitmapFromBase64String(userImage));
             currentBitmap = Util.getBitmapFromBase64String(userImage);
 
-        } else {
+        } else { */
             // wenn es jedoch leer ist, bekommt wird ein Standartbild zugewiesen
             imageView.setImageResource(R.drawable.standard_user_image);
-            currentBitmap = Util.getBitmapFromDrawable(this, R.drawable.standard_user_image);
+          //  currentBitmap = Util.getBitmapFromDrawable(this, R.drawable.standard_user_image);
 
-        }
+       // }
 
         usernameTV.setText(username/*+" "+userFamily*/);
 
