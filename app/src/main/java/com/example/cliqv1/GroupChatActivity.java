@@ -48,6 +48,23 @@ public class GroupChatActivity extends AppCompatActivity {
     RecyclerView groupMessageRecyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
 
+    private static final String KEY_EMPTY = "";
+    private static final String KEY_BAD_WORD_SH = "scheiße";
+    private static final String KEY_BAD_WORD_SHl = "scheiße ";
+    private static final String KEY_BAD_WORD_ScH = "scheisse";
+    private static final String KEY_BAD_WORD_ScH2 = "scheisse ";
+    private static final String KEY_BAD_WORD_MIST = "Schwuchtel";
+    private static final String KEY_BAD_WORD_Mist = "Schwuchtel ";
+    private static final String KEY_BAD_WORD_HUSO = "Huso";
+    private static final String KEY_BAD_WORD_huso = "huso";
+    private static final String KEY_BAD_WORD_Hure = "Hure";
+    private static final String KEY_BAD_WORD_hure = "hure";
+    private static final String KEY_BAD_WORD_idiot = "idiot";
+    private static final String KEY_BAD_WORD_Idiot = "Idiot";
+    private static final String KEY_BAD_WORD_bastard = "Bastard";
+    private static final String KEY_BAD_WORD_Bastard = "Bastard ";
+    private static final String KEY_BAD_WORDS_DuHuso = "Du Huso";
+    private static final String KEY_BAD_WORDS_duHuso = "Du Huso ";
 
     RequestQueue queue;
 
@@ -58,11 +75,12 @@ public class GroupChatActivity extends AppCompatActivity {
     int loggedAdmin;
     int loggedModerator;
 
-
+    private  String Etmessage;
     String groupchatPartnerUsername;
     String groupchatPartnerImage;
     String groupchatName;
 
+    ImageButton sendbutton;
     ImageButton btn_delete;
     Switch deleteSwitch;
 
@@ -82,6 +100,7 @@ public class GroupChatActivity extends AppCompatActivity {
         view.setBackgroundResource(R.color.colorWhite);
 
         btn_delete = findViewById(R.id.deleteButton);
+        sendbutton = findViewById(R.id.sendGroupMessage);
         chatBackground = (ImageButton) findViewById(R.id.chatBackground);
         ImageButton btn_attachFile = (ImageButton) findViewById(R.id.btn_attachFile);
         btn_delete.setEnabled(false);
@@ -202,6 +221,24 @@ public class GroupChatActivity extends AppCompatActivity {
             }
         });
 
+        sendbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Etmessage = editText.getText().toString();
+
+                if (validateInputs()) {
+                    try {
+                        sendMessage();
+                    }
+                    catch (JSONException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
         setTitle(groupchatName);
 
         editText = (EditText) findViewById(R.id.messageEditText);
@@ -219,6 +256,99 @@ public class GroupChatActivity extends AppCompatActivity {
         loadGroupMessages();
 
     }
+
+    private boolean validateInputs() {
+        if(KEY_EMPTY.equals(Etmessage)){
+            editText.setError("Das Chatleiste darf nicht leer sein!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_SH.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_SHl.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_ScH.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_ScH2.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_Mist.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_MIST.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_Bastard.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_bastard.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_Hure.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_hure.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_idiot.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_Idiot.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORDS_duHuso.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORDS_DuHuso.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_HUSO.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+        if(KEY_BAD_WORD_huso.equals(Etmessage)){
+            editText.setError("unzulässiges Wort enthalten!");
+            editText.requestFocus();
+            return false;
+        }
+
+
+        return true;
+    }
+
+
 
     public void loadGroupMessages() {
 
@@ -322,7 +452,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
     }
 
-    public void sendMessage(View view) {
+    public void sendMessage() throws JSONException {
 
         // sorgt dafür, das ein StringRequest, also eine Anfrage an den Server gestellt wird
         // die Anfrage löst das php Skript aus, das hier definiert wird
